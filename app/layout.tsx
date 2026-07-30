@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { SiteShell } from "@/components/site-shell";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,9 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Alleinerziehende-Singles.de – Vercel Migration",
+  title: {
+    default: "Alleinerziehende-Singles.de",
+    template: "%s | Alleinerziehende-Singles.de",
+  },
   description:
-    "Technische Vercel-Basis für die Migration von Alleinerziehende-Singles.de mit Magazin- und Root-/Service-Stack nach dem elFlirt-Playbook.",
+    "Partnersuche, Sicherheit, Hilfe und Magazin von Alleinerziehende-Singles.de in der neuen Vercel-Schicht.",
 };
 
 export default function RootLayout({
@@ -25,7 +29,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        <SiteShell>{children}</SiteShell>
+      </body>
     </html>
   );
 }

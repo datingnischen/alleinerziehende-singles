@@ -1,0 +1,223 @@
+.shell {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(255, 193, 213, 0.22), transparent 24%),
+    linear-gradient(180deg, #fff8fb 0%, #ffffff 18%, #fff 100%);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid rgba(140, 44, 88, 0.08);
+}
+
+.headerInner,
+.trustBarInner,
+.footerInner {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.headerInner {
+  min-height: 84px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) auto auto;
+  align-items: center;
+  gap: 18px;
+}
+
+.brand {
+  display: grid;
+  gap: 4px;
+}
+
+.brandKicker,
+.footerEyebrow {
+  color: #8c2c58;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.brand strong {
+  color: #2e1a23;
+  font-size: 1.06rem;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.nav a,
+.trustLinks a,
+.footerLinks a,
+.login {
+  color: #5b3144;
+  font-weight: 600;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.login,
+.primaryCta,
+.footerActions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+}
+
+.login {
+  border: 1px solid rgba(140, 44, 88, 0.12);
+  background: #fff;
+}
+
+.primaryCta,
+.footerActions a:first-child {
+  background: linear-gradient(135deg, #8c2c58 0%, #aa3f71 100%);
+  color: #fff;
+  box-shadow: 0 14px 24px rgba(140, 44, 88, 0.24);
+}
+
+.trustBar {
+  border-top: 1px solid rgba(140, 44, 88, 0.06);
+  background: rgba(251, 232, 241, 0.66);
+}
+
+.trustBarInner {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.trustBarInner > span {
+  color: #8c2c58;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.trustLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.content {
+  flex: 1;
+}
+
+.footer {
+  margin-top: 64px;
+  padding: 32px 0 48px;
+  background: #2a1720;
+  color: #f6edf1;
+}
+
+.footerInner {
+  display: grid;
+  gap: 28px;
+}
+
+.footerIntro {
+  display: grid;
+  gap: 14px;
+  padding: 28px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(183, 90, 127, 0.18), rgba(255, 255, 255, 0.06));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footerIntro h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.05;
+}
+
+.footerIntro p {
+  max-width: 68ch;
+  color: rgba(246, 237, 241, 0.84);
+  line-height: 1.7;
+}
+
+.footerActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footerActions a:last-child {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  background: transparent;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.footerColumn {
+  display: grid;
+  gap: 14px;
+  padding: 22px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footerColumn h3 {
+  font-size: 1rem;
+}
+
+.footerLinks {
+  display: grid;
+  gap: 10px;
+}
+
+.footerLinks a {
+  color: rgba(246, 237, 241, 0.84);
+}
+
+@media (max-width: 980px) {
+  .headerInner {
+    grid-template-columns: 1fr;
+    padding: 16px 0;
+  }
+
+  .nav,
+  .headerActions {
+    justify-content: flex-start;
+  }
+
+  .trustBarInner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 0;
+  }
+
+  .footerGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .footerGrid {
+    grid-template-columns: 1fr;
+  }
+}

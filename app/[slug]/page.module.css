@@ -1,0 +1,158 @@
+.page {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0 0;
+  display: grid;
+  gap: 28px;
+}
+
+.hero,
+.article,
+.sidebarCard,
+.ctaCard {
+  border: 1px solid rgba(158, 73, 110, 0.12);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 18px 48px rgba(101, 53, 77, 0.08);
+}
+
+.hero {
+  padding: 34px;
+  display: grid;
+  gap: 16px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  width: fit-content;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #fbe8f1;
+  color: #8c2c58;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: clamp(2.3rem, 5vw, 3.9rem);
+  line-height: 1.04;
+  letter-spacing: -0.05em;
+  color: #2e1a23;
+}
+
+.lead,
+.article p,
+.ctaCard p {
+  color: #5f5a5d;
+  line-height: 1.8;
+}
+
+.highlightRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.highlightRow span {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #fff6fa;
+  color: #8c2c58;
+  border: 1px solid rgba(140, 44, 88, 0.1);
+  font-weight: 700;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr);
+  gap: 22px;
+}
+
+.article {
+  padding: 30px;
+  display: grid;
+  gap: 24px;
+}
+
+.section {
+  display: grid;
+  gap: 12px;
+}
+
+.section h2,
+.sidebarCard h2,
+.ctaCard h2 {
+  color: #2e1a23;
+  font-size: 1.35rem;
+}
+
+.section ul {
+  padding-left: 20px;
+  color: #5f5a5d;
+  line-height: 1.7;
+  display: grid;
+  gap: 10px;
+}
+
+.sidebar {
+  display: grid;
+  gap: 18px;
+  align-content: start;
+}
+
+.sidebarCard,
+.ctaCard {
+  padding: 24px;
+  display: grid;
+  gap: 14px;
+}
+
+.sidebarLinks {
+  display: grid;
+  gap: 12px;
+}
+
+.sidebarLinks a,
+.ctaCard a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.sidebarLinks a {
+  border: 1px solid rgba(140, 44, 88, 0.12);
+  background: #fff8fb;
+  color: #5c2d42;
+}
+
+.ctaCard {
+  background: linear-gradient(180deg, #fff1f7 0%, #ffffff 100%);
+}
+
+.ctaCard a {
+  background: linear-gradient(135deg, #8c2c58 0%, #aa3f71 100%);
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(140, 44, 88, 0.22);
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero,
+  .article,
+  .sidebarCard,
+  .ctaCard {
+    padding: 22px;
+  }
+}
