@@ -1,0 +1,131 @@
+.page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #fff8fb 0%, #fff 42%, #f7f0f4 100%);
+}
+
+.main {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 64px 0 88px;
+  display: grid;
+  gap: 28px;
+}
+
+.hero,
+.card {
+  border: 1px solid rgba(158, 73, 110, 0.12);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 18px 48px rgba(101, 53, 77, 0.08);
+}
+
+.hero {
+  padding: 36px;
+  display: grid;
+  gap: 18px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  width: fit-content;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #fbe8f1;
+  color: #8c2c58;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 16ch;
+  font-size: clamp(2.5rem, 6vw, 4.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.05em;
+}
+
+.lead {
+  max-width: 68ch;
+  color: #5f5a5d;
+  font-size: 1.06rem;
+  line-height: 1.8;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.primary,
+.secondary,
+.linkList a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.primary {
+  background: #8c2c58;
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(140, 44, 88, 0.22);
+}
+
+.secondary {
+  border: 1px solid rgba(140, 44, 88, 0.16);
+  color: #5c2d42;
+  background: #fff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.card {
+  padding: 28px;
+  display: grid;
+  gap: 18px;
+}
+
+.card h2 {
+  font-size: 1.25rem;
+}
+
+.card ul {
+  display: grid;
+  gap: 12px;
+  padding-left: 20px;
+  color: #5f5a5d;
+  line-height: 1.7;
+}
+
+.linkList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.linkList a {
+  border: 1px solid rgba(140, 44, 88, 0.14);
+  color: #5c2d42;
+  background: #fff8fb;
+}
+
+@media (max-width: 820px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero,
+  .card {
+    padding: 24px;
+  }
+}
