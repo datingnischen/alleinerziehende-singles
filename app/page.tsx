@@ -6,18 +6,13 @@ import styles from "./page.module.css";
 const trustPoints = [
   "Sicherheit, Datenschutz und redaktionelle Kontrolle klar erklärt",
   "Kostenloser Einstieg mit transparenter Basis-Mitgliedschaft",
-  "Magazin und Hilfe als feste Vertrauens- und Support-Einstiege",
+  "Magazin und regionale Partnersuche als wichtigste Content-Einstiege",
 ];
 
 export default async function Home() {
   const latestPosts = await getMagazinePosts(3);
   const featuredServicePages = importedRootPages.filter((page) =>
-    [
-      "faq",
-      "bewertungen-und-erfahrungen",
-      "sicherheit-und-datenschutz.html",
-      "kostenlose-basis-mitgliedschaft.html",
-    ].includes(page.slug),
+    ["faq", "bewertungen-und-erfahrungen", "social-media"].includes(page.slug),
   );
 
   return (
@@ -57,8 +52,12 @@ export default async function Home() {
               <Link href="/faq">FAQ</Link>
               <Link href="/bewertungen-und-erfahrungen">Erfahrungen</Link>
               <Link href="/social-media">Social Media</Link>
-              <Link href="/sicherheit-und-datenschutz.html">Sicherheit</Link>
-              <Link href="/redaktionelle-kontrolle.html">Redaktionelle Kontrolle</Link>
+              <a href="https://alleinerziehende-singles.de/sicherheit-und-datenschutz.html" target="_blank" rel="noreferrer">
+                Sicherheit
+              </a>
+              <a href="https://alleinerziehende-singles.de/redaktionelle-kontrolle.html" target="_blank" rel="noreferrer">
+                Redaktionelle Kontrolle
+              </a>
             </div>
           </article>
         </section>

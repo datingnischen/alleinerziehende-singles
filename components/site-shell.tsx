@@ -11,10 +11,26 @@ const primaryNav = [
 ];
 
 const trustLinks = [
-  { label: "Sicherheit & Datenschutz", href: "/sicherheit-und-datenschutz.html" },
-  { label: "Redaktionelle Kontrolle", href: "/redaktionelle-kontrolle.html" },
-  { label: "Basis-Mitgliedschaft", href: "/kostenlose-basis-mitgliedschaft.html" },
-  { label: "Premiumvorteile", href: "/premium-mitgliedschaft.html" },
+  {
+    label: "Sicherheit & Datenschutz",
+    href: "https://alleinerziehende-singles.de/sicherheit-und-datenschutz.html",
+    external: true,
+  },
+  {
+    label: "Redaktionelle Kontrolle",
+    href: "https://alleinerziehende-singles.de/redaktionelle-kontrolle.html",
+    external: true,
+  },
+  {
+    label: "Basis-Mitgliedschaft",
+    href: "https://alleinerziehende-singles.de/kostenlose-basis-mitgliedschaft.html",
+    external: true,
+  },
+  {
+    label: "Premiumvorteile",
+    href: "https://alleinerziehende-singles.de/premium-mitgliedschaft.html",
+    external: true,
+  },
 ];
 
 const footerColumns = [
@@ -23,9 +39,15 @@ const footerColumns = [
     links: [
       { label: "Regionale Partnersuche", href: "/partnersuche" },
       { label: "Magazin", href: "/magazin" },
+      { label: "Dating-Tipps", href: "https://alleinerziehende-singles.de/dating-tipps/", external: true },
       { label: "Fragenflirt", href: "https://alleinerziehende-singles.de/fragenflirt.html", external: true },
       { label: "Fotoflirt", href: "https://alleinerziehende-singles.de/fotoflirt.html", external: true },
-      { label: "Video-Date", href: "https://alleinerziehende-singles.de/videodate.html", external: true },
+      { label: "Video-Date", href: "https://alleinerziehende-singles.de/videodating.html", external: true },
+      {
+        label: "Erfolgsgeschichten",
+        href: "https://alleinerziehende-singles.de/unsere-erfolgsgeschichten.html",
+        external: true,
+      },
     ],
   },
   {
@@ -33,16 +55,32 @@ const footerColumns = [
     links: [
       { label: "Bewertungen & Erfahrungen", href: "/bewertungen-und-erfahrungen" },
       { label: "FAQ", href: "/faq" },
-      { label: "Sicherheit & Datenschutz", href: "/sicherheit-und-datenschutz.html" },
-      { label: "Redaktionelle Kontrolle", href: "/redaktionelle-kontrolle.html" },
+      {
+        label: "Sicherheit & Datenschutz",
+        href: "https://alleinerziehende-singles.de/sicherheit-und-datenschutz.html",
+        external: true,
+      },
+      {
+        label: "Redaktionelle Kontrolle",
+        href: "https://alleinerziehende-singles.de/redaktionelle-kontrolle.html",
+        external: true,
+      },
       { label: "Social Media", href: "/social-media" },
     ],
   },
   {
     title: "Mitgliedschaft",
     links: [
-      { label: "Kostenlose Basis-Mitgliedschaft", href: "/kostenlose-basis-mitgliedschaft.html" },
-      { label: "Premiumvorteile", href: "/premium-mitgliedschaft.html" },
+      {
+        label: "Kostenlose Basis-Mitgliedschaft",
+        href: "https://alleinerziehende-singles.de/kostenlose-basis-mitgliedschaft.html",
+        external: true,
+      },
+      {
+        label: "Premiumvorteile",
+        href: "https://alleinerziehende-singles.de/premium-mitgliedschaft.html",
+        external: true,
+      },
       { label: "Jetzt registrieren", href: "https://alleinerziehende-singles.de/registration/", external: true },
       { label: "Login", href: "https://alleinerziehende-singles.de/login/", external: true },
     ],
@@ -50,7 +88,7 @@ const footerColumns = [
   {
     title: "Service",
     links: [
-      { label: "Hilfe & Support", href: "/hilfe" },
+      { label: "Hilfe & Support", href: "https://alleinerziehende-singles.de/hilfe/", external: true },
       { label: "Datenschutz", href: "https://alleinerziehende-singles.de/datenschutz.html", external: true },
       { label: "Impressum", href: "https://alleinerziehende-singles.de/impressum.html", external: true },
       { label: "AGB", href: "https://alleinerziehende-singles.de/agb.html", external: true },
@@ -104,9 +142,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
             <span>Mehr Vertrauen für neue Kontakte</span>
             <div className={styles.trustLinks}>
               {trustLinks.map((item) => (
-                <Link key={item.href} href={item.href}>
-                  {item.label}
-                </Link>
+                <RenderLink key={item.href} {...item} />
               ))}
             </div>
           </div>

@@ -1,21 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import { getImportedRootPageBySlug, importedRootPages } from "@/lib/icony-import";
+import { notFound, permanentRedirect } from "next/navigation";
+import {
+  getImportedRootPageBySlug,
+  getPlatformOwnedUrlBySlug,
+  importedRootPages,
+  isPlatformOwnedSlug,
+} from "@/lib/icony-import";
 import styles from "../imported-page.module.css";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
-const sidebarRouteOrder = [
-  "partnersuche",
-  "faq",
-  "bewertungen-und-erfahrungen",
-  "social-media",
-  "dating-tipps",
-  "hilfe",
-];
+const sidebarRouteOrder = ["partnersuche", "faq", "bewertungen-und-erfahrungen", "social-media"];
 
 export async function generateStaticParams() {
   return importedRootPages.map((page) => ({ slug: page.slug }));
@@ -23,6 +21,14 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+
+  if (isPlatformOwnedSlug(slug)) {
+    return {
+      title: "Weiterleitung zur Plattform",
+      robots: { index: false, follow: true },
+    };
+  }
+
   const page = getImportedRootPageBySlug(slug);
 
   if (!page) {
@@ -37,6 +43,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ImportedRootPage({ params }: Props) {
   const { slug } = await params;
+
+  if (isPlatformOwnedSlug(slug)) {
+    const targetUrl = getPlatformOwnedUrlBySlug(slug);
+    if (targetUrl) {
+      permanentRedirect(targetUrl);
+    }
+  }
+
   const page = getImportedRootPageBySlug(slug);
 
   if (!page) {
@@ -48,10 +62,6 @@ export default async function ImportedRootPage({ params }: Props) {
     .map((item) => {
       if (item === "partnersuche") {
         return { href: "/partnersuche", label: "Regionale Partnersuche" };
-      }
-
-      if (item === "hilfe") {
-        return { href: "/hilfe", label: "Hilfe & Support" };
       }
 
       const importedPage = getImportedRootPageBySlug(item);

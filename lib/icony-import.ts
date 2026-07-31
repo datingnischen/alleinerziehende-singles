@@ -1,6 +1,6 @@
 import importData from "@/data/icony-import.json";
 
-const SITE_URL = "https://alleinerziehende-singles.de";
+export const SITE_URL = "https://alleinerziehende-singles.de";
 
 export type ImportedPage = {
   slug: string;
@@ -26,7 +26,17 @@ type ImportedData = {
 
 const data = importData as ImportedData;
 
-const ownedExactPaths = new Set([
+const platformOwnedPageSlugs = [
+  "dating-tipps",
+  "unsere-erfolgsgeschichten.html",
+  "videodating.html",
+  "kostenlose-basis-mitgliedschaft.html",
+  "sicherheit-und-datenschutz.html",
+  "redaktionelle-kontrolle.html",
+  "premium-mitgliedschaft.html",
+] as const;
+
+const appOwnedExactPaths = new Set([
   "/",
   "/partnersuche",
   "/partnersuche/",
@@ -36,26 +46,27 @@ const ownedExactPaths = new Set([
   "/bewertungen-und-erfahrungen/",
   "/social-media",
   "/social-media/",
-  "/dating-tipps",
-  "/dating-tipps/",
-  "/unsere-erfolgsgeschichten.html",
-  "/videodating.html",
-  "/kostenlose-basis-mitgliedschaft.html",
-  "/sicherheit-und-datenschutz.html",
-  "/redaktionelle-kontrolle.html",
-  "/premium-mitgliedschaft.html",
 ]);
 
-const ownedPathPrefixes = ["/partnersuche/"];
+const appOwnedPathPrefixes = ["/partnersuche/"];
 
-function isOwnedPath(path: string) {
-  return ownedExactPaths.has(path) || ownedPathPrefixes.some((prefix) => path.startsWith(prefix));
+const platformOwnedPaths = new Map<string, string>(
+  platformOwnedPageSlugs.map((slug) => [`/${slug}`, `${SITE_URL}/${slug}`]),
+);
+
+function isAppOwnedPath(path: string) {
+  return appOwnedExactPaths.has(path) || appOwnedPathPrefixes.some((prefix) => path.startsWith(prefix));
 }
 
-function absolutizeSameDomainFallbackRoutes(html: string) {
+function absolutizePlatformFallbackRoutes(html: string) {
   return html.replace(/(href|src)=(['"])(\/[^'"#?][^'"]*)\2/gi, (_match, attr, quote, path) => {
-    if (isOwnedPath(path)) {
+    if (isAppOwnedPath(path)) {
       return `${attr}=${quote}${path}${quote}`;
+    }
+
+    const platformUrl = platformOwnedPaths.get(path);
+    if (platformUrl) {
+      return `${attr}=${quote}${platformUrl}${quote}`;
     }
 
     return `${attr}=${quote}${SITE_URL}${path}${quote}`;
@@ -63,7 +74,7 @@ function absolutizeSameDomainFallbackRoutes(html: string) {
 }
 
 function normalizeImportedHtml(contentHtml: string) {
-  return absolutizeSameDomainFallbackRoutes(contentHtml)
+  return absolutizePlatformFallbackRoutes(contentHtml)
     .replace(/<h1\b[^>]*>[\s\S]*?<\/h1>/gi, "")
     .replace(/<p>\s*(?:&nbsp;|&#160;|\s)*\s*<\/p>/gi, "")
     .trim();
@@ -76,7 +87,20 @@ function preparePage<T extends ImportedPage>(page: T): T {
   };
 }
 
-export const importedRootPages = data.rootPages.map((page) => preparePage(page));
+export const platformOwnedSlugs = new Set<string>(platformOwnedPageSlugs);
+
+export function isPlatformOwnedSlug(slug: string) {
+  return platformOwnedSlugs.has(slug);
+}
+
+export function getPlatformOwnedUrlBySlug(slug: string) {
+  return platformOwnedPaths.get(`/${slug}`) ?? null;
+}
+
+export const importedRootPages = data.rootPages
+  .filter((page) => !platformOwnedSlugs.has(page.slug))
+  .map((page) => preparePage(page));
+
 export const importedCityPages = data.cityPages.map((page) => preparePage(page));
 export const importedPartnersucheHub = preparePage(data.partnersucheHub);
 export const importGeneratedAt = data.generatedAt;
