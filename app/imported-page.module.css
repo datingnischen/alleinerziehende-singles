@@ -1,0 +1,271 @@
+.page {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0 88px;
+  display: grid;
+  gap: 28px;
+}
+
+.hero,
+.article,
+.sidebarCard,
+.ctaCard,
+.gridSection,
+.cityCard {
+  border: 1px solid rgba(158, 73, 110, 0.12);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 18px 48px rgba(101, 53, 77, 0.08);
+}
+
+.hero,
+.article,
+.sidebarCard,
+.ctaCard,
+.gridSection {
+  padding: 30px;
+}
+
+.hero {
+  display: grid;
+  gap: 16px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  width: fit-content;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #fbe8f1;
+  color: #8c2c58;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero h1,
+.sectionHeader h2,
+.article h2,
+.article h3,
+.sidebarCard h2,
+.ctaCard h2 {
+  color: #2e1a23;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.9rem);
+  line-height: 1.04;
+  letter-spacing: -0.05em;
+}
+
+.lead,
+.article,
+.article p,
+.article li,
+.article blockquote,
+.article td,
+.article th,
+.sectionHeader p,
+.sidebarCard p,
+.ctaCard p,
+.cityCard p {
+  color: #5f5a5d;
+  line-height: 1.8;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr);
+  gap: 22px;
+}
+
+.article {
+  display: grid;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.article a,
+.sidebarCard a,
+.cityCard a {
+  color: #8c2c58;
+}
+
+.article img,
+.article source,
+.article video,
+.article iframe {
+  max-width: 100%;
+}
+
+.article img {
+  height: auto;
+  border-radius: 22px;
+}
+
+.article figure {
+  margin: 0;
+}
+
+.article h2 {
+  font-size: 1.5rem;
+  margin: 12px 0 6px;
+}
+
+.article h3 {
+  font-size: 1.16rem;
+  margin: 12px 0 4px;
+}
+
+.article ul,
+.article ol {
+  padding-left: 22px;
+  display: grid;
+  gap: 10px;
+}
+
+.article details {
+  border: 1px solid rgba(140, 44, 88, 0.12);
+  border-radius: 18px;
+  background: #fff9fc;
+  padding: 14px 16px;
+}
+
+.article summary {
+  cursor: pointer;
+  color: #2e1a23;
+  font-weight: 700;
+}
+
+.article details > div,
+.article details > p,
+.article details > ul {
+  margin-top: 12px;
+}
+
+.article table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.article th,
+.article td {
+  vertical-align: top;
+  padding: 12px 10px;
+  border-bottom: 1px solid rgba(140, 44, 88, 0.12);
+}
+
+.article thead th {
+  color: #2e1a23;
+  font-size: 0.94rem;
+}
+
+.sidebar {
+  display: grid;
+  gap: 18px;
+  align-content: start;
+}
+
+.sidebarCard,
+.ctaCard {
+  display: grid;
+  gap: 14px;
+}
+
+.linkList {
+  display: grid;
+  gap: 12px;
+}
+
+.linkList a,
+.ctaCard a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.linkList a {
+  border: 1px solid rgba(140, 44, 88, 0.12);
+  background: #fff8fb;
+  color: #5c2d42;
+}
+
+.ctaCard {
+  background: linear-gradient(180deg, #fff1f7 0%, #ffffff 100%);
+}
+
+.ctaCard a {
+  background: linear-gradient(135deg, #8c2c58 0%, #aa3f71 100%);
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(140, 44, 88, 0.22);
+}
+
+.gridSection {
+  display: grid;
+  gap: 20px;
+}
+
+.sectionHeader {
+  display: grid;
+  gap: 10px;
+}
+
+.cityGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.cityCard {
+  padding: 22px;
+  display: grid;
+  gap: 12px;
+}
+
+.cityCard h3 {
+  color: #2e1a23;
+  font-size: 1.14rem;
+}
+
+.cityCard a {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: #8c2c58;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+@media (max-width: 980px) {
+  .layout,
+  .cityGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .page {
+    width: min(100%, calc(100% - 24px));
+    padding: 40px 0 72px;
+  }
+
+  .hero,
+  .article,
+  .sidebarCard,
+  .ctaCard,
+  .gridSection,
+  .cityCard {
+    padding: 22px;
+  }
+}

@@ -1,20 +1,29 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getServicePageBySlug, servicePages } from "@/lib/service-pages";
-import styles from "./page.module.css";
+import { getImportedRootPageBySlug, importedRootPages } from "@/lib/icony-import";
+import styles from "../imported-page.module.css";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
+const sidebarRouteOrder = [
+  "partnersuche",
+  "faq",
+  "bewertungen-und-erfahrungen",
+  "social-media",
+  "dating-tipps",
+  "hilfe",
+];
+
 export async function generateStaticParams() {
-  return servicePages.map((page) => ({ slug: page.slug }));
+  return importedRootPages.map((page) => ({ slug: page.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const page = getServicePageBySlug(slug);
+  const page = getImportedRootPageBySlug(slug);
 
   if (!page) {
     return { title: "Alleinerziehende-Singles.de" };
@@ -26,61 +35,63 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function ServicePage({ params }: Props) {
+export default async function ImportedRootPage({ params }: Props) {
   const { slug } = await params;
-  const page = getServicePageBySlug(slug);
+  const page = getImportedRootPageBySlug(slug);
 
   if (!page) {
     notFound();
   }
 
+  const relatedLinks = sidebarRouteOrder
+    .filter((item) => item !== slug)
+    .map((item) => {
+      if (item === "partnersuche") {
+        return { href: "/partnersuche", label: "Regionale Partnersuche" };
+      }
+
+      if (item === "hilfe") {
+        return { href: "/hilfe", label: "Hilfe & Support" };
+      }
+
+      const importedPage = getImportedRootPageBySlug(item);
+      return importedPage ? { href: `/${importedPage.slug}`, label: importedPage.heroTitle } : null;
+    })
+    .filter((entry): entry is { href: string; label: string } => entry !== null);
+
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
-        <p className={styles.eyebrow}>{page.eyebrow}</p>
-        <h1>{page.title}</h1>
-        <p className={styles.lead}>{page.heroLead}</p>
-        <div className={styles.highlightRow}>
-          {page.highlights.map((item) => (
-            <span key={item}>{item}</span>
-          ))}
-        </div>
+        <p className={styles.eyebrow}>Antworten, Tipps & Orientierung</p>
+        <h1>{page.heroTitle}</h1>
+        <p className={styles.lead}>{page.description}</p>
       </section>
 
       <section className={styles.layout}>
         <article className={styles.article}>
-          {page.sections.map((section) => (
-            <section className={styles.section} key={section.heading}>
-              <h2>{section.heading}</h2>
-              {section.paragraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-              {section.bullets?.length ? (
-                <ul>
-                  {section.bullets.map((bullet) => (
-                    <li key={bullet}>{bullet}</li>
-                  ))}
-                </ul>
-              ) : null}
-            </section>
-          ))}
+          <div dangerouslySetInnerHTML={{ __html: page.contentHtml }} />
         </article>
 
         <aside className={styles.sidebar}>
           <div className={styles.sidebarCard}>
-            <h2>Passende nächste Schritte</h2>
-            <div className={styles.sidebarLinks}>
-              <Link href="/magazin">Magazin entdecken</Link>
-              <Link href="/bewertungen-und-erfahrungen">Erfahrungen lesen</Link>
-              <Link href="/hilfe">Hilfe & Support</Link>
+            <h2>Weitere hilfreiche Einstiege</h2>
+            <div className={styles.linkList}>
+              {relatedLinks.map((link) => (
+                <Link key={link.href} href={link.href}>
+                  {link.label}
+                </Link>
+              ))}
             </div>
           </div>
 
           <div className={styles.ctaCard}>
-            <h2>Bereit für neue Kontakte?</h2>
-            <p>Wenn Du nicht nur lesen, sondern selbst passende Menschen kennenlernen willst, starte direkt mit Deinem Profil.</p>
-            <a href={page.ctaHref} target="_blank" rel="noreferrer">
-              {page.ctaLabel}
+            <h2>Direkt ins Kennenlernen starten</h2>
+            <p>
+              Du willst nicht nur lesen, sondern sofort passende Mütter oder Väter in Deiner Nähe
+              kennenlernen? Dann starte direkt mit Deinem Profil.
+            </p>
+            <a href="https://alleinerziehende-singles.de/registration/" target="_blank" rel="noreferrer">
+              Kostenlos registrieren
             </a>
           </div>
         </aside>

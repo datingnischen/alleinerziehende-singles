@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | Alleinerziehende-Singles.de",
   },
   description:
-    "Partnersuche, Sicherheit, Hilfe und Magazin von Alleinerziehende-Singles.de in der neuen Vercel-Schicht.",
+    "Partnersuche, Sicherheit, Antworten und Magazin von Alleinerziehende-Singles.de in einer klaren, modernen Übersicht.",
 };
 
 export default function RootLayout({

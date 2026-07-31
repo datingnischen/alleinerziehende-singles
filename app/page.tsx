@@ -1,6 +1,6 @@
 import Link from "next/link";
+import { importedRootPages } from "@/lib/icony-import";
 import { getMagazinePosts, formatGermanDate } from "@/lib/wordpress";
-import { servicePages } from "@/lib/service-pages";
 import styles from "./page.module.css";
 
 const trustPoints = [
@@ -11,12 +11,12 @@ const trustPoints = [
 
 export default async function Home() {
   const latestPosts = await getMagazinePosts(3);
-  const featuredServicePages = servicePages.filter((page) =>
+  const featuredServicePages = importedRootPages.filter((page) =>
     [
+      "faq",
       "bewertungen-und-erfahrungen",
       "sicherheit-und-datenschutz.html",
       "kostenlose-basis-mitgliedschaft.html",
-      "hilfe",
     ].includes(page.slug),
   );
 
@@ -27,8 +27,8 @@ export default async function Home() {
           <p className={styles.eyebrow}>Partnersuche mit Verständnis</p>
           <h1>Die Partnersuche für alleinerziehende Singles</h1>
           <p className={styles.lead}>
-            Hier entsteht die neue Vercel-Schicht für Alleinerziehende-Singles.de mit klarerem Root-Bereich,
-            Service-Einstiegen und bereits angebundenem Live-Magazin.
+            Entdecke regionale Stadtseiten, hilfreiche Antworten, Bewertungen, Social Media und
+            frische Magazin-Inhalte rund um die Partnersuche für alleinerziehende Singles.
           </p>
           <div className={styles.actions}>
             <a className={styles.primary} href="https://alleinerziehende-singles.de/registration/" target="_blank" rel="noreferrer">
@@ -53,12 +53,12 @@ export default async function Home() {
           <article className={styles.card}>
             <h2>Direkte Einstiege</h2>
             <div className={styles.linkList}>
+              <Link href="/partnersuche">Regionale Partnersuche</Link>
+              <Link href="/faq">FAQ</Link>
               <Link href="/bewertungen-und-erfahrungen">Erfahrungen</Link>
               <Link href="/social-media">Social Media</Link>
               <Link href="/sicherheit-und-datenschutz.html">Sicherheit</Link>
               <Link href="/redaktionelle-kontrolle.html">Redaktionelle Kontrolle</Link>
-              <Link href="/kostenlose-basis-mitgliedschaft.html">Basis-Mitgliedschaft</Link>
-              <Link href="/hilfe">Hilfe & Support</Link>
             </div>
           </article>
         </section>
@@ -66,13 +66,13 @@ export default async function Home() {
         <section className={styles.gridSection}>
           <div className={styles.sectionHeader}>
             <h2>Vertrauen & Service</h2>
-            <p>Die wichtigsten Root-/Service-Bereiche sind jetzt als eigene Einstiege in der neuen Schicht angelegt.</p>
+            <p>Wichtige Hilfethemen, Bewertungen und Transparenz-Seiten sind jetzt direkt erreichbar.</p>
           </div>
           <div className={styles.serviceGrid}>
             {featuredServicePages.map((page) => (
               <article className={styles.serviceCard} key={page.slug}>
-                <p className={styles.serviceEyebrow}>{page.eyebrow}</p>
-                <h3>{page.title}</h3>
+                <p className={styles.serviceEyebrow}>Hilfreich & kompakt</p>
+                <h3>{page.heroTitle}</h3>
                 <p>{page.description}</p>
                 <Link href={`/${page.slug}`}>Seite öffnen</Link>
               </article>

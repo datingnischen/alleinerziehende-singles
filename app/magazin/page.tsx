@@ -11,7 +11,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "Magazin",
   description:
-    "Ratgeber, Hintergründe und wichtige Magazinseiten von Alleinerziehende-Singles.de in der neuen Vercel-Schicht.",
+    "Ratgeber, Hintergründe und wichtige Magazinseiten von Alleinerziehende-Singles.de.",
 };
 
 export default async function MagazinePage() {
@@ -88,7 +88,7 @@ export default async function MagazinePage() {
       <section className={styles.gridSection}>
         <div className={styles.sectionHeader}>
           <h2>Magazin-Seiten</h2>
-          <p>Auch WordPress-Pages werden direkt mit in die neue Schicht übernommen.</p>
+          <p>Auch wichtige Magazinseiten werden hier gemeinsam mit den neuesten Artikeln sichtbar.</p>
         </div>
         <div className={styles.pageList}>
           {pages.map((page) => (

@@ -3,10 +3,11 @@ import styles from "./site-shell.module.css";
 
 const primaryNav = [
   { label: "Start", href: "/" },
+  { label: "Partnersuche", href: "/partnersuche" },
   { label: "Magazin", href: "/magazin" },
+  { label: "FAQ", href: "/faq" },
   { label: "Erfahrungen", href: "/bewertungen-und-erfahrungen" },
   { label: "Social Media", href: "/social-media" },
-  { label: "Hilfe", href: "/hilfe" },
 ];
 
 const trustLinks = [
@@ -20,6 +21,7 @@ const footerColumns = [
   {
     title: "Magazin & Ratgeber",
     links: [
+      { label: "Regionale Partnersuche", href: "/partnersuche" },
       { label: "Magazin", href: "/magazin" },
       { label: "Fragenflirt", href: "https://alleinerziehende-singles.de/fragenflirt.html", external: true },
       { label: "Fotoflirt", href: "https://alleinerziehende-singles.de/fotoflirt.html", external: true },
@@ -30,6 +32,7 @@ const footerColumns = [
     title: "Vertrauen",
     links: [
       { label: "Bewertungen & Erfahrungen", href: "/bewertungen-und-erfahrungen" },
+      { label: "FAQ", href: "/faq" },
       { label: "Sicherheit & Datenschutz", href: "/sicherheit-und-datenschutz.html" },
       { label: "Redaktionelle Kontrolle", href: "/redaktionelle-kontrolle.html" },
       { label: "Social Media", href: "/social-media" },
