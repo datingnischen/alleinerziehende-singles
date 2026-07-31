@@ -13,18 +13,18 @@
   min-height: 42px;
   padding: 0 16px;
   border-radius: 999px;
-  background: #fff8fb;
-  border: 1px solid rgba(140, 44, 88, 0.12);
-  color: #5c2d42;
+  background: #fff;
+  border: 1px solid var(--brand-card-border);
+  color: var(--brand-link-text);
   font-weight: 700;
   text-decoration: none;
 }
 
 .article {
-  border: 1px solid rgba(158, 73, 110, 0.12);
+  border: 1px solid var(--brand-card-border);
   border-radius: 28px;
   background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 18px 48px rgba(101, 53, 77, 0.08);
+  box-shadow: 0 18px 48px var(--brand-shadow);
   overflow: hidden;
 }
 
@@ -66,7 +66,7 @@
 
 .heroMedia {
   min-height: 100%;
-  background: #f7f0f4;
+  background: var(--brand-primary-soft);
 }
 
 .heroMedia img {

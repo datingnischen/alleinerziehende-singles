@@ -1,6 +1,22 @@
 :root {
-  --background: #fffafc;
-  --foreground: #21141a;
+  --background: #fffef7;
+  --foreground: #20311d;
+  --brand-primary: #57ad46;
+  --brand-primary-dark: #3f8331;
+  --brand-primary-soft: #edf7e8;
+  --brand-accent: #f9ae15;
+  --brand-accent-dark: #c78600;
+  --brand-accent-soft: #fff4d6;
+  --brand-heading: #1f341b;
+  --brand-link: #3f8331;
+  --brand-link-text: #35522d;
+  --brand-muted: #556255;
+  --brand-card-border: rgba(87, 173, 70, 0.18);
+  --brand-strong-border: rgba(87, 173, 70, 0.24);
+  --brand-shadow: rgba(63, 131, 49, 0.12);
+  --brand-shell-glow: rgba(249, 174, 21, 0.18);
+  --brand-footer-bg: #24461e;
+  --brand-footer-surface: rgba(255, 255, 255, 0.06);
 }
 
 html {

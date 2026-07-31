@@ -9,10 +9,10 @@
 .hero,
 .section,
 .gridSection {
-  border: 1px solid rgba(158, 73, 110, 0.12);
+  border: 1px solid var(--brand-card-border);
   border-radius: 28px;
   background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 18px 48px rgba(101, 53, 77, 0.08);
+  box-shadow: 0 18px 48px var(--brand-shadow);
   padding: 30px;
 }
 
@@ -26,8 +26,8 @@
   width: fit-content;
   padding: 8px 14px;
   border-radius: 999px;
-  background: #fbe8f1;
-  color: #8c2c58;
+  background: var(--brand-accent-soft);
+  color: var(--brand-primary);
   font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -48,7 +48,7 @@
 .excerpt,
 .pageListItem,
 .metaRow {
-  color: #5f5a5d;
+  color: var(--brand-muted);
   line-height: 1.75;
 }
 
@@ -66,9 +66,9 @@
   align-items: center;
   padding: 10px 14px;
   border-radius: 999px;
-  background: #fff8fb;
-  border: 1px solid rgba(140, 44, 88, 0.12);
-  color: #5c2d42;
+  background: #fff;
+  border: 1px solid var(--brand-card-border);
+  color: var(--brand-link-text);
   font-weight: 700;
 }
 
@@ -89,7 +89,7 @@
 }
 
 .card {
-  border: 1px solid rgba(158, 73, 110, 0.12);
+  border: 1px solid var(--brand-card-border);
   border-radius: 24px;
   overflow: hidden;
   background: #fff;
@@ -136,7 +136,7 @@
   min-height: 42px;
   padding: 0 16px;
   border-radius: 999px;
-  background: #8c2c58;
+  background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-accent) 100%);
   color: #fff;
   font-weight: 700;
 }
@@ -147,7 +147,7 @@
 }
 
 .pageListItem {
-  border: 1px solid rgba(158, 73, 110, 0.12);
+  border: 1px solid var(--brand-card-border);
   border-radius: 20px;
   background: #fff;
   padding: 18px;
@@ -160,7 +160,7 @@
 }
 
 .pageType {
-  color: #8c2c58;
+  color: var(--brand-primary);
   font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: 0.06em;

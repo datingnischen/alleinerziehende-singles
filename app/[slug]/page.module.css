@@ -10,10 +10,10 @@
 .article,
 .sidebarCard,
 .ctaCard {
-  border: 1px solid rgba(158, 73, 110, 0.12);
+  border: 1px solid var(--brand-card-border);
   border-radius: 28px;
   background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 18px 48px rgba(101, 53, 77, 0.08);
+  box-shadow: 0 18px 48px var(--brand-shadow);
 }
 
 .hero {
@@ -27,8 +27,8 @@
   width: fit-content;
   padding: 8px 14px;
   border-radius: 999px;
-  background: #fbe8f1;
-  color: #8c2c58;
+  background: var(--brand-accent-soft);
+  color: var(--brand-primary);
   font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -39,7 +39,7 @@
   font-size: clamp(2.3rem, 5vw, 3.9rem);
   line-height: 1.04;
   letter-spacing: -0.05em;
-  color: #2e1a23;
+  color: var(--brand-heading);
 }
 
 .lead,
@@ -59,8 +59,8 @@
   padding: 10px 14px;
   border-radius: 999px;
   background: #fff6fa;
-  color: #8c2c58;
-  border: 1px solid rgba(140, 44, 88, 0.1);
+  color: var(--brand-primary);
+  border: 1px solid rgba(87, 173, 70, 0.16);
   font-weight: 700;
 }
 
@@ -84,7 +84,7 @@
 .section h2,
 .sidebarCard h2,
 .ctaCard h2 {
-  color: #2e1a23;
+  color: var(--brand-heading);
   font-size: 1.35rem;
 }
 
@@ -127,19 +127,19 @@
 }
 
 .sidebarLinks a {
-  border: 1px solid rgba(140, 44, 88, 0.12);
-  background: #fff8fb;
-  color: #5c2d42;
+  border: 1px solid var(--brand-card-border);
+  background: #fff;
+  color: var(--brand-link-text);
 }
 
 .ctaCard {
-  background: linear-gradient(180deg, #fff1f7 0%, #ffffff 100%);
+  background: linear-gradient(180deg, var(--brand-accent-soft) 0%, #ffffff 100%);
 }
 
 .ctaCard a {
-  background: linear-gradient(135deg, #8c2c58 0%, #aa3f71 100%);
+  background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-accent) 100%);
   color: #fff;
-  box-shadow: 0 12px 24px rgba(140, 44, 88, 0.22);
+  box-shadow: 0 12px 24px var(--brand-shadow);
 }
 
 @media (max-width: 900px) {
