@@ -27,8 +27,8 @@ export default function PartnersucheHubPage() {
             <h2>Schnelleinstiege</h2>
             <div className={styles.linkList}>
               <Link href="/faq">FAQ</Link>
-              <Link href="/bewertungen-und-erfahrungen">Erfahrungen</Link>
-              <Link href="/social-media">Social Media</Link>
+              <Link href="/ueber-uns/bewertungen">Erfahrungen</Link>
+              <Link href="/ueber-uns/social-media">Social Media</Link>
               <Link href="/magazin">Magazin</Link>
             </div>
           </div>

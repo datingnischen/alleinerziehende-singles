@@ -6,6 +6,11 @@ import { importedRootPages } from "@/lib/icony-import";
 import { getMagazinePosts, formatGermanDate } from "@/lib/wordpress";
 import styles from "./page.module.css";
 
+const ABOUT_PAGE_PATHS: Record<string, string> = {
+  "bewertungen-und-erfahrungen": "/ueber-uns/bewertungen",
+  "social-media": "/ueber-uns/social-media",
+};
+
 const trustPoints = [
   "Sicherheit, Datenschutz und redaktionelle Kontrolle klar erklärt",
   "Kostenloser Einstieg mit transparenter Basis-Mitgliedschaft",
@@ -68,8 +73,8 @@ export default async function Home() {
             <div className={styles.linkList}>
               <Link href="/partnersuche">Regionale Partnersuche</Link>
               <Link href="/faq">FAQ</Link>
-              <Link href="/bewertungen-und-erfahrungen">Erfahrungen</Link>
-              <Link href="/social-media">Social Media</Link>
+              <Link href="/ueber-uns/bewertungen">Erfahrungen</Link>
+              <Link href="/ueber-uns/social-media">Social Media</Link>
               <a href="https://alleinerziehende-singles.de/sicherheit-und-datenschutz.html" target="_blank" rel="noreferrer">
                 Sicherheit
               </a>
@@ -91,7 +96,7 @@ export default async function Home() {
                 <p className={styles.serviceEyebrow}>Hilfreich & kompakt</p>
                 <h3>{page.heroTitle}</h3>
                 <p>{page.description}</p>
-                <Link href={`/${page.slug}`}>Seite öffnen</Link>
+                <Link href={ABOUT_PAGE_PATHS[page.slug] ?? `/${page.slug}`}>Seite öffnen</Link>
               </article>
             ))}
           </div>

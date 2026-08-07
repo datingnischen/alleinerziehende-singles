@@ -35,6 +35,20 @@ test("permanently redirects the moved legacy pages", async () => {
   assert.match(rootPage, /permanentRedirect\("\/ueber-uns\/bewertungen"\)/);
 });
 
+test("does not link internally through moved legacy URLs", async () => {
+  const [home, partnersuche] = await Promise.all([
+    read("../app/page.tsx"),
+    read("../app/partnersuche/page.tsx"),
+  ]);
+  const source = `${home}\n${partnersuche}`;
+
+  assert.doesNotMatch(source, /href="\/social-media"/);
+  assert.doesNotMatch(source, /href="\/bewertungen-und-erfahrungen"/);
+  assert.match(home, /ABOUT_PAGE_PATHS/);
+  assert.match(home, /\/ueber-uns\/social-media/);
+  assert.match(home, /\/ueber-uns\/bewertungen/);
+});
+
 test("publishes only canonical about URLs in the DE sitemap", async () => {
   const sitemap = await read("../app/sitemap.ts");
 
