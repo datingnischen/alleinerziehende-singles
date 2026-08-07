@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { IconySinglesWidget } from "@/components/icony-singles-widget";
 import { getImportedCityPageBySlug, importedCityPages } from "@/lib/icony-import";
+import { getIconyWidgetConfig } from "@/lib/icony-widget-config";
 import styles from "../../imported-page.module.css";
 
 type Props = {
@@ -34,6 +36,7 @@ export default async function PartnersucheCityPage({ params }: Props) {
     notFound();
   }
 
+  const widgetConfig = getIconyWidgetConfig(slug);
   const otherCities = importedCityPages.filter((city) => city.slug !== slug).slice(0, 6);
 
   return (
@@ -43,6 +46,15 @@ export default async function PartnersucheCityPage({ params }: Props) {
         <h1>{page.heroTitle}</h1>
         <p className={styles.lead}>{page.description}</p>
       </section>
+
+      {widgetConfig ? (
+        <IconySinglesWidget
+          city={widgetConfig.city}
+          zip={widgetConfig.zip}
+          country={widgetConfig.country}
+          platformId={widgetConfig.platformId}
+        />
+      ) : null}
 
       <section className={styles.layout}>
         <article className={styles.article}>
