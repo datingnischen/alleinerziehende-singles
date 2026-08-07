@@ -12,7 +12,7 @@ function navigation(market: MarketCode): NavLink[] {
       { label: "Partnersuche", href: "/partnersuche", internal: true },
       { label: "Magazin", href: "/magazin", internal: true },
       { label: "FAQ", href: "/faq", internal: true },
-      { label: "Erfahrungen", href: "/bewertungen-und-erfahrungen", internal: true },
+      { label: "Über uns", href: "/ueber-uns", internal: true },
     ];
   }
 
@@ -54,16 +54,18 @@ export function SiteShell({ children, market = "de" }: { children: React.ReactNo
       ],
     },
     {
-      title: "Vertrauen",
-      links: [
-        ...(market === "de"
-          ? [
-              { label: "Bewertungen & Erfahrungen", href: "/bewertungen-und-erfahrungen", internal: true },
-              { label: "FAQ", href: "/faq", internal: true },
-            ]
-          : [{ label: "FAQ", href: publicUrl(market, "/faq") }]),
-        ...trustLinks.slice(0, 2),
-      ],
+      title: market === "de" ? "Über uns" : "Vertrauen",
+      links: market === "de"
+        ? [
+            { label: "Über uns", href: "/ueber-uns", internal: true },
+            { label: "Bewertungen & Erfahrungen", href: "/ueber-uns/bewertungen", internal: true },
+            { label: "Social Media", href: "/ueber-uns/social-media", internal: true },
+            { label: "Kooperationen", href: "/ueber-uns/kooperationen", internal: true },
+          ]
+        : [
+            { label: "FAQ", href: publicUrl(market, "/faq") },
+            ...trustLinks.slice(0, 2),
+          ],
     },
     {
       title: "Mitgliedschaft",
@@ -77,6 +79,7 @@ export function SiteShell({ children, market = "de" }: { children: React.ReactNo
     {
       title: "Service & Länder",
       links: [
+        ...(market === "de" ? [{ label: "FAQ", href: "/faq", internal: true }] : []),
         { label: "Hilfe & Support", href: publicUrl(market, "/hilfe/") },
         { label: "Datenschutz", href: publicUrl(market, "/datenschutz.html") },
         { label: "Impressum", href: publicUrl(market, "/impressum.html") },

@@ -13,7 +13,16 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
-const sidebarRouteOrder = ["partnersuche", "faq", "bewertungen-und-erfahrungen", "social-media"];
+const sidebarRouteOrder = ["partnersuche", "faq"];
+
+function redirectMovedAboutPage(slug: string) {
+  if (slug === "social-media") {
+    permanentRedirect("/ueber-uns/social-media");
+  }
+  if (slug === "bewertungen-und-erfahrungen") {
+    permanentRedirect("/ueber-uns/bewertungen");
+  }
+}
 
 export async function generateStaticParams() {
   return importedRootPages.map((page) => ({ slug: page.slug }));
@@ -21,6 +30,13 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+
+  if (slug === "social-media" || slug === "bewertungen-und-erfahrungen") {
+    return {
+      title: "Weiterleitung zu Über uns",
+      robots: { index: false, follow: true },
+    };
+  }
 
   if (isPlatformOwnedSlug(slug)) {
     return {
@@ -43,6 +59,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ImportedRootPage({ params }: Props) {
   const { slug } = await params;
+
+  redirectMovedAboutPage(slug);
 
   if (isPlatformOwnedSlug(slug)) {
     const targetUrl = getPlatformOwnedUrlBySlug(slug);
