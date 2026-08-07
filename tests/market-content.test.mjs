@@ -1,0 +1,64 @@
+import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+import test from "node:test";
+
+async function loadMarketContent() {
+  try {
+    return await import("../lib/market-icony-import.ts");
+  } catch (error) {
+    assert.fail(`lib/market-icony-import.ts must expose AT/CH regional content: ${error.message}`);
+  }
+}
+
+test("imports the complete AT and CH regional inventories", async () => {
+  const { getMarketCityPage, getMarketCityPages, getMarketPartnersucheHub } = await loadMarketContent();
+
+  assert.equal(getMarketCityPages("at").length, 15);
+  assert.equal(getMarketCityPages("ch").length, 15);
+  assert.equal(getMarketPartnersucheHub("at").heroTitle, "Partnersuche für Alleinerziehende in Österreich – Tipps für jede Stadt");
+  assert.equal(getMarketCityPage("at", "wien").icony.locationId, "21432");
+  assert.equal(getMarketCityPage("ch", "zuerich").icony.frameId, "alleinerziehendech");
+});
+
+test("normalizes every imported page without executable markup or country leakage", async () => {
+  const { getMarketCityPage, getMarketCityPages, getMarketPartnersucheHub } = await loadMarketContent();
+  const pages = [
+    getMarketPartnersucheHub("at"),
+    getMarketPartnersucheHub("ch"),
+    ...getMarketCityPages("at"),
+    ...getMarketCityPages("ch"),
+  ];
+  const allHtml = pages.map((page) => page.contentHtml).join("\n");
+  const atHtml = getMarketPartnersucheHub("at").contentHtml;
+
+  assert.doesNotMatch(allHtml, /<(?:script|iframe|form|input|button)\b/i);
+  assert.doesNotMatch(allHtml, /\son[a-z]+\s*=/i);
+  assert.doesNotMatch(allHtml, /(?:href|src)\s*=\s*["']\s*javascript:/i);
+  assert.doesNotMatch(getMarketCityPage("ch", "zuerich").contentHtml, /<h[2-6]\b[^>]*>\s*(?:&nbsp;|<img)/i);
+  assert.doesNotMatch(allHtml, /alleinerziehende-singles\.de/i);
+  assert.doesNotMatch(allHtml, /christlich-verliebt\.at/i);
+  assert.match(atHtml, /https:\/\/alleinerziehende-singles\.at\/partnersuche\/wien/);
+
+  for (const market of ["at", "ch"]) {
+    const marketHtml = [getMarketPartnersucheHub(market), ...getMarketCityPages(market)]
+      .map((page) => page.contentHtml)
+      .join("\n");
+    const linkedHosts = [...marketHtml.matchAll(/href=["']https?:\/\/([^/"']+)/gi)]
+      .map((match) => match[1].toLowerCase());
+    assert.deepEqual([...new Set(linkedHosts)], [`alleinerziehende-singles.${market}`]);
+  }
+});
+
+test("wires market hubs and city pages to market shells, canonicals and ICONY frames", async () => {
+  const hubSource = await readFile(new URL("../app/market-partnersuche/[market]/page.tsx", import.meta.url), "utf8").catch(() => "");
+  const citySource = await readFile(new URL("../app/market-partnersuche/[market]/[slug]/page.tsx", import.meta.url), "utf8").catch(() => "");
+  const sitemapSource = await readFile(new URL("../app/market-sitemap/[market]/route.ts", import.meta.url), "utf8").catch(() => "");
+
+  assert.match(hubSource, /SiteShell market=\{market\}/);
+  assert.match(hubSource, /publicUrl\(market, "\/partnersuche"\)/);
+  assert.match(citySource, /page\.icony\.frameUrl/);
+  assert.match(citySource, /sourceAttributionUrl/);
+  assert.match(citySource, /robots:\s*\{\s*index:\s*true/);
+  assert.match(sitemapSource, /getMarketCityPages/);
+  assert.match(sitemapSource, /publicUrl\(market, page\.path\)/);
+});

@@ -1,149 +1,118 @@
+import Image from "next/image";
 import Link from "next/link";
+import { getMarket, publicUrl, type MarketCode } from "@/lib/markets";
 import styles from "./site-shell.module.css";
 
-const primaryNav = [
-  { label: "Start", href: "/" },
-  { label: "Partnersuche", href: "/partnersuche" },
-  { label: "Magazin", href: "/magazin" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Erfahrungen", href: "/bewertungen-und-erfahrungen" },
-  { label: "Social Media", href: "/social-media" },
-];
+type NavLink = { label: string; href: string; internal?: boolean };
 
-const trustLinks = [
-  {
-    label: "Sicherheit & Datenschutz",
-    href: "https://alleinerziehende-singles.de/sicherheit-und-datenschutz.html",
-    external: true,
-  },
-  {
-    label: "Redaktionelle Kontrolle",
-    href: "https://alleinerziehende-singles.de/redaktionelle-kontrolle.html",
-    external: true,
-  },
-  {
-    label: "Basis-Mitgliedschaft",
-    href: "https://alleinerziehende-singles.de/kostenlose-basis-mitgliedschaft.html",
-    external: true,
-  },
-  {
-    label: "Premiumvorteile",
-    href: "https://alleinerziehende-singles.de/premium-mitgliedschaft.html",
-    external: true,
-  },
-];
-
-const footerColumns = [
-  {
-    title: "Magazin & Ratgeber",
-    links: [
-      { label: "Regionale Partnersuche", href: "/partnersuche" },
-      { label: "Magazin", href: "/magazin" },
-      { label: "Dating-Tipps", href: "https://alleinerziehende-singles.de/dating-tipps/", external: true },
-      { label: "Fragenflirt", href: "https://alleinerziehende-singles.de/fragenflirt.html", external: true },
-      { label: "Fotoflirt", href: "https://alleinerziehende-singles.de/fotoflirt.html", external: true },
-      { label: "Video-Date", href: "https://alleinerziehende-singles.de/videodating.html", external: true },
-      {
-        label: "Erfolgsgeschichten",
-        href: "https://alleinerziehende-singles.de/unsere-erfolgsgeschichten.html",
-        external: true,
-      },
-    ],
-  },
-  {
-    title: "Vertrauen",
-    links: [
-      { label: "Bewertungen & Erfahrungen", href: "/bewertungen-und-erfahrungen" },
-      { label: "FAQ", href: "/faq" },
-      {
-        label: "Sicherheit & Datenschutz",
-        href: "https://alleinerziehende-singles.de/sicherheit-und-datenschutz.html",
-        external: true,
-      },
-      {
-        label: "Redaktionelle Kontrolle",
-        href: "https://alleinerziehende-singles.de/redaktionelle-kontrolle.html",
-        external: true,
-      },
-      { label: "Social Media", href: "/social-media" },
-    ],
-  },
-  {
-    title: "Mitgliedschaft",
-    links: [
-      {
-        label: "Kostenlose Basis-Mitgliedschaft",
-        href: "https://alleinerziehende-singles.de/kostenlose-basis-mitgliedschaft.html",
-        external: true,
-      },
-      {
-        label: "Premiumvorteile",
-        href: "https://alleinerziehende-singles.de/premium-mitgliedschaft.html",
-        external: true,
-      },
-      { label: "Jetzt registrieren", href: "https://alleinerziehende-singles.de/registration/", external: true },
-      { label: "Login", href: "https://alleinerziehende-singles.de/login/", external: true },
-    ],
-  },
-  {
-    title: "Service",
-    links: [
-      { label: "Hilfe & Support", href: "https://alleinerziehende-singles.de/hilfe/", external: true },
-      { label: "Datenschutz", href: "https://alleinerziehende-singles.de/datenschutz.html", external: true },
-      { label: "Impressum", href: "https://alleinerziehende-singles.de/impressum.html", external: true },
-      { label: "AGB", href: "https://alleinerziehende-singles.de/agb.html", external: true },
-      { label: "Barrierefreiheit", href: "https://alleinerziehende-singles.de/barrierefreiheit.html", external: true },
-    ],
-  },
-];
-
-function RenderLink({ href, label, external = false }: { href: string; label: string; external?: boolean }) {
-  if (external) {
-    return (
-      <a href={href} target="_blank" rel="noreferrer">
-        {label}
-      </a>
-    );
+function navigation(market: MarketCode): NavLink[] {
+  if (market === "de") {
+    return [
+      { label: "Start", href: "/", internal: true },
+      { label: "Partnersuche", href: "/partnersuche", internal: true },
+      { label: "Magazin", href: "/magazin", internal: true },
+      { label: "FAQ", href: "/faq", internal: true },
+      { label: "Erfahrungen", href: "/bewertungen-und-erfahrungen", internal: true },
+    ];
   }
 
-  return <Link href={href}>{label}</Link>;
+  return [
+    { label: "Start", href: publicUrl(market) },
+    { label: "FAQ", href: publicUrl(market, "/faq") },
+    { label: "Fragenflirt", href: publicUrl(market, "/fragenflirt.html") },
+    { label: "Fotoflirt", href: publicUrl(market, "/fotoflirt.html") },
+  ];
 }
 
-export function SiteShell({ children }: { children: React.ReactNode }) {
+function RenderLink({ href, label, internal = false }: NavLink) {
+  return internal ? <Link href={href}>{label}</Link> : <a href={href}>{label}</a>;
+}
+
+export function SiteShell({ children, market = "de" }: { children: React.ReactNode; market?: MarketCode }) {
+  const config = getMarket(market);
+  const loginUrl = publicUrl(market, "/login/");
+  const registrationUrl = publicUrl(market, "/registration/");
+  const frontendMagazine = market === "de";
+  const primaryNav = navigation(market);
+  const trustLinks: NavLink[] = [
+    { label: "Sicherheit & Datenschutz", href: publicUrl(market, "/sicherheit-und-datenschutz.html") },
+    { label: "Redaktionelle Kontrolle", href: publicUrl(market, "/redaktionelle-kontrolle.html") },
+    { label: "Basis-Mitgliedschaft", href: publicUrl(market, "/kostenlose-basis-mitgliedschaft.html") },
+    { label: "Premiumvorteile", href: publicUrl(market, "/premium-mitgliedschaft.html") },
+  ];
+  const countryLinks = (["de", "at", "ch"] as MarketCode[]).filter((code) => code !== market);
+
+  const footerColumns: { title: string; links: NavLink[] }[] = [
+    {
+      title: "Tipps",
+      links: [
+        ...(frontendMagazine ? [{ label: "Magazin", href: "/magazin", internal: true }] : []),
+        { label: "Fragenflirt", href: publicUrl(market, "/fragenflirt.html") },
+        { label: "Fotoflirt", href: publicUrl(market, "/fotoflirt.html") },
+        { label: "Video-Date", href: publicUrl(market, "/videodate.html") },
+        { label: "Erfolgsgeschichten", href: publicUrl(market, "/unsere-erfolgsgeschichten.html") },
+      ],
+    },
+    {
+      title: "Vertrauen",
+      links: [
+        ...(market === "de"
+          ? [
+              { label: "Bewertungen & Erfahrungen", href: "/bewertungen-und-erfahrungen", internal: true },
+              { label: "FAQ", href: "/faq", internal: true },
+            ]
+          : [{ label: "FAQ", href: publicUrl(market, "/faq") }]),
+        ...trustLinks.slice(0, 2),
+      ],
+    },
+    {
+      title: "Mitgliedschaft",
+      links: [
+        { label: "Kostenlose Basis-Mitgliedschaft", href: publicUrl(market, "/kostenlose-basis-mitgliedschaft.html") },
+        { label: "Premiumvorteile", href: publicUrl(market, "/premium-mitgliedschaft.html") },
+        { label: "Jetzt registrieren", href: registrationUrl },
+        { label: "Login", href: loginUrl },
+      ],
+    },
+    {
+      title: "Service & Länder",
+      links: [
+        { label: "Hilfe & Support", href: publicUrl(market, "/hilfe/") },
+        { label: "Datenschutz", href: publicUrl(market, "/datenschutz.html") },
+        { label: "Impressum", href: publicUrl(market, "/impressum.html") },
+        { label: "AGB", href: publicUrl(market, "/agb.html") },
+        ...countryLinks.map((code) => ({
+          label: `${getMarket(code).countryName} · ${getMarket(code).domain}`,
+          href: publicUrl(code),
+        })),
+      ],
+    },
+  ];
+
   return (
     <div className={styles.shell}>
       <header className={styles.header}>
         <div className={styles.headerInner}>
-          <Link className={styles.brand} href="/">
-            <span className={styles.brandKicker}>Alleinerziehende-Singles.de</span>
-            <strong>Partnersuche für Mütter und Väter</strong>
-          </Link>
+          <a className={styles.brand} href={publicUrl(market)}>
+            <Image src={config.logoPath} alt={`${config.domain} Logo`} width={300} height={31} priority />
+            <span>Partnersuche für Mütter und Väter</span>
+          </a>
 
           <nav className={styles.nav} aria-label="Hauptnavigation">
-            {primaryNav.map((item) => (
-              <Link key={item.href} href={item.href}>
-                {item.label}
-              </Link>
-            ))}
+            {primaryNav.map((item) => <RenderLink key={`${item.href}-${item.label}`} {...item} />)}
           </nav>
 
           <div className={styles.headerActions}>
-            <a className={styles.login} href="https://alleinerziehende-singles.de/login/" target="_blank" rel="noreferrer">
-              Login
-            </a>
-            <a className={styles.primaryCta} href="https://alleinerziehende-singles.de/registration/" target="_blank" rel="noreferrer">
-              Kostenlos registrieren
-            </a>
+            <a className={styles.login} href={loginUrl}>Login</a>
+            <a className={styles.primaryCta} href={registrationUrl}>Kostenlos registrieren</a>
           </div>
         </div>
 
         <div className={styles.trustBar}>
           <div className={styles.trustBarInner}>
-            <span>Mehr Vertrauen für neue Kontakte</span>
+            <span>Mehr Vertrauen für neue Kontakte in {config.countryName}</span>
             <div className={styles.trustLinks}>
-              {trustLinks.map((item) => (
-                <RenderLink key={item.href} {...item} />
-              ))}
+              {trustLinks.map((item) => <RenderLink key={item.href} {...item} />)}
             </div>
           </div>
         </div>
@@ -157,14 +126,11 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
             <p className={styles.footerEyebrow}>Mehr Sicherheit beim Dating</p>
             <h2>Triff heute noch Singles aus Deiner Region.</h2>
             <p>
-              Alleinerziehende-Singles.de verbindet Alleinerziehende, die eine ehrliche Partnersuche,
-              verständnisvolle Kontakte und einen geschützten Rahmen suchen.
+              {config.domain} verbindet Alleinerziehende, die eine ehrliche Partnersuche, verständnisvolle Kontakte und einen geschützten Rahmen suchen.
             </p>
             <div className={styles.footerActions}>
-              <a href="https://alleinerziehende-singles.de/registration/" target="_blank" rel="noreferrer">
-                Jetzt registrieren
-              </a>
-              <Link href="/magazin">Zum Magazin</Link>
+              <a href={registrationUrl}>Jetzt registrieren</a>
+              {frontendMagazine ? <Link href="/magazin">Zum Magazin</Link> : <a href={publicUrl(market, "/faq")}>Zu den FAQ</a>}
             </div>
           </div>
 
@@ -173,9 +139,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
               <section key={column.title} className={styles.footerColumn}>
                 <h3>{column.title}</h3>
                 <div className={styles.footerLinks}>
-                  {column.links.map((link) => (
-                    <RenderLink key={`${column.title}-${link.label}`} {...link} />
-                  ))}
+                  {column.links.map((link) => <RenderLink key={`${column.title}-${link.label}`} {...link} />)}
                 </div>
               </section>
             ))}

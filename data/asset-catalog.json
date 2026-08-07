@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-08-07",
+  "rightsBasis": "Bestehende Marken- und Produktassets der eigenen Live-Auftritte; Übernahme ausschließlich für die technische Migration derselben Marken- und Länderfamilie. Keine externe Stock-Lizenz beansprucht.",
+  "assets": [
+    {
+      "file": "public/brand/alleinerziehende-singles-de.svg",
+      "market": "de",
+      "kind": "logo",
+      "sourcePage": "https://alleinerziehende-singles.de/",
+      "sourceUrl": "https://static2.icony-hosting.de/dyncontent94695fb5884ac57aacb54cd48ded9539/img/alleinerziehende/logo.svg",
+      "sha256": "1c495114fc7eeae5a56816685a25a97e0125f7d8e897ff2c6788144058b46541",
+      "modification": "unverändert"
+    },
+    {
+      "file": "public/brand/alleinerziehende-singles-at.svg",
+      "market": "at",
+      "kind": "logo",
+      "sourcePage": "https://alleinerziehende-singles.at/",
+      "sourceUrl": "https://static2.icony-hosting.de/dyncontent94695fb5884ac57aacb54cd48ded9539/img/alleinerziehendeat/logo.svg",
+      "sha256": "1c495114fc7eeae5a56816685a25a97e0125f7d8e897ff2c6788144058b46541",
+      "modification": "unverändert"
+    },
+    {
+      "file": "public/brand/alleinerziehende-singles-ch.svg",
+      "market": "ch",
+      "kind": "logo",
+      "sourcePage": "https://alleinerziehende-singles.ch/",
+      "sourceUrl": "https://static2.icony-hosting.de/dyncontent94695fb5884ac57aacb54cd48ded9539/img/alleinerziehendech/logo.svg",
+      "sha256": "1c495114fc7eeae5a56816685a25a97e0125f7d8e897ff2c6788144058b46541",
+      "modification": "unverändert"
+    },
+    {
+      "file": "public/brand/frontpage-visual-alleinerziehende.webp",
+      "market": "de-at-ch",
+      "kind": "hero",
+      "sourcePage": "https://alleinerziehende-singles.de/",
+      "sourceUrl": "https://static2.icony-hosting.de/dyncontent300404d93830f24eacdd2e45dc3644d2/img/generic2021/frontpage-v4/backgrounds/mobile/frontpage-visual-alleinerziehende.webp",
+      "dimensions": "420x236",
+      "sha256": "069a0ca4b67082fc776dd90d84737aee9a96a80deed10f750f4433827145c538",
+      "modification": "unverändert; vom Live-CDN ausgelieferte WebP-Variante"
+    }
+  ]
+}

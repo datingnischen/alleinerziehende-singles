@@ -24,6 +24,16 @@
   padding: 38px;
   display: grid;
   gap: 18px;
+  overflow: hidden;
+}
+
+.heroImage {
+  width: calc(100% + 76px);
+  max-width: none;
+  height: clamp(260px, 42vw, 500px);
+  margin: 12px -38px -38px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .eyebrow,
@@ -210,5 +220,10 @@
   .serviceCard,
   .articleCopy {
     padding: 24px;
+  }
+
+  .heroImage {
+    width: calc(100% + 48px);
+    margin: 8px -24px -24px;
   }
 }

@@ -1,4 +1,7 @@
+import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import { SiteShell } from "@/components/site-shell";
 import { importedRootPages } from "@/lib/icony-import";
 import { getMagazinePosts, formatGermanDate } from "@/lib/wordpress";
 import styles from "./page.module.css";
@@ -9,6 +12,12 @@ const trustPoints = [
   "Magazin und regionale Partnersuche als wichtigste Content-Einstiege",
 ];
 
+export const metadata: Metadata = {
+  title: "Alleinerziehende Singles - Suchen, Finden, Verlieben",
+  description: "Partnersuche für alleinerziehende Mütter und Väter in Deutschland.",
+  alternates: { canonical: "https://alleinerziehende-singles.de/" },
+};
+
 export default async function Home() {
   const latestPosts = await getMagazinePosts(3);
   const featuredServicePages = importedRootPages.filter((page) =>
@@ -16,7 +25,8 @@ export default async function Home() {
   );
 
   return (
-    <div className={styles.page}>
+    <SiteShell market="de">
+      <div className={styles.page}>
       <main className={styles.main}>
         <section className={styles.hero}>
           <p className={styles.eyebrow}>Partnersuche mit Verständnis</p>
@@ -33,6 +43,14 @@ export default async function Home() {
               Zum Magazin
             </Link>
           </div>
+          <Image
+            className={styles.heroImage}
+            src="/brand/frontpage-visual-alleinerziehende.webp"
+            alt="Alleinerziehende Mutter mit Kind auf dem Weg zu einem neuen Kontakt"
+            width={1264}
+            height={711}
+            priority
+          />
         </section>
 
         <section className={styles.grid}>
@@ -104,6 +122,7 @@ export default async function Home() {
           </div>
         </section>
       </main>
-    </div>
+      </div>
+    </SiteShell>
   );
 }

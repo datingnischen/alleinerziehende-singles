@@ -31,10 +31,16 @@
 
 .brand {
   display: grid;
-  gap: 4px;
+  gap: 6px;
+  width: fit-content;
 }
 
-.brandKicker,
+.brand img {
+  width: min(300px, 100%);
+  height: auto;
+}
+
+.brand span,
 .footerEyebrow {
   color: var(--brand-primary);
   font-size: 0.78rem;
@@ -43,9 +49,10 @@
   text-transform: uppercase;
 }
 
-.brand strong {
+.brand span {
   color: var(--brand-heading);
-  font-size: 1.06rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
 }
 
 .nav {
