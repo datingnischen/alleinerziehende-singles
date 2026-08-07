@@ -39,6 +39,7 @@ function buildWidgetDocument({
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex,nofollow" />
+<meta name="referrer" content="no-referrer" />
 <style>
   :root { color-scheme: light; --brand:#d95f58; --brand-dark:#8f3733; --muted:#725c5a; --line:#f0d4d0; --text:#2d1d1b; }
   * { box-sizing: border-box; }
@@ -58,11 +59,12 @@ function buildWidgetDocument({
 </style>
 </head>
 <body>
-<div id="root" class="state">Singles werden geladen…</div>
+<div id="root" class="state">Für Profilvorschauen bitte JavaScript aktivieren oder die ausführliche Suche nutzen.</div>
 <script>
 (function(){
   var options = ${options};
   var completed = false;
+  document.getElementById("root").textContent = "Singles werden geladen…";
   function installIcony(win, doc) {
     if (win.icony) return;
     (function(i,c,o,n,y,j,s){i.IconyObject=y;i[y]=i[y]||function(){function b(a){return a?(a^Math.random()*16>>a/4).toString(16):"i"+([1e7]+1e7).replace(/[018]/g,b)+1*new Date}var k=arguments;k.id=b();(i[y].q=i[y].q||[]).push(k);if(i[y].R){i[y].R()}return k.id};j=c.createElement(o);s=c.getElementsByTagName(o)[0];j.async=1;j.src=n;s.parentNode.insertBefore(j,s)})(win,doc,"script","https://js.icony.com/api.js","icony");
@@ -170,7 +172,7 @@ export function IconySinglesWidget({ city, zip, country, platformId }: Props) {
           title={`${selectedLabel} aus ${city}`}
           srcDoc={srcDoc}
           loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
+          referrerPolicy="no-referrer"
           sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox"
         />
       </div>

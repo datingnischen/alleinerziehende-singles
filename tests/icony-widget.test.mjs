@@ -36,6 +36,8 @@ test("implements the elFlirt-style dynamic singles contract safely", async () =>
   assert.match(component, /Ausführlicher in \{city\} suchen/);
   assert.match(component, /https:\/\/alleinerziehende-singles\.de\/suche\/\?AID=location/);
   assert.match(component, /sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox"/);
+  assert.match(component, /referrerPolicy="no-referrer"/);
+  assert.match(component, /Für Profilvorschauen bitte JavaScript aktivieren/);
   assert.doesNotMatch(component, /allow-same-origin/);
 });
 
