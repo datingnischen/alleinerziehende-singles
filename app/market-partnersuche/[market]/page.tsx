@@ -11,6 +11,10 @@ import styles from "../../imported-page.module.css";
 
 type Props = { params: Promise<{ market: string }> };
 
+function relativeCityHref(slug: string) {
+  return `partnersuche/${slug}`;
+}
+
 function activeMarket(value: string): RegionalMarket {
   if (!isMarketCode(value) || value === "de") notFound();
   return value;
@@ -56,7 +60,7 @@ export default async function MarketPartnersuchePage({ params }: Props) {
               <h2>Städte im Überblick</h2>
               <div className={styles.linkList}>
                 {cities.map((city) => (
-                  <a key={city.slug} href={publicUrl(market, city.path)}>{city.cityLabel}</a>
+                  <a key={city.slug} href={relativeCityHref(city.slug)}>{city.cityLabel}</a>
                 ))}
               </div>
             </div>
@@ -78,7 +82,7 @@ export default async function MarketPartnersuchePage({ params }: Props) {
               <article className={styles.cityCard} key={city.slug}>
                 <h3>{city.cityLabel}</h3>
                 <p>{city.description}</p>
-                <a href={publicUrl(market, city.path)}>Seite öffnen</a>
+                <a href={relativeCityHref(city.slug)}>Seite öffnen</a>
               </article>
             ))}
           </div>

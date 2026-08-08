@@ -29,7 +29,6 @@ test("normalizes every imported page without executable markup or country leakag
     ...getMarketCityPages("ch"),
   ];
   const allHtml = pages.map((page) => page.contentHtml).join("\n");
-  const atHtml = getMarketPartnersucheHub("at").contentHtml;
 
   assert.doesNotMatch(allHtml, /<(?:script|iframe|form|input|button)\b/i);
   assert.doesNotMatch(allHtml, /\son[a-z]+\s*=/i);
@@ -37,7 +36,23 @@ test("normalizes every imported page without executable markup or country leakag
   assert.doesNotMatch(getMarketCityPage("ch", "zuerich").contentHtml, /<h[2-6]\b[^>]*>\s*(?:&nbsp;|<img)/i);
   assert.doesNotMatch(allHtml, /alleinerziehende-singles\.de/i);
   assert.doesNotMatch(allHtml, /christlich-verliebt\.at/i);
-  assert.match(atHtml, /https:\/\/alleinerziehende-singles\.at\/partnersuche\/wien/);
+
+  for (const market of ["at", "ch"]) {
+    const hubHtml = getMarketPartnersucheHub(market).contentHtml;
+    assert.doesNotMatch(
+      hubHtml,
+      new RegExp(`href=["']https://alleinerziehende-singles\\.${market}/partnersuche/`, "i"),
+    );
+    assert.match(hubHtml, /href=["']partnersuche\/[a-z0-9-]+["']/i);
+
+    const previewBase = `https://alleinerziehende-singles.vercel.app/${market}/partnersuche`;
+    const relativeCityLinks = [...hubHtml.matchAll(/href=["'](partnersuche\/[a-z0-9-]+)["']/gi)]
+      .map((match) => match[1]);
+    assert.ok(relativeCityLinks.length > 0);
+    for (const href of relativeCityLinks) {
+      assert.equal(new URL(href, previewBase).pathname, `/${market}/${href}`);
+    }
+  }
 
   for (const market of ["at", "ch"]) {
     const marketHtml = [getMarketPartnersucheHub(market), ...getMarketCityPages(market)]

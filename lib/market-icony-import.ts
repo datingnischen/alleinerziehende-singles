@@ -50,13 +50,32 @@ const rawImports = {
   ch: chImport as RawMarketImport,
 } as const;
 
-function normalizeHtml(html: string, site: string) {
+function relativeHubCityLinks(html: string, site: string) {
+  const escapedSite = site.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   return html
+    .replace(
+      new RegExp(`href=(['"])${escapedSite}/partnersuche/([a-z0-9-]+)/?\\1`, "gi"),
+      (_match, quote, slug) => `href=${quote}partnersuche/${slug}${quote}`,
+    )
+    .replace(
+      /href=(['"])\/partnersuche\/([a-z0-9-]+)\/?\1/gi,
+      (_match, quote, slug) => `href=${quote}partnersuche/${slug}${quote}`,
+    );
+}
+
+function normalizeHtml(html: string, site: string, hub = false) {
+  const marketHtml = html.replace(
+    /https?:\/\/(?:www\.)?christlich-verliebt\.at(?=\/partnersuche(?:\/|["']))/gi,
+    site,
+  );
+  const linkedHtml = hub ? relativeHubCityLinks(marketHtml, site) : marketHtml;
+
+  return linkedHtml
     .replace(/<(script|iframe|form|button|input)\b[^>]*>[\s\S]*?<\/\1>/gi, "")
     .replace(/<\/?(?:script|iframe|form|button|input)\b[^>]*\/?>/gi, "")
     .replace(/\s+on[a-z]+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, "")
     .replace(/\s+(?:href|src)\s*=\s*(?:"\s*javascript:[^"]*"|'\s*javascript:[^']*'|javascript:[^\s>]+)/gi, "")
-    .replace(/https?:\/\/(?:www\.)?christlich-verliebt\.at(?=\/partnersuche(?:\/|["']))/gi, site)
+
     .replace(/<h([2-6])([^>]*)>\s*(<img\b[^>]*\/?>)\s*([\s\S]*?)<\/h\1>/gi, (_match, level, attributes, image, heading) => {
       const trimmedHeading = heading.trim();
       return `<p>${image}</p>${trimmedHeading ? `<h${level}${attributes}>${trimmedHeading}</h${level}>` : ""}`;
@@ -71,8 +90,8 @@ function normalizeHtml(html: string, site: string) {
     .trim();
 }
 
-function preparePage<T extends MarketImportedPage>(page: T, site: string): T {
-  return { ...page, contentHtml: normalizeHtml(page.contentHtml, site) };
+function preparePage<T extends MarketImportedPage>(page: T, site: string, hub = false): T {
+  return { ...page, contentHtml: normalizeHtml(page.contentHtml, site, hub) };
 }
 
 function normalizeCity(page: RawCityPage, site: string): MarketImportedCityPage {
@@ -105,7 +124,7 @@ const imports = Object.fromEntries(
   Object.entries(rawImports).map(([market, data]) => [
     market,
     {
-      hub: preparePage(data.partnersucheHub, data.site),
+      hub: preparePage(data.partnersucheHub, data.site, true),
       cities: data.cityPages.map((page) => normalizeCity(page, data.site)),
     },
   ]),
