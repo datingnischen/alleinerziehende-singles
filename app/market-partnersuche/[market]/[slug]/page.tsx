@@ -74,25 +74,18 @@ export default async function MarketCityPage({ params }: Props) {
               </div>
             </div>
             <div className={styles.ctaCard}>
-              <h2>Singles in {page.cityLabel} kennenlernen</h2>
-              <p>Die aktuellen Profile werden über die bestehende ICONY-Plattform bereitgestellt.</p>
+              <h2>Wer ist gerade online in {page.cityLabel}?</h2>
+              <p>Sieh direkt nach neuen Kontakten aus der Region und starte kostenlos mit passendem Umkreis.</p>
+              <iframe
+                className={styles.sidebarWidgetFrame}
+                src={page.icony.frameUrl}
+                title={`Wer ist gerade online in ${page.cityLabel}`}
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
               <a href={publicUrl(market, "/registration/")}>Kostenlos registrieren</a>
             </div>
           </aside>
-        </section>
-
-        <section className={styles.gridSection} aria-labelledby="city-singles-heading">
-          <div className={styles.sectionHeader}>
-            <h2 id="city-singles-heading">Singles aus {page.cityLabel}</h2>
-            <p>Aktuelle Kontakte aus der bestehenden Länderplattform.</p>
-          </div>
-          <iframe
-            className={styles.iconyFrame}
-            src={page.icony.frameUrl}
-            title={`Singles aus ${page.cityLabel}`}
-            loading="lazy"
-            referrerPolicy="strict-origin-when-cross-origin"
-          />
         </section>
       </main>
     </SiteShell>

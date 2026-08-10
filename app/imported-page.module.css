@@ -122,6 +122,14 @@
   background: #fff;
 }
 
+.sidebarWidgetFrame {
+  width: 100%;
+  min-height: 320px;
+  border: 1px solid var(--brand-card-border);
+  border-radius: 20px;
+  background: #fff;
+}
+
 .article h2 {
   font-size: 1.5rem;
   margin: 12px 0 6px;

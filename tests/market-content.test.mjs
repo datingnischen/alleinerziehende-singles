@@ -73,6 +73,9 @@ test("wires market hubs and city pages to market shells, canonicals and ICONY fr
   assert.match(hubSource, /SiteShell market=\{market\}/);
   assert.match(hubSource, /publicUrl\(market, "\/partnersuche"\)/);
   assert.match(citySource, /page\.icony\.frameUrl/);
+  assert.match(citySource, /Wer ist gerade online in \{page\.cityLabel\}\?/);
+  assert.match(citySource, /className=\{styles\.sidebarWidgetFrame\}/);
+  assert.doesNotMatch(citySource, /bestehende ICONY-Plattform bereitgestellt/);
   assert.match(citySource, /sourceAttributionUrl/);
   assert.match(citySource, /robots:\s*\{\s*index:\s*true/);
   assert.match(sitemapSource, /getMarketCityPages/);
