@@ -99,17 +99,23 @@ export default async function MagazinePage({ searchParams }: Props) {
       </section>
 
       {kindergeldPages.length ? (
-        <section className={styles.gridSection} id="kindergeld-auszahlungstermine">
+        <section className={`${styles.gridSection} ${styles.serviceSection}`} id="kindergeld-auszahlungstermine">
           <div className={styles.sectionHeader}>
+            <p className={styles.serviceEyebrow}>Service & Termine</p>
             <h2>Kindergeld-Auszahlungstermine</h2>
             <p>
               Alle Jahresübersichten zu den Auszahlungsterminen findest du hier gesammelt an
               einem Ort.
             </p>
           </div>
-          <div className={styles.pageList}>
+          <div className={styles.serviceHighlights}>
+            <span>Jahresübersichten schnell griffbereit</span>
+            <span>Hilfreich für Planung und Familienalltag</span>
+            <span>Alle Termine gesammelt statt verstreut im Magazin</span>
+          </div>
+          <div className={`${styles.pageList} ${styles.servicePageList}`}>
             {kindergeldPages.map((page) => (
-              <Link className={styles.pageListItem} href={`/magazin/${page.slug}`} key={page.id}>
+              <Link className={`${styles.pageListItem} ${styles.servicePageListItem}`} href={`/magazin/${page.slug}`} key={page.id}>
                 <div>
                   <span className={styles.pageType}>Kindergeld</span>
                   <strong dangerouslySetInnerHTML={{ __html: page.titleHtml }} />

@@ -128,6 +128,60 @@
   gap: 20px;
 }
 
+.serviceSection {
+  border-color: rgba(249, 174, 21, 0.26);
+  background:
+    radial-gradient(circle at top right, rgba(249, 174, 21, 0.18), transparent 32%),
+    linear-gradient(145deg, #fff8e4 0%, #fffdf6 48%, #ffffff 100%);
+  box-shadow: 0 22px 54px rgba(199, 134, 0, 0.12);
+}
+
+.serviceEyebrow {
+  display: inline-flex;
+  width: fit-content;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(249, 174, 21, 0.16);
+  color: var(--brand-accent-dark);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.serviceHighlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.serviceHighlights span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(249, 174, 21, 0.24);
+  color: var(--brand-heading);
+  font-weight: 700;
+}
+
+.servicePageList {
+  gap: 16px;
+}
+
+.servicePageListItem {
+  border-color: rgba(249, 174, 21, 0.22);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 12px 26px rgba(199, 134, 0, 0.08);
+}
+
+.servicePageListItem:hover {
+  transform: translateY(-1px);
+  border-color: rgba(249, 174, 21, 0.4);
+}
+
 .sectionHeader {
   display: grid;
   gap: 10px;
