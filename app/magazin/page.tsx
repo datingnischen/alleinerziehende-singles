@@ -14,47 +14,69 @@ export const metadata: Metadata = {
     "Ratgeber, Hintergründe und wichtige Magazinseiten von Alleinerziehende-Singles.de.",
 };
 
-export default async function MagazinePage() {
-  const [posts, pages, categories] = await Promise.all([
-    getMagazinePosts(12),
+type Props = {
+  searchParams?: Promise<{ thema?: string }>;
+};
+
+export default async function MagazinePage({ searchParams }: Props) {
+  const resolvedSearchParams = searchParams ? await searchParams : {};
+  const selectedSlug = resolvedSearchParams.thema;
+  const categories = await getMagazineCategories(10);
+  const selectedCategory = categories.find((category) => category.slug === selectedSlug);
+
+  const [posts, pages] = await Promise.all([
+    getMagazinePosts(12, selectedCategory?.id),
     getMagazinePages(6),
-    getMagazineCategories(10),
   ]);
 
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
-        <p className={styles.eyebrow}>Magazin-Quelle verknüpft</p>
+        <p className={styles.eyebrow}>Magazin für Alleinerziehende</p>
         <h1>Alleinerziehende-Singles Magazin</h1>
         <p className={styles.lead}>
-          Dieser erste Slice zieht bereits echte Magazin-Inhalte direkt aus dem WordPress unter
-          <strong> /magazin</strong> und bildet damit die Grundlage für die weitere Headless-Migration.
+          Hier findest du hilfreiche Artikel für den Alltag als alleinerziehender Single: von
+          Familie und Finanzen bis zu neuen Chancen in Liebe, Freizeit und Beruf.
         </p>
         <div className={styles.stats}>
-          <span>{posts.length} aktuelle Artikel geladen</span>
-          <span>{pages.length} Magazinseiten eingebunden</span>
-          <span>{categories.length} Kategorien angebunden</span>
+          <span>{posts.length} Artikel zum Stöbern</span>
+          <span>{pages.length} hilfreiche Sonderseiten</span>
+          <span>{categories.length} Themenbereiche</span>
         </div>
       </section>
 
       <section className={styles.section}>
         <div className={styles.sectionHeader}>
-          <h2>Magazin-Kategorien</h2>
-          <p>Erste echte REST-Anbindung der vorhandenen WordPress-Taxonomien.</p>
+          <h2>Themen, die dich gerade interessieren</h2>
+          <p>Wähle ein Thema aus und lass dir passende Beiträge anzeigen.</p>
         </div>
         <div className={styles.categoryRow}>
+          <Link
+            className={`${styles.categoryChip} ${!selectedCategory ? styles.categoryChipActive : ""}`}
+            href="/magazin"
+          >
+            Alle Themen
+          </Link>
           {categories.map((category) => (
-            <span className={styles.categoryChip} key={category.id}>
+            <Link
+              className={`${styles.categoryChip} ${selectedCategory?.id === category.id ? styles.categoryChipActive : ""}`}
+              href={`/magazin?thema=${encodeURIComponent(category.slug)}`}
+              key={category.id}
+            >
               {category.name}
-            </span>
+            </Link>
           ))}
         </div>
       </section>
 
       <section className={styles.gridSection}>
         <div className={styles.sectionHeader}>
-          <h2>Neueste Artikel</h2>
-          <p>Die Artikel kommen direkt aus dem Live-Magazin-WordPress.</p>
+          <h2>{selectedCategory ? `Beiträge zu ${selectedCategory.name}` : "Neueste Artikel"}</h2>
+          <p>
+            {selectedCategory
+              ? `Hier findest du Beiträge aus dem Themenbereich ${selectedCategory.name}.`
+              : "Neue Artikel, Tipps und Geschichten für alleinerziehende Singles."}
+          </p>
         </div>
         <div className={styles.cardGrid}>
           {posts.map((post) => (
@@ -88,7 +110,7 @@ export default async function MagazinePage() {
       <section className={styles.gridSection}>
         <div className={styles.sectionHeader}>
           <h2>Magazin-Seiten</h2>
-          <p>Auch wichtige Magazinseiten werden hier gemeinsam mit den neuesten Artikeln sichtbar.</p>
+          <p>Wichtige Übersichtsseiten und Ratgeber, die du schnell wiederfinden möchtest.</p>
         </div>
         <div className={styles.pageList}>
           {pages.map((page) => (

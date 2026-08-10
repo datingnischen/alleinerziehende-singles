@@ -72,6 +72,22 @@
   font-weight: 700;
 }
 
+.categoryChip {
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.categoryChip:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(47, 59, 39, 0.08);
+}
+
+.categoryChipActive {
+  background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-accent) 100%);
+  border-color: transparent;
+  color: #fff;
+}
+
 .gridSection {
   display: grid;
   gap: 20px;
