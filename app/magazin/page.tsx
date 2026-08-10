@@ -18,6 +18,24 @@ type Props = {
   searchParams?: Promise<{ thema?: string }>;
 };
 
+const MAGAZINE_ENTRY_POINTS = [
+  {
+    title: "Kindergeld & Finanzen",
+    description: "Finde wichtige Termine, finanzielle Hilfen und praktische Orientierung für deinen Familienalltag.",
+    href: "/magazin?thema=kindergeld",
+  },
+  {
+    title: "Dating mit Kind",
+    description: "Lies ehrliche Tipps für Neuanfang, Partnersuche und gute Gespräche mit neuen Kontakten.",
+    href: "/magazin?thema=singleboersen",
+  },
+  {
+    title: "Wichtige Magazin-Seiten",
+    description: "Springe direkt zu den wichtigsten Übersichtsseiten, die viele Leserinnen und Leser wieder aufrufen.",
+    href: "#magazin-seiten",
+  },
+] as const;
+
 export default async function MagazinePage({ searchParams }: Props) {
   const resolvedSearchParams = searchParams ? await searchParams : {};
   const selectedSlug = resolvedSearchParams.thema;
@@ -38,10 +56,13 @@ export default async function MagazinePage({ searchParams }: Props) {
           Hier findest du hilfreiche Artikel für den Alltag als alleinerziehender Single: von
           Familie und Finanzen bis zu neuen Chancen in Liebe, Freizeit und Beruf.
         </p>
-        <div className={styles.stats}>
-          <span>{posts.length} Artikel zum Stöbern</span>
-          <span>{pages.length} hilfreiche Sonderseiten</span>
-          <span>{categories.length} Themenbereiche</span>
+        <div className={styles.entryGrid}>
+          {MAGAZINE_ENTRY_POINTS.map((entry) => (
+            <Link className={styles.entryCard} href={entry.href} key={entry.title}>
+              <strong>{entry.title}</strong>
+              <span>{entry.description}</span>
+            </Link>
+          ))}
         </div>
       </section>
 
@@ -107,7 +128,7 @@ export default async function MagazinePage({ searchParams }: Props) {
         </div>
       </section>
 
-      <section className={styles.gridSection}>
+      <section className={styles.gridSection} id="magazin-seiten">
         <div className={styles.sectionHeader}>
           <h2>Magazin-Seiten</h2>
           <p>Wichtige Übersichtsseiten und Ratgeber, die du schnell wiederfinden möchtest.</p>

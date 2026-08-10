@@ -11,7 +11,11 @@ test("humanizes the public magazine landing copy and keeps categories clickable"
 
   assert.match(source, /Magazin für Alleinerziehende/);
   assert.match(source, /Themen, die dich gerade interessieren/);
+  assert.match(source, /Kindergeld & Finanzen/);
+  assert.match(source, /Dating mit Kind/);
+  assert.match(source, /Wichtige Magazin-Seiten/);
   assert.match(source, /href=\{`\/magazin\?thema=/);
+  assert.doesNotMatch(source, /Artikel zum Stöbern|hilfreiche Sonderseiten|Themenbereiche/);
   assert.doesNotMatch(source, /Headless-Migration|WordPress|REST-Anbindung|Slice|Taxonomien/);
 });
 
