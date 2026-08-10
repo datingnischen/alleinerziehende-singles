@@ -29,16 +29,22 @@ test("keeps the verified legacy ICONY location contract for every DE city", () =
 
 test("implements the elFlirt-style dynamic singles contract safely", async () => {
   const component = await read("../components/icony-singles-widget.tsx");
+  const styles = await read("../components/icony-singles-widget.module.css");
 
   assert.match(component, /gender === "women" \? 2 : 1/);
   assert.match(component, /icony\("get", "activities", "json"/);
   assert.match(component, /Gerade keine Schnelltreffer/);
+  assert.match(component, /Alleinstehende Singles aus \{city\}/);
   assert.match(component, /Ausführlicher in \{city\} suchen/);
   assert.match(component, /https:\/\/alleinerziehende-singles\.de\/suche\/\?AID=location/);
   assert.match(component, /sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox"/);
   assert.match(component, /referrerPolicy="no-referrer"/);
   assert.match(component, /Für Profilvorschauen bitte JavaScript aktivieren/);
+  assert.match(component, /--brand:#57ad46/);
   assert.doesNotMatch(component, /allow-same-origin/);
+
+  assert.match(styles, /linear-gradient\(135deg, var\(--brand-primary\), var\(--brand-accent\)\)/);
+  assert.match(styles, /border: 1px solid var\(--brand-card-border\)/);
 });
 
 test("renders the local singles widget on every DE city page", async () => {

@@ -1,6 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getMarket, publicUrl, type MarketCode } from "@/lib/markets";
+import {
+  footerRegistrationLabel,
+  registrationUrlForContext,
+  type RegistrationContext,
+} from "@/lib/registration-links";
 import styles from "./site-shell.module.css";
 
 type NavLink = { label: string; href: string; internal?: boolean };
@@ -28,10 +33,19 @@ function RenderLink({ href, label, internal = false }: NavLink) {
   return internal ? <Link href={href}>{label}</Link> : <a href={href}>{label}</a>;
 }
 
-export function SiteShell({ children, market = "de" }: { children: React.ReactNode; market?: MarketCode }) {
+export function SiteShell({
+  children,
+  market = "de",
+  registrationContext = "default",
+}: {
+  children: React.ReactNode;
+  market?: MarketCode;
+  registrationContext?: RegistrationContext;
+}) {
   const config = getMarket(market);
   const loginUrl = publicUrl(market, "/login/");
-  const registrationUrl = publicUrl(market, "/registration/");
+  const registrationUrl = registrationUrlForContext(market, registrationContext);
+  const footerRegistrationText = footerRegistrationLabel(market, registrationContext);
   const frontendMagazine = market === "de";
   const primaryNav = navigation(market);
   const trustLinks: NavLink[] = [
@@ -127,12 +141,13 @@ export function SiteShell({ children, market = "de" }: { children: React.ReactNo
         <div className={styles.footerInner}>
           <div className={styles.footerIntro}>
             <p className={styles.footerEyebrow}>Mehr Sicherheit beim Dating</p>
-            <h2>Triff heute noch Singles aus Deiner Region.</h2>
+            <h2>Finde jetzt liebevolle Kontakte in {config.countryName}.</h2>
             <p>
-              {config.domain} verbindet Alleinerziehende, die eine ehrliche Partnersuche, verständnisvolle Kontakte und einen geschützten Rahmen suchen.
+              {config.domain} ist für alleinerziehende Singles da, die sich eine ehrliche Partnersuche,
+              verständnisvolle Gespräche und neue Nähe wünschen.
             </p>
             <div className={styles.footerActions}>
-              <a href={registrationUrl}>Jetzt registrieren</a>
+              <a href={registrationUrl}>{footerRegistrationText}</a>
               {frontendMagazine ? <Link href="/magazin">Zum Magazin</Link> : <a href={publicUrl(market, "/faq")}>Zu den FAQ</a>}
             </div>
           </div>

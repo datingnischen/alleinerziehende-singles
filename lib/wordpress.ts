@@ -131,7 +131,7 @@ function plainText(html: string): string {
   return html.replace(/<[^>]+>/g, " ").replace(/&nbsp;/gi, " ").replace(/\s+/g, " ").trim();
 }
 
-function removeDuplicateLeadParagraph(contentHtml: string, excerptHtml: string): string {
+export function removeDuplicateLeadParagraph(contentHtml: string, excerptHtml: string): string {
   if (!contentHtml || !excerptHtml) return contentHtml;
 
   const firstParagraphMatch = contentHtml.match(/^\s*<p>([\s\S]*?)<\/p>/i);

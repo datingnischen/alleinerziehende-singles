@@ -41,15 +41,15 @@ function buildWidgetDocument({
 <meta name="robots" content="noindex,nofollow" />
 <meta name="referrer" content="no-referrer" />
 <style>
-  :root { color-scheme: light; --brand:#d95f58; --brand-dark:#8f3733; --muted:#725c5a; --line:#f0d4d0; --text:#2d1d1b; }
+  :root { color-scheme: light; --brand:#57ad46; --brand-dark:#3f8331; --accent:#f9ae15; --muted:#556255; --line:rgba(87,173,70,.18); --text:#20311d; }
   * { box-sizing: border-box; }
   body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: transparent; color: var(--text); }
   a { color: inherit; text-decoration: none; }
-  .state { min-height: 280px; display: grid; place-items: center; padding: 18px; border: 1px solid var(--line); border-radius: 20px; background: #fff8f6; color: var(--brand-dark); font-weight: 800; text-align: center; }
+  .state { min-height: 280px; display: grid; place-items: center; padding: 18px; border: 1px solid var(--line); border-radius: 20px; background: linear-gradient(145deg, #edf7e8, #fff8e4); color: var(--brand-dark); font-weight: 800; text-align: center; }
   .grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
-  .tile { display: grid; gap: 8px; min-width: 0; padding: 10px; border: 1px solid var(--line); border-radius: 18px; background: #fff; box-shadow: 0 10px 26px rgba(92,42,37,.07); transition: border-color .18s ease, transform .18s ease; }
-  .tile:hover, .tile:focus-visible { border-color: rgba(217,95,88,.55); transform: translateY(-2px); outline: none; }
-  .image { aspect-ratio: 1; overflow: hidden; border-radius: 14px; background: linear-gradient(135deg, #ffe9e4, #f3efed); }
+  .tile { display: grid; gap: 8px; min-width: 0; padding: 10px; border: 1px solid var(--line); border-radius: 18px; background: #fff; box-shadow: 0 10px 26px rgba(63,131,49,.08); transition: border-color .18s ease, transform .18s ease; }
+  .tile:hover, .tile:focus-visible { border-color: rgba(87,173,70,.5); transform: translateY(-2px); outline: none; }
+  .image { aspect-ratio: 1; overflow: hidden; border-radius: 14px; background: linear-gradient(135deg, #edf7e8, #fff4d6); }
   .image img { width: 100%; height: 100%; object-fit: cover; display: block; }
   strong, span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   strong { font-size: .94rem; line-height: 1.2; }
@@ -134,7 +134,7 @@ export function IconySinglesWidget({ city, zip, country, platformId }: Props) {
     <section className={styles.widget} aria-labelledby={`singles-${zip}`}>
       <div className={styles.copy}>
         <p className={styles.eyebrow}>Singles entdecken</p>
-        <h2 id={`singles-${zip}`}>Neue Singles in {city}</h2>
+        <h2 id={`singles-${zip}`}>Alleinstehende Singles aus {city}</h2>
         <p>
           Wähle, ob Du Frauen oder Männer sehen möchtest. Wenn Du den Umkreis erweitern willst,
           kannst Du direkt ausführlicher suchen.

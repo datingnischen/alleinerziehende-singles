@@ -51,12 +51,16 @@ test("turns the yearly kindergeld overview into scannable month cards and year c
 });
 
 test("removes a duplicated lead paragraph when excerpt and article intro say the same thing", async () => {
-  const { getMagazinePageBySlug } = await loadWordpressHelpers();
-  const entry = await getMagazinePageBySlug("kindergeld-auszahlungstermine-2022");
+  const { removeDuplicateLeadParagraph } = await loadWordpressHelpers();
+  const excerpt =
+    "<p>Hier findest du alle Kindergeld Auszahlungstermine für das Jahr 2022 übersichtlich zusammengestellt. Zusätzlich geben wir Hinweise, wie du die Termine</p>";
+  const content =
+    "<p>Hier findest du alle Kindergeld Auszahlungstermine für das Jahr 2022 übersichtlich zusammengestellt. Zusätzlich geben wir Hinweise, wie du die Termine prüfen kannst und welche Punkte bei der Auszahlung zu beachten sind.</p><h2>Praktische Hinweise</h2><p>Restinhalt</p>";
 
-  assert.ok(entry);
-  assert.match(entry.excerptHtml, /Hier findest du alle Kindergeld Auszahlungstermine/);
-  assert.equal((entry.contentHtml.match(/Hier findest du alle Kindergeld Auszahlungstermine/g) ?? []).length, 0);
+  const output = removeDuplicateLeadParagraph(content, excerpt);
+
+  assert.doesNotMatch(output, /Hier findest du alle Kindergeld Auszahlungstermine/);
+  assert.match(output, /<h2>Praktische Hinweise<\/h2>/);
 });
 
 test("keeps relative magazine links even for non-kindergeld pages", async () => {

@@ -23,6 +23,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://alleinerziehende-singles.de/" },
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const latestPosts = await getMagazinePosts(3);
   const featuredServicePages = importedRootPages.filter((page) =>
@@ -105,7 +107,7 @@ export default async function Home() {
         <section className={styles.gridSection}>
           <div className={styles.sectionHeader}>
             <h2>Neueste Magazin-Artikel</h2>
-            <p>Diese Inhalte kommen bereits direkt aus dem Live-WordPress unter /magazin.</p>
+            <p>Frische Tipps, ehrliche Geschichten und hilfreiche Impulse für deinen Alltag als alleinerziehender Single.</p>
           </div>
           <div className={styles.articleGrid}>
             {latestPosts.map((post) => (
