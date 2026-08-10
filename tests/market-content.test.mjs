@@ -68,6 +68,7 @@ test("wires market hubs and city pages to market shells, canonicals and ICONY fr
   const hubSource = await readFile(new URL("../app/market-partnersuche/[market]/page.tsx", import.meta.url), "utf8").catch(() => "");
   const citySource = await readFile(new URL("../app/market-partnersuche/[market]/[slug]/page.tsx", import.meta.url), "utf8").catch(() => "");
   const sitemapSource = await readFile(new URL("../app/market-sitemap/[market]/route.ts", import.meta.url), "utf8").catch(() => "");
+  const marketHomeSource = await readFile(new URL("../app/market-home/[market]/page.tsx", import.meta.url), "utf8").catch(() => "");
 
   assert.match(hubSource, /SiteShell market=\{market\}/);
   assert.match(hubSource, /publicUrl\(market, "\/partnersuche"\)/);
@@ -76,4 +77,8 @@ test("wires market hubs and city pages to market shells, canonicals and ICONY fr
   assert.match(citySource, /robots:\s*\{\s*index:\s*true/);
   assert.match(sitemapSource, /getMarketCityPages/);
   assert.match(sitemapSource, /publicUrl\(market, page\.path\)/);
+  assert.match(marketHomeSource, /Wichtige Einstiegsseiten/);
+  assert.match(marketHomeSource, /previewPath\(market, entry\.href\)/);
+  assert.match(marketHomeSource, /Partnersuche in Österreich/);
+  assert.match(marketHomeSource, /Wien kennenlernen/);
 });
