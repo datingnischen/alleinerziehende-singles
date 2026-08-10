@@ -36,6 +36,8 @@ const MAGAZINE_ENTRY_POINTS = [
   },
 ] as const;
 
+const KINDERGELD_PAGE_SLUG_PATTERN = /^kindergeld-auszahlungstermine-/;
+
 export default async function MagazinePage({ searchParams }: Props) {
   const resolvedSearchParams = searchParams ? await searchParams : {};
   const selectedSlug = resolvedSearchParams.thema;
@@ -46,6 +48,12 @@ export default async function MagazinePage({ searchParams }: Props) {
     getMagazinePosts(12, selectedCategory?.id),
     getMagazinePages(6),
   ]);
+  const kindergeldPages = pages.filter((page) => KINDERGELD_PAGE_SLUG_PATTERN.test(page.slug));
+  const generalPages = pages.filter((page) => !KINDERGELD_PAGE_SLUG_PATTERN.test(page.slug));
+  const visiblePosts =
+    selectedCategory?.slug === "kindergeld"
+      ? posts
+      : posts.filter((post) => !KINDERGELD_PAGE_SLUG_PATTERN.test(post.slug));
 
   return (
     <main className={styles.page}>
@@ -90,6 +98,29 @@ export default async function MagazinePage({ searchParams }: Props) {
         </div>
       </section>
 
+      {kindergeldPages.length ? (
+        <section className={styles.gridSection} id="kindergeld-auszahlungstermine">
+          <div className={styles.sectionHeader}>
+            <h2>Kindergeld-Auszahlungstermine</h2>
+            <p>
+              Alle Jahresübersichten zu den Auszahlungsterminen findest du hier gesammelt an
+              einem Ort.
+            </p>
+          </div>
+          <div className={styles.pageList}>
+            {kindergeldPages.map((page) => (
+              <Link className={styles.pageListItem} href={`/magazin/${page.slug}`} key={page.id}>
+                <div>
+                  <span className={styles.pageType}>Kindergeld</span>
+                  <strong dangerouslySetInnerHTML={{ __html: page.titleHtml }} />
+                </div>
+                <span>Öffnen</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       <section className={styles.gridSection}>
         <div className={styles.sectionHeader}>
           <h2>{selectedCategory ? `Beiträge zu ${selectedCategory.name}` : "Neueste Artikel"}</h2>
@@ -100,7 +131,7 @@ export default async function MagazinePage({ searchParams }: Props) {
           </p>
         </div>
         <div className={styles.cardGrid}>
-          {posts.map((post) => (
+          {visiblePosts.map((post) => (
             <article className={styles.card} key={post.id}>
               {post.featuredImageUrl ? (
                 <img
@@ -134,7 +165,7 @@ export default async function MagazinePage({ searchParams }: Props) {
           <p>Wichtige Übersichtsseiten und Ratgeber, die du schnell wiederfinden möchtest.</p>
         </div>
         <div className={styles.pageList}>
-          {pages.map((page) => (
+          {generalPages.map((page) => (
             <Link className={styles.pageListItem} href={`/magazin/${page.slug}`} key={page.id}>
               <div>
                 <span className={styles.pageType}>Seite</span>

@@ -14,6 +14,9 @@ test("humanizes the public magazine landing copy and keeps categories clickable"
   assert.match(source, /Kindergeld & Finanzen/);
   assert.match(source, /Dating mit Kind/);
   assert.match(source, /Wichtige Magazin-Seiten/);
+  assert.match(source, /Kindergeld-Auszahlungstermine/);
+  assert.match(source, /visiblePosts =/);
+  assert.match(source, /generalPages = pages\.filter/);
   assert.match(source, /href=\{`\/magazin\?thema=/);
   assert.doesNotMatch(source, /Artikel zum Stöbern|hilfreiche Sonderseiten|Themenbereiche/);
   assert.doesNotMatch(source, /Headless-Migration|WordPress|REST-Anbindung|Slice|Taxonomien/);
