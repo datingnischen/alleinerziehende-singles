@@ -3,6 +3,8 @@ import Link from "next/link";
 import { importedCityPages, importedPartnersucheHub } from "@/lib/icony-import";
 import styles from "../imported-page.module.css";
 
+const HUB_ONLINE_WIDGET_URL = "https://js.icony.com/frame/?h=300&id=alleinerziehende&pc=eeaf0c&ds=&ctr=49&it=1";
+
 export const metadata: Metadata = {
   title: importedPartnersucheHub.title,
   description: importedPartnersucheHub.description,
@@ -34,10 +36,17 @@ export default function PartnersucheHubPage() {
           </div>
 
           <div className={styles.ctaCard}>
-            <h2>Lieber direkt Kontakte finden?</h2>
+            <h2>Wer ist gerade online?</h2>
             <p>
-              Öffne direkt die Registrierung und starte Deine Partnersuche ohne Umwege.
+              Sieh direkt nach neuen Kontakten auf alleinerziehende-singles.de und starte kostenlos, wenn jemand zu Dir passt.
             </p>
+            <iframe
+              className={styles.sidebarWidgetFrame}
+              src={HUB_ONLINE_WIDGET_URL}
+              title="Wer ist gerade online auf alleinerziehende-singles.de"
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+            />
             <a href="https://alleinerziehende-singles.de/registration/" target="_blank" rel="noreferrer">
               Kostenlos registrieren
             </a>

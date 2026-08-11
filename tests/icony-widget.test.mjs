@@ -49,6 +49,7 @@ test("implements the elFlirt-style dynamic singles contract safely", async () =>
 
 test("renders the local singles widget on every DE city page", async () => {
   const cityPage = await read("../app/partnersuche/[slug]/page.tsx");
+  const hubPage = await read("../app/partnersuche/page.tsx");
 
   assert.match(cityPage, /getIconyWidgetConfig\(slug\)/);
   assert.match(cityPage, /<IconySinglesWidget/);
@@ -56,4 +57,9 @@ test("renders the local singles widget on every DE city page", async () => {
   assert.match(cityPage, /zip=\{widgetConfig\.zip\}/);
   assert.match(cityPage, /country=\{widgetConfig\.country\}/);
   assert.match(cityPage, /platformId=\{widgetConfig\.platformId\}/);
+
+  assert.match(hubPage, /HUB_ONLINE_WIDGET_URL/);
+  assert.match(hubPage, /Wer ist gerade online\?/);
+  assert.match(hubPage, /className=\{styles\.sidebarWidgetFrame\}/);
+  assert.match(hubPage, /title="Wer ist gerade online auf alleinerziehende-singles\.de"/);
 });
