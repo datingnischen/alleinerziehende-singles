@@ -60,8 +60,19 @@ test("normalizes every imported page without executable markup or country leakag
       .join("\n");
     const linkedHosts = [...marketHtml.matchAll(/href=["']https?:\/\/([^/"']+)/gi)]
       .map((match) => match[1].toLowerCase());
-    assert.deepEqual([...new Set(linkedHosts)], [`alleinerziehende-singles.${market}`]);
+    const uniqueHosts = [...new Set(linkedHosts)];
+    assert.ok(
+      uniqueHosts.length === 0 ||
+        (uniqueHosts.length === 1 && uniqueHosts[0] === `alleinerziehende-singles.${market}`),
+    );
   }
+
+  const klagenfurtHtml = getMarketCityPage("at", "klagenfurt").contentHtml;
+  assert.match(klagenfurtHtml, /href=["']\.\.\/innsbruck["']/i);
+  assert.match(klagenfurtHtml, /href=["']\.\.\/graz["']/i);
+  assert.match(klagenfurtHtml, /href=["']\.\.["']/i);
+  assert.doesNotMatch(klagenfurtHtml, /href=["']\/partnersuche\//i);
+  assert.doesNotMatch(klagenfurtHtml, /href=["']https:\/\/alleinerziehende-singles\.at\/partnersuche\//i);
 });
 
 test("wires market hubs and city pages to market shells, canonicals and ICONY frames", async () => {
@@ -75,6 +86,8 @@ test("wires market hubs and city pages to market shells, canonicals and ICONY fr
   assert.match(citySource, /page\.icony\.frameUrl/);
   assert.match(citySource, /Wer ist gerade online in \{page\.cityLabel\}\?/);
   assert.match(citySource, /className=\{styles\.sidebarWidgetFrame\}/);
+  assert.match(citySource, /relativeCityHref/);
+  assert.match(citySource, /relativeHubHref/);
   assert.doesNotMatch(citySource, /bestehende ICONY-Plattform bereitgestellt/);
   assert.match(citySource, /sourceAttributionUrl/);
   assert.match(citySource, /robots:\s*\{\s*index:\s*true/);

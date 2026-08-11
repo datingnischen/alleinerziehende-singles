@@ -63,12 +63,34 @@ function relativeHubCityLinks(html: string, site: string) {
     );
 }
 
-function normalizeHtml(html: string, site: string, hub = false) {
+function relativeDetailCityLinks(html: string, site: string) {
+  const escapedSite = site.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return html
+    .replace(
+      new RegExp(`href=(['"])${escapedSite}/partnersuche/([a-z0-9-]+)/?\\1`, "gi"),
+      (_match, quote, slug) => `href=${quote}../${slug}${quote}`,
+    )
+    .replace(
+      new RegExp(`href=(['"])${escapedSite}/partnersuche/?\\1`, "gi"),
+      (_match, quote) => `href=${quote}..${quote}`,
+    )
+    .replace(
+      /href=(['"])\/partnersuche\/([a-z0-9-]+)\/?\1/gi,
+      (_match, quote, slug) => `href=${quote}../${slug}${quote}`,
+    )
+    .replace(/href=(['"])\/partnersuche\/?\1/gi, (_match, quote) => `href=${quote}..${quote}`);
+}
+
+function normalizeHtml(html: string, site: string, hub = false, cityDetail = false) {
   const marketHtml = html.replace(
     /https?:\/\/(?:www\.)?christlich-verliebt\.at(?=\/partnersuche(?:\/|["']))/gi,
     site,
   );
-  const linkedHtml = hub ? relativeHubCityLinks(marketHtml, site) : marketHtml;
+  const linkedHtml = hub
+    ? relativeHubCityLinks(marketHtml, site)
+    : cityDetail
+      ? relativeDetailCityLinks(marketHtml, site)
+      : marketHtml;
 
   return linkedHtml
     .replace(/<(script|iframe|form|button|input)\b[^>]*>[\s\S]*?<\/\1>/gi, "")
@@ -90,8 +112,8 @@ function normalizeHtml(html: string, site: string, hub = false) {
     .trim();
 }
 
-function preparePage<T extends MarketImportedPage>(page: T, site: string, hub = false): T {
-  return { ...page, contentHtml: normalizeHtml(page.contentHtml, site, hub) };
+function preparePage<T extends MarketImportedPage>(page: T, site: string, hub = false, cityDetail = false): T {
+  return { ...page, contentHtml: normalizeHtml(page.contentHtml, site, hub, cityDetail) };
 }
 
 function normalizeCity(page: RawCityPage, site: string): MarketImportedCityPage {
@@ -117,7 +139,7 @@ function normalizeCity(page: RawCityPage, site: string): MarketImportedCityPage 
     image: page.image,
     cityLabel: page.cityLabel,
     icony,
-  }, site);
+  }, site, false, true);
 }
 
 const imports = Object.fromEntries(
