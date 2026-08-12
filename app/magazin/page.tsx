@@ -111,7 +111,7 @@ export default async function MagazinePage({ searchParams }: Props) {
           <div className={styles.serviceHighlights}>
             <span>Jahresübersichten schnell griffbereit</span>
             <span>Hilfreich für Planung und Familienalltag</span>
-            <span>Alle Termine gesammelt statt verstreut im Magazin</span>
+            <span>Aktuelle Jahrgänge und frühere Übersichten auf einen Blick</span>
           </div>
           <div className={`${styles.pageList} ${styles.servicePageList}`}>
             {kindergeldPages.map((page) => (

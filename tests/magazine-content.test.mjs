@@ -8,6 +8,7 @@ async function loadWordpressHelpers() {
 
 test("humanizes the public magazine landing copy and keeps categories clickable", async () => {
   const source = await readFile(new URL("../app/magazin/page.tsx", import.meta.url), "utf8");
+  const wordpressSource = await readFile(new URL("../lib/wordpress.ts", import.meta.url), "utf8");
 
   assert.match(source, /Magazin für Alleinerziehende/);
   assert.match(source, /Themen, die dich gerade interessieren/);
@@ -17,11 +18,18 @@ test("humanizes the public magazine landing copy and keeps categories clickable"
   assert.match(source, /Kindergeld-Auszahlungstermine/);
   assert.match(source, /Service & Termine/);
   assert.match(source, /Jahresübersichten schnell griffbereit/);
+  assert.match(source, /Aktuelle Jahrgänge und frühere Übersichten auf einen Blick/);
   assert.match(source, /visiblePosts =/);
   assert.match(source, /generalPages = pages\.filter/);
   assert.match(source, /href=\{`\/magazin\?thema=/);
+  assert.match(wordpressSource, /KINDERGELD_2026_SLUG/);
+  assert.match(wordpressSource, /Kindergeld Auszahlungstermine 2026/);
+  assert.match(wordpressSource, /Stand heute liegen Einträge von Januar bis August 2026 vor/);
+  assert.match(wordpressSource, /Facebook-Beitrag öffnen/);
+  assert.match(wordpressSource, /getStaticMagazinePages/);
   assert.doesNotMatch(source, /Artikel zum Stöbern|hilfreiche Sonderseiten|Themenbereiche/);
   assert.doesNotMatch(source, /Headless-Migration|WordPress|REST-Anbindung|Slice|Taxonomien/);
+  assert.doesNotMatch(source, /Alle Termine gesammelt statt verstreut im Magazin/);
 });
 
 test("turns the yearly kindergeld overview into scannable month cards and year chips", async () => {
@@ -80,4 +88,18 @@ test("keeps relative magazine links even for non-kindergeld pages", async () => 
   );
 
   assert.equal(output, '<p><a href="/magazin/beispiel-artikel/">Mehr lesen</a></p>');
+});
+
+test("exposes the 2026 kindergeld overview as a static magazine page", async () => {
+  const { getStaticMagazinePageBySlug, getStaticMagazinePages } = await loadWordpressHelpers();
+
+  const page = getStaticMagazinePageBySlug("kindergeld-auszahlungstermine-2026");
+  assert.ok(page);
+  assert.equal(page.slug, "kindergeld-auszahlungstermine-2026");
+  assert.match(page.contentHtml, /Auszahlungstermine 2026 nach Monat/);
+  assert.match(page.contentHtml, /Facebook-Beitrag öffnen/);
+  assert.match(page.contentHtml, /Januar/);
+  assert.match(page.contentHtml, /August/);
+  assert.match(page.contentHtml, /Wir wollen mehr Kindergeld/);
+  assert.ok(getStaticMagazinePages().some((entry) => entry.slug === "kindergeld-auszahlungstermine-2026"));
 });
