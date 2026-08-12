@@ -22,11 +22,13 @@ test("humanizes the public magazine landing copy and keeps categories clickable"
   assert.match(source, /visiblePosts =/);
   assert.match(source, /generalPages = pages\.filter/);
   assert.match(source, /href=\{`\/magazin\?thema=/);
-  assert.match(wordpressSource, /KINDERGELD_2026_SLUG/);
-  assert.match(wordpressSource, /Kindergeld Auszahlungstermine 2026/);
-  assert.match(wordpressSource, /Stand heute liegen Einträge von Januar bis August 2026 vor/);
+  assert.match(wordpressSource, /const KINDERGELD_2026 =/);
+  assert.match(wordpressSource, /KINDERGELD_2026\.title/);
+  assert.match(wordpressSource, /firstMonth/);
+  assert.match(wordpressSource, /lastMonth/);
   assert.match(wordpressSource, /Facebook-Beitrag öffnen/);
   assert.match(wordpressSource, /getStaticMagazinePages/);
+  assert.match(wordpressSource, /kindergeld-facebook-2026\.json/);
   assert.doesNotMatch(source, /Artikel zum Stöbern|hilfreiche Sonderseiten|Themenbereiche/);
   assert.doesNotMatch(source, /Headless-Migration|WordPress|REST-Anbindung|Slice|Taxonomien/);
   assert.doesNotMatch(source, /Alle Termine gesammelt statt verstreut im Magazin/);
@@ -102,4 +104,24 @@ test("exposes the 2026 kindergeld overview as a static magazine page", async () 
   assert.match(page.contentHtml, /August/);
   assert.match(page.contentHtml, /Wir wollen mehr Kindergeld/);
   assert.ok(getStaticMagazinePages().some((entry) => entry.slug === "kindergeld-auszahlungstermine-2026"));
+});
+
+test("keeps the automatic 2026 kindergeld data in a dedicated JSON source", async () => {
+  const dataSource = JSON.parse(
+    await readFile(new URL("../data/kindergeld-facebook-2026.json", import.meta.url), "utf8"),
+  );
+  const scriptSource = await readFile(
+    new URL("../scripts/update_kindergeld_facebook_2026.py", import.meta.url),
+    "utf8",
+  );
+
+  assert.equal(dataSource.slug, "kindergeld-auszahlungstermine-2026");
+  assert.equal(dataSource.sourceLabel, "Wir wollen mehr Kindergeld");
+  assert.ok(Array.isArray(dataSource.months));
+  assert.ok(dataSource.months.length >= 8);
+  assert.equal(dataSource.months[0].month, "Januar");
+  assert.equal(dataSource.months.at(-1).month, "August");
+  assert.match(scriptSource, /PAGE_NAME = "Wir wollen mehr Kindergeld"/);
+  assert.match(scriptSource, /graph\.facebook\.com/);
+  assert.match(scriptSource, /kindergeld-facebook-2026\.json/);
 });
