@@ -23,6 +23,12 @@ function cityCardExcerpt(description: string) {
   return firstSentence && firstSentence.length >= 60 ? firstSentence : description;
 }
 
+function cityCardImage(html: string) {
+  const match = html.match(/<img[^>]+src="([^"]+)"[^>]*alt="([^"]*)"[^>]*>/i);
+  if (!match) return null;
+  return { src: match[1], alt: match[2] || "" };
+}
+
 export const metadata: Metadata = {
   title: importedPartnersucheHub.title,
   description: importedPartnersucheHub.description,
@@ -56,17 +62,23 @@ export default function PartnersucheHubPage() {
 
           <div className={styles.cityGrid}>
             {importedCityPages.map((city) => (
-              <article className={styles.cityCard} key={city.slug}>
-                <div className={styles.cityCardMedia} aria-hidden="true">
-                  <span>{city.cityLabel}</span>
-                </div>
-                <div className={styles.cityCardCopy}>
-                  <span className={styles.cityCardEyebrow}>Regionale Partnersuche</span>
-                  <h3>Singles in {city.cityLabel}</h3>
-                  <p>{cityCardExcerpt(city.description)}</p>
-                </div>
-                <Link href={city.path}>Singles aus {city.cityLabel} entdecken</Link>
-              </article>
+              (() => {
+                const image = cityCardImage(city.contentHtml);
+                return (
+                  <article className={styles.cityCard} key={city.slug}>
+                    <div className={styles.cityCardMedia}>
+                      {image ? <img src={image.src} alt={image.alt || `Stadtansicht ${city.cityLabel}`} /> : null}
+                      <span>{city.cityLabel}</span>
+                    </div>
+                    <div className={styles.cityCardCopy}>
+                      <span className={styles.cityCardEyebrow}>Regionale Partnersuche</span>
+                      <h3>Singles in {city.cityLabel}</h3>
+                      <p>{cityCardExcerpt(city.description)}</p>
+                    </div>
+                    <Link href={city.path}>Singles aus {city.cityLabel} entdecken</Link>
+                  </article>
+                );
+              })()
             ))}
           </div>
         </div>

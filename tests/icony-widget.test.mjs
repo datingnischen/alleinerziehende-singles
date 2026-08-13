@@ -66,13 +66,16 @@ test("renders the local singles widget on every DE city page", async () => {
   assert.match(hubPage, /stripLegacyCityLists/);
   assert.match(hubPage, /extractLeadImage/);
   assert.match(hubPage, /cityCardExcerpt/);
+  assert.match(hubPage, /cityCardImage/);
   assert.match(hubPage, /heroMediaLarge/);
   assert.match(hubPage, /Singles in \{city\.cityLabel\}/);
   assert.match(hubPage, /Singles aus \{city\.cityLabel\} entdecken/);
+  assert.match(hubPage, /Stadtansicht \$\{city\.cityLabel\}/);
   assert.match(hubPage, /replace\(/);
   assert.match(hubPage, /<div className=\{styles\.gridSection\}>/);
   assert.match(sharedStyles, /\.cityCardMedia/);
   assert.match(sharedStyles, /\.heroMediaLarge/);
+  assert.match(sharedStyles, /\.cityCardMedia img/);
   assert.match(sharedStyles, /\.cityCardEyebrow/);
   assert.match(sharedStyles, /width: calc\(100% - 44px\)/);
 });
