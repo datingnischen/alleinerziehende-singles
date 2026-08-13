@@ -31,6 +31,25 @@
   gap: 16px;
 }
 
+.heroCopyBlock {
+  display: grid;
+  gap: 16px;
+}
+
+.heroMediaLarge {
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid var(--brand-card-border);
+}
+
+.heroMediaLarge img {
+  width: 100%;
+  min-height: 320px;
+  max-height: 440px;
+  object-fit: cover;
+  display: block;
+}
+
 .eyebrow {
   display: inline-flex;
   width: fit-content;
@@ -331,5 +350,9 @@
   .gridSection,
   .cityCard {
     padding: 22px;
+  }
+
+  .heroMediaLarge img {
+    min-height: 220px;
   }
 }

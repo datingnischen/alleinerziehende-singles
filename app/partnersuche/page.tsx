@@ -5,8 +5,14 @@ import styles from "../imported-page.module.css";
 
 const HUB_ONLINE_WIDGET_URL = "https://js.icony.com/frame/?h=300&id=alleinerziehende&pc=eeaf0c&ds=&ctr=49&it=1";
 
+function extractLeadImage(html: string) {
+  const match = html.match(/<p>\s*(<img[^>]+>)\s*(?:&nbsp;|&#160;)?\s*<\/p>/i);
+  return match?.[1] ?? null;
+}
+
 function stripLegacyCityLists(html: string) {
   return html
+    .replace(/<p>\s*<img[^>]+>\s*(?:&nbsp;|&#160;)?\s*<\/p>/i, "")
     .replace(/<ul[\s\S]*?<\/ul>/gi, "")
     .replace(/<p>\s*(?:&nbsp;|&#160;|\s)*<\/p>/gi, "")
     .trim();
@@ -23,12 +29,19 @@ export const metadata: Metadata = {
 };
 
 export default function PartnersucheHubPage() {
+  const heroImageHtml = extractLeadImage(importedPartnersucheHub.contentHtml);
+
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
-        <p className={styles.eyebrow}>Städte & regionale Partnersuche</p>
-        <h1>{importedPartnersucheHub.heroTitle}</h1>
-        <p className={styles.lead}>{importedPartnersucheHub.description}</p>
+        <div className={styles.heroCopyBlock}>
+          <p className={styles.eyebrow}>Städte & regionale Partnersuche</p>
+          <h1>{importedPartnersucheHub.heroTitle}</h1>
+          <p className={styles.lead}>{importedPartnersucheHub.description}</p>
+        </div>
+        {heroImageHtml ? (
+          <div className={styles.heroMediaLarge} dangerouslySetInnerHTML={{ __html: heroImageHtml }} />
+        ) : null}
       </section>
 
       <section className={styles.layout}>

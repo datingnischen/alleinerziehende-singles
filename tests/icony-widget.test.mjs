@@ -64,12 +64,15 @@ test("renders the local singles widget on every DE city page", async () => {
   assert.match(hubPage, /className=\{styles\.sidebarWidgetFrame\}/);
   assert.match(hubPage, /title="Wer ist gerade online auf alleinerziehende-singles\.de"/);
   assert.match(hubPage, /stripLegacyCityLists/);
+  assert.match(hubPage, /extractLeadImage/);
   assert.match(hubPage, /cityCardExcerpt/);
+  assert.match(hubPage, /heroMediaLarge/);
   assert.match(hubPage, /Singles in \{city\.cityLabel\}/);
   assert.match(hubPage, /Singles aus \{city\.cityLabel\} entdecken/);
   assert.match(hubPage, /replace\(/);
   assert.match(hubPage, /<div className=\{styles\.gridSection\}>/);
   assert.match(sharedStyles, /\.cityCardMedia/);
+  assert.match(sharedStyles, /\.heroMediaLarge/);
   assert.match(sharedStyles, /\.cityCardEyebrow/);
   assert.match(sharedStyles, /width: calc\(100% - 44px\)/);
 });
