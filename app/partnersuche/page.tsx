@@ -6,7 +6,10 @@ import styles from "../imported-page.module.css";
 const HUB_ONLINE_WIDGET_URL = "https://js.icony.com/frame/?h=300&id=alleinerziehende&pc=eeaf0c&ds=&ctr=49&it=1";
 
 function stripLegacyCityLists(html: string) {
-  return html.replace(/<ul>[\s\S]*?<\/ul>\s*(<ul>[\s\S]*?<\/ul>\s*)*/i, "").trim();
+  return html
+    .replace(/<ul[\s\S]*?<\/ul>/gi, "")
+    .replace(/<p>\s*(?:&nbsp;|&#160;|\s)*<\/p>/gi, "")
+    .trim();
 }
 
 function cityCardExcerpt(description: string) {
@@ -29,6 +32,32 @@ export default function PartnersucheHubPage() {
       </section>
 
       <section className={styles.layout}>
+        <div className={styles.gridSection}>
+          <div className={styles.sectionHeader}>
+            <h2>Städte im Überblick</h2>
+            <p>
+              Finde direkt den passenden regionalen Einstieg und entdecke, wo Du in Deiner Stadt
+              verständnisvolle Kontakte, Tipps und Unterstützung findest.
+            </p>
+          </div>
+
+          <div className={styles.cityGrid}>
+            {importedCityPages.map((city) => (
+              <article className={styles.cityCard} key={city.slug}>
+                <div className={styles.cityCardMedia} aria-hidden="true">
+                  <span>{city.cityLabel}</span>
+                </div>
+                <div className={styles.cityCardCopy}>
+                  <span className={styles.cityCardEyebrow}>Regionale Partnersuche</span>
+                  <h3>Singles in {city.cityLabel}</h3>
+                  <p>{cityCardExcerpt(city.description)}</p>
+                </div>
+                <Link href={city.path}>Singles aus {city.cityLabel} entdecken</Link>
+              </article>
+            ))}
+          </div>
+        </div>
+
         <article className={styles.article}>
           <div dangerouslySetInnerHTML={{ __html: stripLegacyCityLists(importedPartnersucheHub.contentHtml) }} />
         </article>
@@ -61,32 +90,6 @@ export default function PartnersucheHubPage() {
             </a>
           </div>
         </aside>
-      </section>
-
-      <section className={styles.gridSection}>
-        <div className={styles.sectionHeader}>
-          <h2>Städte im Überblick</h2>
-          <p>
-            Finde direkt den passenden regionalen Einstieg und entdecke, wo Du in Deiner Stadt
-            verständnisvolle Kontakte, Tipps und Unterstützung findest.
-          </p>
-        </div>
-
-        <div className={styles.cityGrid}>
-          {importedCityPages.map((city) => (
-            <article className={styles.cityCard} key={city.slug}>
-              <div className={styles.cityCardMedia} aria-hidden="true">
-                <span>{city.cityLabel}</span>
-              </div>
-              <div className={styles.cityCardCopy}>
-                <span className={styles.cityCardEyebrow}>Regionale Partnersuche</span>
-                <h3>Singles in {city.cityLabel}</h3>
-                <p>{cityCardExcerpt(city.description)}</p>
-              </div>
-              <Link href={city.path}>Singles aus {city.cityLabel} entdecken</Link>
-            </article>
-          ))}
-        </div>
       </section>
     </main>
   );
