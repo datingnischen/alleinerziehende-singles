@@ -5,6 +5,15 @@ import styles from "../imported-page.module.css";
 
 const HUB_ONLINE_WIDGET_URL = "https://js.icony.com/frame/?h=300&id=alleinerziehende&pc=eeaf0c&ds=&ctr=49&it=1";
 
+function stripLegacyCityLists(html: string) {
+  return html.replace(/<ul>[\s\S]*?<\/ul>\s*(<ul>[\s\S]*?<\/ul>\s*)*/i, "").trim();
+}
+
+function cityCardExcerpt(description: string) {
+  const firstSentence = description.match(/.*?[.!?](?:\s|$)/)?.[0]?.trim();
+  return firstSentence && firstSentence.length >= 60 ? firstSentence : description;
+}
+
 export const metadata: Metadata = {
   title: importedPartnersucheHub.title,
   description: importedPartnersucheHub.description,
@@ -21,7 +30,7 @@ export default function PartnersucheHubPage() {
 
       <section className={styles.layout}>
         <article className={styles.article}>
-          <div dangerouslySetInnerHTML={{ __html: importedPartnersucheHub.contentHtml }} />
+          <div dangerouslySetInnerHTML={{ __html: stripLegacyCityLists(importedPartnersucheHub.contentHtml) }} />
         </article>
 
         <aside className={styles.sidebar}>
@@ -66,9 +75,15 @@ export default function PartnersucheHubPage() {
         <div className={styles.cityGrid}>
           {importedCityPages.map((city) => (
             <article className={styles.cityCard} key={city.slug}>
-              <h3>{city.cityLabel}</h3>
-              <p>{city.description}</p>
-              <Link href={city.path}>Seite öffnen</Link>
+              <div className={styles.cityCardMedia} aria-hidden="true">
+                <span>{city.cityLabel}</span>
+              </div>
+              <div className={styles.cityCardCopy}>
+                <span className={styles.cityCardEyebrow}>Regionale Partnersuche</span>
+                <h3>Singles in {city.cityLabel}</h3>
+                <p>{cityCardExcerpt(city.description)}</p>
+              </div>
+              <Link href={city.path}>Singles aus {city.cityLabel} entdecken</Link>
             </article>
           ))}
         </div>

@@ -50,6 +50,7 @@ test("implements the elFlirt-style dynamic singles contract safely", async () =>
 test("renders the local singles widget on every DE city page", async () => {
   const cityPage = await read("../app/partnersuche/[slug]/page.tsx");
   const hubPage = await read("../app/partnersuche/page.tsx");
+  const sharedStyles = await read("../app/imported-page.module.css");
 
   assert.match(cityPage, /getIconyWidgetConfig\(slug\)/);
   assert.match(cityPage, /<IconySinglesWidget/);
@@ -62,4 +63,11 @@ test("renders the local singles widget on every DE city page", async () => {
   assert.match(hubPage, /Wer ist gerade online\?/);
   assert.match(hubPage, /className=\{styles\.sidebarWidgetFrame\}/);
   assert.match(hubPage, /title="Wer ist gerade online auf alleinerziehende-singles\.de"/);
+  assert.match(hubPage, /stripLegacyCityLists/);
+  assert.match(hubPage, /cityCardExcerpt/);
+  assert.match(hubPage, /Singles in \{city\.cityLabel\}/);
+  assert.match(hubPage, /Singles aus \{city\.cityLabel\} entdecken/);
+  assert.match(sharedStyles, /\.cityCardMedia/);
+  assert.match(sharedStyles, /\.cityCardEyebrow/);
+  assert.match(sharedStyles, /width: calc\(100% - 44px\)/);
 });
