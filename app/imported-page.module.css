@@ -220,6 +220,52 @@
   gap: 12px;
 }
 
+.sidebarCityGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.sidebarCityLink {
+  position: relative;
+  overflow: hidden;
+  min-height: 88px;
+  border: 1px solid var(--brand-card-border);
+  border-radius: 20px;
+  text-decoration: none;
+  display: flex;
+  align-items: flex-end;
+  padding: 14px;
+  background: linear-gradient(135deg, rgba(255, 209, 102, 0.9) 0%, rgba(87, 173, 70, 0.88) 100%);
+}
+
+.sidebarCityLink img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sidebarCityLink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(35, 50, 35, 0.58) 100%);
+}
+
+.sidebarCityLink span {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--brand-heading);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
 .linkList a,
 .ctaCard a {
   display: inline-flex;
@@ -351,6 +397,10 @@
   .layout {
     grid-template-columns: 1fr;
   }
+
+  .sidebarCityGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 720px) {
@@ -370,5 +420,9 @@
 
   .heroMediaLarge img {
     min-height: 220px;
+  }
+
+  .sidebarCityGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

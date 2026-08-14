@@ -86,6 +86,8 @@ test("wires market hubs and city pages to market shells, canonicals and ICONY fr
   assert.match(hubSource, /cityCardExcerpt/);
   assert.match(hubSource, /className=\{styles\.cityCardMedia\}/);
   assert.match(hubSource, /className=\{styles\.cityCardCopy\}/);
+  assert.match(hubSource, /className=\{styles\.sidebarCityGrid\}/);
+  assert.match(hubSource, /className=\{styles\.sidebarCityLink\}/);
   assert.match(hubSource, /Mehr zu \{city\.cityLabel\}/);
   assert.doesNotMatch(hubSource, /Seite öffnen/);
   assert.match(citySource, /page\.icony\.frameUrl/);
@@ -102,4 +104,5 @@ test("wires market hubs and city pages to market shells, canonicals and ICONY fr
   assert.match(marketHomeSource, /previewPath\(market, entry\.href\)/);
   assert.match(marketHomeSource, /Partnersuche in Österreich/);
   assert.match(marketHomeSource, /Wien kennenlernen/);
+  assert.match(hubSource, /Stadtansicht \$\{city\.cityLabel\}/);
 });

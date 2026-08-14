@@ -63,9 +63,13 @@ export default async function MarketPartnersuchePage({ params }: Props) {
           <aside className={styles.sidebar}>
             <div className={styles.sidebarCard}>
               <h2>Städte im Überblick</h2>
-              <div className={styles.linkList}>
+              <p>Wähle direkt Deinen Einstieg in der Region, die am besten zu Deinem Alltag passt.</p>
+              <div className={styles.sidebarCityGrid}>
                 {cities.map((city) => (
-                  <a key={city.slug} href={relativeCityHref(city.slug)}>{city.cityLabel}</a>
+                  <a className={styles.sidebarCityLink} key={city.slug} href={relativeCityHref(city.slug)}>
+                    {city.image ? <img src={city.image.url} alt={city.image.alt || `Stadtansicht ${city.cityLabel}`} /> : null}
+                    <span>{city.cityLabel}</span>
+                  </a>
                 ))}
               </div>
             </div>
