@@ -88,6 +88,7 @@ test("wires market hubs and city pages to market shells, canonicals and ICONY fr
   assert.match(hubSource, /className=\{styles\.cityCardCopy\}/);
   assert.match(hubSource, /className=\{styles\.sidebarCityGrid\}/);
   assert.match(hubSource, /className=\{styles\.sidebarCityLink\}/);
+  assert.match(hubSource, /alt="" aria-hidden="true"/);
   assert.match(hubSource, /Mehr zu \{city\.cityLabel\}/);
   assert.doesNotMatch(hubSource, /Seite öffnen/);
   assert.match(citySource, /page\.icony\.frameUrl/);
