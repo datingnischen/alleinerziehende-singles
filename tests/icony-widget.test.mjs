@@ -66,6 +66,7 @@ test("renders the local singles widget on every DE city page", async () => {
   assert.match(hubPage, /stripLegacyCityLists/);
   assert.match(hubPage, /extractLeadImage/);
   assert.match(hubPage, /cityCardExcerpt/);
+  assert.match(hubPage, /decodeHtmlEntities/);
   assert.match(hubPage, /cityCardImage/);
   assert.match(hubPage, /heroMediaLarge/);
   assert.match(hubPage, /Singles in \{city\.cityLabel\}/);
@@ -78,4 +79,5 @@ test("renders the local singles widget on every DE city page", async () => {
   assert.match(sharedStyles, /\.cityCardMedia img/);
   assert.match(sharedStyles, /\.cityCardEyebrow/);
   assert.match(sharedStyles, /width: calc\(100% - 44px\)/);
+  assert.match(hubPage, /&uuml;/);
 });

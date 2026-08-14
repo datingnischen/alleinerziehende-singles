@@ -23,10 +23,29 @@ function cityCardExcerpt(description: string) {
   return firstSentence && firstSentence.length >= 60 ? firstSentence : description;
 }
 
+function decodeHtmlEntities(value: string) {
+  return value
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&#160;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;/gi, "'")
+    .replace(/&auml;/gi, "ä")
+    .replace(/&ouml;/gi, "ö")
+    .replace(/&uuml;/gi, "ü")
+    .replace(/&Auml;/g, "Ä")
+    .replace(/&Ouml;/g, "Ö")
+    .replace(/&Uuml;/g, "Ü")
+    .replace(/&szlig;/gi, "ß");
+}
+
 function cityCardImage(html: string) {
   const match = html.match(/<img[^>]+src="([^"]+)"[^>]*alt="([^"]*)"[^>]*>/i);
   if (!match) return null;
-  return { src: match[1], alt: match[2] || "" };
+  return {
+    src: decodeHtmlEntities(match[1]),
+    alt: decodeHtmlEntities(match[2] || ""),
+  };
 }
 
 export const metadata: Metadata = {
