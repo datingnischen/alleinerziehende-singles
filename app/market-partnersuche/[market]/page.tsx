@@ -15,6 +15,11 @@ function relativeCityHref(slug: string) {
   return `partnersuche/${slug}`;
 }
 
+function cityCardExcerpt(description: string) {
+  const firstSentence = description.match(/.*?[.!?](?:\s|$)/)?.[0]?.trim();
+  return firstSentence && firstSentence.length >= 60 ? firstSentence : description;
+}
+
 function activeMarket(value: string): RegionalMarket {
   if (!isMarketCode(value) || value === "de") notFound();
   return value;
@@ -80,9 +85,16 @@ export default async function MarketPartnersuchePage({ params }: Props) {
           <div className={styles.cityGrid}>
             {cities.map((city) => (
               <article className={styles.cityCard} key={city.slug}>
-                <h3>{city.cityLabel}</h3>
-                <p>{city.description}</p>
-                <a href={relativeCityHref(city.slug)}>Seite öffnen</a>
+                <div className={styles.cityCardMedia}>
+                  {city.image ? <img src={city.image.url} alt={city.image.alt || `Stadtansicht ${city.cityLabel}`} /> : null}
+                  <span>{city.cityLabel}</span>
+                </div>
+                <div className={styles.cityCardCopy}>
+                  <span className={styles.cityCardEyebrow}>Regionale Partnersuche</span>
+                  <h3>{city.cityLabel}</h3>
+                  <p>{cityCardExcerpt(city.description)}</p>
+                </div>
+                <a href={relativeCityHref(city.slug)}>Mehr zu {city.cityLabel}</a>
               </article>
             ))}
           </div>
