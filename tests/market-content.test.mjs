@@ -49,6 +49,10 @@ test("rejects crossed market identity, country suffix, site, and frame country",
   assert.throws(() => validateMarketCityIdentity("at", "at", "https://alleinerziehende-singles.ch", "1010, Wien, AT", validFrame), /Invalid market identity/);
   assert.throws(() => validateMarketCityIdentity("at", "at", "https://alleinerziehende-singles.at", "1010, Wien, CH", validFrame), /Invalid market location/);
   assert.throws(() => validateMarketCityIdentity("at", "at", "https://alleinerziehende-singles.at", "1010, Wien, AT", "https://js.icony.com/frame/?z=1010&ctr=41"), /Invalid market location/);
+  assert.throws(() => validateMarketCityIdentity("at", "at", "https://alleinerziehende-singles.at", "1010, Wien, AT", "https://js.icony.com/frame/?ctr=43"), /Invalid market location/);
+  assert.throws(() => validateMarketCityIdentity("at", "at", "https://alleinerziehende-singles.at", "1010, Wien, AT", "https://js.icony.com/frame/?z=1010&z=9999&ctr=43"), /Invalid market location/);
+  assert.throws(() => validateMarketCityIdentity("at", "at", "https://alleinerziehende-singles.at", "1010, Wien, AT", "https://js.icony.com/frame/?z=1010&ctr=43&ctr=41"), /Invalid market location/);
+  assert.throws(() => validateMarketCityIdentity("at", "at", "https://alleinerziehende-singles.at", "1010, Wien, AT", "https://example.com/frame/?z=1010&ctr=43"), /Invalid market location/);
 });
 
 test("normalizes every imported page without executable markup or country leakage", async () => {

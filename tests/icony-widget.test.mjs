@@ -8,6 +8,7 @@ import {
 import { buildCitySearchUrl, centralCityPostcodes } from "../lib/city-search-postcodes.mjs";
 
 const read = (path) => readFile(new URL(path, import.meta.url), "utf8");
+const deImport = JSON.parse(await read("../data/icony-import.json"));
 
 test("keeps the verified legacy ICONY location contract for every DE city", () => {
   assert.equal(iconyWidgetConfigs.length, 15);
@@ -29,7 +30,13 @@ test("keeps the verified legacy ICONY location contract for every DE city", () =
 });
 
 test("keeps one central search postcode for every DE city independently from widget zips", () => {
-  assert.deepEqual(Object.keys(centralCityPostcodes.de).sort(), iconyWidgetConfigs.map((config) => config.slug).sort());
+  const inventorySlugs = deImport.cityPages.map((page) => page.slug).sort();
+  assert.deepEqual(iconyWidgetConfigs.map((config) => config.slug).sort(), inventorySlugs);
+  assert.deepEqual(Object.keys(centralCityPostcodes.de).sort(), inventorySlugs);
+  for (const slug of inventorySlugs) {
+    const postcode = centralCityPostcodes.de[slug];
+    assert.equal(buildCitySearchUrl("de", slug), `https://alleinerziehende-singles.de/suche/?plz=${postcode}&AID=location`);
+  }
   assert.equal(buildCitySearchUrl("de", "berlin"), "https://alleinerziehende-singles.de/suche/?plz=10117&AID=location");
   assert.equal(buildCitySearchUrl("de", "leipzig"), "https://alleinerziehende-singles.de/suche/?plz=04109&AID=location");
   assert.notEqual(centralCityPostcodes.de.berlin, getIconyWidgetConfig("berlin").zip);

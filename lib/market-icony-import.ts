@@ -132,8 +132,25 @@ export function validateMarketCityIdentity(
     throw new Error(`Invalid market identity for ${market}`);
   }
   const postcode = locationValue.match(new RegExp(`^(\\d{4}),\\s*[^,]+,\\s*${expectedCountry}$`))?.[1];
-  const frame = new URL(frameUrl);
-  if (!postcode || frame.searchParams.get("z") !== postcode || frame.searchParams.get("ctr") !== expectedCtr) {
+  if (!/^https:\/\/js\.icony\.com\/frame\/\?/.test(frameUrl)) {
+    throw new Error(`Invalid market location for ${market}`);
+  }
+  let frame: URL;
+  try {
+    frame = new URL(frameUrl);
+  } catch {
+    throw new Error(`Invalid market location for ${market}`);
+  }
+  const framePostcodes = frame.searchParams.getAll("z");
+  const frameCountries = frame.searchParams.getAll("ctr");
+  if (
+    !postcode ||
+    frame.hash ||
+    framePostcodes.length !== 1 ||
+    framePostcodes[0] !== postcode ||
+    frameCountries.length !== 1 ||
+    frameCountries[0] !== expectedCtr
+  ) {
     throw new Error(`Invalid market location for ${market}`);
   }
   return postcode;
