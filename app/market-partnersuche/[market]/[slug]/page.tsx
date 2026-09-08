@@ -91,6 +91,7 @@ export default async function MarketCityPage({ params }: Props) {
                 loading="lazy"
                 referrerPolicy="strict-origin-when-cross-origin"
               />
+              <a href={page.searchUrl}>Ausführlicher in {page.cityLabel} suchen</a>
               <a href={publicUrl(market, "/registration/")}>Kostenlos registrieren</a>
             </div>
           </aside>

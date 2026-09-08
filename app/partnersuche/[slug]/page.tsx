@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { IconySinglesWidget } from "@/components/icony-singles-widget";
 import { getImportedCityPageBySlug, importedCityPages } from "@/lib/icony-import";
 import { getIconyWidgetConfig } from "@/lib/icony-widget-config";
+import { buildCitySearchUrl } from "@/lib/city-search-postcodes.mjs";
 import styles from "../../imported-page.module.css";
 
 type Props = {
@@ -53,6 +54,7 @@ export default async function PartnersucheCityPage({ params }: Props) {
           zip={widgetConfig.zip}
           country={widgetConfig.country}
           platformId={widgetConfig.platformId}
+          searchUrl={buildCitySearchUrl("de", slug)}
         />
       ) : null}
 

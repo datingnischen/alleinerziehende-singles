@@ -5,6 +5,7 @@ import {
   getIconyWidgetConfig,
   iconyWidgetConfigs,
 } from "../lib/icony-widget-config.ts";
+import { buildCitySearchUrl, centralCityPostcodes } from "../lib/city-search-postcodes.mjs";
 
 const read = (path) => readFile(new URL(path, import.meta.url), "utf8");
 
@@ -27,6 +28,14 @@ test("keeps the verified legacy ICONY location contract for every DE city", () =
   }
 });
 
+test("keeps one central search postcode for every DE city independently from widget zips", () => {
+  assert.deepEqual(Object.keys(centralCityPostcodes.de).sort(), iconyWidgetConfigs.map((config) => config.slug).sort());
+  assert.equal(buildCitySearchUrl("de", "berlin"), "https://alleinerziehende-singles.de/suche/?plz=10117&AID=location");
+  assert.equal(buildCitySearchUrl("de", "leipzig"), "https://alleinerziehende-singles.de/suche/?plz=04109&AID=location");
+  assert.notEqual(centralCityPostcodes.de.berlin, getIconyWidgetConfig("berlin").zip);
+  assert.throws(() => buildCitySearchUrl("de", "unknown"), /Missing central postcode/);
+});
+
 test("implements the elFlirt-style dynamic singles contract safely", async () => {
   const component = await read("../components/icony-singles-widget.tsx");
   const styles = await read("../components/icony-singles-widget.module.css");
@@ -36,7 +45,8 @@ test("implements the elFlirt-style dynamic singles contract safely", async () =>
   assert.match(component, /Gerade keine Schnelltreffer/);
   assert.match(component, /Alleinstehende Singles aus \{city\}/);
   assert.match(component, /Ausführlicher in \{city\} suchen/);
-  assert.match(component, /https:\/\/alleinerziehende-singles\.de\/suche\/\?AID=location/);
+  assert.match(component, /href=\{searchUrl\}/);
+  assert.doesNotMatch(component, /DETAILED_SEARCH_URL/);
   assert.match(component, /sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox"/);
   assert.match(component, /referrerPolicy="no-referrer"/);
   assert.match(component, /Für Profilvorschauen bitte JavaScript aktivieren/);
@@ -58,6 +68,7 @@ test("renders the local singles widget on every DE city page", async () => {
   assert.match(cityPage, /zip=\{widgetConfig\.zip\}/);
   assert.match(cityPage, /country=\{widgetConfig\.country\}/);
   assert.match(cityPage, /platformId=\{widgetConfig\.platformId\}/);
+  assert.match(cityPage, /searchUrl=\{buildCitySearchUrl\("de", slug\)\}/);
 
   assert.match(hubPage, /HUB_ONLINE_WIDGET_URL/);
   assert.match(hubPage, /Wer ist gerade online\?/);

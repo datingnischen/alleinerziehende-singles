@@ -18,6 +18,37 @@ test("imports the complete AT and CH regional inventories", async () => {
   assert.equal(getMarketPartnersucheHub("at").heroTitle, "Partnersuche für Alleinerziehende in Österreich – Tipps für jede Stadt");
   assert.equal(getMarketCityPage("at", "wien").icony.locationId, "21432");
   assert.equal(getMarketCityPage("ch", "zuerich").icony.frameId, "alleinerziehendech");
+
+  for (const market of ["at", "ch"]) {
+    for (const page of getMarketCityPages(market)) {
+      const postcode = page.icony.locationValue.match(/^(\d{4})(?:,|\s|$)/)?.[1];
+      assert.ok(postcode, `${market}/${page.slug} has no postcode in locationValue`);
+      assert.equal(new URL(page.icony.frameUrl).searchParams.get("z"), postcode);
+      const searchUrl = new URL(page.searchUrl);
+      assert.equal(searchUrl.hostname, `alleinerziehende-singles.${market}`);
+      assert.equal(searchUrl.pathname, "/suche/");
+      assert.match(searchUrl.searchParams.get("plz"), /^\d{4}$/);
+      assert.equal(searchUrl.searchParams.get("AID"), "location");
+      assert.deepEqual([...searchUrl.searchParams.keys()], ["plz", "AID"]);
+    }
+  }
+});
+
+test("uses explicit central postcodes rather than broader AT/CH widget locations", async () => {
+  const { getMarketCityPage } = await loadMarketContent();
+  assert.equal(getMarketCityPage("at", "wien").searchUrl, "https://alleinerziehende-singles.at/suche/?plz=1010&AID=location");
+  assert.equal(getMarketCityPage("ch", "bern").searchUrl, "https://alleinerziehende-singles.ch/suche/?plz=3011&AID=location");
+  assert.equal(getMarketCityPage("ch", "zuerich").searchUrl, "https://alleinerziehende-singles.ch/suche/?plz=8001&AID=location");
+});
+
+test("rejects crossed market identity, country suffix, site, and frame country", async () => {
+  const { validateMarketCityIdentity } = await loadMarketContent();
+  const validFrame = "https://js.icony.com/frame/?z=1010&ctr=43";
+  assert.equal(validateMarketCityIdentity("at", "at", "https://alleinerziehende-singles.at", "1010, Wien, AT", validFrame), "1010");
+  assert.throws(() => validateMarketCityIdentity("at", "ch", "https://alleinerziehende-singles.at", "1010, Wien, AT", validFrame), /Invalid market identity/);
+  assert.throws(() => validateMarketCityIdentity("at", "at", "https://alleinerziehende-singles.ch", "1010, Wien, AT", validFrame), /Invalid market identity/);
+  assert.throws(() => validateMarketCityIdentity("at", "at", "https://alleinerziehende-singles.at", "1010, Wien, CH", validFrame), /Invalid market location/);
+  assert.throws(() => validateMarketCityIdentity("at", "at", "https://alleinerziehende-singles.at", "1010, Wien, AT", "https://js.icony.com/frame/?z=1010&ctr=41"), /Invalid market location/);
 });
 
 test("normalizes every imported page without executable markup or country leakage", async () => {
@@ -94,6 +125,8 @@ test("wires market hubs and city pages to market shells, canonicals and ICONY fr
   assert.match(citySource, /page\.icony\.frameUrl/);
   assert.match(citySource, /Wer ist gerade online in \{page\.cityLabel\}\?/);
   assert.match(citySource, /className=\{styles\.sidebarWidgetFrame\}/);
+  assert.match(citySource, /href=\{page\.searchUrl\}/);
+  assert.match(citySource, /Ausführlicher in \{page\.cityLabel\} suchen/);
   assert.match(citySource, /relativeCityHref/);
   assert.match(citySource, /relativeHubHref/);
   assert.doesNotMatch(citySource, /bestehende ICONY-Plattform bereitgestellt/);

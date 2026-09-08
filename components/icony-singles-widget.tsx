@@ -8,12 +8,12 @@ type Props = {
   zip: string;
   country: number;
   platformId: string;
+  searchUrl: string;
 };
 
 type Gender = "women" | "men";
 
 const PROFILE_CLICK_URL = "https://alleinerziehende-singles.de/?AID=location";
-const DETAILED_SEARCH_URL = "https://alleinerziehende-singles.de/suche/?AID=location";
 
 function buildWidgetDocument({
   city,
@@ -21,7 +21,7 @@ function buildWidgetDocument({
   country,
   platformId,
   gender,
-}: Props & { gender: Gender }) {
+}: Omit<Props, "searchUrl"> & { gender: Gender }) {
   const options = JSON.stringify({
     platformId,
     city,
@@ -121,7 +121,7 @@ function buildWidgetDocument({
 </html>`;
 }
 
-export function IconySinglesWidget({ city, zip, country, platformId }: Props) {
+export function IconySinglesWidget({ city, zip, country, platformId, searchUrl }: Props) {
   const [gender, setGender] = useState<Gender>("women");
   const srcDoc = useMemo(
     () => buildWidgetDocument({ city, zip, country, platformId, gender }),
@@ -178,7 +178,7 @@ export function IconySinglesWidget({ city, zip, country, platformId }: Props) {
       </div>
 
       <div className={styles.actions}>
-        <a href={DETAILED_SEARCH_URL} target="_blank" rel="noopener noreferrer">
+        <a href={searchUrl} target="_blank" rel="noopener noreferrer">
           Ausführlicher in {city} suchen
         </a>
         <span>Kostenlos starten · Umkreis selbst erweitern · diskret stöbern</span>

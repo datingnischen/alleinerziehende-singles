@@ -1,5 +1,6 @@
 import atImport from "../data/icony-import-at.json" with { type: "json" };
 import chImport from "../data/icony-import-ch.json" with { type: "json" };
+import { buildCitySearchUrl } from "./city-search-postcodes.mjs";
 
 export type RegionalMarket = "at" | "ch";
 
@@ -21,6 +22,7 @@ export type MarketImportedPage = {
 
 export type MarketImportedCityPage = MarketImportedPage & {
   cityLabel: string;
+  searchUrl: string;
   icony: {
     locationId: string;
     locationValue: string;
@@ -116,7 +118,28 @@ function preparePage<T extends MarketImportedPage>(page: T, site: string, hub = 
   return { ...page, contentHtml: normalizeHtml(page.contentHtml, site, hub, cityDetail) };
 }
 
-function normalizeCity(page: RawCityPage, site: string): MarketImportedCityPage {
+export function validateMarketCityIdentity(
+  market: RegionalMarket,
+  sourceMarket: RegionalMarket,
+  site: string,
+  locationValue: string,
+  frameUrl: string,
+) {
+  const expectedSite = `https://alleinerziehende-singles.${market}`;
+  const expectedCountry = market === "at" ? "AT" : "CH";
+  const expectedCtr = market === "at" ? "43" : "41";
+  if (sourceMarket !== market || site !== expectedSite) {
+    throw new Error(`Invalid market identity for ${market}`);
+  }
+  const postcode = locationValue.match(new RegExp(`^(\\d{4}),\\s*[^,]+,\\s*${expectedCountry}$`))?.[1];
+  const frame = new URL(frameUrl);
+  if (!postcode || frame.searchParams.get("z") !== postcode || frame.searchParams.get("ctr") !== expectedCtr) {
+    throw new Error(`Invalid market location for ${market}`);
+  }
+  return postcode;
+}
+
+function normalizeCity(page: RawCityPage, site: string, market: RegionalMarket, sourceMarket: RegionalMarket): MarketImportedCityPage {
   const icony = page.icony ?? {
     locationId: page.iconyLocationId ?? "",
     locationValue: page.iconyLocationValue ?? "",
@@ -128,6 +151,9 @@ function normalizeCity(page: RawCityPage, site: string): MarketImportedCityPage 
     throw new Error(`Incomplete ICONY configuration for ${page.slug}`);
   }
 
+  validateMarketCityIdentity(market, sourceMarket, site, icony.locationValue, icony.frameUrl);
+  const searchUrl = buildCitySearchUrl(market, page.slug);
+
   return preparePage({
     slug: page.slug,
     path: page.path,
@@ -138,6 +164,7 @@ function normalizeCity(page: RawCityPage, site: string): MarketImportedCityPage 
     contentHtml: page.contentHtml,
     image: page.image,
     cityLabel: page.cityLabel,
+    searchUrl,
     icony,
   }, site, false, true);
 }
@@ -147,7 +174,7 @@ const imports = Object.fromEntries(
     market,
     {
       hub: preparePage(data.partnersucheHub, data.site, true),
-      cities: data.cityPages.map((page) => normalizeCity(page, data.site)),
+      cities: data.cityPages.map((page) => normalizeCity(page, data.site, market as RegionalMarket, data.market)),
     },
   ]),
 ) as Record<RegionalMarket, { hub: MarketImportedPage; cities: MarketImportedCityPage[] }>;
