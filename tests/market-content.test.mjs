@@ -113,6 +113,7 @@ test("normalizes every imported page without executable markup or country leakag
 test("wires market hubs and city pages to market shells, canonicals and ICONY frames", async () => {
   const hubSource = await readFile(new URL("../app/market-partnersuche/[market]/page.tsx", import.meta.url), "utf8").catch(() => "");
   const citySource = await readFile(new URL("../app/market-partnersuche/[market]/[slug]/page.tsx", import.meta.url), "utf8").catch(() => "");
+  const importedPageCss = await readFile(new URL("../app/imported-page.module.css", import.meta.url), "utf8").catch(() => "");
   const sitemapSource = await readFile(new URL("../app/market-sitemap/[market]/route.ts", import.meta.url), "utf8").catch(() => "");
   const marketHomeSource = await readFile(new URL("../app/market-home/[market]/page.tsx", import.meta.url), "utf8").catch(() => "");
 
@@ -138,6 +139,10 @@ test("wires market hubs and city pages to market shells, canonicals and ICONY fr
   assert.match(citySource, /alt="Schweizer Flagge"/);
   assert.match(citySource, /className=\{styles\.countryHubLink\}/);
   assert.match(citySource, /className=\{styles\.countryFlag\}/);
+  const countryHubRule = importedPageCss.match(/\.countryHubLink\s*\{[^}]+\}/s)?.[0] ?? "";
+  assert.match(countryHubRule, /width:\s*100%/);
+  assert.match(countryHubRule, /justify-content:\s*center/);
+  assert.doesNotMatch(countryHubRule, /width:\s*fit-content/);
   assert.doesNotMatch(citySource, /bestehende ICONY-Plattform bereitgestellt/);
   assert.match(citySource, /sourceAttributionUrl/);
   assert.match(citySource, /robots:\s*\{\s*index:\s*true/);

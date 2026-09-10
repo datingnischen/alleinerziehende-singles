@@ -223,8 +223,9 @@
 .countryHubLink {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 9px;
-  width: fit-content;
+  width: 100%;
   font-weight: 750;
 }
 
