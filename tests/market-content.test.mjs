@@ -133,6 +133,11 @@ test("wires market hubs and city pages to market shells, canonicals and ICONY fr
   assert.match(citySource, /Ausführlicher in \{page\.cityLabel\} suchen/);
   assert.match(citySource, /relativeCityHref/);
   assert.match(citySource, /relativeHubHref/);
+  assert.match(citySource, /market === "ch"/);
+  assert.match(citySource, /src="\/brand\/switzerland-flag\.svg"/);
+  assert.match(citySource, /alt="Schweizer Flagge"/);
+  assert.match(citySource, /className=\{styles\.countryHubLink\}/);
+  assert.match(citySource, /className=\{styles\.countryFlag\}/);
   assert.doesNotMatch(citySource, /bestehende ICONY-Plattform bereitgestellt/);
   assert.match(citySource, /sourceAttributionUrl/);
   assert.match(citySource, /robots:\s*\{\s*index:\s*true/);
