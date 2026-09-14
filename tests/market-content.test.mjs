@@ -128,6 +128,7 @@ test("wires market hubs and city pages to market shells, canonicals and ICONY fr
   assert.match(hubSource, /Mehr zu \{city\.cityLabel\}/);
   assert.doesNotMatch(hubSource, /Seite öffnen/);
   assert.match(citySource, /page\.icony\.frameUrl/);
+  assert.match(citySource, /registrationUrlForContext\(market, \"location\"\)/);
   assert.match(citySource, /Wer ist gerade online in \{page\.cityLabel\}\?/);
   assert.match(citySource, /className=\{styles\.sidebarWidgetFrame\}/);
   assert.match(citySource, /href=\{page\.searchUrl\}/);

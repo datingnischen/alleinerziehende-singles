@@ -7,6 +7,7 @@ import {
   type RegionalMarket,
 } from "@/lib/market-icony-import";
 import { isMarketCode, publicUrl } from "@/lib/markets";
+import { registrationUrlForContext } from "@/lib/registration-links";
 import styles from "../../imported-page.module.css";
 
 type Props = { params: Promise<{ market: string }> };
@@ -76,7 +77,7 @@ export default async function MarketPartnersuchePage({ params }: Props) {
             <div className={styles.ctaCard}>
               <h2>Direkt Kontakte finden</h2>
               <p>Starte kostenlos und lerne andere alleinerziehende Singles aus Deinem Land kennen.</p>
-              <a href={publicUrl(market, "/registration/")}>Kostenlos registrieren</a>
+              <a href={registrationUrlForContext(market, "default")}>Kostenlos registrieren</a>
             </div>
           </aside>
         </section>

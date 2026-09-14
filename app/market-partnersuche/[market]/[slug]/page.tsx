@@ -8,6 +8,7 @@ import {
   type RegionalMarket,
 } from "@/lib/market-icony-import";
 import { isMarketCode, publicUrl } from "@/lib/markets";
+import { registrationUrlForContext } from "@/lib/registration-links";
 import styles from "../../../imported-page.module.css";
 
 type Props = { params: Promise<{ market: string; slug: string }> };
@@ -54,7 +55,7 @@ export default async function MarketCityPage({ params }: Props) {
   const otherCities = getMarketCityPages(market).filter((city) => city.slug !== page.slug).slice(0, 6);
 
   return (
-    <SiteShell market={market}>
+    <SiteShell market={market} registrationContext="location">
       <main className={styles.page}>
         <section className={styles.hero}>
           <p className={styles.eyebrow}>Regionale Partnersuche für Alleinerziehende</p>
@@ -104,7 +105,7 @@ export default async function MarketCityPage({ params }: Props) {
                 referrerPolicy="strict-origin-when-cross-origin"
               />
               <a href={page.searchUrl}>Ausführlicher in {page.cityLabel} suchen</a>
-              <a href={publicUrl(market, "/registration/")}>Kostenlos registrieren</a>
+              <a href={registrationUrlForContext(market, "location")}>Kostenlos registrieren</a>
             </div>
           </aside>
         </section>
