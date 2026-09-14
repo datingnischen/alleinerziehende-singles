@@ -135,11 +135,10 @@ test("wires market hubs and city pages to market shells, canonicals and ICONY fr
   assert.match(citySource, /Ausführlicher in \{page\.cityLabel\} suchen/);
   assert.match(citySource, /relativeCityHref/);
   assert.match(citySource, /relativeHubHref/);
-  assert.match(citySource, /market === "ch"/);
-  assert.match(citySource, /src="\/brand\/switzerland-flag\.svg"/);
-  assert.match(citySource, /alt="Schweizer Flagge"/);
+  assert.doesNotMatch(citySource, /market === "ch"/);
+  assert.doesNotMatch(citySource, /src="\/brand\/switzerland-flag\.svg"/);
+  assert.doesNotMatch(citySource, /alt="Schweizer Flagge"/);
   assert.match(citySource, /className=\{styles\.countryHubLink\}/);
-  assert.match(citySource, /className=\{styles\.countryFlag\}/);
   const countryHubRule = importedPageCss.match(/\.countryHubLink\s*\{[^}]+\}/s)?.[0] ?? "";
   assert.match(countryHubRule, /width:\s*100%/);
   assert.match(countryHubRule, /justify-content:\s*center/);

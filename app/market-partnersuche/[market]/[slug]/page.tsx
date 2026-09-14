@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SiteShell } from "@/components/site-shell";
@@ -78,15 +77,6 @@ export default async function MarketCityPage({ params }: Props) {
               <h2>Weitere Städte entdecken</h2>
               <div className={styles.linkList}>
                 <a className={styles.countryHubLink} href={relativeHubHref()}>
-                  {market === "ch" ? (
-                    <Image
-                      className={styles.countryFlag}
-                      src="/brand/switzerland-flag.svg"
-                      alt="Schweizer Flagge"
-                      width={22}
-                      height={22}
-                    />
-                  ) : null}
                   <span>Alle Städte ansehen</span>
                 </a>
                 {otherCities.map((city) => (
