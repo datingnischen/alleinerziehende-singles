@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { registrationUrlForContext } from "@/lib/registration-links";
 import { formatGermanDate, getMagazineEntryBySlug } from "@/lib/wordpress";
 import styles from "./page.module.css";
 
@@ -32,6 +33,8 @@ export default async function MagazineEntryPage({ params }: Props) {
     notFound();
   }
 
+  const registrationHref = registrationUrlForContext("de", "magazin");
+
   return (
     <main className={styles.page}>
       <Link className={styles.backLink} href="/magazin">
@@ -61,6 +64,27 @@ export default async function MagazineEntryPage({ params }: Props) {
 
         <div className={styles.content} dangerouslySetInnerHTML={{ __html: entry.contentHtml }} />
       </article>
+
+      <aside className={styles.radarCta} aria-labelledby="radar-cta-title">
+        <div className={styles.radarCopy}>
+          <span className={styles.radarEyebrow}>Umkreissuche</span>
+          <h2 id="radar-cta-title">Alleinerziehende Singles in Deiner Nähe</h2>
+          <p>Lerne Mütter und Väter kennen, die Deinen Alltag verstehen – kostenlos und direkt in Deiner Region.</p>
+          <a className={styles.radarButton} href={registrationHref}>
+            Kostenlos registrieren
+          </a>
+        </div>
+        <a className={styles.radarCard} href={registrationHref}>
+          <img
+            src="/brand/umkreissuche-radar.svg"
+            alt="Umkreissuche: Alleinerziehende in Deiner Nähe – kostenlos anmelden"
+            width={320}
+            height={480}
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
+      </aside>
     </main>
   );
 }
