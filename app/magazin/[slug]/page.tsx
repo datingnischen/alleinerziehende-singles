@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { registrationUrlForContext } from "@/lib/registration-links";
-import { formatGermanDate, getMagazineEntryBySlug } from "@/lib/wordpress";
+import { formatArticleUpdated, getMagazineEntryBySlug } from "@/lib/wordpress";
 import styles from "./page.module.css";
 
 type Props = {
@@ -46,7 +46,7 @@ export default async function MagazineEntryPage({ params }: Props) {
           <div className={styles.heroCopy}>
             <div className={styles.metaRow}>
               <span>{entry.kind === "post" ? "Artikel" : "Seite"}</span>
-              {entry.date ? <span>{formatGermanDate(entry.date)}</span> : null}
+              {entry.kind === "post" && formatArticleUpdated(entry) ? <span>{formatArticleUpdated(entry)}</span> : null}
               {entry.authorName ? <span>{entry.authorName}</span> : null}
             </div>
             <h1 dangerouslySetInnerHTML={{ __html: entry.titleHtml }} />

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  formatGermanDate,
+  formatArticleUpdated,
   getMagazineCategories,
   getMagazinePages,
   getMagazinePosts,
@@ -149,7 +149,7 @@ export default async function MagazinePage({ searchParams }: Props) {
               <div className={styles.cardCopy}>
                 <div className={styles.metaRow}>
                   <span>Artikel</span>
-                  <span>{formatGermanDate(post.date)}</span>
+                  <span>{formatArticleUpdated(post)}</span>
                 </div>
                 <h3 dangerouslySetInnerHTML={{ __html: post.titleHtml }} />
                 <div

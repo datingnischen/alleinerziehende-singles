@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SiteShell } from "@/components/site-shell";
 import { importedRootPages } from "@/lib/icony-import";
-import { getMagazinePosts, formatGermanDate } from "@/lib/wordpress";
+import { getMagazinePosts, formatArticleUpdated } from "@/lib/wordpress";
 import styles from "./page.module.css";
 
 const ABOUT_PAGE_PATHS: Record<string, string> = {
@@ -118,7 +118,7 @@ export default async function Home() {
                 <div className={styles.articleCopy}>
                   <div className={styles.articleMeta}>
                     <span>Magazin</span>
-                    <span>{formatGermanDate(post.date)}</span>
+                    <span>{formatArticleUpdated(post)}</span>
                   </div>
                   <h3 dangerouslySetInnerHTML={{ __html: post.titleHtml }} />
                   <div className={styles.excerpt} dangerouslySetInnerHTML={{ __html: post.excerptHtml }} />

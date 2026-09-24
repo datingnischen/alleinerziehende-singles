@@ -318,12 +318,24 @@ export async function getMagazineEntryBySlug(slug: string): Promise<MagazineEntr
   return post ?? page;
 }
 
-export function formatGermanDate(date?: string): string {
-  if (!date) return "";
+/**
+ * Sichtbares Artikeldatum: Änderungsdatum statt Veröffentlichungsdatum
+ * (Fallback auf date), z. B. "Aktualisiert am 12. November 2025".
+ * Feste Seiten zeigen bewusst kein Datum.
+ */
+export function formatArticleUpdated(entry: Pick<MagazineEntry, "date" | "modified">): string {
+  const value = entry.modified || entry.date;
+  if (!value) return "";
 
-  return new Intl.DateTimeFormat("de-DE", {
-    day: "2-digit",
-    month: "2-digit",
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return "";
+
+  const formatted = new Intl.DateTimeFormat("de-DE", {
+    day: "numeric",
+    month: "long",
     year: "numeric",
-  }).format(new Date(date));
+    timeZone: "Europe/Berlin",
+  }).format(parsed);
+
+  return `Aktualisiert am ${formatted}`;
 }

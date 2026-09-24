@@ -125,3 +125,13 @@ test("keeps the automatic 2026 kindergeld data in a dedicated JSON source", asyn
   assert.match(scriptSource, /graph\.facebook\.com/);
   assert.match(scriptSource, /kindergeld-facebook-2026\.json/);
 });
+
+test("articles show the modified date, fixed pages show none", async () => {
+  const { formatArticleUpdated } = await loadWordpressHelpers();
+  const detailSource = await readFile(new URL("../app/magazin/[slug]/page.tsx", import.meta.url), "utf8");
+
+  assert.equal(formatArticleUpdated({ date: "2025-01-10T10:00:00", modified: "2025-11-12T10:00:00" }), "Aktualisiert am 12. November 2025");
+  assert.equal(formatArticleUpdated({ date: "2025-11-12T10:00:00" }), "Aktualisiert am 12. November 2025");
+  assert.equal(formatArticleUpdated({}), "");
+  assert.match(detailSource, /entry\.kind === "post" && formatArticleUpdated\(entry\)/);
+});
