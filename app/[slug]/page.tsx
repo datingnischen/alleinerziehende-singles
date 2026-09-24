@@ -6,7 +6,9 @@ import {
   getPlatformOwnedUrlBySlug,
   importedRootPages,
   isPlatformOwnedSlug,
+  SITE_URL,
 } from "@/lib/icony-import";
+import { buildFaqPageJsonLd, extractFaqEntries, serializeJsonLd } from "@/lib/faq-schema";
 import styles from "../imported-page.module.css";
 
 type Props = {
@@ -87,8 +89,16 @@ export default async function ImportedRootPage({ params }: Props) {
     })
     .filter((entry): entry is { href: string; label: string } => entry !== null);
 
+  const faqEntries = slug === "faq" ? extractFaqEntries(page.contentHtml) : [];
+  const faqJsonLd = faqEntries.length
+    ? buildFaqPageJsonLd({ url: `${SITE_URL}${page.path}`, name: page.heroTitle, entries: faqEntries })
+    : null;
+
   return (
     <main className={styles.page}>
+      {faqJsonLd ? (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqJsonLd) }} />
+      ) : null}
       <section className={styles.hero}>
         <p className={styles.eyebrow}>Antworten, Tipps & Orientierung</p>
         <h1>{page.heroTitle}</h1>
