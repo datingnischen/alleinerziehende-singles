@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CitySearchFallback } from "@/components/city-search-fallback";
 import { importedCityPages, importedPartnersucheHub } from "@/lib/icony-import";
 import styles from "../imported-page.module.css";
 
@@ -100,6 +101,8 @@ export default function PartnersucheHubPage() {
               })()
             ))}
           </div>
+
+          <CitySearchFallback market="de" />
         </div>
 
         <article className={styles.article}>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { CitySearchFallback } from "@/components/city-search-fallback";
 import { SiteShell } from "@/components/site-shell";
 import {
   getMarketCityPages,
@@ -103,6 +104,8 @@ export default async function MarketPartnersuchePage({ params }: Props) {
               </article>
             ))}
           </div>
+
+          <CitySearchFallback market={market} />
         </section>
       </main>
     </SiteShell>
