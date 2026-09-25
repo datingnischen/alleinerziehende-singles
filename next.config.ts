@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 import { PHASE_DEVELOPMENT_SERVER } from "next/constants";
 
-const DEFAULT_ASSET_HOST = process.env.NEXT_PUBLIC_SITE_URL || "";
+// nginx vor den Live-Domains reicht nur Seitenrouten weiter: /_next/*, /_next/image und public/
+// liefert der Vercel-Host aus. Überschreibbar per NEXT_PUBLIC_ASSET_HOST.
+const DEFAULT_ASSET_HOST = "https://alleinerziehende-singles.vercel.app";
 const DEFAULT_ASSET_PATH_PREFIX = "/app-assets";
 
 function trimTrailingSlash(value: string) {
@@ -24,6 +26,12 @@ export default function nextConfig(phase: string): NextConfig {
 
   return {
     assetPrefix: isDev ? undefined : assetPrefix,
+    images: {
+      path: isDev || !assetHost ? "/_next/image" : `${assetHost}/_next/image`,
+      remotePatterns: assetHost
+        ? [{ protocol: "https", hostname: new URL(assetHost).hostname, pathname: `${assetPathPrefix}/**` }]
+        : [],
+    },
     async rewrites() {
       return [
         {

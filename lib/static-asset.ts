@@ -1,4 +1,5 @@
-const DEFAULT_ASSET_HOST = process.env.NEXT_PUBLIC_SITE_URL || "";
+// nginx vor den Live-Domains reicht nur Seitenrouten weiter, Assets kommen vom Vercel-Host.
+const DEFAULT_ASSET_HOST = "https://alleinerziehende-singles.vercel.app";
 const DEFAULT_ASSET_PATH_PREFIX = "/app-assets";
 
 function trimTrailingSlash(value: string) {

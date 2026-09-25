@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { staticAsset } from "@/lib/static-asset";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -19,6 +20,12 @@ export const metadata: Metadata = {
   },
   description:
     "Partnersuche, Sicherheit, Antworten und Magazin von Alleinerziehende-Singles.de in einer klaren, modernen Übersicht.",
+  // Icons liegen in public/brand/ statt als app/icon.png, damit sie absolut vom Vercel-Host kommen
+  // (der nginx vor den Live-Domains reicht nur Seitenrouten weiter).
+  icons: {
+    icon: staticAsset("/brand/icon.png"),
+    apple: staticAsset("/brand/apple-icon.png"),
+  },
 };
 
 export default function RootLayout({

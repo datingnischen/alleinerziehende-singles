@@ -6,6 +6,7 @@ import {
   registrationUrlForContext,
   type RegistrationContext,
 } from "@/lib/registration-links";
+import { staticAsset } from "@/lib/static-asset";
 import styles from "./site-shell.module.css";
 
 type NavLink = { label: string; href: string; internal?: boolean };
@@ -111,7 +112,7 @@ export function SiteShell({
       <header className={styles.header}>
         <div className={styles.headerInner}>
           <a className={styles.brand} href={publicUrl(market)}>
-            <Image src={config.logoPath} alt={`${config.domain} Logo`} width={300} height={31} priority />
+            <Image src={staticAsset(config.logoPath)}alt={`${config.domain} Logo`} width={300} height={31} priority />
             <span>Partnersuche für Mütter und Väter</span>
           </a>
 

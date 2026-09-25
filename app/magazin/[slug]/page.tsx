@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { registrationUrlForContext } from "@/lib/registration-links";
+import { staticAsset } from "@/lib/static-asset";
 import { formatArticleUpdated, getMagazineEntryBySlug } from "@/lib/wordpress";
 import styles from "./page.module.css";
 
@@ -76,7 +77,7 @@ export default async function MagazineEntryPage({ params }: Props) {
         </div>
         <a className={styles.radarCard} href={registrationHref}>
           <img
-            src="/brand/umkreissuche-radar.svg"
+            src={staticAsset("/brand/umkreissuche-radar.svg")}
             alt="Umkreissuche: Alleinerziehende in Deiner Nähe – kostenlos anmelden"
             width={320}
             height={480}
