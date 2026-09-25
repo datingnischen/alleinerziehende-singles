@@ -75,6 +75,8 @@ function absolutizePlatformFallbackRoutes(html: string) {
 
 function normalizeImportedHtml(contentHtml: string) {
   return absolutizePlatformFallbackRoutes(contentHtml)
+    // Die FAQ verlinkt die alte ICONY-Adresse /erfahrungen (live 404); die Bewertungen liegen unter Über uns.
+    .replace(/href=(['"])https?:\/\/(?:www\.)?alleinerziehende-singles\.de\/erfahrungen\/?\1/gi, "href=$1/ueber-uns/bewertungen/$1")
     .replace(/<h1\b[^>]*>[\s\S]*?<\/h1>/gi, "")
     .replace(/<p>\s*(?:&nbsp;|&#160;|\s)*\s*<\/p>/gi, "")
     .trim();
