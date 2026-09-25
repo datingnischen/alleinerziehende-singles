@@ -21,7 +21,7 @@ test("humanizes the public magazine landing copy and keeps categories clickable"
   assert.match(source, /Aktuelle Jahrgänge und frühere Übersichten auf einen Blick/);
   assert.match(source, /visiblePosts =/);
   assert.match(source, /generalPages = pages\.filter/);
-  assert.match(source, /href=\{`\/magazin\?thema=/);
+  assert.match(source, /href=\{`\/magazin\/\?thema=/);
   assert.match(wordpressSource, /const KINDERGELD_2026 =/);
   assert.match(wordpressSource, /KINDERGELD_2026\.title/);
   assert.match(wordpressSource, /firstMonth/);

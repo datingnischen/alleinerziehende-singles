@@ -11,7 +11,7 @@ export async function GET(_request: Request, { params }: RouteProps) {
 
   const urls = [
     publicUrl(market),
-    publicUrl(market, "/partnersuche"),
+    publicUrl(market, "/partnersuche/"),
     ...getMarketCityPages(market).map((page) => publicUrl(market, page.path)),
   ];
   const entries = urls

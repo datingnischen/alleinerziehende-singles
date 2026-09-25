@@ -7,8 +7,8 @@ import { getMagazinePosts, formatArticleUpdated } from "@/lib/wordpress";
 import styles from "./page.module.css";
 
 const ABOUT_PAGE_PATHS: Record<string, string> = {
-  "bewertungen-und-erfahrungen": "/ueber-uns/bewertungen",
-  "social-media": "/ueber-uns/social-media",
+  "bewertungen-und-erfahrungen": "/ueber-uns/bewertungen/",
+  "social-media": "/ueber-uns/social-media/",
 };
 
 const trustPoints = [
@@ -46,7 +46,7 @@ export default async function Home() {
             <a className={styles.primary} href="https://alleinerziehende-singles.de/registration/" target="_blank" rel="noreferrer">
               Kostenlos registrieren
             </a>
-            <Link className={styles.secondary} href="/magazin">
+            <Link className={styles.secondary} href="/magazin/">
               Zum Magazin
             </Link>
           </div>
@@ -73,10 +73,10 @@ export default async function Home() {
           <article className={styles.card}>
             <h2>Direkte Einstiege</h2>
             <div className={styles.linkList}>
-              <Link href="/partnersuche">Regionale Partnersuche</Link>
-              <Link href="/faq">FAQ</Link>
-              <Link href="/ueber-uns/bewertungen">Erfahrungen</Link>
-              <Link href="/ueber-uns/social-media">Social Media</Link>
+              <Link href="/partnersuche/">Regionale Partnersuche</Link>
+              <Link href="/faq/">FAQ</Link>
+              <Link href="/ueber-uns/bewertungen/">Erfahrungen</Link>
+              <Link href="/ueber-uns/social-media/">Social Media</Link>
               <a href="https://alleinerziehende-singles.de/sicherheit-und-datenschutz.html" target="_blank" rel="noreferrer">
                 Sicherheit
               </a>
@@ -98,7 +98,7 @@ export default async function Home() {
                 <p className={styles.serviceEyebrow}>Hilfreich & kompakt</p>
                 <h3>{page.heroTitle}</h3>
                 <p>{page.description}</p>
-                <Link href={ABOUT_PAGE_PATHS[page.slug] ?? `/${page.slug}`}>Seite öffnen</Link>
+                <Link href={ABOUT_PAGE_PATHS[page.slug] ?? page.path}>Seite öffnen</Link>
               </article>
             ))}
           </div>
@@ -122,7 +122,7 @@ export default async function Home() {
                   </div>
                   <h3 dangerouslySetInnerHTML={{ __html: post.titleHtml }} />
                   <div className={styles.excerpt} dangerouslySetInnerHTML={{ __html: post.excerptHtml }} />
-                  <Link href={`/magazin/${post.slug}`}>Artikel lesen</Link>
+                  <Link href={`/magazin/${post.slug}/`}>Artikel lesen</Link>
                 </div>
               </article>
             ))}

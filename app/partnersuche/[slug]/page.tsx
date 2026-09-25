@@ -67,7 +67,7 @@ export default async function PartnersucheCityPage({ params }: Props) {
           <div className={styles.sidebarCard}>
             <h2>Weitere Städte entdecken</h2>
             <div className={styles.linkList}>
-              <Link href="/partnersuche">Alle Städte ansehen</Link>
+              <Link href="/partnersuche/">Alle Städte ansehen</Link>
               {otherCities.map((city) => (
                 <Link key={city.slug} href={city.path}>
                   {city.cityLabel}

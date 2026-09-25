@@ -13,11 +13,11 @@ import styles from "../../../imported-page.module.css";
 type Props = { params: Promise<{ market: string; slug: string }> };
 
 function relativeCityHref(slug: string) {
-  return `../${slug}`;
+  return `../${slug}/`;
 }
 
 function relativeHubHref() {
-  return "..";
+  return "../";
 }
 
 function activeMarket(value: string): RegionalMarket {

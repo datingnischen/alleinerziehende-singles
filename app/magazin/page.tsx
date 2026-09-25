@@ -22,12 +22,12 @@ const MAGAZINE_ENTRY_POINTS = [
   {
     title: "Kindergeld & Finanzen",
     description: "Finde wichtige Termine, finanzielle Hilfen und praktische Orientierung für deinen Familienalltag.",
-    href: "/magazin?thema=kindergeld",
+    href: "/magazin/?thema=kindergeld",
   },
   {
     title: "Dating mit Kind",
     description: "Lies ehrliche Tipps für Neuanfang, Partnersuche und gute Gespräche mit neuen Kontakten.",
-    href: "/magazin?thema=singleboersen",
+    href: "/magazin/?thema=singleboersen",
   },
   {
     title: "Wichtige Magazin-Seiten",
@@ -82,14 +82,14 @@ export default async function MagazinePage({ searchParams }: Props) {
         <div className={styles.categoryRow}>
           <Link
             className={`${styles.categoryChip} ${!selectedCategory ? styles.categoryChipActive : ""}`}
-            href="/magazin"
+            href="/magazin/"
           >
             Alle Themen
           </Link>
           {categories.map((category) => (
             <Link
               className={`${styles.categoryChip} ${selectedCategory?.id === category.id ? styles.categoryChipActive : ""}`}
-              href={`/magazin?thema=${encodeURIComponent(category.slug)}`}
+              href={`/magazin/?thema=${encodeURIComponent(category.slug)}`}
               key={category.id}
             >
               {category.name}
@@ -115,7 +115,7 @@ export default async function MagazinePage({ searchParams }: Props) {
           </div>
           <div className={`${styles.pageList} ${styles.servicePageList}`}>
             {kindergeldPages.map((page) => (
-              <Link className={`${styles.pageListItem} ${styles.servicePageListItem}`} href={`/magazin/${page.slug}`} key={page.id}>
+              <Link className={`${styles.pageListItem} ${styles.servicePageListItem}`} href={`/magazin/${page.slug}/`} key={page.id}>
                 <div>
                   <span className={styles.pageType}>Kindergeld</span>
                   <strong dangerouslySetInnerHTML={{ __html: page.titleHtml }} />
@@ -156,7 +156,7 @@ export default async function MagazinePage({ searchParams }: Props) {
                   className={styles.excerpt}
                   dangerouslySetInnerHTML={{ __html: post.excerptHtml }}
                 />
-                <Link className={styles.cardLink} href={`/magazin/${post.slug}`}>
+                <Link className={styles.cardLink} href={`/magazin/${post.slug}/`}>
                   Artikel öffnen
                 </Link>
               </div>
@@ -172,7 +172,7 @@ export default async function MagazinePage({ searchParams }: Props) {
         </div>
         <div className={styles.pageList}>
           {generalPages.map((page) => (
-            <Link className={styles.pageListItem} href={`/magazin/${page.slug}`} key={page.id}>
+            <Link className={styles.pageListItem} href={`/magazin/${page.slug}/`} key={page.id}>
               <div>
                 <span className={styles.pageType}>Seite</span>
                 <strong dangerouslySetInnerHTML={{ __html: page.titleHtml }} />

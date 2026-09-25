@@ -105,7 +105,7 @@ function renderKindergeld2026Content() {
     '</section>',
     '<div class="kindergeld-note"><p>Neue Monate ergänzen wir, sobald sie dort veröffentlicht sind. So bleibt die Jahresübersicht früh sichtbar, auch wenn noch nicht alle Termine für das ganze Jahr vorliegen.</p></div>',
     `<div class="kindergeld-faq-box"><ul><li>Stand heute liegen Einträge von ${firstMonth} bis ${lastMonth} 2026 vor.</li><li>Jeder Monatslink führt direkt zum zugehörigen Facebook-Beitrag.</li><li>Die Quelle ist die Facebook-Seite „${sourceLabel}“.</li></ul></div>`,
-    '<section class="kindergeld-years"><h2>Weitere Jahresübersichten</h2><div class="kindergeld-year-list"><ul><li><a href="/magazin/kindergeld-auszahlungstermine-2025">2025</a></li><li><a href="/magazin/kindergeld-auszahlungstermine-2024">2024</a></li><li><a href="/magazin/kindergeld-auszahlungstermine-2023">2023</a></li><li><a href="/magazin/kindergeld-auszahlungstermine-2022">2022</a></li></ul></div></section>',
+    '<section class="kindergeld-years"><h2>Weitere Jahresübersichten</h2><div class="kindergeld-year-list"><ul><li><a href="/magazin/kindergeld-auszahlungstermine-2025/">2025</a></li><li><a href="/magazin/kindergeld-auszahlungstermine-2024/">2024</a></li><li><a href="/magazin/kindergeld-auszahlungstermine-2023/">2023</a></li><li><a href="/magazin/kindergeld-auszahlungstermine-2022/">2022</a></li></ul></div></section>',
   ].join("");
 }
 
@@ -114,7 +114,7 @@ export function getStaticMagazinePages(): MagazineEntry[] {
     {
       id: 2026001,
       slug: KINDERGELD_2026.slug,
-      link: `https://alleinerziehende-singles.de/magazin/${KINDERGELD_2026.slug}`,
+      link: `https://alleinerziehende-singles.de/magazin/${KINDERGELD_2026.slug}/`,
       titleHtml: KINDERGELD_2026.title,
       excerptHtml: `<p>${KINDERGELD_2026.intro}</p>`,
       contentHtml: renderKindergeld2026Content(),

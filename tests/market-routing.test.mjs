@@ -19,7 +19,12 @@ test("supports DE, AT and CH with their public domains and branded assets", asyn
   assert.equal(getMarket("ch").domain, "alleinerziehende-singles.ch");
   assert.equal(getMarket("at").logoPath, "/brand/alleinerziehende-singles-at.svg");
   assert.equal(getMarket("ch").heroPath, "/brand/frontpage-visual-alleinerziehende.webp");
-  assert.equal(publicUrl("ch", "/faq"), "https://alleinerziehende-singles.ch/faq");
+  assert.equal(publicUrl("ch", "/faq"), "https://alleinerziehende-singles.ch/faq/");
+  assert.equal(publicUrl("ch", "/"), "https://alleinerziehende-singles.ch/");
+  assert.equal(publicUrl("at", "/partnersuche/wien"), "https://alleinerziehende-singles.at/partnersuche/wien/");
+  assert.equal(publicUrl("de", "/sitemap.xml"), "https://alleinerziehende-singles.de/sitemap.xml");
+  assert.equal(publicUrl("de", "/impressum.html"), "https://alleinerziehende-singles.de/impressum.html");
+  assert.equal(publicUrl("de", "/registration/?AID=magazin"), "https://alleinerziehende-singles.de/registration/?AID=magazin");
 });
 
 test("keeps the Vercel root prefix-free and exposes market previews under hidden prefixes", async () => {
@@ -121,12 +126,12 @@ test("preview platform routes leave Vercel for the existing market platform", as
   assert.deepEqual(resolveMarketRequest("/at/registration/", "alleinerziehende-singles.vercel.app"), {
     action: "redirect-platform",
     market: "at",
-    url: "https://alleinerziehende-singles.at/registration",
+    url: "https://alleinerziehende-singles.at/registration/",
   });
   assert.deepEqual(resolveMarketRequest("/ch/login/", "alleinerziehende-singles.vercel.app"), {
     action: "redirect-platform",
     market: "ch",
-    url: "https://alleinerziehende-singles.ch/login",
+    url: "https://alleinerziehende-singles.ch/login/",
   });
 });
 
@@ -187,7 +192,7 @@ test("proxy, canonical helpers and market-specific rendered copy are wired", asy
   assert.match(marketHomeSource, /publicUrl\(market\)/);
   assert.match(marketHomeSource, /Alleinerziehende Singles in Österreich finden/);
   assert.match(marketHomeSource, /Alleinerziehende Singles in der Schweiz/);
-  assert.match(marketHomeSource, /publicUrl\(market, "\/partnersuche"\)/);
+  assert.match(marketHomeSource, /publicUrl\(market, "\/partnersuche\/"\)/);
   assert.match(marketHomeSource, /Partnersuche in der Schweiz/);
   assert.match(marketHomeSource, /Christian M\. Haas/);
   assert.match(marketHomeSource, /robots:\s*\{\s*index:\s*true/);

@@ -14,7 +14,7 @@ import styles from "../../imported-page.module.css";
 type Props = { params: Promise<{ market: string }> };
 
 function relativeCityHref(slug: string) {
-  return `partnersuche/${slug}`;
+  return `${slug}/`;
 }
 
 function cityCardExcerpt(description: string) {
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: { absolute: page.title },
     description: page.description,
-    alternates: { canonical: publicUrl(market, "/partnersuche") },
+    alternates: { canonical: publicUrl(market, "/partnersuche/") },
     robots: { index: true, follow: true },
   };
 }

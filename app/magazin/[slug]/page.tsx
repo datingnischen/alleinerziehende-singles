@@ -38,7 +38,7 @@ export default async function MagazineEntryPage({ params }: Props) {
 
   return (
     <main className={styles.page}>
-      <Link className={styles.backLink} href="/magazin">
+      <Link className={styles.backLink} href="/magazin/">
         ← Zurück zum Magazin
       </Link>
 

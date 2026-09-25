@@ -6,22 +6,22 @@ export const metadata: Metadata = {
   title: "Über uns",
   description:
     "Erfahre mehr über alleinerziehende-singles.de, unsere Social-Media-Kanäle, Bewertungen und Kooperationsmöglichkeiten.",
-  alternates: { canonical: "https://alleinerziehende-singles.de/ueber-uns" },
+  alternates: { canonical: "https://alleinerziehende-singles.de/ueber-uns/" },
 };
 
 const aboutPages = [
   {
-    href: "/ueber-uns/social-media",
+    href: "/ueber-uns/social-media/",
     title: "Social Media",
     description: "Unsere verifizierten Kanäle für Austausch, Videos und Themen aus dem Alltag Alleinerziehender.",
   },
   {
-    href: "/ueber-uns/bewertungen",
+    href: "/ueber-uns/bewertungen/",
     title: "Bewertungen & Erfahrungen",
     description: "Externe Bewertungen und Erfahrungen mit alleinerziehende-singles.de im Überblick.",
   },
   {
-    href: "/ueber-uns/kooperationen",
+    href: "/ueber-uns/kooperationen/",
     title: "Kooperationen",
     description: "Informationen für Medien, Communities, Portale und mögliche Kooperationspartner.",
   },
@@ -66,7 +66,7 @@ export default function AboutPage() {
           Entdecke Alleinerziehende aus Deiner Region oder starte direkt mit einem kostenlosen Profil.
         </p>
         <div className={styles.linkList}>
-          <Link href="/partnersuche">Singles nach Stadt entdecken</Link>
+          <Link href="/partnersuche/">Singles nach Stadt entdecken</Link>
           <a href="https://alleinerziehende-singles.de/registration/">Kostenlos registrieren</a>
         </div>
       </section>

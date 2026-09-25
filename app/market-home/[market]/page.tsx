@@ -25,22 +25,22 @@ const MARKET_COPY = {
       {
         title: "Partnersuche in Österreich",
         description: "Der wichtigste Überblick für Städte, regionale Tipps und erste passende Kontakte.",
-        href: "/partnersuche",
+        href: "/partnersuche/",
       },
       {
         title: "Wien kennenlernen",
         description: "Direkt zur größten Partnersuche-Seite für alleinerziehende Singles in Österreich.",
-        href: "/partnersuche/wien",
+        href: "/partnersuche/wien/",
       },
       {
         title: "Graz entdecken",
         description: "Ein guter Einstieg für Singles aus der Steiermark und dem Großraum Graz.",
-        href: "/partnersuche/graz",
+        href: "/partnersuche/graz/",
       },
       {
         title: "Salzburg aufrufen",
         description: "Schnell zur regionalen Seite für Salzburg und passende neue Kontakte.",
-        href: "/partnersuche/salzburg",
+        href: "/partnersuche/salzburg/",
       },
     ],
   },
@@ -57,22 +57,22 @@ const MARKET_COPY = {
       {
         title: "Partnersuche in der Schweiz",
         description: "Der wichtigste Überblick für Regionen, Städte und den Einstieg in die Schweizer Partnersuche.",
-        href: "/partnersuche",
+        href: "/partnersuche/",
       },
       {
         title: "Zürich kennenlernen",
         description: "Direkt zur meistgesuchten regionalen Einstiegsseite für den Raum Zürich.",
-        href: "/partnersuche/zuerich",
+        href: "/partnersuche/zuerich/",
       },
       {
         title: "Bern entdecken",
         description: "Ein schneller Weg zu regionalen Tipps und neuen Kontakten in Bern.",
-        href: "/partnersuche/bern",
+        href: "/partnersuche/bern/",
       },
       {
         title: "Basel aufrufen",
         description: "Direkt zur wichtigen Schweizer Städteroute für Basel und Umgebung.",
-        href: "/partnersuche/basel",
+        href: "/partnersuche/basel/",
       },
     ],
   },
@@ -116,8 +116,8 @@ export default async function MarketHomePage({ params }: PageProps) {
             <p>{copy.intro}</p>
             <div className={styles.actions}>
               <a className={styles.primary} href={publicUrl(market, "/registration/")}>Kostenlos registrieren</a>
-              <a className={styles.secondary} href={publicUrl(market, "/partnersuche")}>Singles nach Stadt entdecken</a>
-              <a className={styles.secondary} href={publicUrl(market, "/faq")}>Häufige Fragen</a>
+              <a className={styles.secondary} href={publicUrl(market, "/partnersuche/")}>Singles nach Stadt entdecken</a>
+              <a className={styles.secondary} href={publicUrl(market, "/faq/")}>Häufige Fragen</a>
             </div>
           </div>
           <Image

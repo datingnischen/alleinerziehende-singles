@@ -19,10 +19,10 @@ const sidebarRouteOrder = ["partnersuche", "faq"];
 
 function redirectMovedAboutPage(slug: string) {
   if (slug === "social-media") {
-    permanentRedirect("/ueber-uns/social-media");
+    permanentRedirect("/ueber-uns/social-media/");
   }
   if (slug === "bewertungen-und-erfahrungen") {
-    permanentRedirect("/ueber-uns/bewertungen");
+    permanentRedirect("/ueber-uns/bewertungen/");
   }
 }
 
@@ -81,11 +81,11 @@ export default async function ImportedRootPage({ params }: Props) {
     .filter((item) => item !== slug)
     .map((item) => {
       if (item === "partnersuche") {
-        return { href: "/partnersuche", label: "Regionale Partnersuche" };
+        return { href: "/partnersuche/", label: "Regionale Partnersuche" };
       }
 
       const importedPage = getImportedRootPageBySlug(item);
-      return importedPage ? { href: `/${importedPage.slug}`, label: importedPage.heroTitle } : null;
+      return importedPage ? { href: importedPage.path, label: importedPage.heroTitle } : null;
     })
     .filter((entry): entry is { href: string; label: string } => entry !== null);
 

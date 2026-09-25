@@ -15,16 +15,16 @@ function navigation(market: MarketCode): NavLink[] {
   if (market === "de") {
     return [
       { label: "Start", href: "/", internal: true },
-      { label: "Partnersuche", href: "/partnersuche", internal: true },
-      { label: "Magazin", href: "/magazin", internal: true },
-      { label: "FAQ", href: "/faq", internal: true },
-      { label: "Über uns", href: "/ueber-uns", internal: true },
+      { label: "Partnersuche", href: "/partnersuche/", internal: true },
+      { label: "Magazin", href: "/magazin/", internal: true },
+      { label: "FAQ", href: "/faq/", internal: true },
+      { label: "Über uns", href: "/ueber-uns/", internal: true },
     ];
   }
 
   return [
     { label: "Start", href: publicUrl(market) },
-    { label: "FAQ", href: publicUrl(market, "/faq") },
+    { label: "FAQ", href: publicUrl(market, "/faq/") },
     { label: "Fragenflirt", href: publicUrl(market, "/fragenflirt.html") },
     { label: "Fotoflirt", href: publicUrl(market, "/fotoflirt.html") },
   ];
@@ -61,7 +61,7 @@ export function SiteShell({
     {
       title: "Tipps",
       links: [
-        ...(frontendMagazine ? [{ label: "Magazin", href: "/magazin", internal: true }] : []),
+        ...(frontendMagazine ? [{ label: "Magazin", href: "/magazin/", internal: true }] : []),
         { label: "Fragenflirt", href: publicUrl(market, "/fragenflirt.html") },
         { label: "Fotoflirt", href: publicUrl(market, "/fotoflirt.html") },
         { label: "Video-Date", href: publicUrl(market, "/videodate.html") },
@@ -72,13 +72,13 @@ export function SiteShell({
       title: market === "de" ? "Über uns" : "Vertrauen",
       links: market === "de"
         ? [
-            { label: "Über uns", href: "/ueber-uns", internal: true },
-            { label: "Bewertungen & Erfahrungen", href: "/ueber-uns/bewertungen", internal: true },
-            { label: "Social Media", href: "/ueber-uns/social-media", internal: true },
-            { label: "Kooperationen", href: "/ueber-uns/kooperationen", internal: true },
+            { label: "Über uns", href: "/ueber-uns/", internal: true },
+            { label: "Bewertungen & Erfahrungen", href: "/ueber-uns/bewertungen/", internal: true },
+            { label: "Social Media", href: "/ueber-uns/social-media/", internal: true },
+            { label: "Kooperationen", href: "/ueber-uns/kooperationen/", internal: true },
           ]
         : [
-            { label: "FAQ", href: publicUrl(market, "/faq") },
+            { label: "FAQ", href: publicUrl(market, "/faq/") },
             ...trustLinks.slice(0, 2),
           ],
     },
@@ -94,7 +94,7 @@ export function SiteShell({
     {
       title: "Service & Länder",
       links: [
-        ...(market === "de" ? [{ label: "FAQ", href: "/faq", internal: true }] : []),
+        ...(market === "de" ? [{ label: "FAQ", href: "/faq/", internal: true }] : []),
         { label: "Hilfe & Support", href: publicUrl(market, "/hilfe/") },
         { label: "Datenschutz", href: publicUrl(market, "/datenschutz.html") },
         { label: "Impressum", href: publicUrl(market, "/impressum.html") },
@@ -149,7 +149,7 @@ export function SiteShell({
             </p>
             <div className={styles.footerActions}>
               <a href={registrationUrl}>{footerRegistrationText}</a>
-              {frontendMagazine ? <Link href="/magazin">Zum Magazin</Link> : <a href={publicUrl(market, "/faq")}>Zu den FAQ</a>}
+              {frontendMagazine ? <Link href="/magazin/">Zum Magazin</Link> : <a href={publicUrl(market, "/faq/")}>Zu den FAQ</a>}
             </div>
           </div>
 

@@ -26,7 +26,7 @@ test("uses market-specific footer registration labels and context-aware registra
 
   assert.equal(
     registrationUrlForContext("de", "default"),
-    "https://alleinerziehende-singles.de/registration",
+    "https://alleinerziehende-singles.de/registration/",
   );
   assert.equal(
     registrationUrlForContext("de", "magazin"),

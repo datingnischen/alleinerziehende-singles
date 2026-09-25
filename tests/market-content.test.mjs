@@ -78,14 +78,17 @@ test("normalizes every imported page without executable markup or country leakag
       hubHtml,
       new RegExp(`href=["']https://alleinerziehende-singles\\.${market}/partnersuche/`, "i"),
     );
-    assert.match(hubHtml, /href=["']partnersuche\/[a-z0-9-]+["']/i);
+    assert.match(hubHtml, /href=["'][a-z0-9-]+\/["']/i);
 
-    const previewBase = `https://alleinerziehende-singles.vercel.app/${market}/partnersuche`;
-    const relativeCityLinks = [...hubHtml.matchAll(/href=["'](partnersuche\/[a-z0-9-]+)["']/gi)]
+    // Der Hub liegt unter /partnersuche/ (mit Schrägstrich), relative Stadtlinks enden ebenfalls auf "/".
+    const previewBase = `https://alleinerziehende-singles.vercel.app/${market}/partnersuche/`;
+    const publicBase = `https://alleinerziehende-singles.${market}/partnersuche/`;
+    const relativeCityLinks = [...hubHtml.matchAll(/href=["']([a-z0-9-]+\/)["']/gi)]
       .map((match) => match[1]);
     assert.ok(relativeCityLinks.length > 0);
     for (const href of relativeCityLinks) {
-      assert.equal(new URL(href, previewBase).pathname, `/${market}/${href}`);
+      assert.equal(new URL(href, previewBase).pathname, `/${market}/partnersuche/${href}`);
+      assert.equal(new URL(href, publicBase).pathname, `/partnersuche/${href}`);
     }
   }
 
@@ -103,9 +106,9 @@ test("normalizes every imported page without executable markup or country leakag
   }
 
   const klagenfurtHtml = getMarketCityPage("at", "klagenfurt").contentHtml;
-  assert.match(klagenfurtHtml, /href=["']\.\.\/innsbruck["']/i);
-  assert.match(klagenfurtHtml, /href=["']\.\.\/graz["']/i);
-  assert.match(klagenfurtHtml, /href=["']\.\.["']/i);
+  assert.match(klagenfurtHtml, /href=["']\.\.\/innsbruck\/["']/i);
+  assert.match(klagenfurtHtml, /href=["']\.\.\/graz\/["']/i);
+  assert.match(klagenfurtHtml, /href=["']\.\.\/["']/i);
   assert.doesNotMatch(klagenfurtHtml, /href=["']\/partnersuche\//i);
   assert.doesNotMatch(klagenfurtHtml, /href=["']https:\/\/alleinerziehende-singles\.at\/partnersuche\//i);
 });
@@ -118,7 +121,7 @@ test("wires market hubs and city pages to market shells, canonicals and ICONY fr
   const marketHomeSource = await readFile(new URL("../app/market-home/[market]/page.tsx", import.meta.url), "utf8").catch(() => "");
 
   assert.match(hubSource, /SiteShell market=\{market\}/);
-  assert.match(hubSource, /publicUrl\(market, "\/partnersuche"\)/);
+  assert.match(hubSource, /publicUrl\(market, "\/partnersuche\/"\)/);
   assert.match(hubSource, /cityCardExcerpt/);
   assert.match(hubSource, /className=\{styles\.cityCardMedia\}/);
   assert.match(hubSource, /className=\{styles\.cityCardCopy\}/);

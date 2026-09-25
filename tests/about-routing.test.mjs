@@ -23,16 +23,16 @@ test("exposes the verified elFlirt-style about route hierarchy", async () => {
   assert.match(detail, /getImportedRootPageBySlug\("social-media"\)/);
   assert.match(detail, /getImportedRootPageBySlug\("bewertungen-und-erfahrungen"\)/);
   assert.match(detail, /christian@datingnischen\.de/);
-  assert.match(shell, /label: "Über uns", href: "\/ueber-uns", internal: true/);
+  assert.match(shell, /label: "Über uns", href: "\/ueber-uns\/", internal: true/);
 });
 
 test("permanently redirects the moved legacy pages", async () => {
   const rootPage = await read("../app/[slug]/page.tsx");
 
   assert.match(rootPage, /slug === "social-media"/);
-  assert.match(rootPage, /permanentRedirect\("\/ueber-uns\/social-media"\)/);
+  assert.match(rootPage, /permanentRedirect\("\/ueber-uns\/social-media\/"\)/);
   assert.match(rootPage, /slug === "bewertungen-und-erfahrungen"/);
-  assert.match(rootPage, /permanentRedirect\("\/ueber-uns\/bewertungen"\)/);
+  assert.match(rootPage, /permanentRedirect\("\/ueber-uns\/bewertungen\/"\)/);
 });
 
 test("does not link internally through moved legacy URLs", async () => {

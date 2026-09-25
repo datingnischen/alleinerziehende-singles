@@ -1,6 +1,7 @@
 import atImport from "../data/icony-import-at.json" with { type: "json" };
 import chImport from "../data/icony-import-ch.json" with { type: "json" };
 import { buildCitySearchUrl } from "./city-search-postcodes.mjs";
+import { withTrailingSlash } from "#markets";
 
 export type RegionalMarket = "at" | "ch";
 
@@ -57,11 +58,11 @@ function relativeHubCityLinks(html: string, site: string) {
   return html
     .replace(
       new RegExp(`href=(['"])${escapedSite}/partnersuche/([a-z0-9-]+)/?\\1`, "gi"),
-      (_match, quote, slug) => `href=${quote}partnersuche/${slug}${quote}`,
+      (_match, quote, slug) => `href=${quote}${slug}/${quote}`,
     )
     .replace(
       /href=(['"])\/partnersuche\/([a-z0-9-]+)\/?\1/gi,
-      (_match, quote, slug) => `href=${quote}partnersuche/${slug}${quote}`,
+      (_match, quote, slug) => `href=${quote}${slug}/${quote}`,
     );
 }
 
@@ -70,17 +71,17 @@ function relativeDetailCityLinks(html: string, site: string) {
   return html
     .replace(
       new RegExp(`href=(['"])${escapedSite}/partnersuche/([a-z0-9-]+)/?\\1`, "gi"),
-      (_match, quote, slug) => `href=${quote}../${slug}${quote}`,
+      (_match, quote, slug) => `href=${quote}../${slug}/${quote}`,
     )
     .replace(
       new RegExp(`href=(['"])${escapedSite}/partnersuche/?\\1`, "gi"),
-      (_match, quote) => `href=${quote}..${quote}`,
+      (_match, quote) => `href=${quote}../${quote}`,
     )
     .replace(
       /href=(['"])\/partnersuche\/([a-z0-9-]+)\/?\1/gi,
-      (_match, quote, slug) => `href=${quote}../${slug}${quote}`,
+      (_match, quote, slug) => `href=${quote}../${slug}/${quote}`,
     )
-    .replace(/href=(['"])\/partnersuche\/?\1/gi, (_match, quote) => `href=${quote}..${quote}`);
+    .replace(/href=(['"])\/partnersuche\/?\1/gi, (_match, quote) => `href=${quote}../${quote}`);
 }
 
 function normalizeHtml(html: string, site: string, hub = false, cityDetail = false) {
@@ -108,8 +109,7 @@ function normalizeHtml(html: string, site: string, hub = false, cityDetail = fal
     .replace(/<h1\b[^>]*>[\s\S]*?<\/h1>/gi, "")
     .replace(/<p>\s*(?:&nbsp;|&#160;|\s)*\s*<\/p>/gi, "")
     .replace(/href=(['"])(\/[^'"#?]*)\1/gi, (_match, quote, path) => {
-      const normalizedPath = path === "/" ? "/" : `/${path.replace(/^\/+|\/+$/g, "")}`;
-      return `href=${quote}${site}${normalizedPath}${quote}`;
+      return `href=${quote}${site}${withTrailingSlash(`/${path.replace(/^\/+/, "")}`)}${quote}`;
     })
     .trim();
 }

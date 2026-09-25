@@ -25,6 +25,10 @@ export default function nextConfig(phase: string): NextConfig {
   const assetPrefix = assetHost ? `${assetHost}${assetPathPrefix}` : assetPathPrefix;
 
   return {
+    // Seitenpfade enden auf "/" (wie ICONY /login/). Die Umleitung macht proxy.ts, weil nur dort der
+    // interne Marktpräfix (/at/..., /ch/..., /de/...) bekannt ist.
+    trailingSlash: true,
+    skipTrailingSlashRedirect: true,
     assetPrefix: isDev ? undefined : assetPrefix,
     images: {
       path: isDev || !assetHost ? "/_next/image" : `${assetHost}/_next/image`,

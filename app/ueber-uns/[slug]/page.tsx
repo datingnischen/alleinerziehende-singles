@@ -8,10 +8,10 @@ type Props = { params: Promise<{ slug: string }> };
 type AboutSlug = "social-media" | "bewertungen" | "kooperationen";
 
 const aboutLinks: { href: string; label: string }[] = [
-  { href: "/ueber-uns", label: "Über uns" },
-  { href: "/ueber-uns/social-media", label: "Social Media" },
-  { href: "/ueber-uns/bewertungen", label: "Bewertungen & Erfahrungen" },
-  { href: "/ueber-uns/kooperationen", label: "Kooperationen" },
+  { href: "/ueber-uns/", label: "Über uns" },
+  { href: "/ueber-uns/social-media/", label: "Social Media" },
+  { href: "/ueber-uns/bewertungen/", label: "Bewertungen & Erfahrungen" },
+  { href: "/ueber-uns/kooperationen/", label: "Kooperationen" },
 ];
 
 function isAboutSlug(value: string): value is AboutSlug {
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
-    alternates: { canonical: `https://alleinerziehende-singles.de/ueber-uns/${slug}` },
+    alternates: { canonical: `https://alleinerziehende-singles.de/ueber-uns/${slug}/` },
   };
 }
 
@@ -52,7 +52,7 @@ function AboutSidebar({ current }: { current: AboutSlug }) {
         <h2>Über uns</h2>
         <div className={styles.linkList}>
           {aboutLinks
-            .filter((link) => link.href !== `/ueber-uns/${current}`)
+            .filter((link) => link.href !== `/ueber-uns/${current}/`)
             .map((link) => (
               <Link key={link.href} href={link.href}>{link.label}</Link>
             ))}
