@@ -1,6 +1,6 @@
 # Source Inventory
 
-Stand: 2026-07-30
+Stand: 2026-07-30 (Inventur); ergänzt 2026-09-25
 
 ## Root-Site / öffentliche Service-Routen
 
@@ -56,8 +56,8 @@ Page-Slug:
 Kategorie-Slug:
 - `kindergeld`
 
-## Offene Punkte
+## Erledigt seit der Inventur
 
-- Root-/ICONY-Quellstruktur tiefer inventarisieren
-- prüfen, welche Seiten zuerst in den initialen Vercel-Schnitt gehören
-- mögliche Städte-/Lexikon-/Hilfeseiten-Struktur am Live-Stack ermitteln
+- Städteseiten (`/partnersuche/`, je 15 Städte für DE/AT/CH), FAQ, Bewertungen und Social Media sind migriert;
+  Seitenliste und Import siehe `scripts/import_icony.py` und README.md
+- Plattformseiten (Login, Registrierung, Hilfe, Kontakt, Premium, Rechtstexte usw.) bleiben auf ICONY

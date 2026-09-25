@@ -1,3 +1,5 @@
+> Historisch (Stand 2026-07-30), nicht mehr aktuell – aktueller Stand in README.md.
+
 # Alleinerziehende-Singles.de → Vercel Migration Kickoff
 
 Stand: 2026-07-30
