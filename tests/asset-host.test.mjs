@@ -18,6 +18,17 @@ test("Assets kommen absolut vom Vercel-Host, weil nginx nur Seitenrouten durchre
   );
 });
 
+test("WordPress-Dateien im Magazin bleiben absolut, Seitenlinks werden relativ", async () => {
+  const { normalizeMagazineHtml } = await import("../lib/wordpress.ts");
+  const html = normalizeMagazineHtml(
+    "beispiel",
+    '<a href="https://alleinerziehende-singles.de/magazin/dating-mit-kind">x</a>'
+      + '<audio src="https://alleinerziehende-singles.de/magazin/wp-content/uploads/2026/06/a.mp3"></audio>',
+  );
+  assert.match(html, /href="\/magazin\/dating-mit-kind"/);
+  assert.match(html, /src="https:\/\/alleinerziehende-singles\.de\/magazin\/wp-content\/uploads\/2026\/06\/a\.mp3"/);
+});
+
 test("Icons liegen in public/brand und werden absolut verlinkt", async () => {
   await access(new URL("../public/brand/icon.png", import.meta.url));
   await access(new URL("../public/brand/apple-icon.png", import.meta.url));

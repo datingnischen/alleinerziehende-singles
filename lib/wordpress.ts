@@ -133,9 +133,11 @@ export function getStaticMagazinePageBySlug(slug: string): MagazineEntry | null 
   return getStaticMagazinePages().find((entry) => entry.slug === slug) ?? null;
 }
 
+// Nur Seitenlinks werden relativ. WordPress-Dateien (Bilder, Audio) bleiben absolut auf der
+// Live-Domain, denn die Next.js-Seiten (auch über den Vercel-Host) liefern /magazin/wp-content/ nicht aus.
 function makeMagazineLinksRelative(html: string): string {
   return html.replace(
-    /https?:\/\/(?:www\.)?alleinerziehende-singles\.de(\/magazin\/[^"]*)/gi,
+    /https?:\/\/(?:www\.)?alleinerziehende-singles\.de(\/magazin\/(?!wp-(?:content|includes|json)\/)[^"]*)/gi,
     "$1",
   );
 }
