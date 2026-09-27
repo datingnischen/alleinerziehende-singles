@@ -98,7 +98,7 @@
   }
 
   .frame {
-    height: 440px;
+    height: 470px;
   }
 
   .actions :global(.ae-btn) {
@@ -108,6 +108,6 @@
 
 @media (max-width: 430px) {
   .frame {
-    height: 620px;
+    height: 660px;
   }
 }

@@ -127,6 +127,8 @@ OVERRIDES: dict[str, dict[str, dict[str, str]]] = {
     "de": {
         # Live: "zur  Partnersuche bei alleinerziehende-signeles.de" (Commit af0b0b4)
         "/faq/": {
+            # Live: "Häufig gestellte Fragen (FAQ) die Helfen" (Komma, Kleinschreibung)
+            "title": "Häufig gestellte Fragen (FAQ), die helfen",
             "description": "Antworten auf häufige Fragen zur Partnersuche bei alleinerziehende-singles.de. "
             "Jetzt alles zu Kosten, Sicherheit & Ablauf erfahren.",
         },

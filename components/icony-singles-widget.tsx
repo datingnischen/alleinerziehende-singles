@@ -46,6 +46,7 @@ function buildWidgetDocument({
 <style>
   :root { color-scheme: light; --brand:#57ad46; --brand-dark:#3d7f30; --accent:#f8ae14; --muted:#5a6656; --line:#e9e1cd; --text:#22301f; }
   * { box-sizing: border-box; }
+  html, body { overflow: hidden; }
   body { margin: 0; font-family: "Open Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: transparent; color: var(--text); }
   a { color: inherit; text-decoration: none; }
   .state { min-height: 230px; display: grid; place-items: center; padding: 18px; border: 1.5px dashed var(--line); border-radius: 22px; background: #fffaf0; color: var(--brand-dark); font-weight: 700; text-align: center; }

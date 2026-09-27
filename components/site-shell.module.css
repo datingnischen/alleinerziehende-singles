@@ -547,8 +547,32 @@
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 430px) {
+  .barInner {
+    gap: 8px;
+  }
+
   .brand img {
-    width: 168px;
+    width: 150px;
+  }
+
+  .actions {
+    gap: 6px;
+  }
+
+  .register {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .menu summary {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media (max-width: 350px) {
+  .brand img {
+    width: 128px;
   }
 }
