@@ -559,6 +559,42 @@ h3,
   border-top: 1px dashed var(--ae-line);
 }
 
+/* ---------- Suchfeld (FAQ, Seitensuche) ---------- */
+
+.ae-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: var(--ae-cream);
+  box-shadow: inset 0 0 0 1.5px var(--ae-line);
+  transition: box-shadow 0.18s ease;
+}
+
+.ae-search:focus-within {
+  box-shadow: inset 0 0 0 2px var(--ae-green);
+}
+
+.ae-search > svg {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  color: var(--ae-green-dark);
+}
+
+.ae-search input {
+  width: 100%;
+  min-width: 0;
+  min-height: 54px;
+  border: 0;
+  background: transparent;
+  color: var(--ae-ink);
+  font: inherit;
+  font-size: 1.05rem;
+  outline: none;
+}
+
 /* ---------- CTA-Band ---------- */
 
 .ae-band {

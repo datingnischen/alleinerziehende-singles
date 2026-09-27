@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArrowIcon, BookIcon, PinIcon, QuestionIcon, SearchIcon } from "@/components/icons";
+import { AboutSubnav } from "@/components/info/about-views";
 import { AboutSearchForm } from "@/components/about-search-form";
 import { getImportedRootPageBySlug, importedCityPages, importedPartnersucheHub } from "@/lib/icony-import";
 import { publicUrl } from "@/lib/markets";
@@ -12,8 +14,7 @@ import {
   type SearchDocument,
 } from "@/lib/site-search";
 import { getMagazineSearchIndex, getStaticMagazinePages } from "@/lib/wordpress";
-import pageStyles from "../../imported-page.module.css";
-import styles from "./page.module.css";
+import "@/components/info/info.css";
 
 type Props = { searchParams: Promise<{ q?: string | string[] }> };
 
@@ -95,36 +96,57 @@ export default async function AboutSearchPage({ searchParams }: Props) {
     : [];
 
   return (
-    <main className={pageStyles.page}>
-      <section className={pageStyles.hero}>
-        <p className={pageStyles.eyebrow}>Über uns · Suche</p>
-        <h1>{query ? `Suchergebnisse für „${query}“` : "Was suchst Du?"}</h1>
-        <p className={pageStyles.lead}>
-          Durchsuche unser Magazin, die Städteseiten zur Partnersuche und die häufigen Fragen.
-        </p>
-        <AboutSearchForm defaultValue={query} autoFocus={!query} />
+    <main className="aei aea">
+      <section className="aei-hero">
+        <div className="ae-wrap aei-hero-grid aei-hero-solo">
+          <div>
+            <nav className="aei-crumbs" aria-label="Brotkrumen">
+              <Link href="/">Start</Link>
+              <span aria-hidden="true">›</span>
+              <Link href="/ueber-uns/">Über uns</Link>
+              <span aria-hidden="true">›</span>
+              <span aria-current="page">Suche</span>
+            </nav>
+            <span className="ae-eyebrow"><SearchIcon />Seitensuche</span>
+            <h1>{query ? `Suchergebnisse für „${query}“` : "Was suchst Du?"}</h1>
+            <p className="aei-lead">
+              Durchsuche unser Magazin, die Städteseiten zur Partnersuche und die häufigen Fragen.
+            </p>
+            <div className="aea-search">
+              <AboutSearchForm defaultValue={query} autoFocus={!query} />
+            </div>
+          </div>
+        </div>
       </section>
 
+      <AboutSubnav current="/ueber-uns/suche/" />
+
       {query ? (
-        <section className={pageStyles.gridSection} aria-live="polite">
+        <section className="ae-wrap ae-section aes-results" aria-live="polite">
           {results.length > 0 ? (
             <>
-              <p className={styles.count}>
+              <p className="aes-count">
                 {results.length === 1 ? "1 Treffer" : `${results.length} Treffer`}
                 {results.length >= MAX_SEARCH_RESULTS ? " – die besten Ergebnisse zuerst" : ""}
               </p>
-              <ol className={styles.results}>
+              <ol>
                 {results.map((result) => (
-                  <li key={result.href} className={styles.result}>
-                    <span className={styles.area}>{result.area}</span>
-                    <h2><Link href={result.href}>{result.title}</Link></h2>
-                    {result.excerpt ? <p>{shortExcerpt(result.excerpt)}</p> : null}
+                  <li key={result.href}>
+                    <Link className="aes-result" href={result.href}>
+                      <span className={`aes-area aes-area-${result.area === "Magazin" ? "mag" : result.area === "Stadt" ? "city" : "info"}`}>
+                        {result.area === "Magazin" ? <BookIcon /> : result.area === "Stadt" ? <PinIcon /> : <QuestionIcon />}
+                        {result.area}
+                      </span>
+                      <strong>{result.title}</strong>
+                      {result.excerpt ? <span>{shortExcerpt(result.excerpt)}</span> : null}
+                      <em>Öffnen <ArrowIcon /></em>
+                    </Link>
                   </li>
                 ))}
               </ol>
             </>
           ) : (
-            <div className={pageStyles.sectionHeader}>
+            <div className="aes-empty">
               <h2>Dazu haben wir leider nichts gefunden</h2>
               <p>
                 Probier es mit einem anderen oder kürzeren Suchbegriff, zum Beispiel einer Stadt oder
@@ -134,8 +156,8 @@ export default async function AboutSearchPage({ searchParams }: Props) {
           )}
         </section>
       ) : (
-        <section className={pageStyles.gridSection}>
-          <div className={pageStyles.sectionHeader}>
+        <section className="ae-wrap ae-section">
+          <div className="aes-empty">
             <h2>Tipp</h2>
             <p>
               Gib eine Stadt, ein Thema oder eine Frage ein – etwa „Hamburg“, „Unterhalt“ oder
@@ -145,12 +167,14 @@ export default async function AboutSearchPage({ searchParams }: Props) {
         </section>
       )}
 
-      <section className={pageStyles.ctaCard}>
-        <h2>Lieber direkt stöbern?</h2>
-        <div className={pageStyles.linkList}>
-          <Link href="/magazin/">Zum Magazin</Link>
-          <Link href="/partnersuche/">Singles nach Stadt entdecken</Link>
-          <Link href="/ueber-uns/">Zurück zu Über uns</Link>
+      <section className="ae-wrap ae-section" aria-labelledby="aes-browse">
+        <div className="ae-head">
+          <h2 id="aes-browse">Lieber direkt stöbern?</h2>
+        </div>
+        <div className="aei-tiles">
+          <Link className="aei-tile" href="/magazin/"><BookIcon /><strong>Magazin</strong><span>Tipps und Geschichten für den Alltag als alleinerziehender Single.</span><em>Zum Magazin <ArrowIcon /></em></Link>
+          <Link className="aei-tile" href="/partnersuche/"><PinIcon /><strong>Singles nach Stadt</strong><span>Stadtseiten mit Profilvorschau und Tipps für Alleinerziehende.</span><em>Städte ansehen <ArrowIcon /></em></Link>
+          <Link className="aei-tile" href="/faq/"><QuestionIcon /><strong>Häufige Fragen</strong><span>Kosten, Sicherheit, Profil und Ablauf auf einen Blick.</span><em>Zur FAQ <ArrowIcon /></em></Link>
         </div>
       </section>
     </main>

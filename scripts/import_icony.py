@@ -134,6 +134,24 @@ OVERRIDES: dict[str, dict[str, dict[str, str]]] = {
 }
 
 
+# Gezielte Korrekturen im Text (alt, neu) – Wortlaut bleibt sonst 1:1 wie auf ICONY.
+REPLACEMENTS: dict[str, dict[str, list[tuple[str, str]]]] = {
+    "de": {
+        # Die Bewertungsseite stammt teils von einer Plattform für lesbische Singles (Zielgruppe passt nicht)
+        # und nennt Superlative ohne Beleg; die Anmeldung ging ohne AID auf die Startseite.
+        "/bewertungen-und-erfahrungen/": [
+            ("Besonders f&uuml;r lesbische M&uuml;tter ist", "Besonders f&uuml;r Singles mit Kind ist"),
+            ("Besonders f&uuml;r lesbische Singles mit Kindern bietet", "Besonders f&uuml;r Singles mit Kindern bietet"),
+            ("Suchst du eine Partnerin, die dein Leben", "Suchst du einen Partner oder eine Partnerin, der oder die dein Leben"),
+            ("ist eine der f&uuml;hrenden Singleb&ouml;rsen f&uuml;r", "ist eine Singleb&ouml;rse speziell f&uuml;r"),
+            ("die beste Wahl ist</h2>", "gut zu Dir passt</h2>"),
+            ('<a href="https://alleinerziehende-singles.de" target="_blank" rel="noopener"><strong>Melde dich',
+             '<a href="https://alleinerziehende-singles.de/registration/?AID=location"><strong>Melde dich'),
+        ],
+    },
+}
+
+
 # --------------------------------------------------------------------------- Laden
 
 
@@ -535,6 +553,14 @@ def apply_overrides(data: dict, market: str) -> None:
         if page is None:
             raise SystemExit(f"Override für unbekannten Pfad {path}")
         page.update(fields)
+    for path, pairs in REPLACEMENTS.get(market, {}).items():
+        page = next((entry for entry in pages if entry["path"] == path), None)
+        if page is None:
+            raise SystemExit(f"Korrektur für unbekannten Pfad {path}")
+        for old, new in pairs:
+            if old not in page["contentHtml"]:
+                print(f"WARNUNG [{market}] {path}: Korrekturtext nicht gefunden: {old[:60]}", file=sys.stderr)
+            page["contentHtml"] = page["contentHtml"].replace(old, new)
 
 
 def dump(data: dict) -> str:

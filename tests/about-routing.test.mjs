@@ -22,7 +22,8 @@ test("exposes the verified elFlirt-style about route hierarchy", async () => {
 
   assert.match(detail, /getImportedRootPageBySlug\("social-media"\)/);
   assert.match(detail, /getImportedRootPageBySlug\("bewertungen-und-erfahrungen"\)/);
-  assert.match(detail, /christian@datingnischen\.de/);
+  const views = await read("../components/info/about-views.tsx");
+  assert.match(views, /mailto:christian@datingnischen\.de/);
   assert.match(shell, /label: "Über uns", path: "\/ueber-uns\/"/);
 });
 

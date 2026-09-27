@@ -1,21 +1,18 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
+import { FaqPageView } from "@/components/info/faq-page";
+import { getFaqData } from "@/lib/faq";
 import {
   getImportedRootPageBySlug,
   getPlatformOwnedUrlBySlug,
   importedRootPages,
   isPlatformOwnedSlug,
-  SITE_URL,
 } from "@/lib/icony-import";
-import { buildFaqPageJsonLd, extractFaqEntries, serializeJsonLd } from "@/lib/faq-schema";
-import styles from "../imported-page.module.css";
+import { publicUrl } from "@/lib/markets";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
-
-const sidebarRouteOrder = ["partnersuche", "faq"];
 
 function redirectMovedAboutPage(slug: string) {
   if (slug === "social-media") {
@@ -56,6 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: page.title,
     description: page.description,
+    alternates: { canonical: publicUrl("de", page.path) },
   };
 }
 
@@ -71,69 +69,11 @@ export default async function ImportedRootPage({ params }: Props) {
     }
   }
 
-  const page = getImportedRootPageBySlug(slug);
-
-  if (!page) {
+  // Einzige importierte Root-Seite, die Next.js selbst rendert, ist die FAQ.
+  const faq = slug === "faq" ? getFaqData() : null;
+  if (!faq) {
     notFound();
   }
 
-  const relatedLinks = sidebarRouteOrder
-    .filter((item) => item !== slug)
-    .map((item) => {
-      if (item === "partnersuche") {
-        return { href: "/partnersuche/", label: "Regionale Partnersuche" };
-      }
-
-      const importedPage = getImportedRootPageBySlug(item);
-      return importedPage ? { href: importedPage.path, label: importedPage.heroTitle } : null;
-    })
-    .filter((entry): entry is { href: string; label: string } => entry !== null);
-
-  const faqEntries = slug === "faq" ? extractFaqEntries(page.contentHtml) : [];
-  const faqJsonLd = faqEntries.length
-    ? buildFaqPageJsonLd({ url: `${SITE_URL}${page.path}`, name: page.heroTitle, entries: faqEntries })
-    : null;
-
-  return (
-    <main className={styles.page}>
-      {faqJsonLd ? (
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqJsonLd) }} />
-      ) : null}
-      <section className={styles.hero}>
-        <p className={styles.eyebrow}>Antworten, Tipps & Orientierung</p>
-        <h1>{page.heroTitle}</h1>
-        <p className={styles.lead}>{page.description}</p>
-      </section>
-
-      <section className={styles.layout}>
-        <article className={styles.article}>
-          <div dangerouslySetInnerHTML={{ __html: page.contentHtml }} />
-        </article>
-
-        <aside className={styles.sidebar}>
-          <div className={styles.sidebarCard}>
-            <h2>Weitere hilfreiche Einstiege</h2>
-            <div className={styles.linkList}>
-              {relatedLinks.map((link) => (
-                <Link key={link.href} href={link.href}>
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <div className={styles.ctaCard}>
-            <h2>Direkt ins Kennenlernen starten</h2>
-            <p>
-              Du willst nicht nur lesen, sondern sofort passende Mütter oder Väter in Deiner Nähe
-              kennenlernen? Dann starte direkt mit Deinem Profil.
-            </p>
-            <a href="https://alleinerziehende-singles.de/registration/" target="_blank" rel="noreferrer">
-              Kostenlos registrieren
-            </a>
-          </div>
-        </aside>
-      </section>
-    </main>
-  );
+  return <FaqPageView faq={faq} />;
 }

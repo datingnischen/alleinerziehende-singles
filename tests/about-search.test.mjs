@@ -31,7 +31,9 @@ test("links the search from the header and the about hub", async () => {
   const [shell, hub] = await Promise.all([read("../components/site-shell.tsx"), read("../app/ueber-uns/page.tsx")]);
 
   assert.match(shell, /searchPath=\{de \? SEARCH_PATH : null\}/);
-  assert.match(hub, /<AboutSearchForm \/>/);
+  assert.match(hub, /<AboutHub /);
+  const views = await read("../components/info/about-views.tsx");
+  assert.match(views, /<AboutSearchForm \/>/);
 });
 
 test("normalizes umlauts and ranks title hits before excerpt hits", async () => {
