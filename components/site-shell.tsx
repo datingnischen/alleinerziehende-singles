@@ -19,6 +19,7 @@ function navigation(market: MarketCode): NavLink[] {
       { label: "Magazin", href: "/magazin/", internal: true },
       { label: "FAQ", href: "/faq/", internal: true },
       { label: "Über uns", href: "/ueber-uns/", internal: true },
+      { label: "Suche", href: "/ueber-uns/suche/", internal: true },
     ];
   }
 

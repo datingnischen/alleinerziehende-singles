@@ -298,6 +298,45 @@ export async function getMagazineCategories(limit = 10): Promise<MagazineCategor
   }));
 }
 
+export type MagazineSearchEntry = {
+  slug: string;
+  titleHtml: string;
+  excerptHtml: string;
+  kind: "post" | "page";
+};
+
+type WordPressSearchRecord = Pick<WordPressRecord, "slug" | "title" | "excerpt">;
+
+// Schlanke Liste für die Seitensuche (nur Titel und Auszug, ohne _embed): klein genug für den
+// Fetch-Cache (Revalidate wie oben), sodass nicht jede Suchanfrage WordPress live abfragt.
+async function wordpressSearchList(type: "posts" | "pages"): Promise<WordPressSearchRecord[]> {
+  const records: WordPressSearchRecord[] = [];
+  for (let page = 1; page <= 5; page += 1) {
+    const batch = await wordpressFetch<WordPressSearchRecord[]>(
+      `/${type}?per_page=100&page=${page}&_fields=slug,title,excerpt`,
+    );
+    records.push(...batch);
+    if (batch.length < 100) break;
+  }
+  return records;
+}
+
+export async function getMagazineSearchIndex(): Promise<MagazineSearchEntry[]> {
+  const [posts, pages] = await Promise.all([wordpressSearchList("posts"), wordpressSearchList("pages")]);
+  const toEntry = (record: WordPressSearchRecord, kind: "post" | "page"): MagazineSearchEntry => ({
+    slug: record.slug,
+    titleHtml: record.title?.rendered ?? "",
+    excerptHtml: record.excerpt?.rendered ?? "",
+    kind,
+  });
+
+  return [
+    ...getStaticMagazinePages().map(({ slug, titleHtml, excerptHtml, kind }) => ({ slug, titleHtml, excerptHtml, kind })),
+    ...posts.map((record) => toEntry(record, "post")),
+    ...pages.map((record) => toEntry(record, "page")),
+  ];
+}
+
 export async function getMagazinePostBySlug(slug: string): Promise<MagazineEntry | null> {
   const records = await wordpressFetch<WordPressRecord[]>(`/posts?slug=${encodeURIComponent(slug)}&_embed=1`);
   return records[0] ? mapEntry(records[0], "post") : null;

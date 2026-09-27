@@ -1,0 +1,47 @@
+.form {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+  max-width: 720px;
+}
+
+.label {
+  color: var(--brand-heading);
+  font-weight: 700;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.input {
+  flex: 1 1 220px;
+  min-width: 0;
+  min-height: 48px;
+  padding: 0 16px;
+  border: 1px solid var(--brand-strong-border);
+  border-radius: 16px;
+  background: #fff;
+  color: var(--brand-heading);
+  font: inherit;
+}
+
+.input:focus {
+  outline: 3px solid var(--brand-accent-soft);
+  border-color: var(--brand-primary);
+}
+
+.button {
+  min-height: 48px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-accent) 100%);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(47, 59, 39, 0.16);
+}

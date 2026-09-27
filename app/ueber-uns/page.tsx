@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AboutSearchForm } from "@/components/about-search-form";
 import styles from "../imported-page.module.css";
 
 export const metadata: Metadata = {
@@ -38,6 +39,14 @@ export default function AboutPage() {
           Lebenssituation nicht erst erklären möchten. Hier findest Du die wichtigsten Hintergründe,
           offiziellen Kanäle und unabhängigen Bewertungen unserer Plattform.
         </p>
+      </section>
+
+      <section className={styles.gridSection} aria-labelledby="ueber-uns-suche">
+        <div className={styles.sectionHeader}>
+          <h2 id="ueber-uns-suche">Suchst Du etwas Bestimmtes?</h2>
+          <p>Durchsuche Magazin, Städteseiten und FAQ mit einem Stichwort.</p>
+        </div>
+        <AboutSearchForm />
       </section>
 
       <section className={styles.gridSection}>

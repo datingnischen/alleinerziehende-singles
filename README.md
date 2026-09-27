@@ -18,6 +18,7 @@ bleibt auf ICONY.
 | `/faq/` | `data/icony-import.json`, mit FAQPage-JSON-LD |
 | `/ueber-uns/`, `/ueber-uns/social-media/`, `/ueber-uns/bewertungen/`, `/ueber-uns/kooperationen/` | Über-uns-Bereich; `/social-media/` und `/bewertungen-und-erfahrungen/` leiten per 301 dorthin |
 | `/magazin/`, `/magazin/<slug>/` | WordPress-REST unter `alleinerziehende-singles.de/magazin/wp-json` (Revalidate 300 s), Kindergeld-2026-Übersicht aus `data/kindergeld-facebook-2026.json` |
+| `/ueber-uns/suche/?q=` | Seitensuche (Magazin per gecachter WP-Liste, Städte, Partnersuche-Hub, FAQ, Über uns), `noindex, follow`, nicht in der Sitemap. `/suche` gehört ICONY |
 
 **AT/CH** (`alleinerziehende-singles.at` / `.ch`, Host-Routing in `proxy.ts` + `lib/markets.ts`)
 

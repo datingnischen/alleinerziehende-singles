@@ -1,0 +1,59 @@
+.results {
+  display: grid;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.result {
+  display: grid;
+  gap: 8px;
+  padding: 22px 24px;
+  border: 1px solid var(--brand-card-border);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 12px 32px var(--brand-shadow);
+  min-width: 0;
+}
+
+.area {
+  width: fit-content;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--brand-primary-soft);
+  color: var(--brand-primary-dark);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.result h2 {
+  color: var(--brand-heading);
+  font-size: 1.2rem;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.result h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.result h2 a:hover,
+.result h2 a:focus-visible {
+  color: var(--brand-link);
+  text-decoration: underline;
+}
+
+.result p {
+  color: var(--brand-muted);
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.count {
+  color: var(--brand-muted);
+  font-weight: 600;
+}
