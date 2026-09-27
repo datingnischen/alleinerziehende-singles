@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { NotFoundView } from "@/components/not-found-view";
 import { SiteShell } from "@/components/site-shell";
-import { getMarket, isMarketCode, publicUrl } from "@/lib/markets";
-import styles from "../../market-home/[market]/page.module.css";
+import { getMarket, isMarketCode } from "@/lib/markets";
 
 type PageProps = {
   params: Promise<{ market: string }>;
@@ -19,36 +19,19 @@ export async function generateMetadata({ params }: Pick<PageProps, "params">): P
   const config = getMarket(market);
 
   return {
-    title: { absolute: "Seite noch nicht verfügbar" },
-    description: `Dieser Inhalt ist auf ${config.domain} noch nicht veröffentlicht.`,
+    title: { absolute: `Seite nicht gefunden | ${config.domain}` },
+    description: `Diese Seite gibt es auf ${config.domain} nicht. Hier geht es weiter zur Partnersuche für Alleinerziehende.`,
     robots: { index: false, follow: false },
   };
 }
 
 export default async function MarketPlaceholderPage({ params, searchParams }: PageProps) {
   const market = unavailableRouteMarket((await params).market);
-  const config = getMarket(market);
-  const requestedPath = (await searchParams).requestedPath || "/";
+  const requestedPath = (await searchParams).requestedPath || undefined;
 
   return (
-    <SiteShell market={market}>
-      <main className={styles.main}>
-        <section className={styles.expert}>
-          <div>
-            <p className={styles.eyebrow}>{config.countryName}</p>
-            <h1>Dieser Inhalt ist in diesem Länderbereich noch nicht veröffentlicht.</h1>
-          </div>
-          <div>
-            <p>
-              Der Pfad <strong>{requestedPath}</strong> wird nicht mit Inhalten aus einem anderen Land gefüllt. Bitte nutze die Länderstartseite oder die bestehende Plattform.
-            </p>
-            <div className={styles.actions}>
-              <a className={styles.primary} href={publicUrl(market)}>Zur Länderstartseite</a>
-              <a className={styles.secondary} href={publicUrl(market, "/registration/")}>Kostenlos registrieren</a>
-            </div>
-          </div>
-        </section>
-      </main>
+    <SiteShell market={market} registrationContext="location">
+      <NotFoundView market={market} requestedPath={requestedPath} />
     </SiteShell>
   );
 }

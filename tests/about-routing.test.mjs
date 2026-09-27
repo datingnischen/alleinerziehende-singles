@@ -44,9 +44,12 @@ test("does not link internally through moved legacy URLs", async () => {
 
   assert.doesNotMatch(source, /href="\/social-media"/);
   assert.doesNotMatch(source, /href="\/bewertungen-und-erfahrungen"/);
-  assert.match(home, /ABOUT_PAGE_PATHS/);
-  assert.match(home, /\/ueber-uns\/social-media/);
-  assert.match(home, /\/ueber-uns\/bewertungen/);
+
+  // Die ICONY-Startseitentexte verlinken nach dem Import auf die Über-uns-Pfade, nie auf Altadressen.
+  const startseiten = await read("../data/startseiten.json");
+  assert.doesNotMatch(startseiten, /bewertungen-und-erfahrungen|alleinerziehende-singles\.de\/social-media|ab50\.de/);
+  assert.match(startseiten, /\/ueber-uns\/bewertungen\//);
+  assert.match(startseiten, /\/ueber-uns\/social-media\//);
 });
 
 test("publishes only canonical about URLs in the DE sitemap", async () => {

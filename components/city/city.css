@@ -648,3 +648,17 @@
     height: 10px;
   }
 }
+
+/* ---------- Fehlerseite ---------- */
+
+.aenf {
+  padding: 30px 0 10px;
+}
+
+.aenf h1 {
+  max-width: 18ch;
+}
+
+.aenf-cities {
+  margin-top: 40px;
+}

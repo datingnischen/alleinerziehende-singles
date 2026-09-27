@@ -153,6 +153,14 @@ export function CloseIcon({ className }: IconProps) {
   return <Svg className={className}><path d="M6 6l12 12M18 6 6 18" /></Svg>;
 }
 
+export function CameraIcon({ className }: IconProps) {
+  return <Svg className={className}><path d="M4 8.5h3l1.5-2.5h7L17 8.5h3a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a1 1 0 0 1 1-1Z" /><circle cx="12" cy="13.5" r="3.5" /></Svg>;
+}
+
+export function VideoIcon({ className }: IconProps) {
+  return <Svg className={className}><rect x="3" y="6.5" width="13" height="11" rx="2.5" /><path d="m16 11 5-3v8l-5-3" /></Svg>;
+}
+
 export function SunIcon({ className }: IconProps) {
   return <Svg className={className}><circle cx="12" cy="12" r="4" /><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" /></Svg>;
 }

@@ -190,11 +190,16 @@ test("proxy, canonical helpers and market-specific rendered copy are wired", asy
   assert.match(proxySource, /location\.replace/);
   assert.match(proxySource, /NextResponse\.rewrite/);
   assert.match(marketHomeSource, /publicUrl\(market\)/);
-  assert.match(marketHomeSource, /Alleinerziehende Singles in Österreich finden/);
-  assert.match(marketHomeSource, /Alleinerziehende Singles in der Schweiz/);
-  assert.match(marketHomeSource, /publicUrl\(market, "\/partnersuche\/"\)/);
-  assert.match(marketHomeSource, /Partnersuche in der Schweiz/);
-  assert.match(marketHomeSource, /Christian M\. Haas/);
+  assert.match(marketHomeSource, /<HomePage market=\{market\} \/>/);
+  assert.match(marketHomeSource, /getHomeContent\(market\)/);
+  const startseiten = JSON.parse(await readFile(new URL("../data/startseiten.json", import.meta.url), "utf8"));
+  assert.equal(startseiten.at.h1, "Alleinerziehende Singles in Österreich finden");
+  assert.equal(startseiten.ch.h1, "Alleinerziehende Singles in der Schweiz");
+  for (const market of ["at", "ch"]) {
+    const text = JSON.stringify(startseiten[market]);
+    assert.match(text, /Christian M\. Haas/);
+    assert.doesNotMatch(text, /alleinerziehende-singles\.(?!de|at|ch)|ab50|christlich-verliebt/);
+  }
   assert.match(marketHomeSource, /robots:\s*\{\s*index:\s*true/);
   assert.match(marketHomeSource, /title:\s*\{\s*absolute:/);
   assert.match(placeholderSource, /generateMetadata/);

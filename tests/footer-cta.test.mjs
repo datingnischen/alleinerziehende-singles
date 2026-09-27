@@ -39,7 +39,7 @@ test("uses market-specific footer registration labels and context-aware registra
 });
 
 test("homepage and magazine layout avoid technical public copy and wire the magazine footer CTA", async () => {
-  const homeSource = await readFile(`${root}/app/page.tsx`, "utf8");
+  const homeSource = await readFile(`${root}/components/home/home-page.tsx`, "utf8");
   const magazineLayoutSource = await readFile(`${root}/app/magazin/layout.tsx`, "utf8");
   const helperSource = await readFile(`${root}/lib/registration-links.ts`, "utf8");
 
