@@ -49,6 +49,8 @@ sonst keinen Parameter.
 | `data/icony-import-ch.json` | CH: wie AT | `npm run import:icony -- --market ch` |
 | `data/asset-catalog.json` | Herkunft und sha256 von Logos/Hero-Bild in `public/brand/` | `npm run import:icony -- --assets` (prüfen), `--assets --update` (neu laden) |
 | `data/kindergeld-facebook-2026.json` | Kindergeld-Termine 2026 von der Facebook-Seite | `python scripts/update_kindergeld_facebook_2026.py` |
+| `data/startseiten.json` | Startseitentexte DE/AT/CH (ICONY-CMS, Abschnitt unter den Plattform-Kacheln) | `npm run import:startseiten` bzw. `python scripts/import_startseiten.py [--check]` |
+| `data/country-maps.json` | Landesumrisse DE/AT/CH für die Karten (Natural Earth, gemeinfrei) | `python scripts/build_country_maps.py` |
 
 Der ICONY-Import (`scripts/import_icony.py`, nur Python-Standardbibliothek) liest die Live-Seiten
 und übernimmt Titel, Meta-Description, H1 und Text 1:1. Vor dem Schreiben lohnt ein Vergleich:
@@ -57,6 +59,9 @@ und übernimmt Titel, Meta-Description, H1 und Text 1:1. Vor dem Schreiben lohnt
 npm run import:icony -- --market de --check   # zeigt Textänderungen auf ICONY, schreibt nichts
 npm run import:icony -- --market de           # schreibt data/icony-import.json
 ```
+
+Gezielte Textkorrekturen (z. B. die von einer Schwesterplattform übernommenen Sätze auf der
+Bewertungsseite) stehen als `(alt, neu)`-Paare in `REPLACEMENTS`; fehlt ein alter Text, warnt das Skript.
 
 Stadtliste, Reihenfolge und Stadtnamen stehen im Skript. Neue Städte auf dem Live-Hub meldet es als
 Warnung. Bewusste Korrekturen gegenüber der Live-Seite stehen in `OVERRIDES` im Skript, sonst
@@ -74,3 +79,18 @@ npm run build
 
 Hintergrund zum Projektstart: `docs/archive/MIGRATION_KICKOFF-2026-07-30.md`,
 Quelleninventur: `SOURCE_INVENTORY.md`.
+
+## Gestaltung
+
+Familien-Look aus den Logofarben (Grün `#58ad47`, Sonnengelb `#f8ae14`), Überschriften Bricolage Grotesque,
+Fließtext Open Sans. Gemeinsame Bausteine (`ae-*`) in `app/globals.css`, je Seitentyp eigenes CSS:
+
+| Seitentyp | Komponente |
+| --- | --- |
+| Kopf-/Fußzeile, Sticky-CTA | `components/site-shell.tsx`, `site-header.tsx`, `sticky-cta.tsx` |
+| Stadtseite DE/AT/CH („Familien-Kompass“) | `components/city/city-page.tsx`, Daten `lib/city-pages.ts`, Kapitel `lib/city-guide.ts` |
+| Städteübersicht mit Karte | `components/city/city-hub.tsx`, `lib/city-hub.ts` |
+| Startseite DE/AT/CH | `components/home/home-page.tsx`, `lib/startseite.ts` |
+| FAQ, Über uns, Bewertungen, Social Media, Kooperationen, Suche | `components/info/*`, `lib/faq.ts`, `lib/about.ts` |
+| Magazin-Start, Themenwelten, Artikel | `app/magazin/*`, `components/magazine/*`, `lib/magazine.ts` |
+| 404 / AT-CH-Platzhalter | `components/not-found-view.tsx` |
