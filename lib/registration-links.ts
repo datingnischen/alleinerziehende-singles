@@ -9,10 +9,9 @@ export function registrationUrlForContext(
   switch (context) {
     case "magazin":
       return publicUrl(market, "/registration/?AID=magazin");
-    case "location":
-      return publicUrl(market, "/registration/?AID=location");
+    // Projektstandard: außer im Magazin immer AID=location (Städte, Übersichten, FAQ, Über uns).
     default:
-      return publicUrl(market, "/registration/");
+      return publicUrl(market, "/registration/?AID=location");
   }
 }
 

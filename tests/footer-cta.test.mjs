@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-const root = "C:/Christian/p-work/alleinerziehende-singles";
+const root = new URL("..", import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1").replace(/\/$/, "");
 
 async function loadRegistrationHelpers() {
   return import("../lib/registration-links.ts");
@@ -26,7 +26,7 @@ test("uses market-specific footer registration labels and context-aware registra
 
   assert.equal(
     registrationUrlForContext("de", "default"),
-    "https://alleinerziehende-singles.de/registration/",
+    "https://alleinerziehende-singles.de/registration/?AID=location",
   );
   assert.equal(
     registrationUrlForContext("de", "magazin"),

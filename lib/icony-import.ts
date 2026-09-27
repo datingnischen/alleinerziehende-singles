@@ -1,4 +1,4 @@
-import importData from "@/data/icony-import.json";
+import importData from "../data/icony-import.json" with { type: "json" };
 
 export const SITE_URL = "https://alleinerziehende-singles.de";
 

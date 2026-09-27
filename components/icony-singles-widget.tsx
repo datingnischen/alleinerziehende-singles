@@ -9,11 +9,13 @@ type Props = {
   country: number;
   platformId: string;
   searchUrl: string;
+  /** Ziel beim Klick auf ein Profil: Startseite des Markts mit AID=location */
+  profileUrl?: string;
 };
 
 type Gender = "women" | "men";
 
-const PROFILE_CLICK_URL = "https://alleinerziehende-singles.de/?AID=location";
+const DEFAULT_PROFILE_URL = "https://alleinerziehende-singles.de/?AID=location";
 
 function buildWidgetDocument({
   city,
@@ -21,7 +23,8 @@ function buildWidgetDocument({
   country,
   platformId,
   gender,
-}: Omit<Props, "searchUrl"> & { gender: Gender }) {
+  profileUrl,
+}: Omit<Props, "searchUrl" | "profileUrl"> & { gender: Gender; profileUrl: string }) {
   const options = JSON.stringify({
     platformId,
     city,
@@ -30,7 +33,7 @@ function buildWidgetDocument({
     zip,
     count: 6,
     affiliate: "location",
-    profileClickUrl: PROFILE_CLICK_URL,
+    profileClickUrl: profileUrl,
   }).replace(/</g, "\\u003c");
 
   return `<!doctype html>
@@ -41,19 +44,21 @@ function buildWidgetDocument({
 <meta name="robots" content="noindex,nofollow" />
 <meta name="referrer" content="no-referrer" />
 <style>
-  :root { color-scheme: light; --brand:#57ad46; --brand-dark:#3f8331; --accent:#f9ae15; --muted:#556255; --line:rgba(87,173,70,.18); --text:#20311d; }
+  :root { color-scheme: light; --brand:#57ad46; --brand-dark:#3d7f30; --accent:#f8ae14; --muted:#5a6656; --line:#e9e1cd; --text:#22301f; }
   * { box-sizing: border-box; }
-  body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: transparent; color: var(--text); }
+  body { margin: 0; font-family: "Open Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: transparent; color: var(--text); }
   a { color: inherit; text-decoration: none; }
-  .state { min-height: 280px; display: grid; place-items: center; padding: 18px; border: 1px solid var(--line); border-radius: 20px; background: linear-gradient(145deg, #edf7e8, #fff8e4); color: var(--brand-dark); font-weight: 800; text-align: center; }
-  .grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
-  .tile { display: grid; gap: 8px; min-width: 0; padding: 10px; border: 1px solid var(--line); border-radius: 18px; background: #fff; box-shadow: 0 10px 26px rgba(63,131,49,.08); transition: border-color .18s ease, transform .18s ease; }
-  .tile:hover, .tile:focus-visible { border-color: rgba(87,173,70,.5); transform: translateY(-2px); outline: none; }
-  .image { aspect-ratio: 1; overflow: hidden; border-radius: 14px; background: linear-gradient(135deg, #edf7e8, #fff4d6); }
+  .state { min-height: 230px; display: grid; place-items: center; padding: 18px; border: 1.5px dashed var(--line); border-radius: 22px; background: #fffaf0; color: var(--brand-dark); font-weight: 700; text-align: center; }
+  .grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; padding: 4px 2px 10px; }
+  .tile { display: grid; gap: 4px; min-width: 0; padding: 8px 8px 12px; border-radius: 20px; background: #fff; box-shadow: 0 10px 24px rgba(40,60,25,.08), inset 0 0 0 1px var(--line); transition: box-shadow .18s ease, transform .18s ease; }
+  .tile:nth-child(odd) { transform: rotate(-1deg); }
+  .tile:nth-child(even) { transform: rotate(1deg); }
+  .tile:hover, .tile:focus-visible { box-shadow: 0 14px 30px rgba(40,60,25,.14), inset 0 0 0 2px var(--accent); transform: translateY(-3px); outline: none; }
+  .image { aspect-ratio: 1; overflow: hidden; margin-bottom: 6px; border-radius: 14px; background: linear-gradient(135deg, #e8f4e2, #fff1cf); }
   .image img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  strong, span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  strong { font-size: .94rem; line-height: 1.2; }
-  span { color: var(--muted); font-size: .82rem; line-height: 1.3; }
+  strong, span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding-inline: 4px; }
+  strong { font-size: .95rem; line-height: 1.2; }
+  span { color: var(--muted); font-size: .8rem; line-height: 1.3; }
   @media (max-width: 700px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
   @media (max-width: 430px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 </style>
@@ -121,64 +126,59 @@ function buildWidgetDocument({
 </html>`;
 }
 
-export function IconySinglesWidget({ city, zip, country, platformId, searchUrl }: Props) {
+export function IconySinglesWidget({ city, zip, country, platformId, searchUrl, profileUrl = DEFAULT_PROFILE_URL }: Props) {
   const [gender, setGender] = useState<Gender>("women");
   const srcDoc = useMemo(
-    () => buildWidgetDocument({ city, zip, country, platformId, gender }),
-    [city, zip, country, platformId, gender],
+    () => buildWidgetDocument({ city, zip, country, platformId, gender, profileUrl }),
+    [city, zip, country, platformId, gender, profileUrl],
   );
   const controlName = `icony-singles-${zip}`;
   const selectedLabel = gender === "women" ? "Frauen" : "Männer";
 
   return (
     <section className={styles.widget} aria-labelledby={`singles-${zip}`}>
-      <div className={styles.copy}>
-        <p className={styles.eyebrow}>Singles entdecken</p>
-        <h2 id={`singles-${zip}`}>Alleinstehende Singles aus {city}</h2>
-        <p>
-          Wähle, ob Du Frauen oder Männer sehen möchtest. Wenn Du den Umkreis erweitern willst,
-          kannst Du direkt ausführlicher suchen.
-        </p>
+      <div className={styles.top}>
+        <div className={styles.copy}>
+          <p className="ae-eyebrow">Singles entdecken</p>
+          <h2 id={`singles-${zip}`}>Wer in {city} gerade sucht</h2>
+          <p>Echte Profilvorschauen von Müttern und Vätern aus Deiner Region – wähle, wen Du sehen möchtest.</p>
+        </div>
+
+        <fieldset className={styles.controls}>
+          <legend className="ae-sr">Profile auswählen</legend>
+          <label className={gender === "women" ? styles.active : undefined}>
+            <input
+              type="radio"
+              name={controlName}
+              checked={gender === "women"}
+              onChange={() => setGender("women")}
+            />
+            Frauen
+          </label>
+          <label className={gender === "men" ? styles.active : undefined}>
+            <input
+              type="radio"
+              name={controlName}
+              checked={gender === "men"}
+              onChange={() => setGender("men")}
+            />
+            Männer
+          </label>
+        </fieldset>
       </div>
 
-      <fieldset className={styles.controls}>
-        <legend>Profile auswählen</legend>
-        <label className={gender === "women" ? styles.active : undefined}>
-          <input
-            type="radio"
-            name={controlName}
-            checked={gender === "women"}
-            onChange={() => setGender("women")}
-          />
-          Frauen
-        </label>
-        <label className={gender === "men" ? styles.active : undefined}>
-          <input
-            type="radio"
-            name={controlName}
-            checked={gender === "men"}
-            onChange={() => setGender("men")}
-          />
-          Männer
-        </label>
-      </fieldset>
-
-      <div className={styles.framePanel}>
-        <strong>{selectedLabel} aus {city}</strong>
-        <p>Die echten Profilvorschauen werden geladen, sobald Du diesen Bereich ansiehst.</p>
-        <iframe
-          key={gender}
-          className={styles.frame}
-          title={`${selectedLabel} aus ${city}`}
-          srcDoc={srcDoc}
-          loading="lazy"
-          referrerPolicy="no-referrer"
-          sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox"
-        />
-      </div>
+      <iframe
+        key={gender}
+        className={styles.frame}
+        title={`${selectedLabel} aus ${city}`}
+        srcDoc={srcDoc}
+        loading="lazy"
+        referrerPolicy="no-referrer"
+        sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox"
+      />
 
       <div className={styles.actions}>
-        <a href={searchUrl} target="_blank" rel="noopener noreferrer">
+        <a className="ae-btn ae-btn-green" href={searchUrl} target="_blank" rel="noopener noreferrer">
           Ausführlicher in {city} suchen
         </a>
         <span>Kostenlos starten · Umkreis selbst erweitern · diskret stöbern</span>

@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Open_Sans } from "next/font/google";
 import { staticAsset } from "@/lib/static-asset";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Überschriften: Bricolage Grotesque (wie die übrigen Nischen), Fließtext: Open Sans wie auf der ICONY-Plattform.
+const display = Bricolage_Grotesque({
+  variable: "--ae-display",
   subsets: ["latin"],
+  weight: ["500", "700", "800"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const body = Open_Sans({
+  variable: "--ae-body",
   subsets: ["latin"],
+  weight: ["400", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -19,7 +22,7 @@ export const metadata: Metadata = {
     template: "%s | Alleinerziehende-Singles.de",
   },
   description:
-    "Partnersuche, Sicherheit, Antworten und Magazin von Alleinerziehende-Singles.de in einer klaren, modernen Übersicht.",
+    "Partnersuche für alleinerziehende Mütter und Väter: regionale Stadtseiten, Magazin und ehrliche Antworten rund ums Kennenlernen mit Kind.",
   // Icons liegen in public/brand/ statt als app/icon.png, damit sie absolut vom Vercel-Host kommen
   // (der nginx vor den Live-Domains reicht nur Seitenrouten weiter).
   icons: {
@@ -34,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="de" className={`${display.variable} ${body.variable}`}>
       <body>{children}</body>
     </html>
   );

@@ -20,9 +20,12 @@ test("all city overview pages render the individual search fallback", async () =
   assert.match(component, /Zur individuellen Suche/);
   assert.doesNotMatch(component, /vercel\.app/);
 
+  const hub = await readFile(new URL("../components/city/city-hub.tsx", import.meta.url), "utf8");
+  assert.match(hub, /<CitySearchFallback market=\{market\} \/>/);
+
   const dePage = await readFile(new URL("../app/partnersuche/page.tsx", import.meta.url), "utf8");
-  assert.match(dePage, /<CitySearchFallback market="de" \/>/);
+  assert.match(dePage, /<CityHub market="de" \/>/);
 
   const marketPage = await readFile(new URL("../app/market-partnersuche/[market]/page.tsx", import.meta.url), "utf8");
-  assert.match(marketPage, /<CitySearchFallback market=\{market\} \/>/);
+  assert.match(marketPage, /<CityHub market=\{market\} \/>/);
 });

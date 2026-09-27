@@ -45,57 +45,42 @@ test("keeps one central search postcode for every DE city independently from wid
 
 test("implements the elFlirt-style dynamic singles contract safely", async () => {
   const component = await read("../components/icony-singles-widget.tsx");
-  const styles = await read("../components/icony-singles-widget.module.css");
 
   assert.match(component, /gender === "women" \? 2 : 1/);
   assert.match(component, /icony\("get", "activities", "json"/);
   assert.match(component, /Gerade keine Schnelltreffer/);
-  assert.match(component, /Alleinstehende Singles aus \{city\}/);
+  assert.match(component, /Wer in \{city\} gerade sucht/);
   assert.match(component, /Ausführlicher in \{city\} suchen/);
   assert.match(component, /href=\{searchUrl\}/);
-  assert.doesNotMatch(component, /DETAILED_SEARCH_URL/);
+  assert.match(component, /profileClickUrl: profileUrl/);
   assert.match(component, /sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox"/);
   assert.match(component, /referrerPolicy="no-referrer"/);
   assert.match(component, /Für Profilvorschauen bitte JavaScript aktivieren/);
   assert.match(component, /--brand:#57ad46/);
   assert.doesNotMatch(component, /allow-same-origin/);
-
-  assert.match(styles, /linear-gradient\(135deg, var\(--brand-primary\), var\(--brand-accent\)\)/);
-  assert.match(styles, /border: 1px solid var\(--brand-card-border\)/);
 });
 
-test("renders the local singles widget on every DE city page", async () => {
-  const cityPage = await read("../app/partnersuche/[slug]/page.tsx");
-  const hubPage = await read("../app/partnersuche/page.tsx");
-  const sharedStyles = await read("../app/imported-page.module.css");
+test("renders the local singles widget on every city page with market-specific location data", async () => {
+  const view = await read("../components/city/city-page.tsx");
+  assert.match(view, /<IconySinglesWidget/);
+  assert.match(view, /zip=\{city\.widget\.zip\}/);
+  assert.match(view, /country=\{city\.widget\.country\}/);
+  assert.match(view, /searchUrl=\{city\.searchUrl\}/);
+  assert.match(view, /profileUrl=\{publicUrl\(market, "\/\?AID=location"\)\}/);
 
-  assert.match(cityPage, /getIconyWidgetConfig\(slug\)/);
-  assert.match(cityPage, /<IconySinglesWidget/);
-  assert.match(cityPage, /city=\{widgetConfig\.city\}/);
-  assert.match(cityPage, /zip=\{widgetConfig\.zip\}/);
-  assert.match(cityPage, /country=\{widgetConfig\.country\}/);
-  assert.match(cityPage, /platformId=\{widgetConfig\.platformId\}/);
-  assert.match(cityPage, /searchUrl=\{buildCitySearchUrl\("de", slug\)\}/);
-
-  assert.match(hubPage, /HUB_ONLINE_WIDGET_URL/);
-  assert.match(hubPage, /Wer ist gerade online\?/);
-  assert.match(hubPage, /className=\{styles\.sidebarWidgetFrame\}/);
-  assert.match(hubPage, /title="Wer ist gerade online auf alleinerziehende-singles\.de"/);
-  assert.match(hubPage, /stripLegacyCityLists/);
-  assert.match(hubPage, /extractLeadImage/);
-  assert.match(hubPage, /cityCardExcerpt/);
-  assert.match(hubPage, /decodeHtmlEntities/);
-  assert.match(hubPage, /cityCardImage/);
-  assert.match(hubPage, /heroMediaLarge/);
-  assert.match(hubPage, /Singles in \{city\.cityLabel\}/);
-  assert.match(hubPage, /Singles aus \{city\.cityLabel\} entdecken/);
-  assert.match(hubPage, /Stadtansicht \$\{city\.cityLabel\}/);
-  assert.match(hubPage, /replace\(/);
-  assert.match(hubPage, /<div className=\{styles\.gridSection\}>/);
-  assert.match(sharedStyles, /\.cityCardMedia/);
-  assert.match(sharedStyles, /\.heroMediaLarge/);
-  assert.match(sharedStyles, /\.cityCardMedia img/);
-  assert.match(sharedStyles, /\.cityCardEyebrow/);
-  assert.match(sharedStyles, /width: calc\(100% - 44px\)/);
-  assert.match(hubPage, /&uuml;/);
+  const { getCityPages } = await import("../lib/city-pages.ts");
+  const expected = { de: [49, /^\d{5}$/], at: [43, /^\d{4}$/], ch: [41, /^\d{4}$/] };
+  for (const market of ["de", "at", "ch"]) {
+    const pages = getCityPages(market);
+    assert.equal(pages.length, 15);
+    for (const page of pages) {
+      assert.equal(page.widget.country, expected[market][0], `${market}/${page.slug}`);
+      assert.match(page.widget.zip, expected[market][1], `${market}/${page.slug}`);
+      assert.equal(page.widget.platformId, "alleinerziehende");
+      assert.equal(new URL(page.registrationUrl).searchParams.get("AID"), "location");
+      assert.equal(new URL(page.searchUrl).hostname, `alleinerziehende-singles.${market}`);
+      assert.ok(page.imageUrl, `${market}/${page.slug} braucht ein Titelbild`);
+      assert.ok(page.geo, `${market}/${page.slug} braucht Koordinaten`);
+    }
+  }
 });

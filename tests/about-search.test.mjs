@@ -30,7 +30,7 @@ test("keeps the search page out of the index and the sitemap", async () => {
 test("links the search from the header and the about hub", async () => {
   const [shell, hub] = await Promise.all([read("../components/site-shell.tsx"), read("../app/ueber-uns/page.tsx")]);
 
-  assert.match(shell, /label: "Suche", href: "\/ueber-uns\/suche\/", internal: true/);
+  assert.match(shell, /searchPath=\{de \? SEARCH_PATH : null\}/);
   assert.match(hub, /<AboutSearchForm \/>/);
 });
 

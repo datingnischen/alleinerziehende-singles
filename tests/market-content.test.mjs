@@ -113,47 +113,33 @@ test("normalizes every imported page without executable markup or country leakag
   assert.doesNotMatch(klagenfurtHtml, /href=["']https:\/\/alleinerziehende-singles\.at\/partnersuche\//i);
 });
 
-test("wires market hubs and city pages to market shells, canonicals and ICONY frames", async () => {
-  const hubSource = await readFile(new URL("../app/market-partnersuche/[market]/page.tsx", import.meta.url), "utf8").catch(() => "");
-  const citySource = await readFile(new URL("../app/market-partnersuche/[market]/[slug]/page.tsx", import.meta.url), "utf8").catch(() => "");
-  const importedPageCss = await readFile(new URL("../app/imported-page.module.css", import.meta.url), "utf8").catch(() => "");
-  const sitemapSource = await readFile(new URL("../app/market-sitemap/[market]/route.ts", import.meta.url), "utf8").catch(() => "");
-  const marketHomeSource = await readFile(new URL("../app/market-home/[market]/page.tsx", import.meta.url), "utf8").catch(() => "");
+test("wires market hubs and city pages to market shells, canonicals and the shared city views", async () => {
+  const hubSource = await readFile(new URL("../app/market-partnersuche/[market]/page.tsx", import.meta.url), "utf8");
+  const citySource = await readFile(new URL("../app/market-partnersuche/[market]/[slug]/page.tsx", import.meta.url), "utf8");
+  const sitemapSource = await readFile(new URL("../app/market-sitemap/[market]/route.ts", import.meta.url), "utf8");
 
   assert.match(hubSource, /SiteShell market=\{market\}/);
   assert.match(hubSource, /publicUrl\(market, "\/partnersuche\/"\)/);
-  assert.match(hubSource, /cityCardExcerpt/);
-  assert.match(hubSource, /className=\{styles\.cityCardMedia\}/);
-  assert.match(hubSource, /className=\{styles\.cityCardCopy\}/);
-  assert.match(hubSource, /className=\{styles\.sidebarCityGrid\}/);
-  assert.match(hubSource, /className=\{styles\.sidebarCityLink\}/);
-  assert.match(hubSource, /alt="" aria-hidden="true"/);
-  assert.match(hubSource, /Mehr zu \{city\.cityLabel\}/);
-  assert.doesNotMatch(hubSource, /Seite öffnen/);
-  assert.match(citySource, /page\.icony\.frameUrl/);
-  assert.match(citySource, /registrationUrlForContext\(market, \"location\"\)/);
-  assert.match(citySource, /Wer ist gerade online in \{page\.cityLabel\}\?/);
-  assert.match(citySource, /className=\{styles\.sidebarWidgetFrame\}/);
-  assert.match(citySource, /href=\{page\.searchUrl\}/);
-  assert.match(citySource, /Ausführlicher in \{page\.cityLabel\} suchen/);
-  assert.match(citySource, /relativeCityHref/);
-  assert.match(citySource, /relativeHubHref/);
-  assert.doesNotMatch(citySource, /market === "ch"/);
-  assert.doesNotMatch(citySource, /src="\/brand\/switzerland-flag\.svg"/);
-  assert.doesNotMatch(citySource, /alt="Schweizer Flagge"/);
-  assert.match(citySource, /className=\{styles\.countryHubLink\}/);
-  const countryHubRule = importedPageCss.match(/\.countryHubLink\s*\{[^}]+\}/s)?.[0] ?? "";
-  assert.match(countryHubRule, /width:\s*100%/);
-  assert.match(countryHubRule, /justify-content:\s*center/);
-  assert.doesNotMatch(countryHubRule, /width:\s*fit-content/);
-  assert.doesNotMatch(citySource, /bestehende ICONY-Plattform bereitgestellt/);
-  assert.match(citySource, /sourceAttributionUrl/);
+  assert.match(hubSource, /<CityHub market=\{market\} \/>/);
+  assert.match(citySource, /SiteShell market=\{market\} registrationContext="location"/);
+  assert.match(citySource, /<CityPageView city=\{page\} \/>/);
+  assert.match(citySource, /canonical: publicUrl\(market, page\.path\)/);
   assert.match(citySource, /robots:\s*\{\s*index:\s*true/);
   assert.match(sitemapSource, /getMarketCityPages/);
   assert.match(sitemapSource, /publicUrl\(market, page\.path\)/);
-  assert.match(marketHomeSource, /Wichtige Einstiegsseiten/);
-  assert.match(marketHomeSource, /previewPath\(market, entry\.href\)/);
-  assert.match(marketHomeSource, /Partnersuche in Österreich/);
-  assert.match(marketHomeSource, /Wien kennenlernen/);
-  assert.match(hubSource, /Stadtansicht \$\{city\.cityLabel\}/);
+});
+
+test("splits every city text into chapters and keeps the related city links", async () => {
+  const { buildCityGuide } = await import("../lib/city-guide.ts");
+  const { getCityPages } = await import("../lib/city-pages.ts");
+  for (const market of ["de", "at", "ch"]) {
+    for (const page of getCityPages(market)) {
+      const guide = buildCityGuide({ contentHtml: page.contentHtml, imageUrl: page.imageUrl, creditUrl: page.creditUrl });
+      assert.ok(guide.sections.length >= 1, `${market}/${page.slug} ohne Kapitel`);
+      const text = guide.introHtml + guide.sections.map((section) => section.html).join("");
+      assert.doesNotMatch(text, /Bildquelle|pixabay\.com/i, `${market}/${page.slug} Bildquelle im Text`);
+      assert.doesNotMatch(text, /könnten auch interessant|k&ouml;nnten auch interessant|Nicht aus /, `${market}/${page.slug} Linkliste im Text`);
+      assert.ok(!page.imageUrl || !text.includes(page.imageUrl), `${market}/${page.slug} Titelbild doppelt`);
+    }
+  }
 });

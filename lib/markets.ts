@@ -82,6 +82,12 @@ export function previewPath(market: MarketCode, pathname = "/"): string {
   return withTrailingSlash(`/${market}${normalizedPath}`);
 }
 
+/** true auf localhost und *.vercel.app – dort verlinken wir die Vorschau statt der Live-Domain. */
+export function isPreviewHost(hostname = ""): boolean {
+  const host = hostname.toLowerCase();
+  return host === "localhost" || host === "127.0.0.1" || host.endsWith(".vercel.app");
+}
+
 type MarketRequestResolution =
   | { action: "pass" }
   | { action: "not-found" }
