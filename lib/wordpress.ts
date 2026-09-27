@@ -43,6 +43,8 @@ type WordPressRecord = {
   title: RenderedText;
   excerpt?: RenderedText;
   content?: RenderedText;
+  categories?: number[];
+  aioseo_head_json?: { title?: string; description?: string };
   _embedded?: {
     author?: EmbeddedAuthor[];
     "wp:featuredmedia"?: EmbeddedMedia[];
@@ -70,6 +72,10 @@ export type MagazineEntry = {
   authorSlug?: string;
   featuredImageUrl?: string;
   featuredImageAlt?: string;
+  categoryIds: number[];
+  /** Titel/Description aus AIOSEO (leer = nicht gepflegt) */
+  seoTitle?: string;
+  seoDescription?: string;
   kind: "post" | "page";
 };
 
@@ -124,6 +130,7 @@ export function getStaticMagazinePages(): MagazineEntry[] {
       authorSlug: "redaktion",
       featuredImageUrl: KINDERGELD_2026.months.at(-1)?.imageUrl,
       featuredImageAlt: KINDERGELD_2026.title,
+      categoryIds: [],
       kind: "page",
     },
   ];
@@ -271,6 +278,9 @@ function mapEntry(record: WordPressRecord, kind: "post" | "page"): MagazineEntry
     authorSlug: author?.slug,
     featuredImageUrl: featured?.source_url,
     featuredImageAlt: featured?.alt_text,
+    categoryIds: record.categories ?? [],
+    seoTitle: record.aioseo_head_json?.title || undefined,
+    seoDescription: record.aioseo_head_json?.description || undefined,
     kind,
   };
 }
@@ -279,6 +289,35 @@ export async function getMagazinePosts(limit = 12, categoryId?: number): Promise
   const categoryQuery = categoryId ? `&categories=${categoryId}` : "";
   const records = await wordpressFetch<WordPressRecord[]>(`/posts?per_page=${limit}&_embed=1${categoryQuery}`);
   return records.map((record) => mapEntry(record, "post"));
+}
+
+/** Artikel aus mehreren Kategorien (z. B. alles außer den Kindergeld-Monatsterminen). */
+export async function getMagazinePostsByCategories(categoryIds: number[], limit = 12, page = 1): Promise<MagazineEntry[]> {
+  const records = await wordpressFetch<WordPressRecord[]>(
+    `/posts?per_page=${limit}&page=${page}&_embed=1&categories=${categoryIds.join(",")}`,
+  );
+  return records.map((record) => mapEntry(record, "post"));
+}
+
+export type MagazinePageLink = { slug: string; title: string };
+
+/** Alle WordPress-Seiten als schlanke Liste (Slug und Titel) plus die statischen Seiten. */
+export async function getMagazinePageLinks(): Promise<MagazinePageLink[]> {
+  const records = await wordpressFetch<Pick<WordPressRecord, "slug" | "title">[]>(`/pages?per_page=100&_fields=slug,title`);
+  return [
+    ...getStaticMagazinePages().map((entry) => ({ slug: entry.slug, title: entry.titleHtml })),
+    ...records.map((record) => ({ slug: record.slug, title: record.title?.rendered ?? record.slug })),
+  ];
+}
+
+/** Weitere Artikel derselben Kategorie, ohne den aktuellen. */
+export async function getRelatedPosts(entry: MagazineEntry, limit = 3): Promise<MagazineEntry[]> {
+  const categoryId = entry.categoryIds[0];
+  if (!categoryId) return [];
+  const records = await wordpressFetch<WordPressRecord[]>(
+    `/posts?per_page=${limit + 1}&_embed=1&categories=${categoryId}&exclude=${entry.id}`,
+  );
+  return records.slice(0, limit).map((record) => mapEntry(record, "post"));
 }
 
 export async function getMagazinePages(limit = 12): Promise<MagazineEntry[]> {

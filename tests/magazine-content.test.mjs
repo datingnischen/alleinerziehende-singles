@@ -6,32 +6,40 @@ async function loadWordpressHelpers() {
   return import("../lib/wordpress.ts");
 }
 
-test("humanizes the public magazine landing copy and keeps categories clickable", async () => {
+test("magazine landing: theme worlds, kindergeld service, pregnancy weeks and clickable themes", async () => {
   const source = await readFile(new URL("../app/magazin/page.tsx", import.meta.url), "utf8");
   const wordpressSource = await readFile(new URL("../lib/wordpress.ts", import.meta.url), "utf8");
+  const { MAGAZINE_THEMES, groupMagazinePages, excerptText, withHeadingAnchors } = await import("../lib/magazine.ts");
 
   assert.match(source, /Magazin für Alleinerziehende/);
-  assert.match(source, /Themen, die dich gerade interessieren/);
-  assert.match(source, /Kindergeld & Finanzen/);
-  assert.match(source, /Dating mit Kind/);
-  assert.match(source, /Wichtige Magazin-Seiten/);
   assert.match(source, /Kindergeld-Auszahlungstermine/);
-  assert.match(source, /Service & Termine/);
-  assert.match(source, /Jahresübersichten schnell griffbereit/);
-  assert.match(source, /Aktuelle Jahrgänge und frühere Übersichten auf einen Blick/);
-  assert.match(source, /visiblePosts =/);
-  assert.match(source, /generalPages = pages\.filter/);
+  assert.match(source, /Service &amp; Termine/);
+  assert.match(source, /Schwangerschaft Woche für Woche/);
+  assert.match(source, /Wichtige Magazin-Seiten/);
   assert.match(source, /href=\{`\/magazin\/\?thema=/);
+  assert.match(source, /registrationUrlForContext\("de", "magazin"\)/);
+  assert.deepEqual(MAGAZINE_THEMES.map((theme) => theme.categoryId), [26, 1, 8]);
   assert.match(wordpressSource, /const KINDERGELD_2026 =/);
-  assert.match(wordpressSource, /KINDERGELD_2026\.title/);
-  assert.match(wordpressSource, /firstMonth/);
-  assert.match(wordpressSource, /lastMonth/);
-  assert.match(wordpressSource, /Facebook-Beitrag öffnen/);
   assert.match(wordpressSource, /getStaticMagazinePages/);
   assert.match(wordpressSource, /kindergeld-facebook-2026\.json/);
-  assert.doesNotMatch(source, /Artikel zum Stöbern|hilfreiche Sonderseiten|Themenbereiche/);
   assert.doesNotMatch(source, /Headless-Migration|WordPress|REST-Anbindung|Slice|Taxonomien/);
-  assert.doesNotMatch(source, /Alle Termine gesammelt statt verstreut im Magazin/);
+
+  const groups = groupMagazinePages([
+    { slug: "ssw-schwangerschaftswoche-12", title: "SSW 12" },
+    { slug: "ssw-schwangerschaftswoche-1-4", title: "SSW 1–4" },
+    { slug: "kindergeld-auszahlungstermine-2024", title: "2024" },
+    { slug: "kindergeld-auszahlungstermine-2026", title: "2026" },
+    { slug: "kindergeld-auszahlungstermine-mai-2021", title: "Mai 2021" },
+    { slug: "duesseldorfer-tabelle", title: "Die Düsseldorfer Tabelle" },
+  ]);
+  assert.deepEqual(groups.pregnancy.map((entry) => entry.week), ["1–4", "12"]);
+  assert.deepEqual(groups.kindergeldYears.map((entry) => entry.year), ["2026", "2024"]);
+  assert.deepEqual(groups.guides.map((entry) => entry.slug), ["duesseldorfer-tabelle"]);
+
+  assert.equal(excerptText("<p>Artikel kurz anhören Die wichtigsten Punkte. Dein Browser unterstützt das Audio-Element nicht. Echter Text [&hellip;]</p>"), "Echter Text…");
+  const anchored = withHeadingAnchors("<h2>Erste Frage</h2><p>x</p><h2>Zweite</h2>");
+  assert.deepEqual(anchored.toc.map((item) => item.id), ["erste-frage", "zweite"]);
+  assert.match(anchored.html, /<h2 id="erste-frage">/);
 });
 
 test("turns the yearly kindergeld overview into scannable month cards and year chips", async () => {

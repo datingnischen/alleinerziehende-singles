@@ -47,25 +47,6 @@
   grid-template-columns: minmax(0, 860px);
 }
 
-.aei-crumbs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 20px;
-  color: var(--ae-muted);
-  font-size: 0.88rem;
-}
-
-.aei-crumbs a:hover {
-  color: var(--ae-green-dark);
-  text-decoration: underline;
-}
-
-.aei-crumbs [aria-current] {
-  color: var(--ae-ink);
-  font-weight: 700;
-}
-
 .aei-hero h1 {
   margin: 12px 0 16px;
   font-size: clamp(2.2rem, 5vw, 3.8rem);

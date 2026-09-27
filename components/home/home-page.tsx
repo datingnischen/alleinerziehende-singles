@@ -21,9 +21,11 @@ import { getMarket, publicUrl, type MarketCode } from "@/lib/markets";
 import { registrationUrlForContext } from "@/lib/registration-links";
 import { getHomeContent, platformFeatures } from "@/lib/startseite";
 import { staticAsset } from "@/lib/static-asset";
-import { formatArticleUpdated, type MagazineEntry } from "@/lib/wordpress";
+import { type MagazineEntry } from "@/lib/wordpress";
+import { PostCard } from "@/components/magazine/post-card";
 import "@/components/city/city.css";
 import "@/components/city/hub.css";
+import "@/components/magazine/magazine.css";
 import "./home.css";
 
 const LEAD: Record<MarketCode, string> = {
@@ -161,20 +163,8 @@ export function HomePage({ market, posts = [] }: { market: MarketCode; posts?: M
             </div>
             <MarketLink className="ae-btn ae-btn-outline" market={market} path="/magazin/">Alle Magazin-Artikel <ArrowIcon /></MarketLink>
           </div>
-          <div className="aem-mag">
-            {posts.map((post) => (
-              <MarketLink key={post.id} className="aem-post" market={market} path={`/magazin/${post.slug}/`}>
-                <span className="aem-post-media">
-                  {post.featuredImageUrl ? <img src={post.featuredImageUrl} alt={post.featuredImageAlt || ""} loading="lazy" decoding="async" /> : <FamilyHeartIcon />}
-                </span>
-                <span className="aem-post-body">
-                  <small>{formatArticleUpdated(post)}</small>
-                  <strong dangerouslySetInnerHTML={{ __html: post.titleHtml }} />
-                  <span className="aem-post-excerpt" dangerouslySetInnerHTML={{ __html: post.excerptHtml }} />
-                  <em>Weiterlesen <ArrowIcon /></em>
-                </span>
-              </MarketLink>
-            ))}
+          <div className="aemag-grid">
+            {posts.map((post) => <PostCard key={post.id} post={post} />)}
           </div>
         </section>
       ) : null}

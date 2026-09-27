@@ -1,187 +1,278 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  formatArticleUpdated,
-  getMagazineCategories,
-  getMagazinePages,
-  getMagazinePosts,
-} from "@/lib/wordpress";
-import styles from "./page.module.css";
+  ArrowIcon,
+  BookIcon,
+  CalendarIcon,
+  CoinIcon,
+  FamilyHeartIcon,
+  HeartIcon,
+  SparkIcon,
+  UsersIcon,
+} from "@/components/icons";
+import { PostCard } from "@/components/magazine/post-card";
+import { EDITORIAL_CATEGORY_IDS, MAGAZINE_THEMES, groupMagazinePages, stripTags, themeBySlug, type MagazineTheme } from "@/lib/magazine";
+import { registrationUrlForContext } from "@/lib/registration-links";
+import { getMagazinePageLinks, getMagazinePosts, getMagazinePostsByCategories, type MagazineEntry, type MagazinePageLink } from "@/lib/wordpress";
+import "@/components/magazine/magazine.css";
 
 export const metadata: Metadata = {
   title: "Magazin",
   description:
-    "Ratgeber, Hintergründe und wichtige Magazinseiten von Alleinerziehende-Singles.de.",
+    "Magazin für Alleinerziehende: Dating mit Kind, Familienalltag, Kindergeld-Termine und Schwangerschaft Woche für Woche – ehrlich und alltagsnah.",
+  alternates: { canonical: "https://alleinerziehende-singles.de/magazin/" },
 };
 
 type Props = {
-  searchParams?: Promise<{ thema?: string }>;
+  searchParams?: Promise<{ thema?: string; seite?: string }>;
 };
 
-const MAGAZINE_ENTRY_POINTS = [
-  {
-    title: "Kindergeld & Finanzen",
-    description: "Finde wichtige Termine, finanzielle Hilfen und praktische Orientierung für deinen Familienalltag.",
-    href: "/magazin/?thema=kindergeld",
-  },
-  {
-    title: "Dating mit Kind",
-    description: "Lies ehrliche Tipps für Neuanfang, Partnersuche und gute Gespräche mit neuen Kontakten.",
-    href: "/magazin/?thema=singleboersen",
-  },
-  {
-    title: "Wichtige Magazin-Seiten",
-    description: "Springe direkt zu den wichtigsten Übersichtsseiten, die viele Leserinnen und Leser wieder aufrufen.",
-    href: "#magazin-seiten",
-  },
-] as const;
+const PAGE_SIZE = 18;
+const THEME_ICONS = { partnersuche: HeartIcon, singleleben: UsersIcon, kindergeld: CoinIcon } as const;
 
-const KINDERGELD_PAGE_SLUG_PATTERN = /^kindergeld-auszahlungstermine-/;
+async function safe<T>(promise: Promise<T>, fallback: T): Promise<T> {
+  try {
+    return await promise;
+  } catch {
+    return fallback;
+  }
+}
 
-export default async function MagazinePage({ searchParams }: Props) {
-  const resolvedSearchParams = searchParams ? await searchParams : {};
-  const selectedSlug = resolvedSearchParams.thema;
-  const categories = await getMagazineCategories(10);
-  const selectedCategory = categories.find((category) => category.slug === selectedSlug);
+function MagazineBand() {
+  return (
+    <section className="ae-wrap ae-section">
+      <div className="ae-band">
+        <div>
+          <span className="ae-eyebrow"><HeartIcon />Vom Lesen zum Kennenlernen</span>
+          <h2>Mütter und Väter in Deiner Nähe, die Deinen Alltag kennen</h2>
+          <p>Profil kostenlos anlegen, Umkreis wählen und in Ruhe schauen, wer zu Dir und Deiner Familie passt.</p>
+        </div>
+        <div className="ae-band-actions">
+          <a className="ae-btn ae-btn-primary" href={registrationUrlForContext("de", "magazin")}>Kostenlos registrieren</a>
+          <Link className="ae-btn ae-btn-ghost" href="/partnersuche/">Singles nach Stadt</Link>
+        </div>
+      </div>
+    </section>
+  );
+}
 
-  const [posts, pages] = await Promise.all([
-    getMagazinePosts(12, selectedCategory?.id),
-    getMagazinePages(6),
-  ]);
-  const kindergeldPages = pages.filter((page) => KINDERGELD_PAGE_SLUG_PATTERN.test(page.slug));
-  const generalPages = pages.filter((page) => !KINDERGELD_PAGE_SLUG_PATTERN.test(page.slug));
-  const visiblePosts =
-    selectedCategory?.slug === "kindergeld"
-      ? posts
-      : posts.filter((post) => !KINDERGELD_PAGE_SLUG_PATTERN.test(post.slug));
+function ThemeNav({ current }: { current: MagazineTheme | null }) {
+  return (
+    <nav className="ae-wrap aemag-themenav" aria-label="Themen">
+      <Link href="/magazin/" className={!current ? "aemag-themenav-active" : undefined}>Alle Themen</Link>
+      {MAGAZINE_THEMES.map((theme) => (
+        <Link key={theme.slug} href={`/magazin/?thema=${encodeURIComponent(theme.slug)}`} className={current?.slug === theme.slug ? "aemag-themenav-active" : undefined}>
+          {theme.short}
+        </Link>
+      ))}
+      <Link href="/magazin/#schwangerschaft">Schwangerschaft</Link>
+      <Link href="/magazin/#ratgeber">Ratgeber</Link>
+    </nav>
+  );
+}
+
+async function ThemeView({ theme, page }: { theme: MagazineTheme; page: number }) {
+  const posts = await safe(getMagazinePostsByCategories([theme.categoryId], PAGE_SIZE, page), []);
+  const Icon = THEME_ICONS[theme.key];
 
   return (
-    <main className={styles.page}>
-      <section className={styles.hero}>
-        <p className={styles.eyebrow}>Magazin für Alleinerziehende</p>
-        <h1>Alleinerziehende-Singles Magazin</h1>
-        <p className={styles.lead}>
-          Hier findest du hilfreiche Artikel für den Alltag als alleinerziehender Single: von
-          Familie und Finanzen bis zu neuen Chancen in Liebe, Freizeit und Beruf.
-        </p>
-        <div className={styles.entryGrid}>
-          {MAGAZINE_ENTRY_POINTS.map((entry) => (
-            <Link className={styles.entryCard} href={entry.href} key={entry.title}>
-              <strong>{entry.title}</strong>
-              <span>{entry.description}</span>
-            </Link>
-          ))}
+    <main className="aemag">
+      <section className="ae-hero aemag-hero aemag-hero-theme">
+        <div className="ae-wrap">
+          <nav className="ae-crumbs" aria-label="Brotkrumen">
+            <Link href="/">Start</Link>
+            <span aria-hidden="true">›</span>
+            <Link href="/magazin/">Magazin</Link>
+            <span aria-hidden="true">›</span>
+            <span aria-current="page">{theme.short}</span>
+          </nav>
+          <span className="ae-badge"><Icon />Themenwelt</span>
+          <h1>{theme.title}</h1>
+          <p className="ae-lead">{theme.text}</p>
         </div>
       </section>
 
-      <section className={styles.section}>
-        <div className={styles.sectionHeader}>
-          <h2>Themen, die dich gerade interessieren</h2>
-          <p>Wähle ein Thema aus und lass dir passende Beiträge anzeigen.</p>
-        </div>
-        <div className={styles.categoryRow}>
-          <Link
-            className={`${styles.categoryChip} ${!selectedCategory ? styles.categoryChipActive : ""}`}
-            href="/magazin/"
-          >
-            Alle Themen
-          </Link>
-          {categories.map((category) => (
-            <Link
-              className={`${styles.categoryChip} ${selectedCategory?.id === category.id ? styles.categoryChipActive : ""}`}
-              href={`/magazin/?thema=${encodeURIComponent(category.slug)}`}
-              key={category.id}
-            >
-              {category.name}
-            </Link>
-          ))}
+      <ThemeNav current={theme} />
+
+      <section className="ae-wrap ae-section" aria-label={`Artikel zu ${theme.title}`}>
+        {posts.length ? (
+          <div className="aemag-grid">
+            {posts.map((post) => <PostCard key={post.id} post={post} />)}
+          </div>
+        ) : (
+          <p className="aemag-empty">Hier sind gerade keine weiteren Artikel. <Link href={`/magazin/?thema=${theme.slug}`}>Zurück zum Anfang</Link></p>
+        )}
+        <div className="aemag-pager">
+          {page > 1 ? <Link className="ae-btn ae-btn-outline" href={`/magazin/?thema=${theme.slug}${page > 2 ? `&seite=${page - 1}` : ""}`}>← Neuere Artikel</Link> : <span />}
+          {posts.length === PAGE_SIZE ? <Link className="ae-btn ae-btn-green" href={`/magazin/?thema=${theme.slug}&seite=${page + 1}`}>Ältere Artikel <ArrowIcon /></Link> : null}
         </div>
       </section>
 
-      {kindergeldPages.length ? (
-        <section className={`${styles.gridSection} ${styles.serviceSection}`} id="kindergeld-auszahlungstermine">
-          <div className={styles.sectionHeader}>
-            <p className={styles.serviceEyebrow}>Service & Termine</p>
-            <h2>Kindergeld-Auszahlungstermine</h2>
-            <p>
-              Alle Jahresübersichten zu den Auszahlungsterminen findest du hier gesammelt an
-              einem Ort.
+      <MagazineBand />
+    </main>
+  );
+}
+
+export default async function MagazinePage({ searchParams }: Props) {
+  const params = searchParams ? await searchParams : {};
+  const theme = themeBySlug(params.thema);
+  if (theme) {
+    return <ThemeView theme={theme} page={Math.max(1, Number.parseInt(params.seite ?? "1", 10) || 1)} />;
+  }
+
+  const [editorial, kindergeldPosts, pageLinks] = await Promise.all([
+    safe(getMagazinePostsByCategories(EDITORIAL_CATEGORY_IDS, 10), [] as MagazineEntry[]),
+    safe(getMagazinePosts(4, 8), [] as MagazineEntry[]),
+    safe(getMagazinePageLinks(), [] as MagazinePageLink[]),
+  ]);
+  const [featured, ...latest] = editorial;
+  const groups = groupMagazinePages(pageLinks);
+
+  return (
+    <main className="aemag">
+      <section className="ae-hero aemag-hero">
+        <div className="ae-wrap aemag-hero-grid">
+          <div>
+            <nav className="ae-crumbs" aria-label="Brotkrumen">
+              <Link href="/">Start</Link>
+              <span aria-hidden="true">›</span>
+              <span aria-current="page">Magazin</span>
+            </nav>
+            <span className="ae-badge"><BookIcon />Magazin für Alleinerziehende</span>
+            <h1>Liebe, Alltag und Finanzen – <em>ehrlich erzählt</em></h1>
+            <p className="ae-lead">
+              Hier findest du hilfreiche Artikel für den Alltag als alleinerziehender Single: von Familie und Finanzen bis zu
+              neuen Chancen in Liebe, Freizeit und Beruf.
             </p>
+            <ul className="ae-stats">
+              <li><strong>{MAGAZINE_THEMES.length}</strong> Themenwelten</li>
+              {groups.pregnancy.length ? <li><strong>{groups.pregnancy.length}</strong> Schwangerschaftswochen</li> : null}
+              {groups.kindergeldYears.length ? <li>Kindergeld seit <strong>{groups.kindergeldYears.at(-1)?.year}</strong></li> : null}
+            </ul>
           </div>
-          <div className={styles.serviceHighlights}>
-            <span>Jahresübersichten schnell griffbereit</span>
-            <span>Hilfreich für Planung und Familienalltag</span>
-            <span>Aktuelle Jahrgänge und frühere Übersichten auf einen Blick</span>
-          </div>
-          <div className={`${styles.pageList} ${styles.servicePageList}`}>
-            {kindergeldPages.map((page) => (
-              <Link className={`${styles.pageListItem} ${styles.servicePageListItem}`} href={`/magazin/${page.slug}/`} key={page.id}>
-                <div>
-                  <span className={styles.pageType}>Kindergeld</span>
-                  <strong dangerouslySetInnerHTML={{ __html: page.titleHtml }} />
-                </div>
-                <span>Öffnen</span>
+          {featured ? (
+            <div className="aemag-hero-feature">
+              <span className="aemag-hero-kicker"><SparkIcon />Neu im Magazin</span>
+              <PostCard post={featured} large />
+            </div>
+          ) : null}
+        </div>
+      </section>
+
+      <ThemeNav current={null} />
+
+      <section className="ae-wrap ae-section" aria-labelledby="aemag-themes-title">
+        <div className="ae-head">
+          <span className="ae-eyebrow"><FamilyHeartIcon />Themenwelten</span>
+          <h2 id="aemag-themes-title">Worüber möchtest Du lesen?</h2>
+        </div>
+        <div className="aemag-themes">
+          {MAGAZINE_THEMES.map((entry) => {
+            const Icon = THEME_ICONS[entry.key];
+            return (
+              <Link key={entry.slug} className={`aemag-theme aemag-theme-${entry.key}`} href={`/magazin/?thema=${entry.slug}`}>
+                <Icon />
+                <strong>{entry.title}</strong>
+                <span>{entry.text}</span>
+                <em>Artikel ansehen <ArrowIcon /></em>
               </Link>
+            );
+          })}
+          {groups.pregnancy.length ? (
+            <a className="aemag-theme aemag-theme-ssw" href="#schwangerschaft">
+              <CalendarIcon />
+              <strong>Schwangerschaft Woche für Woche</strong>
+              <span>Was sich in jeder Schwangerschaftswoche tut – von der ersten bis zur 40. Woche.</span>
+              <em>Woche wählen <ArrowIcon /></em>
+            </a>
+          ) : null}
+        </div>
+      </section>
+
+      {latest.length ? (
+        <section className="ae-wrap ae-section" aria-labelledby="aemag-latest-title">
+          <div className="aemag-head-row">
+            <div className="ae-head">
+              <span className="ae-eyebrow"><HeartIcon />Neueste Artikel</span>
+              <h2 id="aemag-latest-title">Frisch aus der Redaktion</h2>
+              <p>Neue Artikel, Tipps und Geschichten für alleinerziehende Singles.</p>
+            </div>
+          </div>
+          <div className="aemag-grid">
+            {latest.map((post) => <PostCard key={post.id} post={post} />)}
+          </div>
+          <div className="aemag-more">
+            {MAGAZINE_THEMES.filter((entry) => entry.key !== "kindergeld").map((entry) => (
+              <Link key={entry.slug} className="ae-btn ae-btn-outline" href={`/magazin/?thema=${entry.slug}`}>Alle Artikel: {entry.short} <ArrowIcon /></Link>
             ))}
           </div>
         </section>
       ) : null}
 
-      <section className={styles.gridSection}>
-        <div className={styles.sectionHeader}>
-          <h2>{selectedCategory ? `Beiträge zu ${selectedCategory.name}` : "Neueste Artikel"}</h2>
-          <p>
-            {selectedCategory
-              ? `Hier findest du Beiträge aus dem Themenbereich ${selectedCategory.name}.`
-              : "Neue Artikel, Tipps und Geschichten für alleinerziehende Singles."}
-          </p>
-        </div>
-        <div className={styles.cardGrid}>
-          {visiblePosts.map((post) => (
-            <article className={styles.card} key={post.id}>
-              {post.featuredImageUrl ? (
-                <img
-                  className={styles.cardImage}
-                  src={post.featuredImageUrl}
-                  alt={post.featuredImageAlt || ""}
-                />
-              ) : null}
-              <div className={styles.cardCopy}>
-                <div className={styles.metaRow}>
-                  <span>Artikel</span>
-                  <span>{formatArticleUpdated(post)}</span>
-                </div>
-                <h3 dangerouslySetInnerHTML={{ __html: post.titleHtml }} />
-                <div
-                  className={styles.excerpt}
-                  dangerouslySetInnerHTML={{ __html: post.excerptHtml }}
-                />
-                <Link className={styles.cardLink} href={`/magazin/${post.slug}/`}>
-                  Artikel öffnen
-                </Link>
-              </div>
-            </article>
-          ))}
+      <section id="kindergeld" className="ae-section aemag-service" aria-labelledby="aemag-kg-title">
+        <div className="ae-wrap aemag-service-grid">
+          <div>
+            <span className="ae-eyebrow"><CoinIcon />Service &amp; Termine</span>
+            <h2 id="aemag-kg-title">Kindergeld-Auszahlungstermine</h2>
+            <p>Alle Jahresübersichten zu den Auszahlungsterminen findest du hier gesammelt an einem Ort – Monat für Monat im Überblick.</p>
+            <ul className="aemag-years">
+              {groups.kindergeldYears.map((entry) => (
+                <li key={entry.slug}><Link href={`/magazin/${entry.slug}/`}>{entry.year}</Link></li>
+              ))}
+            </ul>
+            <Link className="ae-btn ae-btn-primary" href="/magazin/?thema=kindergeld">Alle Monatstermine <ArrowIcon /></Link>
+          </div>
+          {kindergeldPosts.length ? (
+            <ul className="aemag-kg-list">
+              {kindergeldPosts.map((post) => (
+                <li key={post.id}>
+                  <Link href={`/magazin/${post.slug}/`}>
+                    <CalendarIcon />
+                    <span>{stripTags(post.titleHtml)}</span>
+                    <ArrowIcon />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </div>
       </section>
 
-      <section className={styles.gridSection} id="magazin-seiten">
-        <div className={styles.sectionHeader}>
-          <h2>Magazin-Seiten</h2>
-          <p>Wichtige Übersichtsseiten und Ratgeber, die du schnell wiederfinden möchtest.</p>
-        </div>
-        <div className={styles.pageList}>
-          {generalPages.map((page) => (
-            <Link className={styles.pageListItem} href={`/magazin/${page.slug}/`} key={page.id}>
-              <div>
-                <span className={styles.pageType}>Seite</span>
-                <strong dangerouslySetInnerHTML={{ __html: page.titleHtml }} />
-              </div>
-              <span>Öffnen</span>
-            </Link>
-          ))}
-        </div>
-      </section>
+      {groups.pregnancy.length ? (
+        <section id="schwangerschaft" className="ae-wrap ae-section" aria-labelledby="aemag-ssw-title">
+          <div className="ae-head">
+            <span className="ae-eyebrow"><CalendarIcon />Schwangerschaft</span>
+            <h2 id="aemag-ssw-title">Schwangerschaft Woche für Woche</h2>
+            <p>Wähle Deine Schwangerschaftswoche und lies, was sich bei Dir und Deinem Baby gerade tut.</p>
+          </div>
+          <ol className="aemag-weeks">
+            {groups.pregnancy.map((entry) => (
+              <li key={entry.slug}>
+                <Link href={`/magazin/${entry.slug}/`}><small>SSW</small><strong>{entry.week}</strong></Link>
+              </li>
+            ))}
+          </ol>
+        </section>
+      ) : null}
+
+      {groups.guides.length ? (
+        <section id="ratgeber" className="ae-wrap ae-section" aria-labelledby="aemag-guides-title">
+          <div className="ae-head">
+            <span className="ae-eyebrow"><BookIcon />Ratgeber</span>
+            <h2 id="aemag-guides-title">Wichtige Magazin-Seiten</h2>
+            <p>Übersichten und Ratgeber, die Du schnell wiederfinden möchtest.</p>
+          </div>
+          <ul className="aemag-guides">
+            {groups.guides.map((entry) => (
+              <li key={entry.slug}>
+                <Link href={`/magazin/${entry.slug}/`}><BookIcon /><span>{stripTags(entry.title)}</span><ArrowIcon /></Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
+      <MagazineBand />
     </main>
   );
 }

@@ -1,0 +1,1110 @@
+/* Magazin: Startseite, Themenwelten, Artikel */
+
+.aemag {
+  padding-bottom: 24px;
+  background:
+    radial-gradient(circle at 6% 40%, rgba(87, 173, 70, 0.06), transparent 28%),
+    radial-gradient(circle at 94% 70%, rgba(248, 174, 20, 0.07), transparent 30%),
+    var(--ae-cream);
+}
+
+/* ---------- Hero ---------- */
+
+.aemag-hero {
+  padding-bottom: 120px;
+}
+
+.aemag-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 430px);
+  align-items: center;
+  gap: 52px;
+}
+
+.aemag-hero h1 {
+  max-width: 15ch;
+}
+
+.aemag-hero-theme h1 {
+  max-width: 20ch;
+}
+
+.aemag-hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: var(--ae-sun);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.aemag-hero-kicker svg {
+  width: 18px;
+  height: 18px;
+}
+
+.aemag-hero-feature .aemag-card {
+  transform: rotate(1.5deg);
+  box-shadow: 0 34px 70px rgba(10, 20, 8, 0.45);
+}
+
+.aemag-hero-feature .aemag-card:hover {
+  transform: rotate(0deg) translateY(-4px);
+}
+
+/* ---------- Themenleiste ---------- */
+
+.aemag-themenav {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  gap: 6px;
+  width: fit-content;
+  max-width: calc(100% - 32px);
+  margin-top: -28px;
+  padding: 6px;
+  overflow-x: auto;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: var(--ae-shadow-lg);
+  scrollbar-width: none;
+}
+
+.aemag-themenav::-webkit-scrollbar {
+  display: none;
+}
+
+.aemag-themenav a {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.aemag-themenav a:hover,
+.aemag-themenav a:focus-visible {
+  background: var(--ae-green-soft);
+  color: var(--ae-green-dark);
+}
+
+.aemag-themenav .aemag-themenav-active {
+  background: var(--ae-forest);
+  color: #fff;
+}
+
+/* ---------- Themenwelten ---------- */
+
+.aemag-themes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+}
+
+.aemag-theme {
+  --tc: var(--ae-green-dark);
+  --tc-soft: var(--ae-green-soft);
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 26px 24px;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 100% 0%, var(--tc-soft), transparent 55%),
+    #fff;
+  box-shadow: var(--ae-shadow), inset 0 0 0 1px var(--ae-line);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.aemag-theme-partnersuche { --tc: var(--ae-coral); --tc-soft: var(--ae-coral-soft); }
+.aemag-theme-kindergeld { --tc: var(--ae-sun-deep); --tc-soft: var(--ae-sun-soft); }
+.aemag-theme-ssw { --tc: var(--ae-plum); --tc-soft: var(--ae-plum-soft); }
+
+.aemag-theme:hover,
+.aemag-theme:focus-visible {
+  transform: translateY(-4px) rotate(-0.5deg);
+  box-shadow: 0 22px 44px rgba(40, 60, 25, 0.14), inset 0 0 0 2px var(--tc);
+}
+
+.aemag-theme > svg {
+  width: 54px;
+  height: 54px;
+  padding: 12px;
+  border-radius: 18px;
+  background: var(--tc-soft);
+  color: var(--tc);
+}
+
+.aemag-theme strong {
+  font-family: var(--ae-display), sans-serif;
+  font-size: 1.3rem;
+  line-height: 1.15;
+}
+
+.aemag-theme > span {
+  color: var(--ae-muted);
+  line-height: 1.6;
+}
+
+.aemag-theme em {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--tc);
+  font-style: normal;
+  font-weight: 800;
+}
+
+.aemag-theme em svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ---------- Artikelkarten ---------- */
+
+.aemag-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.aemag-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  border-radius: 28px;
+  background: #fff;
+  color: var(--ae-ink);
+  box-shadow: var(--ae-shadow), inset 0 0 0 1px var(--ae-line);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.aemag-card:hover,
+.aemag-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 44px rgba(40, 60, 25, 0.14), inset 0 0 0 2px var(--ae-sun);
+}
+
+.aemag-card-media {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--ae-sun-soft);
+  color: var(--ae-sun);
+}
+
+.aemag-card-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.aemag-card:hover .aemag-card-media img {
+  transform: scale(1.05);
+}
+
+.aemag-card-media > svg {
+  width: 56px;
+}
+
+.aemag-chip {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--ae-green-soft);
+  color: var(--ae-green-dark);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.aemag-card-media .aemag-chip {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.aemag-chip-partnersuche { color: var(--ae-coral); }
+.aemag-chip-kindergeld { color: var(--ae-sun-deep); }
+.aemag-chip-ssw { background: var(--ae-plum-soft); color: var(--ae-plum); }
+
+.aemag-card-body {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  padding: 20px 22px 22px;
+}
+
+.aemag-card-body small {
+  color: var(--ae-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.aemag-card-body strong {
+  font-family: var(--ae-display), sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.22;
+}
+
+.aemag-card-excerpt {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--ae-muted);
+  font-size: 0.94rem;
+  line-height: 1.6;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.aemag-card em {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  color: var(--ae-green-dark);
+  font-style: normal;
+  font-weight: 800;
+}
+
+.aemag-card em svg {
+  width: 16px;
+  height: 16px;
+}
+
+.aemag-card-large .aemag-card-body strong {
+  font-size: 1.45rem;
+}
+
+.aemag-head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 28px;
+  margin-bottom: 26px;
+}
+
+.aemag-head-row .ae-head {
+  margin-bottom: 0;
+}
+
+.aemag-more,
+.aemag-pager {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.aemag-pager {
+  justify-content: space-between;
+}
+
+.aemag-empty {
+  padding: 26px;
+  border-radius: 22px;
+  background: var(--ae-sun-soft);
+  font-weight: 700;
+}
+
+.aemag-empty a {
+  color: var(--ae-green-dark);
+  text-decoration: underline;
+}
+
+/* ---------- Kindergeld-Service ---------- */
+
+.aemag-service {
+  padding: 72px 0;
+  background:
+    radial-gradient(circle at 90% 10%, rgba(248, 174, 20, 0.26), transparent 42%),
+    linear-gradient(160deg, var(--ae-forest), var(--ae-forest-2));
+  color: #fff;
+}
+
+.aemag-service .ae-eyebrow {
+  color: var(--ae-sun);
+}
+
+.aemag-service-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 460px);
+  align-items: center;
+  gap: 48px;
+}
+
+.aemag-service h2 {
+  margin: 8px 0 12px;
+  font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+  line-height: 1.1;
+}
+
+.aemag-service p {
+  max-width: 56ch;
+  color: rgba(255, 255, 255, 0.84);
+  line-height: 1.65;
+}
+
+.aemag-years {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 22px 0 26px;
+  list-style: none;
+}
+
+.aemag-years a {
+  display: inline-grid;
+  place-items: center;
+  min-width: 70px;
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+  font-family: var(--ae-display), sans-serif;
+  font-weight: 800;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.aemag-years li:first-child a {
+  background: var(--ae-sun);
+  color: var(--ae-forest);
+}
+
+.aemag-years a:hover,
+.aemag-years a:focus-visible {
+  background: #fff;
+  color: var(--ae-forest);
+}
+
+.aemag-kg-list {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+}
+
+.aemag-kg-list a {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 20px;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 18px 12px 12px;
+  border-radius: 20px;
+  background: #fff;
+  color: var(--ae-ink);
+  font-weight: 700;
+  transition: transform 0.18s ease;
+}
+
+.aemag-kg-list a:hover,
+.aemag-kg-list a:focus-visible {
+  transform: translateX(4px);
+}
+
+.aemag-kg-list a > svg:first-child {
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border-radius: 14px;
+  background: var(--ae-sun-soft);
+  color: var(--ae-sun-deep);
+}
+
+.aemag-kg-list a > svg:last-child {
+  width: 18px;
+  height: 18px;
+  color: var(--ae-green-dark);
+}
+
+/* ---------- Schwangerschaftswochen ---------- */
+
+.aemag-weeks {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
+  gap: 10px;
+  list-style: none;
+}
+
+.aemag-weeks a {
+  display: grid;
+  place-items: center;
+  gap: 0;
+  padding: 12px 6px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px var(--ae-line);
+  transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+.aemag-weeks small {
+  color: var(--ae-plum);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.aemag-weeks strong {
+  font-family: var(--ae-display), sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.1;
+}
+
+.aemag-weeks a:hover,
+.aemag-weeks a:focus-visible {
+  background: var(--ae-plum);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.aemag-weeks a:hover small,
+.aemag-weeks a:focus-visible small {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ---------- Ratgeber-Seiten ---------- */
+
+.aemag-guides {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 10px;
+  list-style: none;
+}
+
+.aemag-guides a {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) 18px;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px 12px 12px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px var(--ae-line);
+  font-weight: 700;
+  transition: box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.aemag-guides a:hover,
+.aemag-guides a:focus-visible {
+  transform: translateX(4px);
+  box-shadow: inset 0 0 0 2px var(--ae-green);
+}
+
+.aemag-guides a > svg:first-child {
+  width: 40px;
+  height: 40px;
+  padding: 9px;
+  border-radius: 13px;
+  background: var(--ae-green-soft);
+  color: var(--ae-green-dark);
+}
+
+.aemag-guides a > svg:last-child {
+  width: 18px;
+  height: 18px;
+  color: var(--ae-green-dark);
+}
+
+/* ======================================================================
+   Artikel
+   ====================================================================== */
+
+.aemag-ahero {
+  padding: 36px 0 60px;
+  background:
+    radial-gradient(circle at 92% 0%, rgba(248, 174, 20, 0.28), transparent 38%),
+    radial-gradient(circle at 0% 100%, rgba(87, 173, 70, 0.16), transparent 40%),
+    linear-gradient(180deg, #fff6df, var(--ae-cream));
+}
+
+.aemag-ahero-inner {
+  display: grid;
+  justify-items: start;
+  gap: 14px;
+}
+
+.aemag-ahero h1,
+.aemag-ahero .aemag-lead {
+  max-width: 880px;
+}
+
+.aemag-ahero .aei-crumbs {
+  margin-bottom: 4px;
+}
+
+.aemag-ahero h1 {
+  font-size: clamp(2rem, 4.6vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.aemag-lead {
+  max-width: 64ch;
+  color: #4a5646;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+.aemag-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 22px;
+  margin-top: 6px;
+  color: var(--ae-muted);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.aemag-meta > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.aemag-meta > span > svg {
+  width: 18px;
+  height: 18px;
+  color: var(--ae-green-dark);
+}
+
+.aemag-author > span {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--ae-green);
+  color: #fff;
+}
+
+.aemag-author > span svg {
+  width: 20px;
+  height: 20px;
+}
+
+.aemag-author {
+  color: var(--ae-ink);
+  font-weight: 700;
+}
+
+.aemag-figure {
+  margin-top: -24px;
+  margin-bottom: 0;
+}
+
+.aemag-figure img {
+  display: block;
+  width: 100%;
+  max-height: 560px;
+  border-radius: 32px;
+  object-fit: cover;
+  box-shadow: var(--ae-shadow-lg);
+}
+
+.aemag-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  align-items: start;
+  gap: 56px;
+  margin-top: 48px;
+}
+
+.aemag-layout-solo {
+  grid-template-columns: minmax(0, 780px);
+  justify-content: center;
+}
+
+.aemag-body {
+  min-width: 0;
+  max-width: 780px;
+}
+
+.aemag-rich {
+  font-size: 1.08rem;
+  line-height: 1.85;
+}
+
+.aemag-rich > p:first-child {
+  color: var(--ae-ink);
+  font-size: 1.18rem;
+}
+
+.aemag-rich h2 {
+  position: relative;
+  margin-top: 2.6rem;
+  padding-left: 18px;
+  scroll-margin-top: 100px;
+}
+
+.aemag-rich h2::before {
+  content: "";
+  position: absolute;
+  top: 0.18em;
+  bottom: 0.18em;
+  left: 0;
+  width: 5px;
+  border-radius: 5px;
+  background: linear-gradient(180deg, var(--ae-sun), var(--ae-green));
+}
+
+.aemag-rich h3 {
+  margin-top: 1.8rem;
+}
+
+.aemag-rich img {
+  margin: 1.2rem 0;
+}
+
+.aemag-rich audio {
+  width: 100%;
+}
+
+.aemag-toc-mobile {
+  display: none;
+}
+
+.aemag-side {
+  position: sticky;
+  top: 100px;
+  display: grid;
+  gap: 18px;
+}
+
+.aemag-toc {
+  display: grid;
+  gap: 12px;
+  padding: 22px 20px;
+  border-radius: 26px;
+  background: #fff;
+  box-shadow: var(--ae-shadow), inset 0 0 0 1px var(--ae-line);
+}
+
+.aemag-toc > span,
+.aemag-toc-mobile summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ae-green-dark);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.aemag-toc > span svg,
+.aemag-toc-mobile summary svg {
+  width: 18px;
+  height: 18px;
+}
+
+.aemag-toc ol,
+.aemag-toc-mobile ol {
+  display: grid;
+  gap: 2px;
+  padding-left: 0;
+  list-style: none;
+  counter-reset: toc;
+}
+
+.aemag-toc li,
+.aemag-toc-mobile li {
+  counter-increment: toc;
+}
+
+.aemag-toc a,
+.aemag-toc-mobile a {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 8px;
+  padding: 7px 8px;
+  border-radius: 12px;
+  color: var(--ae-ink);
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.aemag-toc a::before,
+.aemag-toc-mobile a::before {
+  content: counter(toc, decimal-leading-zero);
+  color: var(--ae-sun-dark);
+  font-family: var(--ae-display), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.aemag-toc a:hover,
+.aemag-toc a:focus-visible {
+  background: var(--ae-green-soft);
+}
+
+.aemag-side-cta {
+  display: grid;
+  gap: 8px;
+  padding: 24px 22px;
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(248, 174, 20, 0.35), transparent 50%),
+    linear-gradient(160deg, var(--ae-forest), var(--ae-forest-2));
+  color: #fff;
+  box-shadow: var(--ae-shadow-lg);
+  transition: transform 0.18s ease;
+}
+
+.aemag-side-cta:hover,
+.aemag-side-cta:focus-visible {
+  transform: translateY(-3px);
+}
+
+.aemag-side-cta > svg {
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border-radius: 14px;
+  background: var(--ae-sun);
+  color: var(--ae-forest);
+}
+
+.aemag-side-cta strong {
+  font-family: var(--ae-display), sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+.aemag-side-cta span {
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.aemag-side-cta em {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ae-sun);
+  font-style: normal;
+  font-weight: 800;
+}
+
+.aemag-side-cta em svg {
+  width: 16px;
+  height: 16px;
+}
+
+.aemag-weeknav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+  margin-top: 36px;
+}
+
+.aemag-weeknav a {
+  display: inline-flex;
+  justify-content: center;
+  min-height: 48px;
+  align-items: center;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: inset 0 0 0 1.5px var(--ae-line);
+  font-weight: 800;
+}
+
+.aemag-weeknav a:last-child {
+  justify-self: end;
+}
+
+.aemag-weeknav a:hover {
+  background: var(--ae-plum);
+  color: #fff;
+}
+
+.aemag-byline {
+  display: grid;
+  grid-template-columns: 60px minmax(0, 1fr);
+  gap: 18px;
+  margin-top: 44px;
+  padding: 24px 26px;
+  border-radius: 26px;
+  background: #fff;
+  box-shadow: var(--ae-shadow), inset 0 0 0 1px var(--ae-line);
+}
+
+.aemag-byline-icon {
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--ae-green), var(--ae-green-dark));
+  color: #fff;
+}
+
+.aemag-byline-icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.aemag-byline strong {
+  font-family: var(--ae-display), sans-serif;
+  font-size: 1.15rem;
+}
+
+.aemag-byline p {
+  margin: 6px 0 10px;
+  color: var(--ae-muted);
+  line-height: 1.6;
+}
+
+.aemag-byline a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ae-green-dark);
+  font-weight: 800;
+}
+
+.aemag-byline a svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Umkreissuche-Radar */
+.aemag-radar {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  align-items: center;
+  gap: 36px;
+  padding: 40px 48px;
+  border-radius: 36px;
+  background:
+    radial-gradient(circle at 85% 30%, rgba(120, 196, 98, 0.35), transparent 45%),
+    linear-gradient(120deg, var(--ae-forest-2), var(--ae-forest) 60%, var(--ae-green-deep));
+  color: #fff;
+  box-shadow: var(--ae-shadow-lg);
+}
+
+.aemag-radar .ae-eyebrow {
+  color: var(--ae-sun);
+}
+
+.aemag-radar h2 {
+  margin: 8px 0 10px;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  line-height: 1.12;
+}
+
+.aemag-radar p {
+  max-width: 54ch;
+  color: rgba(255, 255, 255, 0.86);
+  line-height: 1.6;
+}
+
+.aemag-radar-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  transform: rotate(3deg);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
+}
+
+.aemag-back {
+  display: flex;
+  justify-content: center;
+}
+
+/* ---------- Kindergeld-Bausteine aus WordPress ---------- */
+
+.aemag-rich .kindergeld-note,
+.aemag-rich .kindergeld-faq-box,
+.aemag-rich .kindergeld-years {
+  padding: 20px 22px;
+  border-radius: 22px;
+  background: var(--ae-sun-soft);
+  box-shadow: inset 0 0 0 1px rgba(207, 138, 0, 0.2);
+}
+
+.aemag-rich .kindergeld-month-overview {
+  display: grid;
+  gap: 16px;
+}
+
+.aemag-rich .kindergeld-section-intro h2 {
+  margin-top: 1rem;
+}
+
+.aemag-rich .kindergeld-month-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.aemag-rich .kindergeld-month-card {
+  display: grid;
+  gap: 4px;
+  padding: 16px 18px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: var(--ae-shadow), inset 0 0 0 1px var(--ae-line);
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.aemag-rich .kindergeld-month-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px rgba(40, 60, 25, 0.14), inset 0 0 0 2px var(--ae-sun);
+}
+
+.aemag-rich .kindergeld-month-label {
+  color: var(--ae-ink);
+  font-family: var(--ae-display), sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.aemag-rich .kindergeld-month-cta {
+  color: var(--ae-green-dark);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.aemag-rich .kindergeld-year-list ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.aemag-rich .kindergeld-year-list li {
+  padding: 0;
+}
+
+.aemag-rich .kindergeld-year-list li::before {
+  display: none;
+}
+
+.aemag-rich .kindergeld-year-list a {
+  display: inline-grid;
+  place-items: center;
+  min-width: 70px;
+  min-height: 42px;
+  padding: 0 14px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px var(--ae-line);
+  text-decoration: none;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1080px) {
+  .aemag-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .aemag-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .aemag-body {
+    margin-inline: auto;
+  }
+
+  .aemag-side {
+    display: none;
+  }
+
+  .aemag-toc-mobile {
+    display: block;
+    margin-bottom: 26px;
+    padding: 16px 20px;
+    border-radius: 22px;
+    background: #fff;
+    box-shadow: inset 0 0 0 1px var(--ae-line);
+  }
+
+  .aemag-toc-mobile summary {
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .aemag-toc-mobile ol {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 1020px) {
+  .aemag-hero-grid,
+  .aemag-service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aemag-hero-feature {
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 700px) {
+  .aemag-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aemag-hero-feature .aemag-card {
+    transform: none;
+  }
+
+  .aemag-figure img {
+    border-radius: 22px;
+  }
+
+  .aemag-rich {
+    font-size: 1.03rem;
+  }
+
+  .aemag-radar {
+    grid-template-columns: 1fr;
+    padding: 30px 22px;
+    border-radius: 28px;
+  }
+
+  .aemag-radar-card {
+    display: none;
+  }
+
+  .aemag-byline {
+    grid-template-columns: 1fr;
+  }
+
+  .aemag-weeknav {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .aemag-weeknav a:nth-child(2) {
+    display: none;
+  }
+}
