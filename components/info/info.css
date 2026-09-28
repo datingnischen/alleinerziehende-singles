@@ -8,30 +8,59 @@
     var(--ae-cream);
 }
 
-/* ---------- Heller Hero ---------- */
+/* ---------- Dunkelgrüner Hero wie Partnersuche und Stadtseiten ---------- */
 
 .aei-hero {
   position: relative;
   overflow: hidden;
-  padding: 40px 0 72px;
+  padding: 40px 0 104px;
   background:
-    radial-gradient(circle at 92% 0%, rgba(248, 174, 20, 0.3), transparent 36%),
-    radial-gradient(circle at 0% 100%, rgba(87, 173, 70, 0.18), transparent 38%),
-    linear-gradient(180deg, #fff6df, var(--ae-cream));
+    radial-gradient(circle at 88% 12%, rgba(110, 190, 88, 0.34), transparent 40%),
+    radial-gradient(circle at 8% 100%, rgba(248, 174, 20, 0.14), transparent 36%),
+    linear-gradient(125deg, var(--ae-forest-2), var(--ae-forest) 55%, #24461d);
+  color: #fff;
+  clip-path: ellipse(140% 100% at 50% 0%);
 }
 
 .aei-hero::after {
   content: "";
   position: absolute;
   right: -60px;
-  bottom: -90px;
+  bottom: -40px;
   width: 320px;
   height: 320px;
-  background: rgba(248, 174, 20, 0.12);
+  background: rgba(248, 174, 20, 0.1);
   -webkit-mask: var(--ae-heart-mask) center / contain no-repeat;
   mask: var(--ae-heart-mask) center / contain no-repeat;
   transform: rotate(-14deg);
   pointer-events: none;
+}
+
+.aei-hero .aei-crumbs {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.aei-hero .aei-crumbs a:hover,
+.aei-hero .aei-crumbs [aria-current] {
+  color: #fff;
+}
+
+.aei-hero .ae-eyebrow {
+  color: var(--ae-sun);
+}
+
+.aei-hero label {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.aei-hero form button {
+  background: var(--ae-sun);
+  color: var(--ae-forest);
+}
+
+.aei-hero form button:hover,
+.aei-hero form button:focus-visible {
+  background: #ffc53d;
 }
 
 .aei-hero-grid {
@@ -49,6 +78,7 @@
 
 .aei-hero h1 {
   margin: 12px 0 16px;
+  color: #fff;
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   font-weight: 800;
   line-height: 1.04;
@@ -59,7 +89,7 @@
 .aei-lead,
 .aei-intro {
   max-width: 62ch;
-  color: #4a5646;
+  color: rgba(255, 255, 255, 0.88);
   font-size: 1.1rem;
   line-height: 1.7;
 }
@@ -78,13 +108,13 @@
   gap: 6px;
   padding: 0.5rem 1rem;
   border-radius: 999px;
-  background: #fff;
-  box-shadow: inset 0 0 0 1px var(--ae-line);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.24);
   font-size: 0.92rem;
 }
 
 .aei-chips strong {
-  color: var(--ae-green-dark);
+  color: var(--ae-sun);
   font-family: var(--ae-display), sans-serif;
   font-size: 1.2rem;
 }
@@ -125,10 +155,19 @@
   transform: rotate(-10deg);
 }
 
-.aei-hero .ae-actions .ae-btn-ghost {
-  border-color: var(--ae-line);
-  background: #fff;
-  color: var(--ae-ink);
+/* Eingebettete Texte im dunklen Hero */
+.aei-hero .ae-rich,
+.aei-hero .ae-rich strong {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.aei-hero .ae-rich strong {
+  color: #fff;
+}
+
+.aei-hero .ae-rich a {
+  color: var(--ae-sun);
+  text-decoration-color: rgba(248, 174, 20, 0.5);
 }
 
 /* ---------- FAQ ---------- */
@@ -564,7 +603,8 @@
 
 @media (max-width: 700px) {
   .aei-hero {
-    padding: 28px 0 60px;
+    padding: 28px 0 84px;
+    clip-path: ellipse(190% 100% at 50% 0%);
   }
 
   .aei-frame-badge {
