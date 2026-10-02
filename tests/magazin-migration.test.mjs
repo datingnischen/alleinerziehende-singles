@@ -54,11 +54,13 @@ test("kein WordPress-Zugriff mehr im Code und in der Konfiguration", async () =>
     };
     await walk(`${dir}/`);
   }
-  for (const file of sources) {
+  // Ausnahme: der WP-kompatible Ausgabe-Endpunkt für ICONY (liefert nur, ruft kein WordPress auf), siehe tests/wp-rest-compat.test.mjs
+  const compat = new Set(["lib/wp-rest-compat.ts", "app/magazin/wp-json/[[...route]]/route.ts"]);
+  for (const file of sources.filter((item) => !compat.has(item))) {
     const source = await read(file);
     assert.doesNotMatch(source, /wp-json|wp\/v2|WORDPRESS_|process\.env\.WP_/, `${file} spricht WordPress an`);
   }
-  assert.doesNotMatch(await read("next.config.ts"), /wp-json|WORDPRESS/);
+  assert.doesNotMatch(await read("next.config.ts"), /wp-json(?!\/\[\[)|WORDPRESS/);
   const readme = await read("README.md");
   assert.doesNotMatch(readme, /WORDPRESS_[A-Z_]+=/);
   assert.match(readme, /content\/magazin/);

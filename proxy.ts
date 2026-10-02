@@ -36,6 +36,29 @@ function platformHandoffResponse(url: string) {
   });
 }
 
+// WordPress-kompatibler REST-Endpunkt des Magazins (app/magazin/wp-json): JSON ohne Slash-Umleitung und ohne
+// Marktlogik. ICONY ruft /magazin/wp-json/wp/v2/posts, ?rest_route= und index.php?rest_route= auf.
+const WP_REST_PATH = /^\/(?:de\/)?magazin\/wp-json(?:\/|$)/;
+const WP_REST_ENTRY = /^\/(?:de\/)?magazin(?:\/index\.php)?\/?$/;
+
+function wpRestResponse(request: NextRequest) {
+  const { pathname, searchParams } = request.nextUrl;
+  const restRoute = searchParams.get("rest_route");
+  const isEntry = restRoute !== null && WP_REST_ENTRY.test(pathname);
+  if (!isEntry && !WP_REST_PATH.test(pathname)) return null;
+
+  const destination = request.nextUrl.clone();
+  if (isEntry) {
+    destination.searchParams.delete("rest_route");
+    destination.pathname = `/magazin/wp-json/${restRoute.replace(/^\/+/, "")}`;
+  } else if (pathname.startsWith("/de/")) {
+    destination.pathname = pathname.slice(3);
+  } else {
+    return NextResponse.next();
+  }
+  return NextResponse.rewrite(destination);
+}
+
 function withoutTrailingSlash(pathname: string | null) {
   return pathname && pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname;
 }
@@ -79,6 +102,13 @@ export function proxy(request: NextRequest) {
     withoutTrailingSlash(rewriteDestination) === withoutTrailingSlash(request.nextUrl.pathname)
   ) {
     return NextResponse.next();
+  }
+
+  // Nur .de und Vorschau-Hosts; AT/CH haben kein eigenes Magazin.
+  const host = requestHostname(request);
+  if (host !== "alleinerziehende-singles.at" && host !== "alleinerziehende-singles.ch") {
+    const wpRest = wpRestResponse(request);
+    if (wpRest) return wpRest;
   }
 
   // Erst nach der Prüfung auf interne Rewrites: deren Ziele (/market-home/at) haben keinen Schrägstrich.

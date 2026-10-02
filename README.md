@@ -83,6 +83,21 @@ Dateien im Repo; zur Laufzeit und beim Build gibt es **keinen WordPress-Request*
 - Titelbilder und Bilder im Text liegen unter `public/magazin/wp-content/uploads/` (JPG/PNG als `…-jpg.webp`), ausgeliefert
   über den Asset-Host (nginx reicht nur Seitenrouten durch).
 
+### WordPress-kompatibler Endpunkt für ICONY
+
+ICONY (Heiko Grossmann) liest auf den Plattform-Startseiten drei Magazin-Teaser im WP-Format. Der Endpunkt wird aus den
+Magazin-Dateien erzeugt (`lib/wp-rest-compat.ts`, `app/magazin/wp-json/[[...route]]/route.ts`, Umleitung von `?rest_route=` in `proxy.ts`):
+
+- `https://alleinerziehende-singles.de/magazin/wp-json/wp/v2/posts?per_page=3&_embed=1` (außerdem `/posts/<id>`, `/categories`, `/tags`, `/media/<id>`)
+- `…/magazin/?rest_route=/wp/v2/posts` und `…/magazin/index.php?rest_route=/wp/v2/posts`
+- Parameter: `per_page`, `page`, `_embed`, `_fields`, `orderby`, `order`, `categories`, `slug`, `search`, `include`, `after`/`before`;
+  Header `X-WP-Total`, `X-WP-TotalPages`, CORS `*`, `Cache-Control`; OPTIONS/HEAD.
+- Nur Magazin-**Beiträge** (`kind: post`), keine Seiten. Kein `/wp/v2/users` (404), `author` nur als ID, kein `_embedded.author`.
+  `link` ist die Live-URL `https://alleinerziehende-singles.de/magazin/<slug>/`, Bild-URLs kommen vom Asset-Host (`/app-assets/…`).
+- **nginx/ICONY:** `/magazin/wp-json/` (und `/magazin/` mit `rest_route`, `/magazin/index.php`) muss wie die Seitenrouten an Vercel
+  durchgereicht werden (Upstream-Pfad unverändert oder mit `/de`-Präfix, beides geht; kein Slash anhängen).
+- Bildmaße kommen aus `data/magazin-bilder.json`; nach neuen Titelbildern `node scripts/build-magazine-image-sizes.mjs` ausführen.
+
 Stadtliste, Reihenfolge und Stadtnamen stehen im Skript. Neue Städte auf dem Live-Hub meldet es als
 Warnung. Bewusste Korrekturen gegenüber der Live-Seite stehen in `OVERRIDES` im Skript, sonst
 gehen sie beim nächsten Import verloren.

@@ -48,6 +48,7 @@ export default function nextConfig(phase: string): NextConfig {
       "/": ["./content/magazin/**/*", "./data/magazin-kategorien.json"],
       "/magazin": ["./content/magazin/**/*", "./data/magazin-kategorien.json"],
       "/magazin/[slug]": ["./content/magazin/**/*", "./data/magazin-kategorien.json"],
+      "/magazin/wp-json/[[...route]]": ["./content/magazin/**/*", "./data/magazin-kategorien.json", "./data/magazin-bilder.json", "./data/kindergeld-facebook-2026.json"],
       "/ueber-uns/suche": ["./content/magazin/**/*", "./data/magazin-kategorien.json"],
     },
     async redirects() {
