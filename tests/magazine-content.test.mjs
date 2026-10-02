@@ -3,12 +3,12 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 async function loadWordpressHelpers() {
-  return import("../lib/wordpress.ts");
+  return import("../lib/magazine-content.ts");
 }
 
 test("magazine landing: theme worlds, kindergeld service, pregnancy weeks and clickable themes", async () => {
   const source = await readFile(new URL("../app/magazin/page.tsx", import.meta.url), "utf8");
-  const wordpressSource = await readFile(new URL("../lib/wordpress.ts", import.meta.url), "utf8");
+  const contentSource = await readFile(new URL("../lib/magazine-content.ts", import.meta.url), "utf8");
   const { MAGAZINE_THEMES, groupMagazinePages, excerptText, withHeadingAnchors } = await import("../lib/magazine.ts");
 
   assert.match(source, /Magazin für Alleinerziehende/);
@@ -19,10 +19,11 @@ test("magazine landing: theme worlds, kindergeld service, pregnancy weeks and cl
   assert.match(source, /href=\{`\/magazin\/\?thema=/);
   assert.match(source, /registrationUrlForContext\("de", "magazin"\)/);
   assert.deepEqual(MAGAZINE_THEMES.map((theme) => theme.categoryId), [26, 1, 8]);
-  assert.match(wordpressSource, /const KINDERGELD_2026 =/);
-  assert.match(wordpressSource, /getStaticMagazinePages/);
-  assert.match(wordpressSource, /kindergeld-facebook-2026\.json/);
+  assert.match(contentSource, /const KINDERGELD_2026 =/);
+  assert.match(contentSource, /getStaticMagazinePages/);
+  assert.match(contentSource, /kindergeld-facebook-2026\.json/);
   assert.doesNotMatch(source, /Headless-Migration|WordPress|REST-Anbindung|Slice|Taxonomien/);
+  assert.doesNotMatch(contentSource, /wp-json|WordPress-REST|wordpressFetch/);
 
   const groups = groupMagazinePages([
     { slug: "ssw-schwangerschaftswoche-12", title: "SSW 12" },

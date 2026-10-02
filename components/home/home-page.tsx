@@ -21,7 +21,7 @@ import { getMarket, publicUrl, type MarketCode } from "@/lib/markets";
 import { registrationUrlForContext } from "@/lib/registration-links";
 import { getHomeContent, platformFeatures } from "@/lib/startseite";
 import { staticAsset } from "@/lib/static-asset";
-import { type MagazineEntry } from "@/lib/wordpress";
+import { type MagazineEntry } from "@/lib/magazine-content";
 import { PostCard } from "@/components/magazine/post-card";
 import "@/components/city/city.css";
 import "@/components/city/hub.css";

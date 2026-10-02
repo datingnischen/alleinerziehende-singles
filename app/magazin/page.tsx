@@ -13,7 +13,7 @@ import {
 import { PostCard } from "@/components/magazine/post-card";
 import { EDITORIAL_CATEGORY_IDS, MAGAZINE_THEMES, groupMagazinePages, stripTags, themeBySlug, type MagazineTheme } from "@/lib/magazine";
 import { registrationUrlForContext } from "@/lib/registration-links";
-import { getMagazinePageLinks, getMagazinePosts, getMagazinePostsByCategories, type MagazineEntry, type MagazinePageLink } from "@/lib/wordpress";
+import { getMagazinePageLinks, getMagazinePosts, getMagazinePostsByCategories } from "@/lib/magazine-content";
 import "@/components/magazine/magazine.css";
 
 export const metadata: Metadata = {
@@ -29,14 +29,6 @@ type Props = {
 
 const PAGE_SIZE = 18;
 const THEME_ICONS = { partnersuche: HeartIcon, singleleben: UsersIcon, kindergeld: CoinIcon } as const;
-
-async function safe<T>(promise: Promise<T>, fallback: T): Promise<T> {
-  try {
-    return await promise;
-  } catch {
-    return fallback;
-  }
-}
 
 function MagazineBand() {
   return (
@@ -71,8 +63,8 @@ function ThemeNav({ current }: { current: MagazineTheme | null }) {
   );
 }
 
-async function ThemeView({ theme, page }: { theme: MagazineTheme; page: number }) {
-  const posts = await safe(getMagazinePostsByCategories([theme.categoryId], PAGE_SIZE, page), []);
+function ThemeView({ theme, page }: { theme: MagazineTheme; page: number }) {
+  const posts = getMagazinePostsByCategories([theme.categoryId], PAGE_SIZE, page);
   const Icon = THEME_ICONS[theme.key];
 
   return (
@@ -120,11 +112,9 @@ export default async function MagazinePage({ searchParams }: Props) {
     return <ThemeView theme={theme} page={Math.max(1, Number.parseInt(params.seite ?? "1", 10) || 1)} />;
   }
 
-  const [editorial, kindergeldPosts, pageLinks] = await Promise.all([
-    safe(getMagazinePostsByCategories(EDITORIAL_CATEGORY_IDS, 10), [] as MagazineEntry[]),
-    safe(getMagazinePosts(4, 8), [] as MagazineEntry[]),
-    safe(getMagazinePageLinks(), [] as MagazinePageLink[]),
-  ]);
+  const editorial = getMagazinePostsByCategories(EDITORIAL_CATEGORY_IDS, 10);
+  const kindergeldPosts = getMagazinePosts(4, 8);
+  const pageLinks = getMagazinePageLinks();
   const [featured, ...latest] = editorial;
   const groups = groupMagazinePages(pageLinks);
 

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { importedCityPages, importedRootPages } from "@/lib/icony-import";
+import { getMagazineSlugs, getMagazineEntryBySlug } from "@/lib/magazine-content";
 import { publicUrl } from "@/lib/markets";
 
 const ABOUT_PATHS = [
@@ -15,6 +16,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: publicUrl("de"), changeFrequency: "daily", priority: 1 },
     { url: publicUrl("de", "/magazin/"), changeFrequency: "daily", priority: 0.9 },
     { url: publicUrl("de", "/partnersuche/"), changeFrequency: "weekly", priority: 0.9 },
+    ...getMagazineSlugs().map((slug) => {
+      const entry = getMagazineEntryBySlug(slug);
+      return {
+        url: publicUrl("de", `/magazin/${slug}/`),
+        lastModified: entry?.modified,
+        changeFrequency: "monthly" as const,
+        priority: entry?.kind === "post" ? 0.6 : 0.5,
+      };
+    }),
     ...ABOUT_PATHS.map((path) => ({
       url: publicUrl("de", path),
       changeFrequency: "monthly" as const,

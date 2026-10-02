@@ -12,27 +12,33 @@ import {
   formatArticleUpdated,
   getMagazineEntryBySlug,
   getMagazinePageLinks,
+  getMagazineSlugs,
   getRelatedPosts,
   type MagazineEntry,
   type MagazinePageLink,
-} from "@/lib/wordpress";
+} from "@/lib/magazine-content";
 import "@/components/magazine/magazine.css";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
-async function safe<T>(promise: Promise<T>, fallback: T): Promise<T> {
-  try {
-    return await promise;
-  } catch {
-    return fallback;
-  }
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return getMagazineSlugs().map((slug) => ({ slug }));
+}
+
+/** SEO-Titel steht ohne Markenanhängsel im Frontmatter; die Marke kommt dazu, wenn der Titel dann noch ≤ 60 Zeichen hat. */
+function metaTitle(entry: MagazineEntry): string {
+  const base = entry.seoTitle || stripTags(entry.titleHtml);
+  const withBrand = `${base} | Alleinerziehende-Singles.de`;
+  return withBrand.length <= 60 ? withBrand : base;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const entry = await safe(getMagazineEntryBySlug(slug), null);
+  const entry = getMagazineEntryBySlug(slug);
 
   if (!entry) {
     return {
@@ -42,7 +48,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const description = entry.seoDescription || excerptText(entry.excerptHtml).replace(/…$/, "").slice(0, 160);
   return {
-    title: entry.seoTitle ? { absolute: entry.seoTitle } : stripTags(entry.titleHtml),
+    title: { absolute: metaTitle(entry) },
     description,
     alternates: { canonical: publicUrl("de", `/magazin/${entry.slug}/`) },
     openGraph: entry.featuredImageUrl ? { images: [{ url: entry.featuredImageUrl }], type: "article" } : undefined,
@@ -76,7 +82,7 @@ function articleJsonLd(entry: MagazineEntry, url: string) {
 
 export default async function MagazineEntryPage({ params }: Props) {
   const { slug } = await params;
-  const entry = await safe(getMagazineEntryBySlug(slug), null);
+  const entry = getMagazineEntryBySlug(slug);
 
   if (!entry) {
     notFound();
@@ -84,10 +90,8 @@ export default async function MagazineEntryPage({ params }: Props) {
 
   const isPost = entry.kind === "post";
   const theme = themeForCategories(entry.categoryIds);
-  const [related, pageLinks] = await Promise.all([
-    isPost ? safe(getRelatedPosts(entry, 3), [] as MagazineEntry[]) : Promise.resolve([] as MagazineEntry[]),
-    isPost ? Promise.resolve([] as MagazinePageLink[]) : safe(getMagazinePageLinks(), [] as MagazinePageLink[]),
-  ]);
+  const related = isPost ? getRelatedPosts(entry, 3) : [];
+  const pageLinks = isPost ? [] : getMagazinePageLinks();
   const pregnancy = isPost ? null : pregnancyNeighbours(entry.slug, pageLinks);
   const { html, toc } = withHeadingAnchors(entry.contentHtml);
   const minutes = readingMinutes(entry.contentHtml);
@@ -134,7 +138,7 @@ export default async function MagazineEntryPage({ params }: Props) {
 
       {heroImage ? (
         <figure className="ae-wrap aemag-figure">
-          <img src={heroImage} alt={entry.featuredImageAlt || ""} fetchPriority="high" decoding="async" />
+          <img src={heroImage} alt={entry.featuredImageAlt || title} fetchPriority="high" decoding="async" />
         </figure>
       ) : null}
 
@@ -197,7 +201,7 @@ export default async function MagazineEntryPage({ params }: Props) {
             </div>
           </div>
           <a className="aemag-radar-card" href={registrationHref} tabIndex={-1} aria-hidden="true">
-            <img src={staticAsset("/brand/umkreissuche-radar.svg")} alt="" width={320} height={480} loading="lazy" decoding="async" />
+            <img src={staticAsset("/brand/umkreissuche-radar.svg")} alt="Radar-Grafik der Umkreissuche" width={320} height={480} loading="lazy" decoding="async" />
           </a>
         </aside>
       </section>

@@ -13,7 +13,7 @@ import {
   shortExcerpt,
   type SearchDocument,
 } from "@/lib/site-search";
-import { getMagazineSearchIndex, getStaticMagazinePages } from "@/lib/wordpress";
+import { getMagazineSearchIndex } from "@/lib/magazine-content";
 import "@/components/info/info.css";
 
 type Props = { searchParams: Promise<{ q?: string | string[] }> };
@@ -77,10 +77,9 @@ function staticDocuments(): SearchDocument[] {
   ];
 }
 
-async function magazineDocuments(): Promise<SearchDocument[]> {
-  // Gecachte WordPress-Liste (Revalidate 300 s); fällt WordPress aus, bleiben die statischen Magazinseiten.
-  const entries = await getMagazineSearchIndex().catch(() => getStaticMagazinePages());
-  return entries.map((entry) => ({
+function magazineDocuments(): SearchDocument[] {
+  // Magazinartikel und -seiten aus content/magazin (Titel und Auszug)
+  return getMagazineSearchIndex().map((entry) => ({
     area: "Magazin",
     title: htmlToText(entry.titleHtml),
     href: `/magazin/${entry.slug}/`,
@@ -92,7 +91,7 @@ export default async function AboutSearchPage({ searchParams }: Props) {
   const rawQuery = (await searchParams).q;
   const query = (Array.isArray(rawQuery) ? rawQuery[0] : rawQuery ?? "").trim().slice(0, 100);
   const results = query
-    ? searchDocuments([...(await magazineDocuments()), ...staticDocuments()], query, MAX_SEARCH_RESULTS)
+    ? searchDocuments([...magazineDocuments(), ...staticDocuments()], query, MAX_SEARCH_RESULTS)
     : [];
 
   return (

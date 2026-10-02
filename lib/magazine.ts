@@ -1,4 +1,4 @@
-import type { MagazinePageLink } from "./wordpress.ts";
+import type { MagazinePageLink } from "./magazine-content.ts";
 
 /** Themenwelten des Magazins, abgebildet auf die WordPress-Kategorien. */
 export type MagazineTheme = {

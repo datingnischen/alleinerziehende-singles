@@ -18,15 +18,21 @@ test("Assets kommen absolut vom Vercel-Host, weil nginx nur Seitenrouten durchre
   );
 });
 
-test("WordPress-Dateien im Magazin bleiben absolut, Seitenlinks werden relativ", async () => {
-  const { normalizeMagazineHtml } = await import("../lib/wordpress.ts");
+test("Magazin-Bilder und -Audio liegen im Repo und kommen vom Asset-Host, Seitenlinks bleiben relativ", async () => {
+  const { normalizeMagazineHtml, renderMagazineMarkdown } = await import("../lib/magazine-content.ts");
   const html = normalizeMagazineHtml(
     "beispiel",
-    '<a href="https://alleinerziehende-singles.de/magazin/dating-mit-kind">x</a>'
-      + '<audio src="https://alleinerziehende-singles.de/magazin/wp-content/uploads/2026/06/a.mp3"></audio>',
+    '<a href="https://alleinerziehende-singles.de/magazin/dating-mit-kind">x</a>',
   );
   assert.match(html, /href="\/magazin\/dating-mit-kind"/);
-  assert.match(html, /src="https:\/\/alleinerziehende-singles\.de\/magazin\/wp-content\/uploads\/2026\/06\/a\.mp3"/);
+
+  const rendered = renderMagazineMarkdown(
+    "![Beispiel](/magazin/wp-content/uploads/2026/06/a-jpg.webp)\n\n"
+      + '<audio controls src="/magazin/wp-content/uploads/2026/06/a.mp3"></audio>',
+  );
+  const prefix = "https://alleinerziehende-singles.vercel.app/app-assets/magazin/wp-content/uploads/2026/06/";
+  assert.ok(rendered.includes(`src="${prefix}a-jpg.webp"`), rendered);
+  assert.ok(rendered.includes(`src="${prefix}a.mp3"`), rendered);
 });
 
 test("Icons liegen in public/brand und werden absolut verlinkt", async () => {

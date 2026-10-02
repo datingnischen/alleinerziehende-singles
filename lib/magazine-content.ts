@@ -1,7 +1,16 @@
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
+import matter from "gray-matter";
+import { Marked } from "marked";
+import { staticAsset } from "./static-asset.ts";
 
-const WORDPRESS_BASE = "https://alleinerziehende-singles.de/magazin/wp-json/wp/v2";
+/**
+ * Magazin aus Dateien: content/magazin/<slug>.md (Frontmatter + Markdown), Kategorien in
+ * data/magazin-kategorien.json, Bilder unter public/magazin/wp-content/uploads/. Kein WordPress zur Laufzeit.
+ */
+
+const CONTENT_DIR = join(process.cwd(), "content", "magazin");
+const SITE_ORIGIN = "https://alleinerziehende-singles.de";
 
 interface KindergeldFacebookMonth {
   month: string;
@@ -20,45 +29,6 @@ type KindergeldFacebookData = {
   months: KindergeldFacebookMonth[];
 };
 
-type RenderedText = {
-  rendered: string;
-};
-
-type EmbeddedAuthor = {
-  name?: string;
-  slug?: string;
-};
-
-type EmbeddedMedia = {
-  source_url?: string;
-  alt_text?: string;
-};
-
-type WordPressRecord = {
-  id: number;
-  slug: string;
-  link: string;
-  date?: string;
-  modified?: string;
-  title: RenderedText;
-  excerpt?: RenderedText;
-  content?: RenderedText;
-  categories?: number[];
-  aioseo_head_json?: { title?: string; description?: string };
-  _embedded?: {
-    author?: EmbeddedAuthor[];
-    "wp:featuredmedia"?: EmbeddedMedia[];
-  };
-};
-
-type CategoryRecord = {
-  id: number;
-  slug: string;
-  name: string;
-  description: string;
-  count: number;
-};
-
 export type MagazineEntry = {
   id: number;
   slug: string;
@@ -73,7 +43,7 @@ export type MagazineEntry = {
   featuredImageUrl?: string;
   featuredImageAlt?: string;
   categoryIds: number[];
-  /** Titel/Description aus AIOSEO (leer = nicht gepflegt) */
+  /** SEO-Titel und Description aus dem Frontmatter (vorher AIOSEO) */
   seoTitle?: string;
   seoDescription?: string;
   kind: "post" | "page";
@@ -84,12 +54,20 @@ export type MagazineCategory = {
   slug: string;
   name: string;
   description: string;
-  count: number;
 };
 
 const KINDERGELD_2026 = JSON.parse(
   readFileSync(join(process.cwd(), "data", "kindergeld-facebook-2026.json"), "utf8"),
 ) as KindergeldFacebookData;
+
+function escapeHtml(value: string): string {
+  return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+/** Für Textknoten (Titel, Auszug): Anführungszeichen bleiben stehen, stripTags kennt &quot; nicht. */
+function escapeText(value: string): string {
+  return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
 
 function renderKindergeld2026Content() {
   const monthCards = KINDERGELD_2026.months.map(
@@ -120,7 +98,7 @@ export function getStaticMagazinePages(): MagazineEntry[] {
     {
       id: 2026001,
       slug: KINDERGELD_2026.slug,
-      link: `https://alleinerziehende-singles.de/magazin/${KINDERGELD_2026.slug}/`,
+      link: `${SITE_ORIGIN}/magazin/${KINDERGELD_2026.slug}/`,
       titleHtml: KINDERGELD_2026.title,
       excerptHtml: `<p>${KINDERGELD_2026.intro}</p>`,
       contentHtml: renderKindergeld2026Content(),
@@ -140,8 +118,48 @@ export function getStaticMagazinePageBySlug(slug: string): MagazineEntry | null 
   return getStaticMagazinePages().find((entry) => entry.slug === slug) ?? null;
 }
 
-// Nur Seitenlinks werden relativ. WordPress-Dateien (Bilder, Audio) bleiben absolut auf der
-// Live-Domain, denn die Next.js-Seiten (auch über den Vercel-Host) liefern /magazin/wp-content/ nicht aus.
+// ---------------------------------------------------------------- Markdown -> HTML
+
+const FACEBOOK_HOST = /(^|\.)facebook\.com$/i;
+const AMAZON_HOST = /(^|\.)amazon\.de$/i;
+
+function linkAttributes(href: string): string {
+  if (!/^https?:\/\//i.test(href)) return "";
+  const host = new URL(href).hostname;
+  if (AMAZON_HOST.test(host)) return ' rel="sponsored nofollow noopener"';
+  if (FACEBOOK_HOST.test(host)) return ' rel="nofollow noopener"';
+  if (host.replace(/^www\./, "") === "alleinerziehende-singles.de") return "";
+  return ' rel="noopener"';
+}
+
+const markdown = new Marked({
+  gfm: true,
+  // Nackte URLs im Text bleiben Text (WordPress verlinkte sie nicht), <https://…> und [Text](URL) funktionieren weiter.
+  tokenizer: {
+    url() {
+      return undefined;
+    },
+  },
+  renderer: {
+    link({ href, tokens }) {
+      return `<a href="${escapeHtml(href)}"${linkAttributes(href)}>${this.parser.parseInline(tokens)}</a>`;
+    },
+    image({ href, text }) {
+      return `<img src="${escapeHtml(staticAsset(href))}" alt="${escapeHtml(text)}" loading="lazy" decoding="async" />`;
+    },
+  },
+});
+
+/** Dateien aus dem Magazin (Audio, Bilder) liegen unter public/ und kommen vom Asset-Host. */
+function assetifyHtml(html: string): string {
+  return html.replace(/\b(src)="(\/magazin\/wp-content\/[^"]+)"/g, (_, attr: string, path: string) => `${attr}="${staticAsset(path)}"`);
+}
+
+export function renderMagazineMarkdown(source: string): string {
+  return assetifyHtml(markdown.parse(source, { async: false }) as string);
+}
+
+// Nur Seitenlinks werden relativ; Dateien (Bilder, Audio) liegen im Repo.
 function makeMagazineLinksRelative(html: string): string {
   return html.replace(
     /https?:\/\/(?:www\.)?alleinerziehende-singles\.de(\/magazin\/(?!wp-(?:content|includes|json)\/)[^"]*)/gi,
@@ -244,97 +262,108 @@ export function normalizeMagazineHtml(slug: string, html: string): string {
   return linkedHtml;
 }
 
-async function wordpressFetch<T>(path: string): Promise<T> {
-  const response = await fetch(`${WORDPRESS_BASE}${path}`, {
-    next: { revalidate: 300 },
+// ---------------------------------------------------------------- Dateien lesen
+
+type Loaded = { entries: MagazineEntry[]; categories: MagazineCategory[] };
+
+let cache: Loaded | null = null;
+
+function dateValue(value: unknown): string | undefined {
+  if (value instanceof Date) return value.toISOString();
+  return typeof value === "string" && value ? value : undefined;
+}
+
+function readCategories(): MagazineCategory[] {
+  return JSON.parse(readFileSync(join(process.cwd(), "data", "magazin-kategorien.json"), "utf8")) as MagazineCategory[];
+}
+
+function readEntries(categories: MagazineCategory[]): MagazineEntry[] {
+  const idBySlug = new Map(categories.map((category) => [category.slug, category.id]));
+  const files = readdirSync(CONTENT_DIR).filter((file) => file.endsWith(".md") && !file.startsWith("_"));
+
+  const entries = files.map((file): MagazineEntry => {
+    const slug = file.replace(/\.md$/, "");
+    const { data, content } = matter(readFileSync(join(CONTENT_DIR, file), "utf8"));
+    const kind = data.kind === "page" ? "page" : "post";
+    const excerptHtml = data.excerpt ? `<p>${escapeText(String(data.excerpt))}</p>` : "";
+    // Beim Artikel steht der Auszug als Lead im Kopf: den doppelten ersten Absatz im Text weglassen.
+    const rendered = normalizeMagazineHtml(slug, renderMagazineMarkdown(content));
+    const contentHtml = kind === "post" ? removeDuplicateLeadParagraph(rendered, excerptHtml) : rendered;
+
+    return {
+      id: Number(data.wpId) || 0,
+      slug,
+      link: `${SITE_ORIGIN}/magazin/${slug}/`,
+      titleHtml: escapeText(String(data.title ?? slug)),
+      excerptHtml,
+      contentHtml,
+      date: dateValue(data.published),
+      modified: dateValue(data.updated),
+      authorName: "Redaktion",
+      authorSlug: String(data.author ?? "redaktion"),
+      featuredImageUrl: data.image ? staticAsset(String(data.image)) : undefined,
+      featuredImageAlt: data.imageAlt ? String(data.imageAlt) : undefined,
+      categoryIds: (Array.isArray(data.categories) ? data.categories : [])
+        .map((category: string) => idBySlug.get(category))
+        .filter((id: number | undefined): id is number => typeof id === "number"),
+      seoTitle: data.seoTitle ? String(data.seoTitle) : undefined,
+      seoDescription: data.description ? String(data.description) : undefined,
+      kind,
+    };
   });
 
-  if (!response.ok) {
-    throw new Error(`WordPress fetch failed for ${path}: ${response.status}`);
-  }
-
-  return response.json();
+  // neueste zuerst, wie die WordPress-Listen
+  return entries.sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""));
 }
 
-function mapEntry(record: WordPressRecord, kind: "post" | "page"): MagazineEntry {
-  const author = record._embedded?.author?.[0];
-  const featured = record._embedded?.["wp:featuredmedia"]?.[0];
-  const excerptHtml = makeMagazineLinksRelative(record.excerpt?.rendered ?? "");
-  const contentHtml = removeDuplicateLeadParagraph(
-    normalizeMagazineHtml(record.slug, record.content?.rendered ?? ""),
-    excerptHtml,
-  );
-
-  return {
-    id: record.id,
-    slug: record.slug,
-    link: record.link,
-    titleHtml: record.title?.rendered ?? "",
-    excerptHtml,
-    contentHtml,
-    date: record.date,
-    modified: record.modified,
-    authorName: author?.name,
-    authorSlug: author?.slug,
-    featuredImageUrl: featured?.source_url,
-    featuredImageAlt: featured?.alt_text,
-    categoryIds: record.categories ?? [],
-    seoTitle: record.aioseo_head_json?.title || undefined,
-    seoDescription: record.aioseo_head_json?.description || undefined,
-    kind,
-  };
+function load(): Loaded {
+  if (cache) return cache;
+  const categories = readCategories();
+  const loaded = { entries: readEntries(categories), categories };
+  if (process.env.NODE_ENV === "production") cache = loaded;
+  return loaded;
 }
 
-export async function getMagazinePosts(limit = 12, categoryId?: number): Promise<MagazineEntry[]> {
-  const categoryQuery = categoryId ? `&categories=${categoryId}` : "";
-  const records = await wordpressFetch<WordPressRecord[]>(`/posts?per_page=${limit}&_embed=1${categoryQuery}`);
-  return records.map((record) => mapEntry(record, "post"));
+function posts(): MagazineEntry[] {
+  return load().entries.filter((entry) => entry.kind === "post");
 }
 
-/** Artikel aus mehreren Kategorien (z. B. alles außer den Kindergeld-Monatsterminen). */
-export async function getMagazinePostsByCategories(categoryIds: number[], limit = 12, page = 1): Promise<MagazineEntry[]> {
-  const records = await wordpressFetch<WordPressRecord[]>(
-    `/posts?per_page=${limit}&page=${page}&_embed=1&categories=${categoryIds.join(",")}`,
-  );
-  return records.map((record) => mapEntry(record, "post"));
+function pages(): MagazineEntry[] {
+  return load().entries.filter((entry) => entry.kind === "page");
+}
+
+export function getMagazinePosts(limit = 12, categoryId?: number): MagazineEntry[] {
+  const list = categoryId ? posts().filter((entry) => entry.categoryIds.includes(categoryId)) : posts();
+  return list.slice(0, limit);
+}
+
+/** Artikel aus mehreren Kategorien (z. B. alles außer den Kindergeld-Monatsterminen), seitenweise. */
+export function getMagazinePostsByCategories(categoryIds: number[], limit = 12, page = 1): MagazineEntry[] {
+  const list = posts().filter((entry) => entry.categoryIds.some((id) => categoryIds.includes(id)));
+  return list.slice((page - 1) * limit, page * limit);
 }
 
 export type MagazinePageLink = { slug: string; title: string };
 
-/** Alle WordPress-Seiten als schlanke Liste (Slug und Titel) plus die statischen Seiten. */
-export async function getMagazinePageLinks(): Promise<MagazinePageLink[]> {
-  const records = await wordpressFetch<Pick<WordPressRecord, "slug" | "title">[]>(`/pages?per_page=100&_fields=slug,title`);
+/** Alle Magazin-Seiten als schlanke Liste (Slug und Titel) plus die statischen Seiten. */
+export function getMagazinePageLinks(): MagazinePageLink[] {
   return [
     ...getStaticMagazinePages().map((entry) => ({ slug: entry.slug, title: entry.titleHtml })),
-    ...records.map((record) => ({ slug: record.slug, title: record.title?.rendered ?? record.slug })),
+    ...pages().map((entry) => ({ slug: entry.slug, title: entry.titleHtml })),
   ];
 }
 
 /** Weitere Artikel derselben Kategorie, ohne den aktuellen. */
-export async function getRelatedPosts(entry: MagazineEntry, limit = 3): Promise<MagazineEntry[]> {
+export function getRelatedPosts(entry: MagazineEntry, limit = 3): MagazineEntry[] {
   const categoryId = entry.categoryIds[0];
   if (!categoryId) return [];
-  const records = await wordpressFetch<WordPressRecord[]>(
-    `/posts?per_page=${limit + 1}&_embed=1&categories=${categoryId}&exclude=${entry.id}`,
-  );
-  return records.slice(0, limit).map((record) => mapEntry(record, "post"));
+  return posts()
+    .filter((post) => post.slug !== entry.slug && post.categoryIds.includes(categoryId))
+    .slice(0, limit);
 }
 
-export async function getMagazinePages(limit = 12): Promise<MagazineEntry[]> {
-  const records = await wordpressFetch<WordPressRecord[]>(`/pages?per_page=${limit}&_embed=1`);
-  const wordpressPages = records.map((record) => mapEntry(record, "page"));
-  return [...getStaticMagazinePages(), ...wordpressPages].slice(0, limit);
-}
-
-export async function getMagazineCategories(limit = 10): Promise<MagazineCategory[]> {
-  const records = await wordpressFetch<CategoryRecord[]>(`/categories?per_page=${limit}`);
-  return records.map((record) => ({
-    id: record.id,
-    slug: record.slug,
-    name: record.name,
-    description: record.description,
-    count: record.count,
-  }));
+export function getMagazineCategories(): MagazineCategory[] {
+  return load().categories;
 }
 
 export type MagazineSearchEntry = {
@@ -344,58 +373,22 @@ export type MagazineSearchEntry = {
   kind: "post" | "page";
 };
 
-type WordPressSearchRecord = Pick<WordPressRecord, "slug" | "title" | "excerpt">;
-
-// Schlanke Liste für die Seitensuche (nur Titel und Auszug, ohne _embed): klein genug für den
-// Fetch-Cache (Revalidate wie oben), sodass nicht jede Suchanfrage WordPress live abfragt.
-async function wordpressSearchList(type: "posts" | "pages"): Promise<WordPressSearchRecord[]> {
-  const records: WordPressSearchRecord[] = [];
-  for (let page = 1; page <= 5; page += 1) {
-    const batch = await wordpressFetch<WordPressSearchRecord[]>(
-      `/${type}?per_page=100&page=${page}&_fields=slug,title,excerpt`,
-    );
-    records.push(...batch);
-    if (batch.length < 100) break;
-  }
-  return records;
-}
-
-export async function getMagazineSearchIndex(): Promise<MagazineSearchEntry[]> {
-  const [posts, pages] = await Promise.all([wordpressSearchList("posts"), wordpressSearchList("pages")]);
-  const toEntry = (record: WordPressSearchRecord, kind: "post" | "page"): MagazineSearchEntry => ({
-    slug: record.slug,
-    titleHtml: record.title?.rendered ?? "",
-    excerptHtml: record.excerpt?.rendered ?? "",
+export function getMagazineSearchIndex(): MagazineSearchEntry[] {
+  return [...getStaticMagazinePages(), ...load().entries].map(({ slug, titleHtml, excerptHtml, kind }) => ({
+    slug,
+    titleHtml,
+    excerptHtml,
     kind,
-  });
-
-  return [
-    ...getStaticMagazinePages().map(({ slug, titleHtml, excerptHtml, kind }) => ({ slug, titleHtml, excerptHtml, kind })),
-    ...posts.map((record) => toEntry(record, "post")),
-    ...pages.map((record) => toEntry(record, "page")),
-  ];
+  }));
 }
 
-export async function getMagazinePostBySlug(slug: string): Promise<MagazineEntry | null> {
-  const records = await wordpressFetch<WordPressRecord[]>(`/posts?slug=${encodeURIComponent(slug)}&_embed=1`);
-  return records[0] ? mapEntry(records[0], "post") : null;
+/** Alle Slugs (für generateStaticParams). */
+export function getMagazineSlugs(): string[] {
+  return [...getStaticMagazinePages(), ...load().entries].map((entry) => entry.slug);
 }
 
-export async function getMagazinePageBySlug(slug: string): Promise<MagazineEntry | null> {
-  const staticPage = getStaticMagazinePageBySlug(slug);
-  if (staticPage) return staticPage;
-
-  const records = await wordpressFetch<WordPressRecord[]>(`/pages?slug=${encodeURIComponent(slug)}&_embed=1`);
-  return records[0] ? mapEntry(records[0], "page") : null;
-}
-
-export async function getMagazineEntryBySlug(slug: string): Promise<MagazineEntry | null> {
-  const [post, page] = await Promise.all([
-    getMagazinePostBySlug(slug),
-    getMagazinePageBySlug(slug),
-  ]);
-
-  return post ?? page;
+export function getMagazineEntryBySlug(slug: string): MagazineEntry | null {
+  return getStaticMagazinePageBySlug(slug) ?? load().entries.find((entry) => entry.slug === slug) ?? null;
 }
 
 /**

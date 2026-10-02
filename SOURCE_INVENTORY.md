@@ -1,5 +1,8 @@
 # Source Inventory
 
+> Historisch: Stand der Inventur vor der WordPress-Ablösung. Seit 2026-10-02 liest die App das Magazin aus
+> `content/magazin` (siehe README); die REST-Adressen unten werden nicht mehr abgefragt.
+
 Stand: 2026-07-30 (Inventur); ergänzt 2026-09-25
 
 ## Root-Site / öffentliche Service-Routen
