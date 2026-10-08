@@ -32,8 +32,9 @@ test("permanently redirects the moved legacy pages", async () => {
 
   assert.match(rootPage, /slug === "social-media"/);
   assert.match(rootPage, /permanentRedirect\("\/ueber-uns\/social-media\/"\)/);
-  assert.match(rootPage, /slug === "bewertungen-und-erfahrungen"/);
-  assert.match(rootPage, /permanentRedirect\("\/ueber-uns\/bewertungen\/"\)/);
+  // Alt-Pfad /bewertungen-und-erfahrungen wird nicht mehr bedient (404).
+  assert.doesNotMatch(rootPage, /bewertungen-und-erfahrungen/);
+  assert.doesNotMatch(rootPage, /permanentRedirect\("\/ueber-uns\/bewertungen\/"\)/);
 });
 
 test("does not link internally through moved legacy URLs", async () => {

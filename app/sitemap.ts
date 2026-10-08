@@ -9,6 +9,7 @@ const ABOUT_PATHS = [
   "/ueber-uns/bewertungen/",
   "/ueber-uns/kooperationen/",
 ];
+// bewertungen-und-erfahrungen: Quellseite fuer /ueber-uns/bewertungen/, unter dem Alt-Pfad nicht mehr erreichbar (404), darum nie in der Sitemap.
 const MOVED_ROOT_SLUGS = new Set(["social-media", "bewertungen-und-erfahrungen"]);
 
 export default function sitemap(): MetadataRoute.Sitemap {

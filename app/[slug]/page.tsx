@@ -18,9 +18,6 @@ function redirectMovedAboutPage(slug: string) {
   if (slug === "social-media") {
     permanentRedirect("/ueber-uns/social-media/");
   }
-  if (slug === "bewertungen-und-erfahrungen") {
-    permanentRedirect("/ueber-uns/bewertungen/");
-  }
 }
 
 export async function generateStaticParams() {
@@ -30,7 +27,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
 
-  if (slug === "social-media" || slug === "bewertungen-und-erfahrungen") {
+  if (slug === "social-media") {
     return {
       title: "Weiterleitung zu Über uns",
       robots: { index: false, follow: true },
