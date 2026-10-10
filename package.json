@@ -16,6 +16,7 @@
     "import:startseiten": "python scripts/import_startseiten.py"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "gray-matter": "^4.0.3",
     "marked": "^18.0.14",
     "next": "^16.3.0",

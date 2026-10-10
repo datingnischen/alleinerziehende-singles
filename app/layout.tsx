@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Open_Sans } from "next/font/google";
-import { staticAsset } from "@/lib/static-asset";
+import { staticAsset, assetHost } from "@/lib/static-asset";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
+import { vercelAnalyticsProps } from "@/lib/vercel-analytics";
 
 // Überschriften: Bricolage Grotesque (wie die übrigen Nischen), Fließtext: Open Sans wie auf der ICONY-Plattform.
 const display = Bricolage_Grotesque({
@@ -38,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de" className={`${display.variable} ${body.variable}`}>
-      <body>{children}</body>
+      <body>{children}<Analytics {...vercelAnalyticsProps(assetHost)} /></body>
     </html>
   );
 }
