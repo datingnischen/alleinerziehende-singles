@@ -7,6 +7,12 @@ import { buildSearchDocuments } from "@/lib/search-index";
 import { MAX_SEARCH_RESULTS, searchDocuments, shortExcerpt } from "@/lib/site-search";
 import "@/components/info/info.css";
 
+/** Treffer-Link: absolute Adressen (Artikel auf .de) als <a>, eigene Pfade als Marktlink. */
+function ResultLink({ market, href, children }: { market: MarketCode; href: string; children: React.ReactNode }) {
+  if (/^https?:\/\//.test(href)) return <a className="aes-result" href={href}>{children}</a>;
+  return <MarketLink className="aes-result" market={market} path={href}>{children}</MarketLink>;
+}
+
 /** Seitensuche unter /ueber-uns/suche/ – pro Markt über dessen Magazin, Städte, Partnersuche-Hub, FAQ und Über uns. */
 export function SearchView({ market, query }: { market: MarketCode; query: string }) {
   const results = query ? searchDocuments(buildSearchDocuments(market), query, MAX_SEARCH_RESULTS) : [];
@@ -50,7 +56,7 @@ export function SearchView({ market, query }: { market: MarketCode; query: strin
               <ol>
                 {results.map((result) => (
                   <li key={result.href}>
-                    <MarketLink className="aes-result" market={market} path={result.href}>
+                    <ResultLink market={market} href={result.href}>
                       <span className={`aes-area aes-area-${result.area === "Magazin" ? "mag" : result.area === "Stadt" ? "city" : "info"}`}>
                         {result.area === "Magazin" ? <BookIcon /> : result.area === "Stadt" ? <PinIcon /> : <QuestionIcon />}
                         {result.area}
@@ -58,7 +64,7 @@ export function SearchView({ market, query }: { market: MarketCode; query: strin
                       <strong>{result.title}</strong>
                       {result.excerpt ? <span>{shortExcerpt(result.excerpt)}</span> : null}
                       <em>Öffnen <ArrowIcon /></em>
-                    </MarketLink>
+                    </ResultLink>
                   </li>
                 ))}
               </ol>

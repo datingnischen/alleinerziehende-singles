@@ -26,7 +26,8 @@ bleibt auf ICONY.
 | --- | --- |
 | `/` | Marktstartseite (`app/market-home/[market]`) |
 | `/partnersuche/`, `/partnersuche/<stadt>/` | `data/icony-import-at.json` / `-ch.json` (Hub + je 15 Städte mit ICONY-Widget) |
-| `/magazin/`, `/magazin/<slug>/` | gemeinsamer Artikelbestand aus `content/magazin` (`app/market-magazin/[market]`), ohne die deutschen Kindergeld-Inhalte (`lib/magazine-market.ts`); Artikel mit Canonical auf die DE-URL |
+| `/magazin/` | Übersicht und Teaser des gemeinsamen Magazins (`app/market-magazin/[market]`), ohne die deutschen Kindergeld-Inhalte (`lib/magazine-market.ts`); Artikel-Links zeigen auf die DE-Artikel |
+| `/magazin/<slug>/` | 308 auf `https://alleinerziehende-singles.de/magazin/<slug>/` – Artikel gibt es nur einmal (kein Duplicate Content) |
 | `/faq/` | ICONY-FAQ der Landesdomain aus `data/icony-import-at.json` / `-ch.json` (`rootPages`, `scripts/import_market_faq.py`) |
 | `/ueber-uns/`, `/ueber-uns/bewertungen/`, `/ueber-uns/social-media/`, `/ueber-uns/kooperationen/`, `/ueber-uns/suche/` | Über-uns-Bereich der Landesdomain (`app/market-ueber-uns/[market]`); Bewertungen/Social Media/Kooperationen mit Canonical auf die DE-URL |
 | `/robots.txt`, `/sitemap.xml` | je Markt eigene Route |

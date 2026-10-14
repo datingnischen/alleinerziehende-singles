@@ -2,7 +2,7 @@ import { getCityHub, getCityPages } from "./city-pages.ts";
 import { getFaqData } from "./faq.ts";
 import { getMagazineSearchIndex } from "./magazine-content.ts";
 import { entryAvailableInMarket } from "./magazine-market.ts";
-import { getMarket, type MarketCode } from "./markets.ts";
+import { getMarket, publicUrl, type MarketCode } from "./markets.ts";
 import { htmlToText, type SearchDocument } from "./site-search.ts";
 
 /** Suchdokumente eines Markts: Magazin (ohne Kindergeld auf .at/.ch), Städte, Partnersuche-Hub, FAQ, Über uns. */
@@ -16,7 +16,8 @@ export function buildSearchDocuments(market: MarketCode): SearchDocument[] {
     .map((entry) => ({
       area: "Magazin",
       title: htmlToText(entry.titleHtml),
-      href: `/magazin/${entry.slug}/`,
+      // Artikel gibt es nur auf .de: AT/CH verlinken absolut dorthin
+      href: market === "de" ? `/magazin/${entry.slug}/` : publicUrl("de", `/magazin/${entry.slug}/`),
       excerpt: htmlToText(entry.excerptHtml),
     }));
 

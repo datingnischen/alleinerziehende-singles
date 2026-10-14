@@ -39,7 +39,11 @@ test("posts: Beitragsbild mit source_url, alt_text und media_details, Datumsfeld
   const withImage = get("/wp/v2/posts", "slug=airtags-stalking-dating&_embed=1").body[0];
   assert.ok(withImage.featured_media > 0);
   const media = withImage._embedded["wp:featuredmedia"][0];
-  assert.match(media.source_url, /^https:\/\/[^/]+\/app-assets\/magazin\/wp-content\/uploads\/2026\/06\/airtags-stalking-dating-png\.webp$/);
+  // Eigene Domain statt Asset-Host: die ICONY-Startseite darf Bilder nur von der eigenen Domain laden (CSP, Heiko 2026-10-14)
+  assert.equal(media.source_url, "https://alleinerziehende-singles.de/magazin/wp-content/uploads/2026/06/airtags-stalking-dating-png.webp");
+  assert.equal(media.media_details.sizes.full.source_url, media.source_url);
+  assert.equal(media.media_details.sizes.medium.source_url, media.source_url);
+  assert.ok(media.media_details.sizes.full.width > 0);
   assert.ok(media.alt_text.trim());
   assert.ok(media.media_details.width > 0 && media.media_details.height > 0);
   assert.equal(media.id, withImage.featured_media);
@@ -173,6 +177,11 @@ test("proxy: wp-json und rest_route liefern JSON statt Slash-Umleitung, auch mit
 
   const prefixed = proxy(request("/de/magazin/wp-json/wp/v2/posts", "alleinerziehende-singles.de"));
   assert.match(prefixed.headers.get("x-middleware-rewrite") ?? "", /\/magazin\/wp-json\/wp\/v2\/posts$/);
+  // "?_embed" ohne Wert (ICONY/WordPress-Schreibweise) überlebt den Rewrite als _embed=1
+  const embed = proxy(request("/de/magazin/wp-json/wp/v2/posts/?per_page=3&_embed", "alleinerziehende-singles.de"));
+  assert.match(embed.headers.get("x-middleware-rewrite") ?? "", /\/magazin\/wp-json\/wp\/v2\/posts\/\?per_page=3&_embed=1$/);
+  const restEmbed = proxy(request("/magazin/?rest_route=/wp/v2/posts&_embed", "alleinerziehende-singles.de"));
+  assert.match(restEmbed.headers.get("x-middleware-rewrite") ?? "", /_embed=1/);
 
   for (const path of ["/magazin/?rest_route=/wp/v2/posts&per_page=3", "/magazin/index.php?rest_route=/wp/v2/posts&per_page=3", "/magazin?rest_route=/wp/v2/posts&per_page=3"]) {
     const rewritten = proxy(request(path, "alleinerziehende-singles.de"));

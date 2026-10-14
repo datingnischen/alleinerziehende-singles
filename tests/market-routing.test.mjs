@@ -268,8 +268,10 @@ test("market magazine, FAQ and about routes exist with market shells and the agr
     read("../app/market-sitemap/[market]/route.ts"),
     read("../proxy.ts"),
   ]);
-  for (const source of [overview, article, faq, about, aboutDetail]) {
+  for (const source of [overview, faq, about, aboutDetail]) {
     assert.match(source, /<SiteShell market=\{market\}/);
+  }
+  for (const source of [overview, article, faq, about, aboutDetail]) {
     assert.match(source, /if \(!isMarketCode\(value\) \|\| value === "de"\) notFound\(\);/);
     assert.doesNotMatch(source, /vercel\.app/);
   }
@@ -277,11 +279,16 @@ test("market magazine, FAQ and about routes exist with market shells and the agr
   assert.match(overview, /canonical: publicUrl\(market, "\/magazin\/"\)/);
   assert.match(faq, /canonical: publicUrl\(market, faq\.path\)/);
   assert.match(about, /canonical: publicUrl\(market, "\/ueber-uns\/"\)/);
-  // … Artikel und die ICONY-Unterseiten zeigen auf die DE-Adresse (gleicher Text)
-  assert.match(article, /canonical: publicUrl\("de", `\/magazin\/\$\{entry\.slug\}\/`\)/);
-  assert.match(article, /export const dynamicParams = false/);
-  assert.match(article, /marketMagazineSlugs\(market\)/);
+  // … Artikel gibt es nur auf .de: AT/CH leiten per 308 dorthin (kein Duplicate Content, Christian 2026-10-14)
+  assert.match(article, /permanentRedirect\(publicUrl\("de", `\/magazin\/\$\{slug\}\/`\)\)/);
+  assert.doesNotMatch(article, /<MagazineArticle/);
+  assert.doesNotMatch(article, /canonical/);
+  // Die ICONY-Unterseiten von Über uns zeigen auf die DE-Adresse (gleicher Text)
   assert.match(aboutDetail, /canonical: publicUrl\("de", `\/ueber-uns\/\$\{slug\}\/`\)/);
+  const postCard = await read("../components/magazine/post-card.tsx");
+  const articleLink = await read("../components/magazine/article-link.tsx");
+  assert.match(postCard, /<ArticleLink/);
+  assert.match(articleLink, /publicUrl\("de", path\)/);
   for (const path of ["/magazin/", "/faq/", "/ueber-uns/", "/ueber-uns/bewertungen/", "/ueber-uns/social-media/", "/ueber-uns/kooperationen/"]) {
     assert.ok(sitemap.includes(`publicUrl(market, "${path}")`), path);
   }
@@ -290,8 +297,7 @@ test("market magazine, FAQ and about routes exist with market shells and the agr
 });
 
 test("keeps the German Kindergeld content off the AT/CH domains", async () => {
-  const { marketThemes, entryAvailableInMarket, localizeMagazineHtml, marketMagazineSlugs } = await import("../lib/magazine-market.ts");
-  const { getMagazineSlugs } = await import("../lib/magazine-content.ts");
+  const { marketThemes, entryAvailableInMarket } = await import("../lib/magazine-market.ts");
 
   assert.deepEqual(marketThemes("de").map((theme) => theme.key), ["partnersuche", "singleleben", "kindergeld"]);
   assert.deepEqual(marketThemes("at").map((theme) => theme.key), ["partnersuche", "singleleben"]);
@@ -299,14 +305,10 @@ test("keeps the German Kindergeld content off the AT/CH domains", async () => {
   assert.equal(entryAvailableInMarket("ch", { slug: "unterhalt", categoryIds: [8] }), false);
   assert.equal(entryAvailableInMarket("ch", { slug: "unterhalt", categoryIds: [1] }), true);
   assert.equal(entryAvailableInMarket("de", { slug: "kindergeld", categoryIds: [8] }), true);
-  assert.ok(marketMagazineSlugs("at").length < getMagazineSlugs().length);
-  assert.ok(marketMagazineSlugs("at").length > 60);
-  assert.ok(marketMagazineSlugs("at").every((slug) => !slug.startsWith("kindergeld")));
-
-  const html = '<a href="/magazin/kindergeld/">Kindergeld</a> <a href="/magazin/erstes-date/">Date</a> <a href="/partnersuche/berlin/">Berlin</a>';
-  assert.equal(localizeMagazineHtml("de", html), html);
-  assert.equal(
-    localizeMagazineHtml("at", html),
-    '<a href="https://alleinerziehende-singles.de/magazin/kindergeld/">Kindergeld</a> <a href="/magazin/erstes-date/">Date</a> <a href="https://alleinerziehende-singles.de/partnersuche/berlin/">Berlin</a>',
-  );
+  const { buildSearchDocuments } = await import("../lib/search-index.ts");
+  const atMagazine = buildSearchDocuments("at").filter((doc) => doc.area === "Magazin");
+  assert.ok(atMagazine.length > 60);
+  assert.ok(atMagazine.every((doc) => doc.href.startsWith("https://alleinerziehende-singles.de/magazin/")), "AT-Suche verlinkt Artikel auf .de");
+  assert.ok(atMagazine.every((doc) => !/\/magazin\/kindergeld/.test(doc.href)));
+  assert.ok(buildSearchDocuments("de").filter((doc) => doc.area === "Magazin").every((doc) => doc.href.startsWith("/magazin/")));
 });

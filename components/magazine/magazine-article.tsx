@@ -1,9 +1,9 @@
 import { ArrowIcon, BookIcon, CalendarIcon, ClockIcon, FamilyHeartIcon, HeartIcon, PinIcon } from "@/components/icons";
+import { ArticleLink } from "@/components/magazine/article-link";
 import { MarketLink } from "@/components/market-link";
 import { PostCard } from "@/components/magazine/post-card";
 import { breadcrumbJsonLd, serializeJsonLd } from "@/lib/json-ld";
 import { excerptText, groupMagazinePages, readingMinutes, stripTags, themeForCategories, withHeadingAnchors } from "@/lib/magazine";
-import { entryAvailableInMarket, localizeMagazineHtml } from "@/lib/magazine-market";
 import { publicUrl, type MarketCode } from "@/lib/markets";
 import { registrationUrlForContext } from "@/lib/registration-links";
 import { staticAsset } from "@/lib/static-asset";
@@ -35,7 +35,7 @@ function pregnancyNeighbours(slug: string, pages: MagazinePageLink[]) {
   return { weeks, index, prev: weeks[index - 1] ?? null, next: weeks[index + 1] ?? null };
 }
 
-/** Artikel-Markup: Die kanonische Adresse ist in allen Märkten die DE-URL, weil der Text derselbe ist. */
+/** Artikel-Markup: Artikel gibt es nur auf alleinerziehende-singles.de (AT/CH leiten dorthin um). */
 function articleJsonLd(entry: MagazineEntry, url: string) {
   return {
     "@context": "https://schema.org",
@@ -56,10 +56,10 @@ function articleJsonLd(entry: MagazineEntry, url: string) {
 export function MagazineArticle({ market, entry }: { market: MarketCode; entry: MagazineEntry }) {
   const isPost = entry.kind === "post";
   const theme = themeForCategories(entry.categoryIds);
-  const related = isPost ? getRelatedPosts(entry, 3).filter((post) => entryAvailableInMarket(market, post)) : [];
+  const related = isPost ? getRelatedPosts(entry, 3) : [];
   const pageLinks = isPost ? [] : getMagazinePageLinks();
   const pregnancy = isPost ? null : pregnancyNeighbours(entry.slug, pageLinks);
-  const { html, toc } = withHeadingAnchors(localizeMagazineHtml(market, entry.contentHtml));
+  const { html, toc } = withHeadingAnchors(entry.contentHtml);
   const minutes = readingMinutes(entry.contentHtml);
   const registrationHref = registrationUrlForContext(market, "magazin");
   const url = publicUrl("de", `/magazin/${entry.slug}/`);
@@ -120,9 +120,9 @@ export function MagazineArticle({ market, entry }: { market: MarketCode; entry: 
 
           {pregnancy ? (
             <nav className="aemag-weeknav" aria-label="Schwangerschaftswochen">
-              {pregnancy.prev ? <MarketLink market={market} path={`/magazin/${pregnancy.prev.slug}/`}>← SSW {pregnancy.prev.week}</MarketLink> : <span />}
+              {pregnancy.prev ? <ArticleLink market={market} slug={pregnancy.prev.slug}>← SSW {pregnancy.prev.week}</ArticleLink> : <span />}
               <MarketLink market={market} path="/magazin/#schwangerschaft">Alle Wochen</MarketLink>
-              {pregnancy.next ? <MarketLink market={market} path={`/magazin/${pregnancy.next.slug}/`}>SSW {pregnancy.next.week} →</MarketLink> : <span />}
+              {pregnancy.next ? <ArticleLink market={market} slug={pregnancy.next.slug}>SSW {pregnancy.next.week} →</ArticleLink> : <span />}
             </nav>
           ) : null}
 

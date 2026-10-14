@@ -8,6 +8,7 @@ import {
   SparkIcon,
   UsersIcon,
 } from "@/components/icons";
+import { ArticleLink } from "@/components/magazine/article-link";
 import { MarketLink } from "@/components/market-link";
 import { PostCard } from "@/components/magazine/post-card";
 import { EDITORIAL_CATEGORY_IDS, groupMagazinePages, stripTags, type MagazineTheme } from "@/lib/magazine";
@@ -21,7 +22,8 @@ const PAGE_SIZE = 18;
 const THEME_ICONS = { partnersuche: HeartIcon, singleleben: UsersIcon, kindergeld: CoinIcon } as const;
 
 /**
- * Magazin-Übersicht für DE, AT und CH: derselbe Artikelbestand, Links auf die jeweilige Landesdomain.
+ * Magazin-Übersicht für DE, AT und CH: derselbe Artikelbestand, Themen- und Übersichtslinks auf die jeweilige
+ * Landesdomain, Artikel-Links immer auf alleinerziehende-singles.de (Artikel gibt es nur dort, kein Duplicate Content).
  * Die deutschen Kindergeld-Inhalte (Themenwelt, Auszahlungstermine, Ratgeber) erscheinen nur auf .de.
  */
 export type MagazineOverviewProps = { market: MarketCode; thema?: string; seite?: string };
@@ -206,7 +208,7 @@ export function MagazineOverview({ market, thema, seite }: MagazineOverviewProps
               <p>Alle Jahresübersichten zu den Auszahlungsterminen findest du hier gesammelt an einem Ort – Monat für Monat im Überblick.</p>
               <ul className="aemag-years">
                 {groups.kindergeldYears.map((entry) => (
-                  <li key={entry.slug}><MarketLink market={market} path={`/magazin/${entry.slug}/`}>{entry.year}</MarketLink></li>
+                  <li key={entry.slug}><ArticleLink market={market} slug={entry.slug}>{entry.year}</ArticleLink></li>
                 ))}
               </ul>
               <MarketLink className="ae-btn ae-btn-primary" market={market} path="/magazin/?thema=kindergeld">Alle Monatstermine <ArrowIcon /></MarketLink>
@@ -215,11 +217,11 @@ export function MagazineOverview({ market, thema, seite }: MagazineOverviewProps
               <ul className="aemag-kg-list">
                 {kindergeldPosts.map((post) => (
                   <li key={post.id}>
-                    <MarketLink market={market} path={`/magazin/${post.slug}/`}>
+                    <ArticleLink market={market} slug={post.slug}>
                       <CalendarIcon />
                       <span>{stripTags(post.titleHtml)}</span>
                       <ArrowIcon />
-                    </MarketLink>
+                    </ArticleLink>
                   </li>
                 ))}
               </ul>
@@ -238,7 +240,7 @@ export function MagazineOverview({ market, thema, seite }: MagazineOverviewProps
           <ol className="aemag-weeks">
             {groups.pregnancy.map((entry) => (
               <li key={entry.slug}>
-                <MarketLink market={market} path={`/magazin/${entry.slug}/`}><small>SSW</small><strong>{entry.week}</strong></MarketLink>
+                <ArticleLink market={market} slug={entry.slug}><small>SSW</small><strong>{entry.week}</strong></ArticleLink>
               </li>
             ))}
           </ol>
@@ -255,7 +257,7 @@ export function MagazineOverview({ market, thema, seite }: MagazineOverviewProps
           <ul className="aemag-guides">
             {groups.guides.map((entry) => (
               <li key={entry.slug}>
-                <MarketLink market={market} path={`/magazin/${entry.slug}/`}><BookIcon /><span>{stripTags(entry.title)}</span><ArrowIcon /></MarketLink>
+                <ArticleLink market={market} slug={entry.slug}><BookIcon /><span>{stripTags(entry.title)}</span><ArrowIcon /></ArticleLink>
               </li>
             ))}
           </ul>
