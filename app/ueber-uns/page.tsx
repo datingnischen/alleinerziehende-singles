@@ -11,5 +11,5 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   // Die Seitensuche steckt im Hub als <AboutSearchForm /> (siehe AboutHub).
-  return <AboutHub reviews={getReviewsData()} social={getSocialData()} />;
+  return <AboutHub market="de" reviews={getReviewsData()} social={getSocialData()} />;
 }

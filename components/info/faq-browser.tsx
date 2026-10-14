@@ -56,6 +56,7 @@ export function FaqBrowser({ topics, contactUrl }: { topics: FaqTopic[]; contact
               <span className="aei-faq-topic-icon"><FaqTopicIconView icon={topic.icon} /></span>
               <h2 id={`${topic.id}-h`}>{topic.title}</h2>
             </header>
+            {topic.introHtml && !q ? <div className="ae-rich aei-faq-topic-intro" dangerouslySetInnerHTML={{ __html: topic.introHtml }} /> : null}
             <div className="aei-faq-items">
               {topic.items.map((item) => (
                 <details key={`${item.id}-${q}`} id={item.id} open={Boolean(q)}>

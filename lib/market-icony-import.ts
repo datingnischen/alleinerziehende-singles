@@ -46,6 +46,8 @@ type RawMarketImport = {
   site: string;
   partnersucheHub: MarketImportedPage;
   cityPages: RawCityPage[];
+  /** Root-Seiten der Landesdomain (bisher nur die FAQ, scripts/import_market_faq.py) */
+  rootPages?: (MarketImportedPage & { sourceNote?: string })[];
 };
 
 const rawImports = {
@@ -192,9 +194,10 @@ const imports = Object.fromEntries(
     {
       hub: preparePage(data.partnersucheHub, data.site, true),
       cities: data.cityPages.map((page) => normalizeCity(page, data.site, market as RegionalMarket, data.market)),
+      rootPages: (data.rootPages ?? []).map((page) => preparePage(page, data.site)),
     },
   ]),
-) as Record<RegionalMarket, { hub: MarketImportedPage; cities: MarketImportedCityPage[] }>;
+) as Record<RegionalMarket, { hub: MarketImportedPage; cities: MarketImportedCityPage[]; rootPages: MarketImportedPage[] }>;
 
 export function getMarketPartnersucheHub(market: RegionalMarket) {
   return imports[market].hub;
@@ -206,4 +209,9 @@ export function getMarketCityPages(market: RegionalMarket) {
 
 export function getMarketCityPage(market: RegionalMarket, slug: string) {
   return imports[market].cities.find((page) => page.slug === slug) ?? null;
+}
+
+/** Root-Seite einer Landesdomain, z. B. die FAQ (Wortlaut der ICONY-Seite). */
+export function getMarketRootPage(market: RegionalMarket, slug: string): MarketImportedPage | null {
+  return imports[market].rootPages.find((page) => page.slug === slug) ?? null;
 }

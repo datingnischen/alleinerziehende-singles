@@ -46,15 +46,15 @@ export default async function AboutDetailPage({ params }: Props) {
   if (slug === "bewertungen") {
     const reviews = getReviewsData();
     if (!reviews) notFound();
-    return <ReviewsView reviews={reviews} />;
+    return <ReviewsView market="de" reviews={reviews} />;
   }
 
   if (slug === "social-media") {
     const social = getSocialData();
     if (!social) notFound();
-    return <SocialView social={social} />;
+    return <SocialView market="de" social={social} />;
   }
 
   // Kooperationsanfragen an christian@datingnischen.de (CooperationView)
-  return <CooperationView />;
+  return <CooperationView market="de" />;
 }

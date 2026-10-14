@@ -18,22 +18,30 @@ test("serves the site search under /ueber-uns/suche/ and never at the ICONY-owne
 });
 
 test("keeps the search page out of the index and the sitemap", async () => {
-  const [page, sitemap] = await Promise.all([read("../app/ueber-uns/suche/page.tsx"), read("../app/sitemap.ts")]);
+  const [page, index, sitemap] = await Promise.all([read("../app/ueber-uns/suche/page.tsx"), read("../lib/search-index.ts"), read("../app/sitemap.ts")]);
 
   assert.match(page, /robots: \{ index: false, follow: true \}/);
   assert.match(page, /canonical: publicUrl\("de", SEARCH_PATH\)/);
-  assert.match(page, /getMagazineSearchIndex/);
-  assert.match(page, /importedCityPages/);
+  // Suchindex pro Markt (lib/search-index.ts): Magazin, Städte, Hub, FAQ, Über uns
+  assert.match(index, /getMagazineSearchIndex/);
+  assert.match(index, /getCityPages\(market\)/);
+  assert.match(index, /getFaqData\(market\)/);
   assert.doesNotMatch(sitemap, /ueber-uns\/suche|SEARCH_PATH|"\/suche/);
 });
 
 test("links the search from the header and the about hub", async () => {
   const [shell, hub] = await Promise.all([read("../components/site-shell.tsx"), read("../app/ueber-uns/page.tsx")]);
 
-  assert.match(shell, /searchPath=\{de \? SEARCH_PATH : null\}/);
+  // Die Suche gibt es seit Oktober 2026 in allen Märkten (AT/CH unter /ueber-uns/suche/ der Landesdomain).
+  assert.match(shell, /searchPath=\{SEARCH_PATH\}/);
   assert.match(hub, /<AboutHub /);
   const views = await read("../components/info/about-views.tsx");
-  assert.match(views, /<AboutSearchForm \/>/);
+  assert.match(views, /<AboutSearchForm market=\{market\} \/>/);
+  const marketSearch = await read("../app/market-ueber-uns/[market]/suche/page.tsx");
+  assert.match(marketSearch, /<SearchView market=\{market\} query=\{query\} \/>/);
+  assert.match(marketSearch, /robots: \{ index: false, follow: true \}/);
+  const marketDetail = await read("../app/market-ueber-uns/[market]/[slug]/page.tsx");
+  assert.doesNotMatch(marketDetail, /slug === "suche"|searchParams/);
 });
 
 test("normalizes umlauts and ranks title hits before excerpt hits", async () => {

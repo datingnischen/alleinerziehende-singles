@@ -1,12 +1,23 @@
 import { decodeEntities, leadImage, plainText } from "./city-guide.ts";
 import { extractFaqEntries, type FaqEntry } from "./faq-schema.ts";
 import { getImportedRootPageBySlug } from "./icony-import.ts";
+import { getMarketRootPage } from "./market-icony-import.ts";
+import type { MarketCode } from "./markets.ts";
 
 export type FaqTopicIcon = "shield" | "star" | "tag" | "phone" | "user" | "chat" | "heart";
 
 export type FaqItem = { id: string; question: string; answerHtml: string; answerText: string };
-export type FaqTopic = { id: string; title: string; short: string; icon: FaqTopicIcon; items: FaqItem[] };
+export type FaqTopic = {
+  id: string;
+  title: string;
+  short: string;
+  icon: FaqTopicIcon;
+  /** Einleitung des Themas vor der ersten Frage (z. B. „Transparenz“ auf .at/.ch) */
+  introHtml: string;
+  items: FaqItem[];
+};
 export type FaqData = {
+  market: MarketCode;
   title: string;
   heroTitle: string;
   description: string;
@@ -20,41 +31,61 @@ export type FaqData = {
 };
 
 const ICON_RULES: [FaqTopicIcon, RegExp][] = [
-  ["shield", /sicherheit|seriosit/],
+  ["shield", /sicherheit|seriosit|transparenz/],
   ["star", /bewertung|erfahrung/],
   ["tag", /kosten|mitgliedschaft|anmeldung/],
   ["phone", /nutzung|funktion|technik/],
-  ["user", /profil|einstellung/],
-  ["chat", /konto|support|hilfe/],
+  ["user", /profil|einstellung|angaben/],
+  ["chat", /konto|support|hilfe|kontakt/],
 ];
 
 function slugify(value: string) {
   return value.toLowerCase().replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/ß/g, "ss").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 50);
 }
 
-/** Themen-Chip ohne „… über/von alleinerziehende-singles.de“. */
+/** Themen-Chip ohne „… über/von alleinerziehende-singles.de“ bzw. „… zu alleinerziehende-singles.ch“. */
 function shortTitle(title: string) {
-  return title.replace(/\s+(?:über|von|zu|bei)\s+alleinerziehende-singles\.de$/i, "").trim();
+  return title.replace(/\s+(?:über|von|zu|bei)\s+alleinerziehende-singles\.(?:de|at|ch)$/i, "").trim();
 }
 
-/** Zerlegt die importierte ICONY-FAQ (h2 + details/summary) in Themen und Fragen, Wortlaut unverändert. */
-export function getFaqData(): FaqData | null {
-  const page = getImportedRootPageBySlug("faq");
+function stripEmptyParagraphs(html: string) {
+  return html.replace(/<p>\s*(?:&nbsp;|&#160;|\s)*\s*<\/p>/gi, "").trim();
+}
+
+function faqPage(market: MarketCode) {
+  return market === "de" ? getImportedRootPageBySlug("faq") : getMarketRootPage(market, "faq");
+}
+
+/**
+ * Zerlegt die importierte ICONY-FAQ (h2 + details/summary) in Themen und Fragen, Wortlaut unverändert.
+ * DE hält alle Fragen in <section id="faq">; AT/CH hängen dahinter ein weiteres Thema („Transparenz“) mit eigener
+ * Einleitung an – darum werden alle h2-Blöcke ab der Sektion gelesen, Text nach der letzten Frage ist der Ausklang.
+ */
+export function getFaqData(market: MarketCode = "de"): FaqData | null {
+  const page = faqPage(market);
   if (!page) return null;
   const html = page.contentHtml;
   const start = html.search(/<section\b[^>]*id="faq"/i);
-  const end = html.indexOf("</section>", start);
-  const before = start >= 0 ? html.slice(0, start) : html;
-  const body = start >= 0 ? html.slice(start, end) : "";
-  const after = start >= 0 && end >= 0 ? html.slice(end + "</section>".length) : "";
+  const before = start >= 0 ? html.slice(0, start) : "";
+  const rest = (start >= 0 ? html.slice(start) : html).replace(/<\/?section\b[^>]*>/gi, "");
   const image = leadImage(before);
 
   const topics: FaqTopic[] = [];
   const usedIds = new Set<string>();
-  const parts = body.split(/<h2\b[^>]*>([\s\S]*?)<\/h2>/i);
+  let outroHtml = "";
+  const parts = rest.split(/<h2\b[^>]*>([\s\S]*?)<\/h2>/i);
   for (let index = 1; index < parts.length; index += 2) {
     const title = plainText(parts[index]);
-    const items = [...parts[index + 1].matchAll(/<details\b[^>]*>\s*<summary\b[^>]*>([\s\S]*?)<\/summary>([\s\S]*?)<\/details>/gi)]
+    const chunk = parts[index + 1];
+    const isLast = index + 2 >= parts.length;
+    const firstDetails = chunk.search(/<details\b/i);
+    if (firstDetails < 0) {
+      if (isLast) outroHtml = stripEmptyParagraphs(chunk);
+      continue;
+    }
+    const lastDetailsEnd = chunk.lastIndexOf("</details>") + "</details>".length;
+    if (isLast) outroHtml = stripEmptyParagraphs(chunk.slice(lastDetailsEnd));
+    const items = [...chunk.matchAll(/<details\b[^>]*>\s*<summary\b[^>]*>([\s\S]*?)<\/summary>([\s\S]*?)<\/details>/gi)]
       .map((match) => {
         const question = plainText(match[1]);
         const answerHtml = match[2].trim().replace(/^<div>\s*/i, "").replace(/\s*<\/div>$/i, "");
@@ -70,20 +101,22 @@ export function getFaqData(): FaqData | null {
       title,
       short: shortTitle(title),
       icon: ICON_RULES.find(([, rule]) => rule.test(lower))?.[0] ?? "heart",
+      introHtml: stripEmptyParagraphs(chunk.slice(0, firstDetails)),
       items,
     });
   }
 
   return {
+    market,
     title: page.title,
     heroTitle: page.heroTitle,
     description: page.description,
     path: page.path,
-    introHtml: before.replace(/<p>\s*<img\b[^>]*>\s*<\/p>/i, "").replace(/<img\b[^>]*>/gi, "").trim(),
+    introHtml: stripEmptyParagraphs(before.replace(/<p>\s*<img\b[^>]*>\s*<\/p>/i, "").replace(/<img\b[^>]*>/gi, "")),
     imageUrl: image?.url ?? null,
     imageAlt: image ? decodeEntities(image.alt) : "",
     topics,
-    outroHtml: after.trim(),
+    outroHtml,
     schemaEntries: extractFaqEntries(html),
   };
 }

@@ -16,23 +16,14 @@ import styles from "./site-shell.module.css";
 
 type FooterLink = { label: string; path?: string; href?: string };
 
-function navigation(market: MarketCode): HeaderNavItem[] {
-  if (market === "de") {
-    return [
-      { label: "Start", path: "/" },
-      { label: "Partnersuche", path: "/partnersuche/" },
-      { label: "Magazin", path: "/magazin/" },
-      { label: "FAQ", path: "/faq/" },
-      { label: "Über uns", path: "/ueber-uns/" },
-    ];
-  }
-
+// Seit Oktober 2026 liefert Next.js Magazin, FAQ und Über uns in allen drei Märkten (vorher AT/CH nur Start und Partnersuche).
+function navigation(): HeaderNavItem[] {
   return [
     { label: "Start", path: "/" },
     { label: "Partnersuche", path: "/partnersuche/" },
-    { label: "FAQ", href: publicUrl(market, "/faq/") },
-    { label: "Fragenflirt", href: publicUrl(market, "/fragenflirt.html") },
-    { label: "Erfolgsgeschichten", href: publicUrl(market, "/unsere-erfolgsgeschichten.html") },
+    { label: "Magazin", path: "/magazin/" },
+    { label: "FAQ", path: "/faq/" },
+    { label: "Über uns", path: "/ueber-uns/" },
   ];
 }
 
@@ -60,7 +51,6 @@ export function SiteShell({
   const loginUrl = publicUrl(market, "/login/");
   const registrationUrl = registrationUrlForContext(market, registrationContext);
   const footerRegistrationText = footerRegistrationLabel(market, registrationContext);
-  const de = market === "de";
   const trustLinks: FooterLink[] = [
     { label: "Sicherheit & Datenschutz", href: publicUrl(market, "/sicherheit-und-datenschutz.html") },
     { label: "Redaktionelle Kontrolle", href: publicUrl(market, "/redaktionelle-kontrolle.html") },
@@ -72,37 +62,24 @@ export function SiteShell({
       title: "Partnersuche",
       links: [...cityLinks(market), { label: `Alle Städte in ${config.countryName}`, path: "/partnersuche/" }],
     },
-    de
-      ? {
-          title: "Magazin & Über uns",
-          links: [
-            { label: "Magazin für Alleinerziehende", path: "/magazin/" },
-            { label: "Häufige Fragen (FAQ)", path: "/faq/" },
-            { label: "Über uns", path: "/ueber-uns/" },
-            { label: "Bewertungen & Erfahrungen", path: "/ueber-uns/bewertungen/" },
-            { label: "Social Media", path: "/ueber-uns/social-media/" },
-            { label: "Kooperationen", path: "/ueber-uns/kooperationen/" },
-          ],
-        }
-      : {
-          title: "Kennenlernen",
-          links: [
-            { label: "Häufige Fragen (FAQ)", href: publicUrl(market, "/faq/") },
-            { label: "Fragenflirt", href: publicUrl(market, "/fragenflirt.html") },
-            { label: "Fotoflirt", href: publicUrl(market, "/fotoflirt.html") },
-            { label: "Video-Date", href: publicUrl(market, "/videodate.html") },
-            { label: "Erfolgsgeschichten", href: publicUrl(market, "/unsere-erfolgsgeschichten.html") },
-          ],
-        },
+    {
+      title: "Magazin & Über uns",
+      links: [
+        { label: "Magazin für Alleinerziehende", path: "/magazin/" },
+        { label: "Häufige Fragen (FAQ)", path: "/faq/" },
+        { label: "Über uns", path: "/ueber-uns/" },
+        { label: "Bewertungen & Erfahrungen", path: "/ueber-uns/bewertungen/" },
+        { label: "Social Media", path: "/ueber-uns/social-media/" },
+        { label: "Kooperationen", path: "/ueber-uns/kooperationen/" },
+      ],
+    },
     {
       title: "Mitgliedschaft & Service",
       links: [
         ...trustLinks,
         { label: "Premiumvorteile", href: publicUrl(market, "/premium-mitgliedschaft.html") },
-        ...(de ? [
-          { label: "Fragenflirt & Fotoflirt", href: publicUrl(market, "/fragenflirt.html") },
-          { label: "Erfolgsgeschichten", href: publicUrl(market, "/unsere-erfolgsgeschichten.html") },
-        ] : []),
+        { label: "Fragenflirt & Fotoflirt", href: publicUrl(market, "/fragenflirt.html") },
+        { label: "Erfolgsgeschichten", href: publicUrl(market, "/unsere-erfolgsgeschichten.html") },
         { label: "Hilfe & Support", href: publicUrl(market, "/hilfe/") },
       ],
     },
@@ -124,11 +101,11 @@ export function SiteShell({
         </div>
         <SiteHeader
           market={market}
-          items={navigation(market)}
+          items={navigation()}
           logo={{ src: staticAsset(config.logoPath), alt: `${config.domain} Logo` }}
           loginUrl={loginUrl}
           registrationUrl={registrationUrl}
-          searchPath={de ? SEARCH_PATH : null}
+          searchPath={SEARCH_PATH}
         />
       </header>
 

@@ -143,3 +143,36 @@ test("splits every city text into chapters and keeps the related city links", as
     }
   }
 });
+
+test("ships the ICONY FAQ of the AT and CH domains as market root pages", async () => {
+  const { getMarketRootPage } = await loadMarketContent();
+  const { getFaqData } = await import("../lib/faq.ts");
+
+  for (const market of ["at", "ch"]) {
+    const page = getMarketRootPage(market, "faq");
+    assert.ok(page, `${market}: rootPages/faq fehlt (scripts/import_market_faq.py)`);
+    assert.equal(page.path, "/faq/");
+    assert.equal(page.sourceUrl, `https://alleinerziehende-singles.${market}/faq/`);
+    assert.ok(page.description.includes(`alleinerziehende-singles.${market}`));
+    assert.doesNotMatch(page.description, /signeles/);
+    assert.doesNotMatch(page.contentHtml, /<(?:script|iframe|form|input|button)\b|<h1\b/i);
+    assert.doesNotMatch(page.contentHtml, /alleinerziehende-singles\.de/i);
+
+    const faq = getFaqData(market);
+    assert.equal(faq.market, market);
+    assert.equal(faq.heroTitle, "Häufig gestellte Fragen (FAQ)");
+    assert.ok(faq.topics.length >= 7, `${market}: ${faq.topics.length} Themen`);
+    const questions = faq.topics.reduce((sum, topic) => sum + topic.items.length, 0);
+    assert.ok(questions >= 22, `${market}: ${questions} Fragen`);
+    assert.equal(faq.schemaEntries.length, questions);
+    assert.ok(faq.outroHtml.includes(`https://alleinerziehende-singles.${market}/`));
+    assert.doesNotMatch(faq.outroHtml, /partnersuche\//);
+  }
+  // CH hängt das Thema „Transparenz“ mit eigener Einleitung hinter der FAQ-Sektion an
+  const ch = getFaqData("ch");
+  const transparency = ch.topics.find((topic) => /transparenz/i.test(topic.title));
+  assert.ok(transparency);
+  assert.equal(transparency.items.length, 4);
+  assert.match(transparency.introHtml, /Transparenz/);
+  assert.equal(getFaqData("de").topics.length, 7);
+});

@@ -3,7 +3,7 @@ import { NextResponse } from "next/server.js";
 import { publicUrl, resolveMarketRequest, withTrailingSlash, type MarketCode } from "#markets";
 
 const INTERNAL_REWRITE_TOKEN = globalThis.crypto.randomUUID();
-const INTERNAL_PATH_PATTERN = /^\/market-(?:home|placeholder|partnersuche|robots|sitemap)(?:\/|$)/;
+const INTERNAL_PATH_PATTERN = /^\/market-(?:home|placeholder|partnersuche|robots|sitemap|magazin|faq|ueber-uns)(?:\/|$)/;
 const NO_SLASH_PREFIXES = ["/_next/", "/app-assets/", "/brand/", "/api/", "/.well-known/"];
 const MARKET_HOSTS = new Set([
   "alleinerziehende-singles.de",

@@ -72,5 +72,5 @@ export default async function ImportedRootPage({ params }: Props) {
     notFound();
   }
 
-  return <FaqPageView faq={faq} />;
+  return <FaqPageView faq={faq} market="de" />;
 }

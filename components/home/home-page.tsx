@@ -164,7 +164,7 @@ export function HomePage({ market, posts = [] }: { market: MarketCode; posts?: M
             <MarketLink className="ae-btn ae-btn-outline" market={market} path="/magazin/">Alle Magazin-Artikel <ArrowIcon /></MarketLink>
           </div>
           <div className="aemag-grid">
-            {posts.map((post) => <PostCard key={post.id} post={post} />)}
+            {posts.map((post) => <PostCard key={post.id} post={post} market={market} />)}
           </div>
         </section>
       ) : null}

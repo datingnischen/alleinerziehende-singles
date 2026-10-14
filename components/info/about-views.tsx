@@ -28,6 +28,11 @@ import "@/components/city/hub.css";
 import "./info.css";
 import "./about.css";
 
+/**
+ * Über-uns-Bereich für DE, AT und CH. Bewertungen, Social-Media-Kanäle und Kooperationen gelten für das gesamte
+ * Projekt (eine Plattform im ICONY-Netzwerk, ein Betreiber); die Landesdomains verlinken ihre eigenen Pfade.
+ */
+
 const ABOUT_LINKS = [
   { path: "/ueber-uns/", label: "Über uns" },
   { path: "/ueber-uns/bewertungen/", label: "Bewertungen" },
@@ -36,11 +41,15 @@ const ABOUT_LINKS = [
   { path: "/ueber-uns/suche/", label: "Suche" },
 ];
 
-export function AboutSubnav({ current }: { current: string }) {
+function inCountry(market: MarketCode) {
+  return market === "ch" ? "in der Schweiz" : `in ${getMarket(market).countryName}`;
+}
+
+export function AboutSubnav({ market = "de", current }: { market?: MarketCode; current: string }) {
   return (
     <nav className="ae-wrap aea-subnav" aria-label="Über uns">
       {ABOUT_LINKS.map((link) => (
-        <MarketLink key={link.path} market="de" path={link.path} className={link.path === current ? "aea-subnav-active" : undefined} aria-current={link.path === current ? "page" : undefined}>
+        <MarketLink key={link.path} market={market} path={link.path} className={link.path === current ? "aea-subnav-active" : undefined} aria-current={link.path === current ? "page" : undefined}>
           {link.label === "Suche" ? <SearchIcon /> : null}{link.label}
         </MarketLink>
       ))}
@@ -48,13 +57,13 @@ export function AboutSubnav({ current }: { current: string }) {
   );
 }
 
-function Crumbs({ items }: { items: { label: string; path?: string }[] }) {
+function Crumbs({ market, items }: { market: MarketCode; items: { label: string; path?: string }[] }) {
   return (
     <nav className="aei-crumbs" aria-label="Brotkrumen">
       {items.map((item, index) => (
         <span key={item.label} style={{ display: "contents" }}>
           {index ? <span aria-hidden="true">›</span> : null}
-          {item.path ? <MarketLink market="de" path={item.path}>{item.label}</MarketLink> : <span aria-current="page">{item.label}</span>}
+          {item.path ? <MarketLink market={market} path={item.path}>{item.label}</MarketLink> : <span aria-current="page">{item.label}</span>}
         </span>
       ))}
     </nav>
@@ -77,7 +86,7 @@ const PLATFORM_LABEL: Record<string, string> = {
   portals: "Vergleichsportale",
 };
 
-function CtaBand({ title, text }: { title: string; text: string }) {
+function CtaBand({ market, title, text }: { market: MarketCode; title: string; text: string }) {
   return (
     <section className="ae-wrap ae-section">
       <div className="ae-band">
@@ -87,29 +96,43 @@ function CtaBand({ title, text }: { title: string; text: string }) {
           <p>{text}</p>
         </div>
         <div className="ae-band-actions">
-          <a className="ae-btn ae-btn-primary" href={registrationUrlForContext("de", "location")}>Kostenlos registrieren</a>
-          <MarketLink className="ae-btn ae-btn-ghost" market="de" path="/partnersuche/">Singles nach Stadt</MarketLink>
+          <a className="ae-btn ae-btn-primary" href={registrationUrlForContext(market, "location")}>Kostenlos registrieren</a>
+          <MarketLink className="ae-btn ae-btn-ghost" market={market} path="/partnersuche/">Singles nach Stadt</MarketLink>
         </div>
       </div>
     </section>
   );
 }
 
+/** Hinweis auf .at/.ch: Die Bewertungen gelten für die gemeinsame Plattform, erhoben unter der DE-Adresse. */
+function PlatformNote({ market }: { market: MarketCode }) {
+  if (market === "de") return null;
+  const domain = getMarket(market).domain;
+  return (
+    <p className="aea-platform-note">
+      {domain} ist Teil derselben Plattform wie alleinerziehende-singles.de (ICONY-Netzwerk, ein Betreiber, eine Community in
+      Deutschland, Österreich und der Schweiz). Die Bewertungen wurden unter der deutschen Adresse gesammelt und gelten
+      für die gemeinsame Plattform.
+    </p>
+  );
+}
+
 /* ====================================================================== Über uns */
 
-export function AboutHub({ reviews, social }: { reviews: ReviewsData | null; social: SocialData | null }) {
-  const hub = getCityHubData("de");
+export function AboutHub({ market = "de", reviews, social }: { market?: MarketCode; reviews: ReviewsData | null; social: SocialData | null }) {
+  const config = getMarket(market);
+  const hub = getCityHubData(market);
   const ratings = reviews?.ratings.filter((rating) => rating.score !== null) ?? [];
   const markets: MarketCode[] = ["de", "at", "ch"];
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    url: publicUrl("de", "/ueber-uns/"),
-    name: "Über alleinerziehende-singles.de",
+    url: publicUrl(market, "/ueber-uns/"),
+    name: `Über ${config.domain}`,
     about: {
       "@type": "Organization",
-      name: "alleinerziehende-singles.de",
-      url: publicUrl("de", "/"),
+      name: config.domain,
+      url: publicUrl(market, "/"),
       sameAs: [
         ...(social?.channels.map((channel) => channel.url) ?? []),
         ...(reviews?.ratings.map((rating) => rating.link).filter((link): link is string => Boolean(link && link.includes("trustpilot"))) ?? []),
@@ -123,16 +146,16 @@ export function AboutHub({ reviews, social }: { reviews: ReviewsData | null; soc
       <section className="aei-hero">
         <div className="ae-wrap aei-hero-grid">
           <div>
-            <Crumbs items={[{ label: "Start", path: "/" }, { label: "Über uns" }]} />
-            <span className="ae-eyebrow"><FamilyHeartIcon />Über alleinerziehende-singles.de</span>
+            <Crumbs market={market} items={[{ label: "Start", path: "/" }, { label: "Über uns" }]} />
+            <span className="ae-eyebrow"><FamilyHeartIcon />Über {config.domain}</span>
             <h1>Mehr Vertrauen, mehr Einblicke, mehr Verständnis</h1>
             <p className="aei-lead">
-              alleinerziehende-singles.de bringt Mütter und Väter zusammen, die ihre besondere Lebenssituation nicht erst
+              {config.domain} bringt Mütter und Väter {inCountry(market)} zusammen, die ihre besondere Lebenssituation nicht erst
               erklären möchten. Hier findest Du die wichtigsten Hintergründe, offiziellen Kanäle und unabhängigen
               Bewertungen unserer Plattform.
             </p>
             <div className="aea-search">
-              <AboutSearchForm />
+              <AboutSearchForm market={market} />
             </div>
           </div>
           <figure className="aei-frame">
@@ -142,7 +165,7 @@ export function AboutHub({ reviews, social }: { reviews: ReviewsData | null; soc
         </div>
       </section>
 
-      <AboutSubnav current="/ueber-uns/" />
+      <AboutSubnav market={market} current="/ueber-uns/" />
 
       <section className="ae-wrap ae-section aea-values" aria-labelledby="aea-values-title">
         <div className="ae-head">
@@ -163,7 +186,7 @@ export function AboutHub({ reviews, social }: { reviews: ReviewsData | null; soc
           <article>
             <PinIcon />
             <strong>Nähe, die in den Alltag passt</strong>
-            <p>Regionale Stadtseiten zeigen, wer in Deiner Nähe sucht – für Treffen, die sich mit Kita und Job vereinbaren lassen.</p>
+            <p>Regionale Stadtseiten zeigen, wer in Deiner Nähe sucht – für Treffen, die sich mit {market === "ch" ? "Kita" : "Kita"} und Job vereinbaren lassen.</p>
           </article>
         </div>
       </section>
@@ -177,7 +200,7 @@ export function AboutHub({ reviews, social }: { reviews: ReviewsData | null; soc
           </blockquote>
           <figcaption>
             <span className="aea-avatar" aria-hidden="true">CH</span>
-            <span><strong>Christian M. Haas</strong><small>Datingexperte und Begleiter von alleinerziehende-singles.de</small></span>
+            <span><strong>Christian M. Haas</strong><small>Datingexperte und Begleiter von {config.domain}</small></span>
           </figcaption>
         </figure>
       </section>
@@ -190,7 +213,7 @@ export function AboutHub({ reviews, social }: { reviews: ReviewsData | null; soc
                 <span className="ae-eyebrow"><StarIcon />Bewertungen &amp; Erfahrungen</span>
                 <h2 id="aea-ratings-title">Was andere über uns sagen</h2>
               </div>
-              <MarketLink className="ae-btn ae-btn-primary" market="de" path="/ueber-uns/bewertungen/">Alle Bewertungen <ArrowIcon /></MarketLink>
+              <MarketLink className="ae-btn ae-btn-primary" market={market} path="/ueber-uns/bewertungen/">Alle Bewertungen <ArrowIcon /></MarketLink>
             </div>
             <div className="aea-ratings-grid">
               {ratings.map((rating) => (
@@ -201,6 +224,7 @@ export function AboutHub({ reviews, social }: { reviews: ReviewsData | null; soc
                 </div>
               ))}
             </div>
+            <PlatformNote market={market} />
           </div>
         </section>
       ) : null}
@@ -210,7 +234,10 @@ export function AboutHub({ reviews, social }: { reviews: ReviewsData | null; soc
           <div className="ae-head">
             <span className="ae-eyebrow"><UsersIcon />Community</span>
             <h2 id="aea-community-title">Zu Hause in Deutschland, Österreich und der Schweiz</h2>
-            <p>Für {hub.totals.cities} Städte in Deutschland gibt es eigene Stadtseiten mit Tipps für Alleinerziehende – und dieselbe Partnersuche auch für Österreich und die Schweiz.</p>
+            <p>
+              Für {hub.totals.cities} Städte {inCountry(market)} gibt es eigene Stadtseiten mit Tipps für Alleinerziehende – und
+              dieselbe Partnersuche auch {market === "de" ? "für Österreich und die Schweiz" : market === "at" ? "für Deutschland und die Schweiz" : "für Deutschland und Österreich"}.
+            </p>
           </div>
           <ul className="aea-markets">
             {markets.map((code) => (
@@ -224,54 +251,55 @@ export function AboutHub({ reviews, social }: { reviews: ReviewsData | null; soc
             ))}
           </ul>
         </div>
-        <CountryMap market="de" data={hub} className="aea-map" />
+        <CountryMap market={market} data={hub} className="aea-map" />
       </section>
 
       <section className="ae-wrap ae-section" aria-labelledby="aea-more-title">
         <div className="ae-head">
           <span className="ae-eyebrow"><SparkIcon />Mehr erfahren</span>
-          <h2 id="aea-more-title">Alles rund um alleinerziehende-singles.de</h2>
+          <h2 id="aea-more-title">Alles rund um {config.domain}</h2>
         </div>
         <div className="aei-tiles">
-          <MarketLink className="aei-tile" market="de" path="/ueber-uns/bewertungen/">
+          <MarketLink className="aei-tile" market={market} path="/ueber-uns/bewertungen/">
             <StarIcon /><strong>Bewertungen &amp; Erfahrungen</strong><span>Google, Trustpilot und Vergleichsportale: So bewerten Mitglieder und Tester die Plattform.</span><em>Bewertungen lesen <ArrowIcon /></em>
           </MarketLink>
-          <MarketLink className="aei-tile" market="de" path="/ueber-uns/social-media/">
+          <MarketLink className="aei-tile" market={market} path="/ueber-uns/social-media/">
             <UsersIcon /><strong>Social Media</strong><span>Unsere offiziellen Kanäle für Austausch, Videos und Themen aus dem Alltag Alleinerziehender.</span><em>Kanäle ansehen <ArrowIcon /></em>
           </MarketLink>
-          <MarketLink className="aei-tile" market="de" path="/ueber-uns/kooperationen/">
+          <MarketLink className="aei-tile" market={market} path="/ueber-uns/kooperationen/">
             <MailIcon /><strong>Kooperationen</strong><span>Für Medien, Communities, Portale und Projekte rund um Alleinerziehende und Partnersuche.</span><em>Kooperation anfragen <ArrowIcon /></em>
           </MarketLink>
-          <MarketLink className="aei-tile" market="de" path="/faq/">
+          <MarketLink className="aei-tile" market={market} path="/faq/">
             <QuestionIcon /><strong>Häufige Fragen</strong><span>Kosten, Sicherheit, Profil und Ablauf – die wichtigsten Antworten auf einen Blick.</span><em>Zur FAQ <ArrowIcon /></em>
           </MarketLink>
-          <MarketLink className="aei-tile" market="de" path="/magazin/">
-            <BookIcon /><strong>Magazin</strong><span>Tipps und Geschichten für den Alltag als alleinerziehender Single – von Finanzen bis Dating.</span><em>Zum Magazin <ArrowIcon /></em>
+          <MarketLink className="aei-tile" market={market} path="/magazin/">
+            <BookIcon /><strong>Magazin</strong><span>Tipps und Geschichten für den Alltag als alleinerziehender Single – von {market === "de" ? "Finanzen" : "Familie"} bis Dating.</span><em>Zum Magazin <ArrowIcon /></em>
           </MarketLink>
-          <a className="aei-tile" href={publicUrl("de", "/sicherheit-und-datenschutz.html")}>
+          <a className="aei-tile" href={publicUrl(market, "/sicherheit-und-datenschutz.html")}>
             <ShieldIcon /><strong>Sicherheit &amp; Datenschutz</strong><span>Eine sichere Partnersuche mit maximalem Datenschutz steht bei uns an erster Stelle.</span><em>Weiterlesen <ArrowIcon /></em>
           </a>
         </div>
       </section>
 
-      <CtaBand title="Du möchtest neue Menschen kennenlernen?" text="Entdecke Alleinerziehende aus Deiner Region oder starte direkt mit einem kostenlosen Profil." />
+      <CtaBand market={market} title="Du möchtest neue Menschen kennenlernen?" text="Entdecke Alleinerziehende aus Deiner Region oder starte direkt mit einem kostenlosen Profil." />
     </main>
   );
 }
 
 /* ====================================================================== Bewertungen */
 
-export function ReviewsView({ reviews }: { reviews: ReviewsData }) {
+export function ReviewsView({ market = "de", reviews }: { market?: MarketCode; reviews: ReviewsData }) {
   const scored = reviews.ratings.filter((rating) => rating.score !== null);
   return (
     <main className="aei aea">
       <section className="aei-hero">
         <div className="ae-wrap aei-hero-grid">
           <div>
-            <Crumbs items={[{ label: "Start", path: "/" }, { label: "Über uns", path: "/ueber-uns/" }, { label: "Bewertungen" }]} />
+            <Crumbs market={market} items={[{ label: "Start", path: "/" }, { label: "Über uns", path: "/ueber-uns/" }, { label: "Bewertungen" }]} />
             <span className="ae-eyebrow"><StarIcon />Bewertungen &amp; Erfahrungen</span>
             <h1>{reviews.heroTitle}</h1>
             <div className="ae-rich aei-intro" dangerouslySetInnerHTML={{ __html: reviews.introHtml }} />
+            <PlatformNote market={market} />
             <ul className="aei-chips">
               {scored.map((rating) => (
                 <li key={rating.kind}><strong>{formatScore(rating)}</strong> / {rating.scale} {PLATFORM_LABEL[rating.kind]}</li>
@@ -287,7 +315,7 @@ export function ReviewsView({ reviews }: { reviews: ReviewsData }) {
         </div>
       </section>
 
-      <AboutSubnav current="/ueber-uns/bewertungen/" />
+      <AboutSubnav market={market} current="/ueber-uns/bewertungen/" />
 
       <section className="ae-wrap ae-section" aria-label="Bewertungen nach Plattform">
         <div className="aea-review-grid">
@@ -322,7 +350,7 @@ export function ReviewsView({ reviews }: { reviews: ReviewsData }) {
         </section>
       ) : null}
 
-      <CtaBand title="Mach Dir selbst ein Bild" text="Die Anmeldung ist kostenlos – schau Dich in Ruhe um und entdecke Mütter und Väter aus Deiner Region." />
+      <CtaBand market={market} title="Mach Dir selbst ein Bild" text="Die Anmeldung ist kostenlos – schau Dich in Ruhe um und entdecke Mütter und Väter aus Deiner Region." />
     </main>
   );
 }
@@ -341,13 +369,13 @@ function NetworkIcon({ network }: { network: string }) {
   return <UsersIcon />;
 }
 
-export function SocialView({ social }: { social: SocialData }) {
+export function SocialView({ market = "de", social }: { market?: MarketCode; social: SocialData }) {
   return (
     <main className="aei aea">
       <section className="aei-hero">
         <div className="ae-wrap aei-hero-grid aei-hero-solo">
           <div>
-            <Crumbs items={[{ label: "Start", path: "/" }, { label: "Über uns", path: "/ueber-uns/" }, { label: "Social Media" }]} />
+            <Crumbs market={market} items={[{ label: "Start", path: "/" }, { label: "Über uns", path: "/ueber-uns/" }, { label: "Social Media" }]} />
             <span className="ae-eyebrow"><UsersIcon />Social Media</span>
             <h1>{social.heroTitle}</h1>
             <p className="aei-lead">{social.description}</p>
@@ -355,7 +383,7 @@ export function SocialView({ social }: { social: SocialData }) {
         </div>
       </section>
 
-      <AboutSubnav current="/ueber-uns/social-media/" />
+      <AboutSubnav market={market} current="/ueber-uns/social-media/" />
 
       <section className="ae-wrap ae-section" aria-labelledby="aea-social-title">
         <div className="ae-head">
@@ -375,7 +403,7 @@ export function SocialView({ social }: { social: SocialData }) {
         </div>
       </section>
 
-      <CtaBand title="Vom Austausch zum Kennenlernen" text="Auf Social Media teilen wir Themen und Tipps – Mütter und Väter aus Deiner Region lernst Du direkt auf der Plattform kennen." />
+      <CtaBand market={market} title="Vom Austausch zum Kennenlernen" text="Auf Social Media teilen wir Themen und Tipps – Mütter und Väter aus Deiner Region lernst Du direkt auf der Plattform kennen." />
     </main>
   );
 }
@@ -396,24 +424,25 @@ const COOP_STEPS = [
   "Wir prüfen, ob das Vorhaben fachlich und thematisch passt.",
 ];
 
-export function CooperationView() {
+export function CooperationView({ market = "de" }: { market?: MarketCode }) {
+  const config = getMarket(market);
   return (
     <main className="aei aea">
       <section className="aei-hero">
         <div className="ae-wrap aei-hero-grid aei-hero-solo">
           <div>
-            <Crumbs items={[{ label: "Start", path: "/" }, { label: "Über uns", path: "/ueber-uns/" }, { label: "Kooperationen" }]} />
+            <Crumbs market={market} items={[{ label: "Start", path: "/" }, { label: "Über uns", path: "/ueber-uns/" }, { label: "Kooperationen" }]} />
             <span className="ae-eyebrow"><MailIcon />Kooperationen</span>
-            <h1>Kooperationen mit alleinerziehende-singles.de</h1>
+            <h1>Kooperationen mit {config.domain}</h1>
             <p className="aei-lead">
               Du betreibst ein Magazin, ein Portal, eine Community, einen Social-Media-Kanal oder hast eine passende Idee für
-              alleinerziehende Mütter und Väter? Dann freuen wir uns über eine konkrete Kooperationsanfrage.
+              alleinerziehende Mütter und Väter{market === "de" ? "" : ` ${inCountry(market)}`}? Dann freuen wir uns über eine konkrete Kooperationsanfrage.
             </p>
           </div>
         </div>
       </section>
 
-      <AboutSubnav current="/ueber-uns/kooperationen/" />
+      <AboutSubnav market={market} current="/ueber-uns/kooperationen/" />
 
       <section className="ae-wrap ae-section" aria-labelledby="aea-coop-groups">
         <div className="ae-head">

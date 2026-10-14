@@ -50,6 +50,10 @@ export default function nextConfig(phase: string): NextConfig {
       "/magazin/[slug]": ["./content/magazin/**/*", "./data/magazin-kategorien.json"],
       "/magazin/wp-json/[[...route]]": ["./content/magazin/**/*", "./data/magazin-kategorien.json", "./data/magazin-bilder.json", "./data/kindergeld-facebook-2026.json"],
       "/ueber-uns/suche": ["./content/magazin/**/*", "./data/magazin-kategorien.json"],
+      "/market-home/[market]": ["./content/magazin/**/*", "./data/magazin-kategorien.json"],
+      "/market-magazin/[market]": ["./content/magazin/**/*", "./data/magazin-kategorien.json"],
+      "/market-magazin/[market]/[slug]": ["./content/magazin/**/*", "./data/magazin-kategorien.json"],
+      "/market-ueber-uns/[market]/[slug]": ["./content/magazin/**/*", "./data/magazin-kategorien.json"],
     },
     async redirects() {
       return [

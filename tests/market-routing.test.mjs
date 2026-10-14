@@ -99,10 +99,16 @@ test("gates unfinished market routes and protects implementation paths", async (
   const { resolveMarketRequest } = await loadMarkets();
 
   assert.deepEqual(resolveMarketRequest("/at/magazin"), {
+    action: "market-magazin",
+    market: "at",
+    pathname: "/market-magazin/at",
+    slug: null,
+  });
+  assert.deepEqual(resolveMarketRequest("/at/dating-tipps"), {
     action: "placeholder",
     market: "at",
     pathname: "/market-placeholder/at",
-    requestedPath: "/magazin",
+    requestedPath: "/dating-tipps",
   });
   assert.deepEqual(resolveMarketRequest("/ch/partnersuche/zuerich"), {
     action: "market-partnersuche-city",
@@ -139,10 +145,9 @@ test("keeps non-migrated content market-specific on production hosts", async () 
   const { resolveMarketRequest } = await loadMarkets();
 
   assert.deepEqual(resolveMarketRequest("/faq", "alleinerziehende-singles.at"), {
-    action: "placeholder",
+    action: "market-faq",
     market: "at",
-    pathname: "/market-placeholder/at",
-    requestedPath: "/faq",
+    pathname: "/market-faq/at",
   });
   assert.deepEqual(resolveMarketRequest("/fragenflirt.html", "alleinerziehende-singles.ch"), {
     action: "placeholder",
@@ -190,7 +195,8 @@ test("proxy, canonical helpers and market-specific rendered copy are wired", asy
   assert.match(proxySource, /location\.replace/);
   assert.match(proxySource, /NextResponse\.rewrite/);
   assert.match(marketHomeSource, /publicUrl\(market\)/);
-  assert.match(marketHomeSource, /<HomePage market=\{market\} \/>/);
+  assert.match(marketHomeSource, /<HomePage market=\{market\} posts=\{posts\} \/>/);
+  assert.match(marketHomeSource, /getMagazinePostsByCategories\(EDITORIAL_CATEGORY_IDS, 3\)/);
   assert.match(marketHomeSource, /getHomeContent\(market\)/);
   const startseiten = JSON.parse(await readFile(new URL("../data/startseiten.json", import.meta.url), "utf8"));
   assert.equal(startseiten.at.h1, "Alleinerziehende Singles in Österreich finden");
@@ -206,4 +212,101 @@ test("proxy, canonical helpers and market-specific rendered copy are wired", asy
   assert.match(placeholderSource, /description:/);
   assert.match(placeholderSource, /title:\s*\{\s*absolute:/);
   assert.doesNotMatch(marketHomeSource, /vercel\.app/);
+});
+
+test("serves magazine, FAQ and about pages on the AT/CH domains instead of placeholders or platform loops", async () => {
+  const { resolveMarketRequest } = await loadMarkets();
+
+  assert.deepEqual(resolveMarketRequest("/ch/magazin/erstes-date-mit-kind/"), {
+    action: "market-magazin",
+    market: "ch",
+    pathname: "/market-magazin/ch/erstes-date-mit-kind",
+    slug: "erstes-date-mit-kind",
+  });
+  assert.deepEqual(resolveMarketRequest("/faq/", "alleinerziehende-singles.ch"), {
+    action: "market-faq",
+    market: "ch",
+    pathname: "/market-faq/ch",
+  });
+  assert.deepEqual(resolveMarketRequest("/ueber-uns/", "alleinerziehende-singles.at"), {
+    action: "market-about",
+    market: "at",
+    pathname: "/market-ueber-uns/at",
+    slug: null,
+  });
+  assert.deepEqual(resolveMarketRequest("/at/ueber-uns/suche/"), {
+    action: "market-about",
+    market: "at",
+    pathname: "/market-ueber-uns/at/suche",
+    slug: "suche",
+  });
+  assert.deepEqual(resolveMarketRequest("/at/ueber-uns/irgendwas/"), {
+    action: "placeholder",
+    market: "at",
+    pathname: "/market-placeholder/at",
+    requestedPath: "/ueber-uns/irgendwas/",
+  });
+  // Login, Hilfe und Kontakt bleiben bei der ICONY-Plattform
+  assert.deepEqual(resolveMarketRequest("/at/hilfe/"), {
+    action: "redirect-platform",
+    market: "at",
+    url: "https://alleinerziehende-singles.at/hilfe/",
+  });
+  for (const internal of ["/market-magazin/at", "/market-faq/ch", "/market-ueber-uns/at/suche", "/at/market-magazin/at"]) {
+    assert.deepEqual(resolveMarketRequest(internal), { action: "not-found" }, internal);
+  }
+});
+
+test("market magazine, FAQ and about routes exist with market shells and the agreed canonicals", async () => {
+  const read = (path) => readFile(new URL(path, import.meta.url), "utf8");
+  const [overview, article, faq, about, aboutDetail, sitemap, proxySource] = await Promise.all([
+    read("../app/market-magazin/[market]/page.tsx"),
+    read("../app/market-magazin/[market]/[slug]/page.tsx"),
+    read("../app/market-faq/[market]/page.tsx"),
+    read("../app/market-ueber-uns/[market]/page.tsx"),
+    read("../app/market-ueber-uns/[market]/[slug]/page.tsx"),
+    read("../app/market-sitemap/[market]/route.ts"),
+    read("../proxy.ts"),
+  ]);
+  for (const source of [overview, article, faq, about, aboutDetail]) {
+    assert.match(source, /<SiteShell market=\{market\}/);
+    assert.match(source, /if \(!isMarketCode\(value\) \|\| value === "de"\) notFound\(\);/);
+    assert.doesNotMatch(source, /vercel\.app/);
+  }
+  // Übersicht, FAQ und Über-uns-Hub sind eigene kanonische Seiten der Landesdomain …
+  assert.match(overview, /canonical: publicUrl\(market, "\/magazin\/"\)/);
+  assert.match(faq, /canonical: publicUrl\(market, faq\.path\)/);
+  assert.match(about, /canonical: publicUrl\(market, "\/ueber-uns\/"\)/);
+  // … Artikel und die ICONY-Unterseiten zeigen auf die DE-Adresse (gleicher Text)
+  assert.match(article, /canonical: publicUrl\("de", `\/magazin\/\$\{entry\.slug\}\/`\)/);
+  assert.match(article, /export const dynamicParams = false/);
+  assert.match(article, /marketMagazineSlugs\(market\)/);
+  assert.match(aboutDetail, /canonical: publicUrl\("de", `\/ueber-uns\/\$\{slug\}\/`\)/);
+  for (const path of ["/magazin/", "/faq/", "/ueber-uns/", "/ueber-uns/bewertungen/", "/ueber-uns/social-media/", "/ueber-uns/kooperationen/"]) {
+    assert.ok(sitemap.includes(`publicUrl(market, "${path}")`), path);
+  }
+  assert.doesNotMatch(sitemap, /ueber-uns\/suche/);
+  assert.match(proxySource, /market-\(\?:home\|placeholder\|partnersuche\|robots\|sitemap\|magazin\|faq\|ueber-uns\)/);
+});
+
+test("keeps the German Kindergeld content off the AT/CH domains", async () => {
+  const { marketThemes, entryAvailableInMarket, localizeMagazineHtml, marketMagazineSlugs } = await import("../lib/magazine-market.ts");
+  const { getMagazineSlugs } = await import("../lib/magazine-content.ts");
+
+  assert.deepEqual(marketThemes("de").map((theme) => theme.key), ["partnersuche", "singleleben", "kindergeld"]);
+  assert.deepEqual(marketThemes("at").map((theme) => theme.key), ["partnersuche", "singleleben"]);
+  assert.equal(entryAvailableInMarket("ch", { slug: "kindergeld-auszahlungstermine-2025", categoryIds: [] }), false);
+  assert.equal(entryAvailableInMarket("ch", { slug: "unterhalt", categoryIds: [8] }), false);
+  assert.equal(entryAvailableInMarket("ch", { slug: "unterhalt", categoryIds: [1] }), true);
+  assert.equal(entryAvailableInMarket("de", { slug: "kindergeld", categoryIds: [8] }), true);
+  assert.ok(marketMagazineSlugs("at").length < getMagazineSlugs().length);
+  assert.ok(marketMagazineSlugs("at").length > 60);
+  assert.ok(marketMagazineSlugs("at").every((slug) => !slug.startsWith("kindergeld")));
+
+  const html = '<a href="/magazin/kindergeld/">Kindergeld</a> <a href="/magazin/erstes-date/">Date</a> <a href="/partnersuche/berlin/">Berlin</a>';
+  assert.equal(localizeMagazineHtml("de", html), html);
+  assert.equal(
+    localizeMagazineHtml("at", html),
+    '<a href="https://alleinerziehende-singles.de/magazin/kindergeld/">Kindergeld</a> <a href="/magazin/erstes-date/">Date</a> <a href="https://alleinerziehende-singles.de/partnersuche/berlin/">Berlin</a>',
+  );
 });

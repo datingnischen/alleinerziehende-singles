@@ -46,7 +46,11 @@ test("keeps production hosts authoritative over prefixes and legacy content rout
   assert.match(prefixed.headers.get("x-middleware-rewrite") ?? "", /\/market-home\/at\/?$/);
 
   const faq = proxy(request("/faq/", { host: "alleinerziehende-singles.at" }));
-  assert.match(faq.headers.get("x-middleware-rewrite") ?? "", /\/market-placeholder\/at\/?\?requestedPath=%2Ffaq%2F$/);
+  assert.match(faq.headers.get("x-middleware-rewrite") ?? "", /\/market-faq\/at\/?$/);
+  // Vorher ging /faq/ der Landesdomains an die ICONY-Plattform – hinter dem Reverse Proxy war das eine Endlosschleife.
+  assert.doesNotMatch(faq.headers.get("content-type") ?? "", /text\/html/);
+  const magazin = proxy(request("/at/magazin/", { host: "alleinerziehende-singles.vercel.app" }));
+  assert.match(magazin.headers.get("x-middleware-rewrite") ?? "", /\/market-magazin\/at\/?$/);
 
   const legacyFeature = proxy(request("/fragenflirt.html", { host: "alleinerziehende-singles.ch" }));
   assert.match(legacyFeature.headers.get("x-middleware-rewrite") ?? "", /\/market-placeholder\/ch\?requestedPath=%2Ffragenflirt\.html$/);

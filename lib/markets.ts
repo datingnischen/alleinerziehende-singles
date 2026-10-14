@@ -103,6 +103,9 @@ type MarketRequestResolution =
     }
   | { action: "market-robots"; market: "at" | "ch"; pathname: string }
   | { action: "market-sitemap"; market: "at" | "ch"; pathname: string }
+  | { action: "market-magazin"; market: "at" | "ch"; pathname: string; slug: string | null }
+  | { action: "market-faq"; market: "at" | "ch"; pathname: string }
+  | { action: "market-about"; market: "at" | "ch"; pathname: string; slug: string | null }
   | {
       action: "placeholder";
       market: "at" | "ch";
@@ -113,9 +116,10 @@ type MarketRequestResolution =
 const PASS_PATHS = new Set(["/favicon.ico"]);
 const PASS_PREFIXES = ["/_next/", "/app-assets/", "/brand/", "/api/"];
 const STATIC_FILE_PATTERN = /\.(?:avif|css|gif|ico|jpe?g|js|json|map|png|svg|webp|woff2?)$/i;
-const INTERNAL_PATH_PATTERN = /^\/market-(?:home|placeholder|partnersuche|robots|sitemap)(?:\/|$)/;
+const INTERNAL_PATH_PATTERN = /^\/market-(?:home|placeholder|partnersuche|robots|sitemap|magazin|faq|ueber-uns)(?:\/|$)/;
+// Seiten der ICONY-Plattform (Login, Hilfe, Kontakt, Infoseiten). FAQ, Magazin und Über uns liefert Next.js in allen Märkten.
 const PLATFORM_PATH_PATTERN =
-  /^\/(?:login|registration|faq|hilfe|kontakt|suche|gutschein)(?:\/|$)|^\/(?:sicherheit-und-datenschutz|redaktionelle-kontrolle|kostenlose-basis-mitgliedschaft|fragenflirt|fotoflirt|videodate|videodating|unsere-erfolgsgeschichten|premium-mitgliedschaft|datenschutz|impressum|agb|barrierefreiheit)\.html\/?$/;
+  /^\/(?:login|registration|hilfe|kontakt|suche|gutschein)(?:\/|$)|^\/(?:sicherheit-und-datenschutz|redaktionelle-kontrolle|kostenlose-basis-mitgliedschaft|fragenflirt|fotoflirt|videodate|videodating|unsere-erfolgsgeschichten|premium-mitgliedschaft|datenschutz|impressum|agb|barrierefreiheit)\.html\/?$/;
 const AUTH_PLATFORM_PATH_PATTERN = /^\/(?:login|registration)(?:\/|$)/;
 
 function shouldPass(pathname: string): boolean {
@@ -175,6 +179,30 @@ function resolveRegionalMarket(
       pathname: `/market-partnersuche/${market}/${slug}`,
       slug,
     };
+  }
+
+  if (contentPath === "/magazin") {
+    return { action: "market-magazin", market, pathname: `/market-magazin/${market}`, slug: null };
+  }
+
+  const magazineMatch = contentPath.match(/^\/magazin\/([a-z0-9-]+)$/);
+  if (magazineMatch) {
+    const slug = magazineMatch[1];
+    return { action: "market-magazin", market, pathname: `/market-magazin/${market}/${slug}`, slug };
+  }
+
+  if (contentPath === "/faq") {
+    return { action: "market-faq", market, pathname: `/market-faq/${market}` };
+  }
+
+  if (contentPath === "/ueber-uns") {
+    return { action: "market-about", market, pathname: `/market-ueber-uns/${market}`, slug: null };
+  }
+
+  const aboutMatch = contentPath.match(/^\/ueber-uns\/(bewertungen|social-media|kooperationen|suche)$/);
+  if (aboutMatch) {
+    const slug = aboutMatch[1];
+    return { action: "market-about", market, pathname: `/market-ueber-uns/${market}/${slug}`, slug };
   }
 
   if (requestedPath === "/robots.txt") {

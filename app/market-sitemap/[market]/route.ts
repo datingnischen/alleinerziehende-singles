@@ -9,10 +9,17 @@ export async function GET(_request: Request, { params }: RouteProps) {
   if (!isMarketCode(value) || value === "de") notFound();
   const market: RegionalMarket = value;
 
+  // Magazinartikel fehlen bewusst: ihr Canonical zeigt auf alleinerziehende-singles.de (gleicher Text).
   const urls = [
     publicUrl(market),
     publicUrl(market, "/partnersuche/"),
     ...getMarketCityPages(market).map((page) => publicUrl(market, page.path)),
+    publicUrl(market, "/magazin/"),
+    publicUrl(market, "/faq/"),
+    publicUrl(market, "/ueber-uns/"),
+    publicUrl(market, "/ueber-uns/bewertungen/"),
+    publicUrl(market, "/ueber-uns/social-media/"),
+    publicUrl(market, "/ueber-uns/kooperationen/"),
   ];
   const entries = urls
     .map((url, index) => `  <url><loc>${url}</loc><changefreq>weekly</changefreq><priority>${index === 0 ? "1.0" : "0.8"}</priority></url>`)

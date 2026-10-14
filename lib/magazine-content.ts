@@ -371,14 +371,16 @@ export type MagazineSearchEntry = {
   titleHtml: string;
   excerptHtml: string;
   kind: "post" | "page";
+  categoryIds: number[];
 };
 
 export function getMagazineSearchIndex(): MagazineSearchEntry[] {
-  return [...getStaticMagazinePages(), ...load().entries].map(({ slug, titleHtml, excerptHtml, kind }) => ({
+  return [...getStaticMagazinePages(), ...load().entries].map(({ slug, titleHtml, excerptHtml, kind, categoryIds }) => ({
     slug,
     titleHtml,
     excerptHtml,
     kind,
+    categoryIds,
   }));
 }
 

@@ -303,6 +303,15 @@
   line-height: 1.2;
 }
 
+.aei-faq-topic-intro {
+  margin: 0 0 14px;
+  color: var(--ae-ink-soft, inherit);
+}
+
+.aei-faq-topic-intro p {
+  margin: 0 0 8px;
+}
+
 .aei-faq-items {
   display: grid;
 }

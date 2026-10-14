@@ -2,16 +2,18 @@ import { ArrowIcon, ChatIcon, HeartIcon, MailIcon, QuestionIcon, ShieldIcon } fr
 import { MarketLink } from "@/components/market-link";
 import { buildFaqPageJsonLd, serializeJsonLd } from "@/lib/faq-schema";
 import type { FaqData } from "@/lib/faq";
-import { publicUrl } from "@/lib/markets";
+import { getMarket, publicUrl, type MarketCode } from "@/lib/markets";
 import { registrationUrlForContext } from "@/lib/registration-links";
 import { FaqBrowser } from "./faq-browser";
 import "./info.css";
 
-export function FaqPageView({ faq }: { faq: FaqData }) {
+/** FAQ-Seite eines Markts: Wortlaut der ICONY-FAQ der jeweiligen Landesdomain, Links auf deren Plattformseiten. */
+export function FaqPageView({ faq, market = "de" }: { faq: FaqData; market?: MarketCode }) {
   const total = faq.topics.reduce((sum, topic) => sum + topic.items.length, 0);
-  const url = publicUrl("de", faq.path);
+  const url = publicUrl(market, faq.path);
   const jsonLd = buildFaqPageJsonLd({ url, name: faq.heroTitle, entries: faq.schemaEntries });
-  const contactUrl = publicUrl("de", "/kontakt/");
+  const contactUrl = publicUrl(market, "/kontakt/");
+  const countryName = getMarket(market).countryName;
 
   return (
     <main className="aei">
@@ -21,7 +23,7 @@ export function FaqPageView({ faq }: { faq: FaqData }) {
         <div className="ae-wrap aei-hero-grid">
           <div>
             <nav className="aei-crumbs" aria-label="Brotkrumen">
-              <MarketLink market="de" path="/">Start</MarketLink>
+              <MarketLink market={market} path="/">Start</MarketLink>
               <span aria-hidden="true">›</span>
               <span aria-current="page">FAQ</span>
             </nav>
@@ -31,7 +33,7 @@ export function FaqPageView({ faq }: { faq: FaqData }) {
             <ul className="aei-chips">
               <li><strong>{total}</strong> Antworten</li>
               <li><strong>{faq.topics.length}</strong> Themen</li>
-              <li><strong>0 €</strong> Registrierung</li>
+              <li><strong>{market === "ch" ? "0 CHF" : "0 €"}</strong> Registrierung</li>
             </ul>
           </div>
           {faq.imageUrl ? (
@@ -54,7 +56,7 @@ export function FaqPageView({ faq }: { faq: FaqData }) {
           <h2 id="aei-service-title">Deine Frage war nicht dabei?</h2>
         </div>
         <div className="aei-tiles">
-          <a className="aei-tile" href={publicUrl("de", "/hilfe/")}>
+          <a className="aei-tile" href={publicUrl(market, "/hilfe/")}>
             <ChatIcon />
             <strong>Hilfe &amp; Support</strong>
             <span>Anleitungen und Antworten rund um Profil, Nachrichten und Mitgliedschaft.</span>
@@ -66,7 +68,7 @@ export function FaqPageView({ faq }: { faq: FaqData }) {
             <span>Schreib dem Support-Team direkt – echte Menschen kümmern sich um Dein Anliegen.</span>
             <em>Nachricht schreiben <ArrowIcon /></em>
           </a>
-          <a className="aei-tile" href={publicUrl("de", "/sicherheit-und-datenschutz.html")}>
+          <a className="aei-tile" href={publicUrl(market, "/sicherheit-und-datenschutz.html")}>
             <ShieldIcon />
             <strong>Sicherheit &amp; Datenschutz</strong>
             <span>Wie Deine Daten geschützt werden und woran Du unseriöse Kontakte erkennst.</span>
@@ -79,12 +81,12 @@ export function FaqPageView({ faq }: { faq: FaqData }) {
         <div className="ae-band">
           <div>
             <span className="ae-eyebrow"><HeartIcon />Alles geklärt?</span>
-            <h2>Dann lern jetzt Mütter und Väter aus Deiner Region kennen</h2>
+            <h2>Dann lern jetzt Mütter und Väter {market === "de" ? "aus Deiner Region" : `aus ${market === "ch" ? "der Schweiz" : countryName}`} kennen</h2>
             <p>Die Registrierung ist kostenlos, Dein Profil legst Du in Ruhe an – und Du entscheidest, wem Du schreibst.</p>
           </div>
           <div className="ae-band-actions">
-            <a className="ae-btn ae-btn-primary" href={registrationUrlForContext("de", "location")}>Kostenlos registrieren</a>
-            <MarketLink className="ae-btn ae-btn-ghost" market="de" path="/partnersuche/">Singles nach Stadt</MarketLink>
+            <a className="ae-btn ae-btn-primary" href={registrationUrlForContext(market, "location")}>Kostenlos registrieren</a>
+            <MarketLink className="ae-btn ae-btn-ghost" market={market} path="/partnersuche/">Singles nach Stadt</MarketLink>
           </div>
         </div>
       </section>

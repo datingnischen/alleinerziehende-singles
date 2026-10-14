@@ -26,14 +26,17 @@ bleibt auf ICONY.
 | --- | --- |
 | `/` | Marktstartseite (`app/market-home/[market]`) |
 | `/partnersuche/`, `/partnersuche/<stadt>/` | `data/icony-import-at.json` / `-ch.json` (Hub + je 15 Städte mit ICONY-Widget) |
+| `/magazin/`, `/magazin/<slug>/` | gemeinsamer Artikelbestand aus `content/magazin` (`app/market-magazin/[market]`), ohne die deutschen Kindergeld-Inhalte (`lib/magazine-market.ts`); Artikel mit Canonical auf die DE-URL |
+| `/faq/` | ICONY-FAQ der Landesdomain aus `data/icony-import-at.json` / `-ch.json` (`rootPages`, `scripts/import_market_faq.py`) |
+| `/ueber-uns/`, `/ueber-uns/bewertungen/`, `/ueber-uns/social-media/`, `/ueber-uns/kooperationen/`, `/ueber-uns/suche/` | Über-uns-Bereich der Landesdomain (`app/market-ueber-uns/[market]`); Bewertungen/Social Media/Kooperationen mit Canonical auf die DE-URL |
 | `/robots.txt`, `/sitemap.xml` | je Markt eigene Route |
-| alles andere | Platzhalter bzw. Übergabe an die ICONY-Plattform |
+| alles andere | Platzhalter bzw. Übergabe an die ICONY-Plattform (Login, Hilfe, Kontakt, Infoseiten) |
 
 ## Was auf ICONY bleibt
 
 Login, Registrierung, Suche, Hilfe, Kontakt/Kündigung, Premium, Sicherheit & Datenschutz,
 Redaktionelle Kontrolle, Basis-Mitgliedschaft, Erfolgsgeschichten, Video-Dating, Datenschutz,
-Impressum, AGB, Barrierefreiheit (in AT/CH zusätzlich die FAQ). Diese Seiten werden **immer
+Impressum, AGB, Barrierefreiheit. Diese Seiten werden **immer
 absolut auf die Live-Domain** verlinkt, nie auf die Vercel-Vorschau (`lib/icony-import.ts`,
 `lib/markets.ts`, `lib/registration-links.ts`).
 
@@ -45,8 +48,8 @@ sonst keinen Parameter.
 | Datei | Inhalt | Aktualisieren |
 | --- | --- | --- |
 | `data/icony-import.json` | DE: Städte-Hub, Städte, Root-Seiten (FAQ, Bewertungen, Social Media, ICONY-Infoseiten) | `npm run import:icony -- --market de` |
-| `data/icony-import-at.json` | AT: Städte-Hub, Städte, ICONY-Widget-Daten | `npm run import:icony -- --market at` |
-| `data/icony-import-ch.json` | CH: wie AT | `npm run import:icony -- --market ch` |
+| `data/icony-import-at.json` | AT: Städte-Hub, Städte, ICONY-Widget-Daten; `rootPages` = FAQ der Landesdomain | `npm run import:icony -- --market at`; FAQ: `python scripts/import_market_faq.py --market at --html <Kopie>` (die ICONY-Seite ist hinter dem Reverse Proxy nicht mehr erreichbar, Quelle war die Wayback Machine) |
+| `data/icony-import-ch.json` | CH: wie AT | `npm run import:icony -- --market ch`; FAQ wie AT |
 | `data/asset-catalog.json` | Herkunft und sha256 von Logos/Hero-Bild in `public/brand/` | `npm run import:icony -- --assets` (prüfen), `--assets --update` (neu laden) |
 | `content/magazin/<slug>.md` | Magazin: Frontmatter (`title`, `seoTitle`, `description`, `kind` post/page, `published`, `updated`, `categories`, `excerpt`, `image`, `imageAlt`) + Markdown | von Hand bzw. durch Agents; Vorlage zum Kopieren: `content/magazin/_VORLAGE.md` |
 | `data/magazin-kategorien.json` | Die drei Themenwelten (WordPress-Kategorien 26, 1, 8) | von Hand |

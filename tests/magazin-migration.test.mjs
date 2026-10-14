@@ -136,7 +136,7 @@ test("korrigierte Tippfehler kommen nicht wieder, Amazon-Widgets sind Textlinks 
 });
 
 test("Artikel zeigen das Änderungsdatum, feste Seiten und Texte kein Datum", async () => {
-  const detail = await read("app/magazin/[slug]/page.tsx");
+  const detail = await read("components/magazine/magazine-article.tsx");
   assert.match(detail, /entry\.kind === "post" && formatArticleUpdated\(entry\)/);
   for (const { slug, content } of entries) assert.doesNotMatch(content, /Aktualisiert am/, slug);
 });

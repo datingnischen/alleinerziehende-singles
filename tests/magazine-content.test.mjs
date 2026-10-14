@@ -7,7 +7,7 @@ async function loadWordpressHelpers() {
 }
 
 test("magazine landing: theme worlds, kindergeld service, pregnancy weeks and clickable themes", async () => {
-  const source = await readFile(new URL("../app/magazin/page.tsx", import.meta.url), "utf8");
+  const source = await readFile(new URL("../components/magazine/magazine-overview.tsx", import.meta.url), "utf8");
   const contentSource = await readFile(new URL("../lib/magazine-content.ts", import.meta.url), "utf8");
   const { MAGAZINE_THEMES, groupMagazinePages, excerptText, withHeadingAnchors } = await import("../lib/magazine.ts");
 
@@ -16,8 +16,11 @@ test("magazine landing: theme worlds, kindergeld service, pregnancy weeks and cl
   assert.match(source, /Service &amp; Termine/);
   assert.match(source, /Schwangerschaft Woche für Woche/);
   assert.match(source, /Wichtige Magazin-Seiten/);
-  assert.match(source, /href=\{`\/magazin\/\?thema=/);
-  assert.match(source, /registrationUrlForContext\("de", "magazin"\)/);
+  assert.match(source, /path=\{`\/magazin\/\?thema=/);
+  assert.match(source, /registrationUrlForContext\(market, "magazin"\)/);
+  // Kindergeld (DE-spezifisch) nur auf .de: Themenwelt, Service-Block und Jahresübersichten hängen am Markt
+  assert.match(source, /de \? getMagazinePosts\(4, KINDERGELD_CATEGORY_ID\) : \[\]/);
+  assert.match(source, /marketThemes\(market\)/);
   assert.deepEqual(MAGAZINE_THEMES.map((theme) => theme.categoryId), [26, 1, 8]);
   assert.match(contentSource, /const KINDERGELD_2026 =/);
   assert.match(contentSource, /getStaticMagazinePages/);
@@ -137,7 +140,7 @@ test("keeps the automatic 2026 kindergeld data in a dedicated JSON source", asyn
 
 test("articles show the modified date, fixed pages show none", async () => {
   const { formatArticleUpdated } = await loadWordpressHelpers();
-  const detailSource = await readFile(new URL("../app/magazin/[slug]/page.tsx", import.meta.url), "utf8");
+  const detailSource = await readFile(new URL("../components/magazine/magazine-article.tsx", import.meta.url), "utf8");
 
   assert.equal(formatArticleUpdated({ date: "2025-01-10T10:00:00", modified: "2025-11-12T10:00:00" }), "Aktualisiert am 12. November 2025");
   assert.equal(formatArticleUpdated({ date: "2025-11-12T10:00:00" }), "Aktualisiert am 12. November 2025");

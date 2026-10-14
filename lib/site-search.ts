@@ -61,6 +61,11 @@ export function normalizeSearchText(value: string): string {
     .trim();
 }
 
+/** Suchbegriff aus ?q= (erster Wert, getrimmt, höchstens 100 Zeichen). */
+export function searchQuery(raw: string | string[] | undefined): string {
+  return (Array.isArray(raw) ? raw[0] : raw ?? "").trim().slice(0, 100);
+}
+
 export function shortExcerpt(text: string, maxLength = 180): string {
   if (text.length <= maxLength) return text;
   const cut = text.slice(0, maxLength);
