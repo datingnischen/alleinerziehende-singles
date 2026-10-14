@@ -64,6 +64,8 @@ function ThemeNav({ market, current }: { market: MarketCode; current: MagazineTh
 
 function ThemeView({ market, theme, page }: { market: MarketCode; theme: MagazineTheme; page: number }) {
   const posts = getMagazinePostsByCategories([theme.categoryId], PAGE_SIZE, page);
+  // Ältere Artikel der Themenwelt direkt als Titelliste: Über das Blättern lagen sie bis zu 9 Klicks tief (Seobility).
+  const olderPosts = page === 1 ? getMagazinePostsByCategories([theme.categoryId], 10000, 1).slice(PAGE_SIZE) : [];
   const Icon = THEME_ICONS[theme.key];
 
   return (
@@ -98,6 +100,17 @@ function ThemeView({ market, theme, page }: { market: MarketCode; theme: Magazin
           {posts.length === PAGE_SIZE ? <MarketLink className="ae-btn ae-btn-green" market={market} path={`/magazin/?thema=${theme.slug}&seite=${page + 1}`}>Ältere Artikel <ArrowIcon /></MarketLink> : null}
         </div>
       </section>
+
+      {olderPosts.length ? (
+        <section className="ae-wrap ae-section aemag-older" aria-labelledby="aemag-older-title">
+          <h2 id="aemag-older-title">Alle älteren Artikel zu {theme.short}</h2>
+          <ul className="aemag-older-list">
+            {olderPosts.map((post) => (
+              <li key={post.id}><ArticleLink market={market} slug={post.slug}>{stripTags(post.titleHtml)}</ArticleLink></li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
 
       <MagazineBand market={market} />
     </main>
@@ -160,21 +173,22 @@ export function MagazineOverview({ market, thema, seite }: MagazineOverviewProps
           {themes.map((entry) => {
             const Icon = THEME_ICONS[entry.key];
             return (
-              <MarketLink key={entry.slug} className={`aemag-theme aemag-theme-${entry.key}`} market={market} path={`/magazin/?thema=${entry.slug}`}>
+              // Nur der Titel ist verlinkt (kurzer Linktext); die Kachel bleibt über die gestreckte Klickfläche klickbar.
+              <div key={entry.slug} className={`aemag-theme aemag-theme-${entry.key}`}>
                 <Icon />
-                <strong>{entry.title}</strong>
+                <strong><MarketLink className="aemag-card-link" market={market} path={`/magazin/?thema=${entry.slug}`}>{entry.title}</MarketLink></strong>
                 <span>{entry.text}</span>
-                <em>Artikel ansehen <ArrowIcon /></em>
-              </MarketLink>
+                <em aria-hidden="true">Artikel ansehen <ArrowIcon /></em>
+              </div>
             );
           })}
           {groups.pregnancy.length ? (
-            <a className="aemag-theme aemag-theme-ssw" href="#schwangerschaft">
+            <div className="aemag-theme aemag-theme-ssw">
               <CalendarIcon />
-              <strong>Schwangerschaft Woche für Woche</strong>
+              <strong><a className="aemag-card-link" href="#schwangerschaft">Schwangerschaft Woche für Woche</a></strong>
               <span>Was sich in jeder Schwangerschaftswoche tut – von der ersten bis zur 40. Woche.</span>
-              <em>Woche wählen <ArrowIcon /></em>
-            </a>
+              <em aria-hidden="true">Woche wählen <ArrowIcon /></em>
+            </div>
           ) : null}
         </div>
       </section>

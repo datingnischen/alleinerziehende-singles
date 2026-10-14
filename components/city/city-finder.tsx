@@ -42,14 +42,17 @@ export function CityFinder({ market, cities, regions, regionLabel }: Props) {
       <ul className="aeh-grid">
         {visible.map((city, index) => (
           <li key={city.slug} style={{ ["--i" as string]: index }}>
-            <MarketLink className="aeh-card" market={market} path={city.path}>
+            {/* Verlinkt ist nur „Alleinerziehende Singles in <Stadt>“; die Karte bleibt über die gestreckte Klickfläche klickbar. */}
+            <div className="aeh-card">
               <span className="aeh-card-media">
                 {city.imageUrl ? <img src={city.imageUrl} alt={`Stadtansicht ${city.name}`} loading="lazy" decoding="async" /> : <PinIcon />}
                 {city.region && city.region !== city.name ? <span className="aeh-card-region"><PinIcon />{city.region}</span> : null}
               </span>
               <span className="aeh-card-body">
-                <small>Alleinerziehende Singles in</small>
-                <strong>{city.name}</strong>
+                <MarketLink className="aeh-card-link" market={market} path={city.path}>
+                  <small>Alleinerziehende Singles in</small>{" "}
+                  <strong>{city.name}</strong>
+                </MarketLink>
                 <span className="aeh-card-meta">{city.chapters} Kapitel · ca. {city.minutes} Min. Lesezeit</span>
                 {city.topics.length ? (
                   <span className="aeh-card-topics">
@@ -58,9 +61,9 @@ export function CityFinder({ market, cities, regions, regionLabel }: Props) {
                     ))}
                   </span>
                 ) : null}
-                <span className="aeh-card-go">Zum Familien-Kompass <ArrowIcon /></span>
+                <span className="aeh-card-go" aria-hidden="true">Zum Familien-Kompass <ArrowIcon /></span>
               </span>
-            </MarketLink>
+            </div>
           </li>
         ))}
       </ul>

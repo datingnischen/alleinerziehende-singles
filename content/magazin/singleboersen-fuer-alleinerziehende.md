@@ -20,7 +20,7 @@ Bei uns triffst du auf Menschen, die deinen Alltag und deine Herausforderungen a
 
 ---
 
-## FlirtMoms [zum Bericht](/magazin/flirtmoms-com/)
+## FlirtMoms [zum Bericht über FlirtMoms](/magazin/flirtmoms-com/)
 
 [![Flirt Moms](/magazin/wp-content/uploads/2021/08/flirtmoms-jpg.webp)](/magazin/flirtmoms-com/)
 
@@ -28,7 +28,7 @@ Die Singlebörse für alleinerziehende Mütter – Finde hier Gleichgesinnte, di
 
 ---
 
-## Single mit Kind [zum Bericht](/magazin/singlemitkind-at/)
+## Single mit Kind [zum Bericht über Single mit Kind](/magazin/singlemitkind-at/)
 
 [![Single mit Kind](/magazin/wp-content/uploads/2021/08/singlesmitkind-jpg.webp)](/magazin/singlemitkind-at/)
 
@@ -36,7 +36,7 @@ Die Singlebörse für alleinerziehende Eltern! Hier triffst du Menschen, die das
 
 ---
 
-## Match-Patch.de [zum Bericht](/magazin/match-patch-de/)
+## Match-Patch.de [zum Bericht über Match-Patch.de](/magazin/match-patch-de/)
 
 ![match-patch](/magazin/wp-content/uploads/2021/07/alleinerziehende-singles-matchpatch-jpg.webp)
 
@@ -44,7 +44,7 @@ Hierbei handelt es sich um eine Singlebörse für Singles mit Kind und Familiens
 
 ---
 
-## Patchworkglueck [zum Bericht](/magazin/patchworkglueck/)
+## Patchworkglueck [zum Bericht über Patchworkglück](/magazin/patchworkglueck/)
 
 ![Patchworkglück - Singlebörse](/magazin/wp-content/uploads/2021/07/patchworkglueck-jpg.webp)
 
@@ -52,7 +52,7 @@ Auf der Börse Patchworkglueck sind Singles angemeldet, die ernste Beziehungsabs
 
 ---
 
-## Moms-Dads-Kids.de [zum Bericht](/magazin/moms-dads-kids-de/)
+## Moms-Dads-Kids.de [zum Bericht über Moms-Dads-Kids.de](/magazin/moms-dads-kids-de/)
 
 ![moms-dads-kids](/magazin/wp-content/uploads/2021/07/alleinerziehende-singles-momsdadskids-jpg.webp)
 

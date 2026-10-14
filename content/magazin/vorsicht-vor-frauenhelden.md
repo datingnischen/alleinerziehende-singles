@@ -23,7 +23,7 @@ Interessant wird es für Frauen eigentlich erst ab dem Punkt, an dem sie einen s
 
 Ernste Absichten sind hier nicht vorhanden – ganz im Gegenteil. Vielmehr besteht bei einem Womanizer die Gefahr, dass du als Frau für eine Weile interessant bist und dann schnell fallen gelassen wirst. Was definitiv kein schönes Gefühl ist und das eigene Selbstbewusstsein ziemlich sicher untergraben kann. Männer sollten auch lieber nicht anstreben, ein Womanizer zu sein, da dieser Ruf viele Chancen verbauen kann. Natürlich gibt es auch Womanizer, die es ernst mit den Frauen meinen und in Wirklichkeit gar nicht daran interessiert sind, viele Frauen zu haben.
 
-Die Ausstrahlung können Männer sich ja oft nicht aussuchen. So oder so haben es Womanizer nur dann leicht, wenn sie nach einem Abenteuer suchen. Bei dem Wunsch nach einer ernsthaften Beziehung müssen sie hingegen oft mit Zweifeln und Eifersucht kämpfen. Und Frauen sollten sich am besten von Anfang an vor Frauenhelden schützen, um gar nicht erst in die Gefahr zu geraten, [sich mit Herzschmerz befassen zu müssen](https://www.mylife.de/magazin/liebe/liebeskummer/liebe-kann-weh-tun-jeder-ueberwindet-den-herzschmerz-anders-21441). Denn das ist der Flirt mit einem Schürzenjäger oft nicht wert.
+Die Ausstrahlung können Männer sich ja oft nicht aussuchen. So oder so haben es Womanizer nur dann leicht, wenn sie nach einem Abenteuer suchen. Bei dem Wunsch nach einer ernsthaften Beziehung müssen sie hingegen oft mit Zweifeln und Eifersucht kämpfen. Und Frauen sollten sich am besten von Anfang an vor Frauenhelden schützen, um gar nicht erst in die Gefahr zu geraten, sich mit Herzschmerz befassen zu müssen. Denn das ist der Flirt mit einem Schürzenjäger oft nicht wert.
 
 ## Die besten Tipps für den Umgang mit Frauenhelden
 

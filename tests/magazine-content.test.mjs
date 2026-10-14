@@ -74,7 +74,8 @@ test("turns the yearly kindergeld overview into scannable month cards and year c
 
   assert.match(output, /class="kindergeld-month-grid"/);
   assert.match(output, /class="kindergeld-month-card" href="\/magazin\/kindergeld-auszahlungstermine-januar-2022\//);
-  assert.match(output, /Termine ansehen/);
+  // Jahr im Linktext, damit die Monatslinks der verschiedenen Jahre nicht gleich heißen (Seobility).
+  assert.match(output, /Termine 2022 ansehen/);
   assert.match(output, /class="kindergeld-note"/);
   assert.match(output, /class="kindergeld-faq-box"/);
   assert.match(output, /class="kindergeld-year-list"/);

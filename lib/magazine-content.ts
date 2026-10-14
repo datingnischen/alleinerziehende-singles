@@ -179,10 +179,12 @@ function transformKindergeldOverviewHtml(html: string): string {
     const monthCards = monthMatches
       .map((match) => {
         const [, month, href] = match;
+        // Jahr aus dem Linkziel (…-januar-2025/): eindeutiger Linktext je Jahr statt „Januar Termine ansehen“ überall.
+        const year = href.match(/-(\d{4})\/?$/)?.[1];
         return [
           `<a class="kindergeld-month-card" href="${href}">`,
           `<span class="kindergeld-month-label">${month}</span>`,
-          '<span class="kindergeld-month-cta">Termine ansehen</span>',
+          `<span class="kindergeld-month-cta">${year ? `Termine ${year} ansehen` : "Termine ansehen"}</span>`,
           "</a>",
         ].join("");
       })

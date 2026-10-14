@@ -110,6 +110,7 @@
 }
 
 .aemag-theme {
+  position: relative;
   --tc: var(--ae-green-dark);
   --tc-soft: var(--ae-green-soft);
   display: grid;
@@ -129,7 +130,7 @@
 .aemag-theme-ssw { --tc: var(--ae-plum); --tc-soft: var(--ae-plum-soft); }
 
 .aemag-theme:hover,
-.aemag-theme:focus-visible {
+.aemag-theme:focus-within {
   transform: translateY(-4px) rotate(-0.5deg);
   box-shadow: 0 22px 44px rgba(40, 60, 25, 0.14), inset 0 0 0 2px var(--tc);
 }
@@ -177,6 +178,7 @@
 }
 
 .aemag-card {
+  position: relative;
   display: grid;
   grid-template-rows: auto 1fr;
   overflow: hidden;
@@ -188,7 +190,7 @@
 }
 
 .aemag-card:hover,
-.aemag-card:focus-visible {
+.aemag-card:focus-within {
   transform: translateY(-4px);
   box-shadow: 0 22px 44px rgba(40, 60, 25, 0.14), inset 0 0 0 2px var(--ae-sun);
 }
@@ -262,6 +264,24 @@
   font-family: var(--ae-display), sans-serif;
   font-size: 1.2rem;
   line-height: 1.22;
+}
+
+/* Nur der Titel ist verlinkt; die gestreckte Fläche macht trotzdem die ganze Karte klickbar. */
+.aemag-card-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.aemag-card-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+.aemag-card-link:focus-visible {
+  outline: none;
 }
 
 .aemag-card-excerpt {
@@ -1107,4 +1127,26 @@
   .aemag-weeknav a:nth-child(2) {
     display: none;
   }
+}
+
+/* Titelliste aller älteren Artikel einer Themenwelt (flache Linktiefe statt Blättern) */
+.aemag-older h2 {
+  margin: 0 0 16px;
+  font-family: var(--ae-display), sans-serif;
+  font-size: 1.35rem;
+}
+
+.aemag-older-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 8px 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.aemag-older-list a {
+  color: var(--ae-green-dark);
+  font-weight: 600;
+  line-height: 1.4;
 }

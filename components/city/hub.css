@@ -222,6 +222,7 @@
 }
 
 .aeh-card {
+  position: relative;
   display: grid;
   grid-template-rows: auto 1fr;
   height: 100%;
@@ -233,7 +234,7 @@
 }
 
 .aeh-card:hover,
-.aeh-card:focus-visible {
+.aeh-card:focus-within {
   transform: translateY(-4px) rotate(-0.6deg);
   box-shadow: 0 22px 40px rgba(40, 60, 25, 0.16), inset 0 0 0 2px var(--ae-sun);
 }
@@ -307,6 +308,26 @@
   font-family: var(--ae-display), sans-serif;
   font-size: 1.35rem;
   line-height: 1.1;
+}
+
+/* Verlinkt ist nur „Alleinerziehende Singles in <Stadt>“; die gestreckte Fläche hält die ganze Karte klickbar. */
+.aeh-card-link {
+  display: grid;
+  gap: inherit;
+  color: inherit;
+  text-decoration: none;
+}
+
+.aeh-card-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+.aeh-card-link:focus-visible {
+  outline: none;
 }
 
 .aeh-card-meta {
