@@ -40,7 +40,9 @@ test("posts: Beitragsbild mit source_url, alt_text und media_details, Datumsfeld
   assert.ok(withImage.featured_media > 0);
   const media = withImage._embedded["wp:featuredmedia"][0];
   // Eigene Domain statt Asset-Host: die ICONY-Startseite darf Bilder nur von der eigenen Domain laden (CSP, Heiko 2026-10-14)
-  assert.equal(media.source_url, "https://alleinerziehende-singles.de/magazin/wp-content/uploads/2026/06/airtags-stalking-dating-png.webp");
+  // Teaserbild ohne Dateiendung im wp-json-Bereich (lib/teaser-image.ts): nginx reicht .jpg/.png nicht an Vercel durch, CSP erlaubt nur die eigene Domain
+  assert.equal(media.source_url, "https://alleinerziehende-singles.de/magazin/wp-json/datingnischen/v1/bild/magazin/wp-content/uploads/2026/06/airtags-stalking-dating-png~webp");
+  assert.equal(media.media_details.sizes.medium_large.source_url, media.source_url);
   assert.equal(media.media_details.sizes.full.source_url, media.source_url);
   assert.equal(media.media_details.sizes.medium.source_url, media.source_url);
   assert.ok(media.media_details.sizes.full.width > 0);
