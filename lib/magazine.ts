@@ -1,4 +1,5 @@
 import type { MagazinePageLink } from "./magazine-content.ts";
+import { collapseSourceSections } from "./collapse-sources.ts";
 
 /** Themenwelten des Magazins, abgebildet auf die WordPress-Kategorien. */
 export type MagazineTheme = {
@@ -61,7 +62,8 @@ function slugify(value: string) {
 export function withHeadingAnchors(html: string): { html: string; toc: { id: string; title: string }[] } {
   const toc: { id: string; title: string }[] = [];
   const used = new Set<string>();
-  const result = html.replace(/<h2\b([^>]*)>([\s\S]*?)<\/h2>/gi, (match, attrs: string, inner: string) => {
+  // Quellen klein und zugeklappt ans Ende; ihr Kapitel fällt so aus dem Inhaltsverzeichnis.
+  const result = collapseSourceSections(html).replace(/<h2\b([^>]*)>([\s\S]*?)<\/h2>/gi, (match, attrs: string, inner: string) => {
     const title = stripTags(inner);
     if (!title) return match;
     const existing = attrs.match(/\bid="([^"]+)"/)?.[1];
