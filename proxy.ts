@@ -116,6 +116,14 @@ export function proxy(request: NextRequest) {
     if (wpRest) return wpRest;
   }
 
+  // Magazin-Sitemap (ICONYs sitemap.php verweist auf /magazin/sitemap.xml). nginx ruft Vercel mit /de/… auf.
+  if (/^\/(?:de\/)?magazin\/sitemap\.xml$/.test(request.nextUrl.pathname)) {
+    if (!request.nextUrl.pathname.startsWith("/de/")) return NextResponse.next();
+    const destination = request.nextUrl.clone();
+    destination.pathname = "/magazin/sitemap.xml";
+    return NextResponse.rewrite(destination);
+  }
+
   // Erst nach der Prüfung auf interne Rewrites: deren Ziele (/market-home/at) haben keinen Schrägstrich.
   const slashRedirect = trailingSlashRedirect(request);
   if (slashRedirect) return slashRedirect;

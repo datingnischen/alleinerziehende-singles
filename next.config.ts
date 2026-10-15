@@ -71,8 +71,9 @@ export default function nextConfig(phase: string): NextConfig {
         { source: "/magazin/feed/", destination: "/magazin/", permanent: true },
         { source: "/magazin/comments/feed/", destination: "/magazin/", permanent: true },
         { source: "/magazin/:slug/feed/", destination: "/magazin/:slug/", permanent: true },
-        { source: "/magazin/wp-sitemap.xml", destination: "/sitemap.xml", permanent: true },
-        { source: "/magazin/sitemap.xml", destination: "/sitemap.xml", permanent: true },
+        // /magazin/sitemap.xml ist eine eigene Route (app/magazin/sitemap.xml): ICONYs sitemap.php verweist darauf und
+        // /sitemap.xml beantwortet hinter nginx ICONY (404) – eine Weiterleitung dorthin liefe ins Leere.
+        { source: "/magazin/wp-sitemap.xml", destination: "/magazin/sitemap.xml", permanent: true },
         { source: "/magazin/wp-login.php", destination: "/magazin/", permanent: true },
         { source: "/magazin/wp-admin/:path*", destination: "/magazin/", permanent: true },
         ...Object.entries(WEITERLEITUNGEN.archive).map(([alt, neu]) => ({ source: alt, destination: neu, permanent: true })),

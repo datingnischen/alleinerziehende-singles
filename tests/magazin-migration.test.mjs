@@ -38,6 +38,10 @@ test("Weiterleitungen alter Slugs zeigen auf vorhandene Beiträge und stehen in 
   assert.match(config, /weiterleitungen\.json/);
   assert.match(config, /\/magazin\/category\/:slug\(kindergeld\|singleboersen\|singleleben\)\//);
   assert.match(config, /\/magazin\/wp-sitemap\.xml/);
+  // Magazin-Sitemap als eigene Route statt Weiterleitung auf /sitemap.xml (hinter nginx ICONY-404).
+  assert.doesNotMatch(config, /source: "\/magazin\/sitemap\.xml"/);
+  assert.ok(await exists("app/magazin/sitemap.xml/route.ts"));
+  assert.match(await read("proxy.ts"), /magazin\\\/sitemap\\\.xml/);
   assert.match(config, /outputFileTracingIncludes/);
 });
 
