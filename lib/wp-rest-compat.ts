@@ -87,6 +87,8 @@ type MediaItem = {
   height: number;
   bytes: number;
   file: string;
+  /** Standard: image/webp (Magazinbilder); die AT/CH-Städtebilder sind JPEG (lib/wp-market-teasers.ts). */
+  mime?: string;
 };
 
 export type WpSource = { posts: PostItem[]; media: MediaItem[]; categories: (MagazineCategory & { count: number })[] };
@@ -219,7 +221,7 @@ function mediaObject(media: MediaItem): Json {
     details.width = media.width;
     details.height = media.height;
     // Nur eine Datei je Bild; "medium"/"large" sind Aliase, damit ICONY unabhängig von der gewählten Größe ein Bild bekommt.
-    const size = { file: media.file.split("/").pop(), width: media.width, height: media.height, mime_type: "image/webp", source_url: media.sourceUrl };
+    const size = { file: media.file.split("/").pop(), width: media.width, height: media.height, mime_type: media.mime ?? "image/webp", source_url: media.sourceUrl };
     details.sizes = Object.fromEntries(["thumbnail", "medium", "medium_large", "large", "full"].map((name) => [name, size]));
   }
   return {
@@ -243,7 +245,7 @@ function mediaObject(media: MediaItem): Json {
     caption: { rendered: "" },
     alt_text: media.alt,
     media_type: "image",
-    mime_type: "image/webp",
+    mime_type: media.mime ?? "image/webp",
     media_details: details,
     post: media.postId,
     source_url: media.sourceUrl,

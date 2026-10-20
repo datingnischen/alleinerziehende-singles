@@ -206,3 +206,71 @@ test("Route: Quelltext-Muster der Next.js-Routen und Dateiverfolgung", () => {
   assert.match(config, /"\/magazin\/wp-json\/\[\[\.\.\.route\]\]"/);
   assert.match(config, /magazin-bilder\.json/);
 });
+
+// Heiko (2026-10-20): .at/.ch-Startseiten holten die Teaser von .de, Bilder scheiterten an der CSP (img-src 'self').
+// Artikel gibt es nur auf .de; der Länderknoten liefert die drei größten Städteseiten des Landes.
+test("AT/CH-Knoten: drei größte Städteseiten mit Link und Bild auf der Landesdomain", async () => {
+  const { existsSync } = await import("node:fs");
+  const { loadMarketTeaserSource } = await import("../lib/wp-market-teasers.ts");
+  const expected = { at: ["wien", "graz", "linz"], ch: ["zuerich", "genf", "basel"] };
+  for (const [market, slugs] of Object.entries(expected)) {
+    const result = handleWpRest("/wp/v2/posts", new URLSearchParams("per_page=3&_embed=1"), loadMarketTeaserSource(market));
+    assert.equal(result.status, 200);
+    assert.deepEqual(result.body.map((post) => post.slug), slugs, market);
+    for (const post of result.body) {
+      assert.equal(post.link, `https://alleinerziehende-singles.${market}/partnersuche/${post.slug}/`);
+      assert.ok(post.title.rendered.length > 10);
+      assert.ok(post.excerpt.rendered.length > 50);
+      assert.ok(post.featured_media > 0);
+      const media = post._embedded["wp:featuredmedia"][0];
+      const url = `https://alleinerziehende-singles.${market}/magazin/wp-json/datingnischen/v1/bild/city-images/${market}/${post.slug}~jpg`;
+      assert.equal(media.source_url, url);
+      assert.equal(media.mime_type, "image/jpeg");
+      assert.equal(media.media_details.sizes.medium_large.source_url, url);
+      assert.ok(media.media_details.sizes.medium_large.width > 0 && media.media_details.sizes.medium_large.height > 0);
+      assert.ok(existsSync(new URL(`public/city-images/${market}/${post.slug}.jpg`, root)), `${market}/${post.slug}.jpg fehlt`);
+    }
+  }
+});
+
+test("proxy: /at und /ch vor wp-json gehen ohne Umleitung an den Länderknoten", async () => {
+  const { proxy } = await import("../proxy.ts");
+  const request = (path, host = "alleinerziehende-singles.vercel.app") => new NextRequest(`https://${host}${path}`, { headers: { host } });
+  for (const market of ["at", "ch"]) {
+    for (const path of [
+      `/${market}/magazin/wp-json/wp/v2/posts?per_page=3&_embed`,
+      `/${market}/magazin/wp-json/wp/v2/posts/?per_page=3&_embed`,
+      `/${market}/magazin/?rest_route=/wp/v2/posts&per_page=3&_embed`,
+      `/${market}/magazin/index.php?rest_route=/wp/v2/posts&per_page=3&_embed`,
+    ]) {
+      const response = proxy(request(path));
+      assert.equal(response.headers.get("location"), null, path);
+      const target = response.headers.get("x-middleware-rewrite") ?? "";
+      assert.match(target, /\/magazin\/wp-json\/wp\/v2\/posts\/?\?/, path);
+      assert.match(target, new RegExp(`aes_market=${market}`), path);
+      assert.match(target, /_embed=1/, path);
+      assert.doesNotMatch(target, /\/(?:at|ch)\/magazin/, path);
+    }
+    // Direkt auf der Landesdomain (ohne nginx-Präfix) gilt deren Markt.
+    const direct = proxy(request("/magazin/wp-json/wp/v2/posts?per_page=3&_embed", `alleinerziehende-singles.${market}`));
+    assert.equal(direct.headers.get("location"), null);
+    assert.match(direct.headers.get("x-middleware-rewrite") ?? "", new RegExp(`aes_market=${market}`));
+    const image = proxy(request(`/${market}/magazin/wp-json/datingnischen/v1/bild/city-images/${market}/wien~jpg`)).headers.get("x-middleware-rewrite") ?? "";
+    assert.match(image, /^https:\/\/[^/]+\/magazin\/wp-json\/datingnischen\/v1\/bild\/city-images\//);
+  }
+  // .de bleibt ohne Länderparameter, ein von außen gesetzter wird entfernt.
+  const de = proxy(request("/de/magazin/wp-json/wp/v2/posts?per_page=3&aes_market=at", "alleinerziehende-singles.de")).headers.get("x-middleware-rewrite") ?? "";
+  assert.doesNotMatch(de, /aes_market/);
+  const plain = proxy(request("/magazin/wp-json/wp/v2/posts?aes_market=ch")).headers.get("x-middleware-rewrite") ?? "";
+  assert.doesNotMatch(plain, /aes_market/);
+});
+
+test("Route: Länderknoten liest aes_market, Bilder aus public/city-images freigegeben", async () => {
+  const route = readFileSync(new URL("app/magazin/wp-json/[[...route]]/route.ts", root), "utf8");
+  assert.match(route, /aes_market/);
+  assert.match(route, /loadMarketTeaserSource/);
+  const config = readFileSync(new URL("next.config.ts", root), "utf8");
+  assert.match(config, /icony-import\*\.json/);
+  const { teaserImagePath } = await import("../lib/teaser-image.ts");
+  assert.equal(teaserImagePath(["datingnischen", "v1", "bild", "city-images", "at", "wien~jpg"]), "/city-images/at/wien.jpg");
+});

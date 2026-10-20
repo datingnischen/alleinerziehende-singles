@@ -37,25 +37,36 @@ function platformHandoffResponse(url: string) {
 }
 
 // WordPress-kompatibler REST-Endpunkt des Magazins (app/magazin/wp-json): JSON ohne Slash-Umleitung und ohne
-// Marktlogik. ICONY ruft /magazin/wp-json/wp/v2/posts, ?rest_route= und index.php?rest_route= auf.
-const WP_REST_PATH = /^\/(?:de\/)?magazin\/wp-json(?:\/|$)/;
-const WP_REST_ENTRY = /^\/(?:de\/)?magazin(?:\/index\.php)?\/?$/;
+// Marktlogik. ICONY ruft /magazin/wp-json/wp/v2/posts, ?rest_route= und index.php?rest_route= auf; nginx stellt dem
+// Pfad je Domain /de, /at oder /ch voran (Host *.vercel.app). Für .at/.ch hängt der Rewrite aes_market an: Der
+// Länderknoten liefert statt der .de-Beiträge die größten Städteseiten des Landes (lib/wp-market-teasers.ts).
+// Als Query-Parameter statt Header, damit der CDN-Cache die Länder getrennt hält.
+const WP_REST_PATH = /^\/(?:(de|at|ch)\/)?magazin\/wp-json(?:\/|$)/;
+const WP_REST_ENTRY = /^\/(?:(de|at|ch)\/)?magazin(?:\/index\.php)?\/?$/;
 
 function wpRestResponse(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl;
   const restRoute = searchParams.get("rest_route");
-  const isEntry = restRoute !== null && WP_REST_ENTRY.test(pathname);
-  if (!isEntry && !WP_REST_PATH.test(pathname)) return null;
+  const entry = restRoute !== null ? pathname.match(WP_REST_ENTRY) : null;
+  const path = entry ? null : pathname.match(WP_REST_PATH);
+  if (!entry && !path) return null;
 
+  const prefix = (entry ?? path)![1];
+  // Direkt auf der Landesdomain (ohne nginx-Präfix) gilt deren Markt.
+  const hostname = requestHostname(request);
+  const hostMarket = MARKET_HOSTS.has(hostname) ? hostname.split(".").pop() : undefined;
+  const market = prefix ?? hostMarket;
   const destination = request.nextUrl.clone();
-  if (isEntry) {
+  destination.searchParams.delete("aes_market");
+  if (entry && restRoute !== null) {
     destination.searchParams.delete("rest_route");
     destination.pathname = `/magazin/wp-json/${restRoute.replace(/^\/+/, "")}`;
-  } else if (pathname.startsWith("/de/")) {
-    destination.pathname = pathname.slice(3);
-  } else {
+  } else if (prefix) {
+    destination.pathname = pathname.slice(prefix.length + 1);
+  } else if (market !== "at" && market !== "ch" && !searchParams.has("aes_market")) {
     return NextResponse.next();
   }
+  if (market === "at" || market === "ch") destination.searchParams.set("aes_market", market);
   // Vercel verwirft bei Rewrites Parameter ohne Wert; ICONY ruft "?_embed" ohne Wert auf (WordPress-Schreibweise).
   // Ohne diese Angleichung fehlten hinter nginx (Upstream-Pfad /de/…) die eingebetteten Beitragsbilder.
   if (destination.searchParams.has("_embed") && destination.searchParams.get("_embed") === "") {
@@ -109,12 +120,9 @@ export function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Nur .de und Vorschau-Hosts; AT/CH haben kein eigenes Magazin.
-  const host = requestHostname(request);
-  if (host !== "alleinerziehende-singles.at" && host !== "alleinerziehende-singles.ch") {
-    const wpRest = wpRestResponse(request);
-    if (wpRest) return wpRest;
-  }
+  // .de: Magazinbeiträge; .at/.ch: Länderknoten mit den größten Städteseiten (kein eigenes Magazin).
+  const wpRest = wpRestResponse(request);
+  if (wpRest) return wpRest;
 
   // Magazin-Sitemap (ICONYs sitemap.php verweist auf /magazin/sitemap.xml). nginx ruft Vercel mit /de/… auf.
   if (/^\/(?:de\/)?magazin\/sitemap\.xml$/.test(request.nextUrl.pathname)) {
