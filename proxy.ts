@@ -66,7 +66,9 @@ function wpRestResponse(request: NextRequest) {
   } else if (market !== "at" && market !== "ch" && !searchParams.has("aes_market")) {
     return NextResponse.next();
   }
+  // Vercel behält beim Rewrite die ursprünglichen Query-Parameter: einen von außen gesetzten Wert überschreiben.
   if (market === "at" || market === "ch") destination.searchParams.set("aes_market", market);
+  else if (searchParams.has("aes_market")) destination.searchParams.set("aes_market", "de");
   // Vercel verwirft bei Rewrites Parameter ohne Wert; ICONY ruft "?_embed" ohne Wert auf (WordPress-Schreibweise).
   // Ohne diese Angleichung fehlten hinter nginx (Upstream-Pfad /de/…) die eingebetteten Beitragsbilder.
   if (destination.searchParams.has("_embed") && destination.searchParams.get("_embed") === "") {
