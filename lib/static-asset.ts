@@ -29,3 +29,13 @@ export function staticAsset(path: string) {
   if (/^https?:\/\//i.test(path)) return path;
   return `${assetBaseUrl}${path.startsWith("/") ? path : `/${path}`}`;
 }
+
+/**
+ * Bilder aus dem ICONY-CMS liegen als Kopie im Repo (public/city-images, public/site-images; Herkunft in
+ * data/icony-bilder.json). Die Importdaten führen sie als Root-Pfad, ausgeliefert werden sie vom Asset-Host.
+ */
+const LOCAL_IMAGE_SRC = /\bsrc=(['"])(\/(?:city-images|site-images)\/[^'"]+)\1/gi;
+
+export function assetifyLocalImages(html: string) {
+  return html.replace(LOCAL_IMAGE_SRC, (_match, quote: string, path: string) => `src=${quote}${staticAsset(path)}${quote}`);
+}

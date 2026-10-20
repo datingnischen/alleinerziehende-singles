@@ -1,12 +1,18 @@
 import data from "../data/startseiten.json" with { type: "json" };
 import type { MarketCode } from "./markets.ts";
+import { staticAsset } from "./static-asset.ts";
 
 export type HomeSection = { title: string; imageUrl: string | null; imageAlt: string; html: string };
 export type HomeContent = { sourceUrl: string; title: string; description: string; h1: string; sections: HomeSection[] };
 
 /** Startseitentexte aus dem ICONY-CMS (scripts/import_startseiten.py), Wort für Wort. */
 export function getHomeContent(market: MarketCode): HomeContent {
-  return (data as Record<MarketCode, HomeContent>)[market];
+  const content = (data as Record<MarketCode, HomeContent>)[market];
+  // Bilder liegen als Kopie in public/site-images/startseite und kommen vom Asset-Host, nie aus dem ICONY-CMS.
+  return {
+    ...content,
+    sections: content.sections.map((section) => ({ ...section, imageUrl: section.imageUrl ? staticAsset(section.imageUrl) : null })),
+  };
 }
 
 /** Kacheln der Plattform (ICONY-Startseite), in allen Märkten gleich formuliert. */

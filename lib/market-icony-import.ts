@@ -2,6 +2,7 @@ import atImport from "../data/icony-import-at.json" with { type: "json" };
 import chImport from "../data/icony-import-ch.json" with { type: "json" };
 import { buildCitySearchUrl } from "./city-search-postcodes.mjs";
 import { withTrailingSlash } from "#markets";
+import { assetifyLocalImages, staticAsset } from "./static-asset.ts";
 
 export type RegionalMarket = "at" | "ch";
 
@@ -117,7 +118,11 @@ function normalizeHtml(html: string, site: string, hub = false, cityDetail = fal
 }
 
 function preparePage<T extends MarketImportedPage>(page: T, site: string, hub = false, cityDetail = false): T {
-  return { ...page, contentHtml: normalizeHtml(page.contentHtml, site, hub, cityDetail) };
+  return {
+    ...page,
+    contentHtml: assetifyLocalImages(normalizeHtml(page.contentHtml, site, hub, cityDetail)),
+    ...(page.image ? { image: { ...page.image, url: staticAsset(page.image.url) } } : {}),
+  };
 }
 
 export function validateMarketCityIdentity(

@@ -14,6 +14,9 @@ import re
 import sys
 import urllib.request
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from icony_bilder import load_paths as load_image_paths, localize as localize_image_urls  # noqa: E402
+
 MARKETS = ["de", "at", "ch"]
 OUT = pathlib.Path(__file__).resolve().parent.parent / "data" / "startseiten.json"
 
@@ -85,12 +88,19 @@ def import_market(market: str) -> dict:
     for fix_market, old, new, _reason in FIXES:
         if fix_market == market:
             fragment = fragment.replace(old, new)
+    sections = blocks(fragment)
+    # Bilder nie aus dem ICONY-CMS ausliefern: lokale Kopie unter public/site-images/startseite (scripts/icony_bilder.py)
+    paths = load_image_paths()
+    for section in sections:
+        if section["imageUrl"]:
+            section["imageUrl"] = localize_image_urls(section["imageUrl"], paths, f"[{market}] Startseite")
+        section["html"] = localize_image_urls(section["html"], paths, f"[{market}] Startseite")
     return {
         "sourceUrl": url,
         "title": title,
         "description": meta(page, "description"),
         "h1": h1,
-        "sections": blocks(fragment),
+        "sections": sections,
     }
 
 

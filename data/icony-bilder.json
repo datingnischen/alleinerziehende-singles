@@ -1,0 +1,371 @@
+{
+  "_hinweis": "Herkunft der Bilder aus dem ICONY-CMS. Ausgeliefert wird nur die Kopie unter public/ (path). scripts/icony_bilder.py setzt beim Import die lokalen Pfade ein.",
+  "images": [
+    {
+      "path": "/city-images/at/amstetten.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/140B7BEFDD4E75044DF47721CB623B561F430E91F399D003FC90589E141A2B2C/1000/amstetten.jpg",
+      "sha256": "4fa1520fd99981d489d13afa3ec8ea31462ab1146a680c589b4acbbe4830b92a",
+      "bytes": 56488
+    },
+    {
+      "path": "/city-images/at/bregenz.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/B57AE87EBA44E10BC16C1DCA301126C11BC6089D4064378E002C8A6FCE6DC633/1000/bregenz.jpg",
+      "sha256": "90a3f7a3b60b8b83191784294bf195bf198f67d448fc8ad3f1287be2ec89c959",
+      "bytes": 255941
+    },
+    {
+      "path": "/city-images/at/dornbirn.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/964BC6EBE95F1E038BFEF116A0DC04663AFCF2F5645A917A9F8CF545ECAC6DF3/1000/dornbirn.jpg",
+      "sha256": "d2dc281122b8cb620ed1d2bf1d97b48a45884b0d4544676cc665a434b8840114",
+      "bytes": 65501
+    },
+    {
+      "path": "/city-images/at/eisenstadt.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/CFD9119FB8702DBE28FCCE418447AC82D389BC5538726930831866FC23CEE4CE/1000/eisenstadt.jpg",
+      "sha256": "52c5697a59d9d789fd73141ddbded9787bec01c8ec1df4162c46e540bc50ce22",
+      "bytes": 174518
+    },
+    {
+      "path": "/city-images/at/graz.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/2D919BE49849696591C75765B449C76B4147F00128A12EC85327867114EFEE7F/1000/Graz2.jpg",
+      "sha256": "eeea77500acd33f6166fc851ba1bec416b3a172f10da2d2149a2b17ae83a5140",
+      "bytes": 207226
+    },
+    {
+      "path": "/city-images/at/innsbruck.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/989EF28834891D6EDF02B1B71854AF23F86CEDA07DC3536CD6237CEC3B48E073/1000/Innsbruck2.jpg",
+      "sha256": "dfc53ab970c3230d36128d333757c00935fdcc37dca003884096e79562e0742b",
+      "bytes": 185502
+    },
+    {
+      "path": "/city-images/at/klagenfurt.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/60E1627839AC36E99A07BD73782997086088B19680CCD0BAE8C4CB998F6EFD04/1000/klagenfurt.jpg",
+      "sha256": "1993f0019d097ac45b2c82e4d3b8bbf788dc3b6b0c09806c21813d6d2c9532f2",
+      "bytes": 111681
+    },
+    {
+      "path": "/city-images/at/leoben.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/0B82749B7F3E3165115CD31CFC2310FEC40C25D1BECDAEF5D1516830502003A7/1000/leoben.jpg",
+      "sha256": "0f630ca6e2ae3ae7569e3f416d715e78c7a0a7c3136890d93eaeaad27807b945",
+      "bytes": 130191
+    },
+    {
+      "path": "/city-images/at/linz.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/CB7112FEC3DE0A067F209DB14B2D013C90EFCCA33B342EEA174511AE232BA2E1/1000/linz.jpg",
+      "sha256": "5d8d5a18825c329d83aaa727d4f6a2d31158da616d570969a0f571eb3d51218b",
+      "bytes": 296574
+    },
+    {
+      "path": "/city-images/at/partnersuche.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/758FA4ACD5F7D11AF786DBA9292AD1321F237C05B2C8DD3FCA23E929692002A5/1000/alleinerziehende-at-partnersuche:.png.jpg",
+      "sha256": "17e63a59ac189cb553067ef30438a4d12b339b550e5336e95367aa48313c79de",
+      "bytes": 138837
+    },
+    {
+      "path": "/city-images/at/salzburg.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/98CAFECE4FFE0F419A5B3432D1CAC3741E54E575B34B099D15A472344CC12AC8/1000/Salzburg2.jpg",
+      "sha256": "a5a3a99527b98ffad851d7f7c9260acaafc7d859ed29e0660c2b49aa4d4a3c70",
+      "bytes": 157157
+    },
+    {
+      "path": "/city-images/at/st-poelten.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/0ED50078FB42D6FDE26FCAD5C04DC3DE8A947BA8A9710CA61847F6E55128FC2F/1000/st.pölten.jpg",
+      "sha256": "381dc983f19079f36a3b2d302ad232fb5659692215a1e78cd716fb90e3306cd8",
+      "bytes": 142724
+    },
+    {
+      "path": "/city-images/at/steyr.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/26C8A54A1C4209EC314E2EFF4BD49F51D3C798FE2562107D901398757B271B0A/1000/steyr.jpg",
+      "sha256": "c5c2ffcafb75fd4f587bc00afc2c90df040b284b8bf8cc4c1d4c9af9601cc9eb",
+      "bytes": 149919
+    },
+    {
+      "path": "/city-images/at/villach.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/28A5793907C66AC80B073E6F7D3006E5E409E3CCB94F0ADDD8EC9D59AF42141F/1000/villach.jpg",
+      "sha256": "45631fc23eeed18ac80e9644d82d0f3e2e6fc1bb848b8689718d7229b1b01a9e",
+      "bytes": 137863
+    },
+    {
+      "path": "/city-images/at/wels.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/1A07E9AD4DF0D8D61F1B9507E10B57D9B4496B8EE66920068BA1CC00B34D8959/1000/wels.jpg",
+      "sha256": "9fc8320ccafcf6ed3a5823ed7225ad40797ad161d01b6c123ea983d4b6870b27",
+      "bytes": 190227
+    },
+    {
+      "path": "/city-images/at/wien.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/0C4184EC89A14038DCD77AED54A0CCF638EAA15CB1811CEF8A5E2104675680AA/1000/Wien2.jpg",
+      "sha256": "228c7309b2cb6895402f1a08936f227a69681126b1878e70333d0cbc9e09ceeb",
+      "bytes": 199554
+    },
+    {
+      "path": "/city-images/ch/aarau.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/731DF2E9BAF7EA5542F6E5F82ACBE026C178CAFAE0BAF9B55484F3A27D488CA2/1000/aaa.jpg",
+      "sha256": "f62b1fb8178967b243d87edeadb0a3aed577a1c23f5cc2745e61e77c327351b5",
+      "bytes": 172335
+    },
+    {
+      "path": "/city-images/ch/basel.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/170D4785DB0BCA26A9E842B5250C77C1AF06008E9144A835961384A7D467844D/1000/bas.jpg",
+      "sha256": "d1197d8eeb106de836b003853bbdaa731fc47da66b30b5b70eb2fcf5f11a2c00",
+      "bytes": 206717
+    },
+    {
+      "path": "/city-images/ch/bern.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/B66E9183FEF74CF33F9A8B5019F09EB829C39C1C96F9F8C808FD8DC4AC708291/1000/ber.jpg",
+      "sha256": "400094a424dfdc0b8da02b9b5b05a3908b7f5afb427d9d370444cd0d2dcc0108",
+      "bytes": 245366
+    },
+    {
+      "path": "/city-images/ch/biel.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/42B20B438879485A5DD3403C86E8B0045947025FBC291F3B7789CB0E2A0C00EE/1000/bi.jpg",
+      "sha256": "5e3b7a7a6e39f9811397f7e9c29484d7a8aed10b8a10075553003adf231cf613",
+      "bytes": 65691
+    },
+    {
+      "path": "/city-images/ch/chur.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/9C4ECDBB7074FA36B3A95DCB3DE64D711ACCE790C988A865A9F74D8FC35F1A9A/1000/chu.jpg",
+      "sha256": "f29b09129d5866187d0049d4a946a83b85e3b01346511230d880faed12fdd257",
+      "bytes": 185438
+    },
+    {
+      "path": "/city-images/ch/fribourg.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/225CCAF747404FFBF39095A803770561859803A7A16439CDB423F76D0BFC7D75/1000/fre.jpg",
+      "sha256": "4293113862c821f6aba4a8935ae4f6b18e06001613b99a495259e1ca6cd4089d",
+      "bytes": 172950
+    },
+    {
+      "path": "/city-images/ch/genf.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/4A8580C45C9F76F573E44020D7E209311092D308D918F820D47D2F06225F9957/1000/ge.jpg",
+      "sha256": "9d8609c24c7da648b28e0fd9438644a1dcc7226b03536d0d2bead616a2d7d85c",
+      "bytes": 113075
+    },
+    {
+      "path": "/city-images/ch/lausanne.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/35495471C5025F8341C75630C926EFE454FF95C06EB9E7B0BCD65B306BC7A687/1000/lau.jpg",
+      "sha256": "d240301abd3435da6dc5b4e34e533c4ae90956b97eea71921250e664c898bf4c",
+      "bytes": 157887
+    },
+    {
+      "path": "/city-images/ch/luzern.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/663123FA334E7CF9951476B0DC0E796F0470A013548A0F08EDE243CB8E52CAE0/1000/luz.jpg",
+      "sha256": "7f3ca4572c0132aa962f073543722db5c8b3e5088ca2e9f1801fbf0d026a9f8e",
+      "bytes": 210467
+    },
+    {
+      "path": "/city-images/ch/partnersuche.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/2901AF06E1B01CB551BEFBC5CD87A826187200B6ED520AEB729145E567BE0FFF/1000/alleinerziehende-ch-partnersuche.jpg",
+      "sha256": "cb15e23ca816268bf35526a39f7762f64c5b88a28f8887251006a560fe9874ce",
+      "bytes": 143353
+    },
+    {
+      "path": "/city-images/ch/schaffhausen.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/51893C7293C0F8AAF25946A842039AA9323C2B792B626C207B4BBDFCCC949660/1000/sch.jpg",
+      "sha256": "646e433a0993e1076008579a1471191d73ff47d9f11458ceffb05d5de3b4093a",
+      "bytes": 94292
+    },
+    {
+      "path": "/city-images/ch/stgallen.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/A2A95729BE47C5CBC49FB14180F57FC8CEB71F4E7404DE8CA8BBC2E9BAFC2140/1000/love.jpg",
+      "sha256": "5444979ecd02f1747c3004bcc9692f773a68592e0db7652a24e3211061f6ee8e",
+      "bytes": 121569
+    },
+    {
+      "path": "/city-images/ch/thun.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/9D8E0C392F88D16381E240198F9ED7FB83C0B960765A722A631C2331EB9D0843/1000/th.jpg",
+      "sha256": "4bc376305fcdd12ef4943af927052c59339d8bc970557929b763d12bc39e1cd5",
+      "bytes": 243827
+    },
+    {
+      "path": "/city-images/ch/winterthur.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/AA9700CBE783101DE724E9B7D93A9EA696D7FC0024FD32CEE527FD947ED9DACE/1000/win.jpg",
+      "sha256": "9d47fa739cce5e0401ac179586f0a71d055f954431518a12218c15d1abed882f",
+      "bytes": 152752
+    },
+    {
+      "path": "/city-images/ch/zuerich.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/1F15C082098F0F8A49D2B167C0CA5201EC7576609D3D88F5D61FA8329D390049/1000/zur.jpg",
+      "sha256": "180afb83db196c60d5a068eb1c3872bc471ee9de4547cc261bb28479d07ee8f8",
+      "bytes": 149910
+    },
+    {
+      "path": "/city-images/ch/zug.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/01F9C9731E3CC0ED6986D3D736F8A035AB8DF047BBC0DA582C0640D3FBAFE7A9/1000/zu.jpg",
+      "sha256": "bb1f90ddf2908282802a32309887e2d3fdf2c229c7a440bfb7e58c6d3a06fa23",
+      "bytes": 209733
+    },
+    {
+      "path": "/city-images/de/berlin.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/0327A58C5C8CAE7C7568A1ABB6E7087AFF62295B87ED005BB1F3A572F99B0E93/1000/berlin-7218821_1280.jpg",
+      "sha256": "07486bba7178a92a836a26220e75693dfc6451c3d0efa5f8163356f6643a7526",
+      "bytes": 176300
+    },
+    {
+      "path": "/city-images/de/bochum.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/0CC3CC382EE28F8768598E1C126912BFF2B2E6426C4D70180C54E014AD883ABB/1000/bochum-952434_1280.jpg",
+      "sha256": "6b730a48dd6707f41a5c89436310704407ff0e54b778003bc87b6fa71a45e146",
+      "bytes": 226083
+    },
+    {
+      "path": "/city-images/de/bremen.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/D886164D04CDBF5C57B36A56126317284D814C6371A8121C5614CC3C8001A031/1000/bremen-6557996_1280.jpg",
+      "sha256": "1992ee435f5c906546e736f4ee5ab85a5afc7765ab7830766e3c5815611bcfb6",
+      "bytes": 195956
+    },
+    {
+      "path": "/city-images/de/dortmund.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/F860D08243A7C271F24DBBC584B2FB6405C7DBEC2A356C3710AA8443FC6F6CD8/1000/Dortmund.jpg",
+      "sha256": "e2f812e859f5eb320dca6e0e358c6ed092d7146a19e013ce07ad04d298db3b16",
+      "bytes": 134917
+    },
+    {
+      "path": "/city-images/de/dresden.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/44135BA92C9E17C234BBDDC90CD2C43C14FCE11DBCCB70ACFE625D72176D3B05/1000/dresden-5893714_1280.jpg",
+      "sha256": "06cb6dc50fc313753d61dc29b2c0bc48a7d1fb73e8a788cda337ffc002069b8e",
+      "bytes": 192735
+    },
+    {
+      "path": "/city-images/de/duesseldorf.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/B276EDD1466D86B944D1B6E8B468A0F4C13A521709F4A410EFE4092074FC87F3/1000/düsseldorf.jpg",
+      "sha256": "9e794a9bd2c7aea160cd73038c04aea065acbe9c7244c7eee262c114bb397b53",
+      "bytes": 188562
+    },
+    {
+      "path": "/city-images/de/essen.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/D70B6F468964072AC1A119A3926F7252E0AFE93F960477F1E854A61B9C878E9F/1000/essen-82672_1280.jpg",
+      "sha256": "e115e9bdd8ece5d3d9bdd161054b4b5a1c201eed6e63f4d0fbb3b5cd0e7cd646",
+      "bytes": 197480
+    },
+    {
+      "path": "/city-images/de/frankfurt-am-main.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/9BA4FD0F1B050AC1D2897EEFFF55561EA02A8B8872E79333CA9315F3949BF43A/1000/frankfurt-4945405_1280.jpg",
+      "sha256": "ba6242f2b218f5418ff558a1cd6912a80cab397b7ff954f657827dc4b15b4e9f",
+      "bytes": 191546
+    },
+    {
+      "path": "/city-images/de/hamburg.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/EE0F7DA711DD31FE43FDE782C51B93EC74B280E13056D0E3EAD67A3F900B223C/1000/hamburg-2976711_1280.jpg",
+      "sha256": "b6c91657403f7ee4483a04d8dff1ec03b208af8c84b10cde6721d0f2735cedb8",
+      "bytes": 222347
+    },
+    {
+      "path": "/city-images/de/hannover.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/4BA262AD2CFA67A9A0FBE2BD78026E41D627D699D2FE94929EF2210734F30AF1/1000/hannover-1718110_1280.jpg",
+      "sha256": "6a321deaa0f58ba8507133b19e2682238912e8e287ca213ca6ea3c21a2a93a4a",
+      "bytes": 145217
+    },
+    {
+      "path": "/city-images/de/koeln.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/6DED58D0B10ADA1A30B8B190D78496752DF3A90F85B9A618682673C7275FF39B/1000/köln.jpg",
+      "sha256": "081568a3699e77c80ef2585e83fff953f47a33a2a669f80cbe7d9e23e7ce3375",
+      "bytes": 135799
+    },
+    {
+      "path": "/city-images/de/leipzig.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/AD2FABD1E558AD284EC8EB57914BA4E4F6E297FDD7230732A1D5EB9A666B42EE/1000/leipzig-6367607_1280.jpg",
+      "sha256": "85b0dbb397da75579184eb614ba520e05e7dea2a1773805499330aece7ee7219",
+      "bytes": 178049
+    },
+    {
+      "path": "/city-images/de/muenchen.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/61847D8D1A5A286B5CE7A17359D37E0CABD1BB65A9491256122111DB09A16462/1000/munich-2516492_1280.jpg",
+      "sha256": "8227baeca510019f77bbf8d2590b81d7ed6e5f1914e35547f794929c98129ac2",
+      "bytes": 127543
+    },
+    {
+      "path": "/city-images/de/nuernberg.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/C2E867DD28FC8E6E16B0CB9971A6749D51EA0C8EE555AD19EF08A8EEAD62BF22/1000/nuremberg-781798_1280.jpg",
+      "sha256": "88bf5846694b1736d5f1b25937a319e460f9ea9059c91222fd8d58e85b76998f",
+      "bytes": 190515
+    },
+    {
+      "path": "/city-images/de/partnersuche-zusatz.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/05AF1D88171E0727D41C7B58339470EC868E6C68FFEF8E076B7ECEBD15DE7B73/600/Екранна-снимка_19-7-2024_145923_www.freepik.com.jpg",
+      "sha256": "6b47383517c6f8ce9ca4a8667a6b249e83590be90bf20216c0cf1e0b7ca6e7b0",
+      "bytes": 40603
+    },
+    {
+      "path": "/city-images/de/partnersuche.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/C080C94991A6064C457CAB21C7A5DCCBF52F39DC5DC6E4C93797EA65B6E9E967/1000/alleinerziehende-de-partnersuche.jpg",
+      "sha256": "3a8a98b80c1f0dc627a9796e5e5132a4e903709fc74c9d4cffffde0797e207ba",
+      "bytes": 126982
+    },
+    {
+      "path": "/city-images/de/stuttgart.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/739A8C785FA3BFF3319616D685A22CD8F1419A5EA603DE290A856F1771118115/1000/stuttgart-354557_1280.jpg",
+      "sha256": "2000ea40ae9de84f28f00ac43ceccf3abfcd31c59077a37dc3344963fa9fda16",
+      "bytes": 191163
+    },
+    {
+      "path": "/site-images/bewertungen.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/AD23519EF85792DDB2D9F53C35A1C5B18E7C5E5926AB0555A01F75EBD0B5F428/400/bewertung-und-erfahrungen-pic.jpg",
+      "sha256": "5ba86f42e597c5298f14979765badfbccbc695d25833784b88c1ecd11d616fe0",
+      "bytes": 17990
+    },
+    {
+      "path": "/site-images/empfohlen-siegel.png",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/5AAA1C4A623F3795CB5398F28FF2880E3002DA0EFDACCF13783FD19A6B4CFCAD/empfohlen-siegel-45sterne-330x60.jpg",
+      "sha256": "1ba6f7f941d6a0a5f55dc9aa79a97f75202a8003f7b1da6337eee77d11a86a1b",
+      "bytes": 15601
+    },
+    {
+      "path": "/site-images/faq.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/F13E20643F788D513B0A8A2F93F50D79FA5504D637C3FCCAC0DAEC2C2C7765CC/600/faq-(1).jpg",
+      "sha256": "173c1e3edb634c0698a2fefd7d7fa06b6ead510f1795b24d4b1280e9f3ae24d2",
+      "bytes": 43086
+    },
+    {
+      "path": "/site-images/icon-facebook.png",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/4E94C3DF277E3311154994DE020F15893BFA346736F26BE76114B58FD91F8049/icons-facebook-(1).jpg",
+      "sha256": "0af7ebd228f6d1c0f38a68a729fae3e164422098d60460e115b06778f4e972a5",
+      "bytes": 393
+    },
+    {
+      "path": "/site-images/icon-youtube.png",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/5D0F5A4C51A08CECAB365D3A582FDA60EE888DC5953ADA449EFD715F4A4F40B2/icons-youtube-(1).jpg",
+      "sha256": "629363ec34ba433430bcc9802390301004daea2c36c435b03bd8382d159735c9",
+      "bytes": 423
+    },
+    {
+      "path": "/site-images/startseite/homepage-text1.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/6596F1EC36618CDD69E75FA8F1C64D98C9DA0E1D41E17196EC3B5CDFE85858BB/homepage_text1.jpg",
+      "sha256": "49f29d95f98cf0b135b92d17f6ac61ff0db0c33635e310a6f462903078debdd5",
+      "bytes": 7262
+    },
+    {
+      "path": "/site-images/startseite/homepage-text2.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/A49E2B377D3A7E787EE5C1476A32248024B9FB0D619B1A5F8ACB9CADE4838C39/homepage_text2.jpg",
+      "sha256": "4b49cd71b9a1acfd0f3de4df71e51d07ec830d1e373cdb1bc0a2fdb8995eaf3f",
+      "bytes": 8695
+    },
+    {
+      "path": "/site-images/startseite/homepage-text3.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/AC24138AD83FD8D99027B4B5F73DA8434C3705EB45EB89D456EA98A09B81B8C1/homepage_text3.jpg",
+      "sha256": "766212c03835abd4a0031ec86a6949843694b711f74b121bfa547187a9076948",
+      "bytes": 7580
+    },
+    {
+      "path": "/site-images/startseite/man-with-child.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/8F0DF8479EDB49817C496328FBEFD82162BAE0B4E36AF4441BEBFFB87187168B/man_with_child.jpg",
+      "sha256": "27d40bcb8986ceb90d4b192582d7486f7764acaff09376aa706a5f5814d9b951",
+      "bytes": 6348
+    },
+    {
+      "path": "/site-images/startseite/mountain-child.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/1A0807CF7610AEABC673122D1B2E1CD0028D0758F53F3FF1B7FC1FD762C68F63/mountain_child.jpg",
+      "sha256": "1fac75d72f501d86b6afc777b37e3cb218f9dcf548d5bf86bae85a23474880fb",
+      "bytes": 8235
+    },
+    {
+      "path": "/site-images/startseite/ocean-child.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/C157871D2B57A8D660EEDABF3C0ED56F7CAD175160868414E63B3CE81770F513/ocean_child.jpg",
+      "sha256": "47385dc5a49472c2c84494ef205d58a2df24d7bb72c6bc89849d870f01c333b2",
+      "bytes": 5535
+    },
+    {
+      "path": "/site-images/startseite/woman-with-child.jpg",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/354E47EED1F3162E7AD8E48266417A4770CC12CAC78B6B0AC03C44B6767FE76B/woman_with_child.jpg",
+      "sha256": "288295ac0564999762e087f4df8fe955caec2d924ac54603c40ad8e96e60d992",
+      "bytes": 7411
+    }
+  ]
+}

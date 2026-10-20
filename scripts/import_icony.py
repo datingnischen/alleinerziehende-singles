@@ -41,6 +41,9 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from icony_bilder import load_paths as load_image_paths, localize as localize_image_urls  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 UA = {"User-Agent": "Mozilla/5.0 (alleinerziehende-singles icony import)"}
@@ -78,6 +81,8 @@ DE_ROOT_PAGES = [
     "/redaktionelle-kontrolle.html",
     "/premium-mitgliedschaft.html",
 ]
+# ICONY-eigene Infoseiten (werden nicht gerendert): ihre Bilder bleiben reiner Herkunftsvermerk.
+PLATFORM_ROOT_PAGES = set(DE_ROOT_PAGES[3:])
 
 AT_CITIES = [
     ("wien", "Wien"),
@@ -565,6 +570,19 @@ def apply_overrides(data: dict, market: str) -> None:
             page["contentHtml"] = page["contentHtml"].replace(old, new)
 
 
+def localize_images(data: dict, market: str) -> None:
+    """ICONY-Bilder gerenderter Seiten auf die Kopie unter public/ umstellen (scripts/icony_bilder.py)."""
+    paths = load_image_paths()
+    pages = [data["partnersucheHub"], *data["cityPages"], *data.get("rootPages", [])]
+    for page in pages:
+        if page["path"] in PLATFORM_ROOT_PAGES:
+            continue
+        where = f"[{market}] {page['path']}"
+        page["contentHtml"] = localize_image_urls(page["contentHtml"], paths, where)
+        if page.get("image", {}).get("url"):
+            page["image"]["url"] = localize_image_urls(page["image"]["url"], paths, where)
+
+
 def dump(data: dict) -> str:
     return json.dumps(data, ensure_ascii=False, indent=2) + "\n"
 
@@ -658,6 +676,7 @@ def main() -> int:
     else:
         data = import_market(fetch, args.market, config["site"], config["cities"])
     apply_overrides(data, args.market)
+    localize_images(data, args.market)
 
     committed_path = DATA_DIR / config["out"]
     if args.check:
