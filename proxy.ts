@@ -127,7 +127,10 @@ export function proxy(request: NextRequest) {
   if (wpRest) return wpRest;
 
   // Magazin-Sitemap (ICONYs sitemap.php verweist auf /magazin/sitemap.xml). nginx ruft Vercel mit /de/… auf.
-  if (/^\/(?:de\/)?magazin\/sitemap\.xml$/.test(request.nextUrl.pathname)) {
+  // /at/… und /ch/… sowie die .at/.ch-Domain selbst laufen weiter zur Marktlogik (Länder-Sitemap).
+  const hostname = requestHostname(request);
+  const regionalHost = MARKET_HOSTS.has(hostname) && !hostname.endsWith(".de");
+  if (!regionalHost && /^\/(?:de\/)?magazin\/sitemap\.xml$/.test(request.nextUrl.pathname)) {
     if (!request.nextUrl.pathname.startsWith("/de/")) return NextResponse.next();
     const destination = request.nextUrl.clone();
     destination.pathname = "/magazin/sitemap.xml";

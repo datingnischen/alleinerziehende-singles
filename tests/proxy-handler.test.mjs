@@ -105,3 +105,19 @@ test("never redirects slashed paths, the root, files, assets or internal rewrite
   const internal = proxy(request("/market-home/at", vercel));
   assert.equal(internal.status, 404);
 });
+
+test("serves the market sitemap for /at|ch/magazin/sitemap.xml behind nginx and on the market host", async () => {
+  const { proxy } = await loadProxy();
+  // ICONYs sitemap.php verweist auf /magazin/sitemap.xml; nginx ruft für .at/.ch /at|ch/magazin/sitemap.xml auf.
+  // Vorher landete das auf der noindex-Platzhalterseite (Status 200) – Search Console meldete „noindex“.
+  for (const [pathname, host, market] of [
+    ["/at/magazin/sitemap.xml", "alleinerziehende-singles.vercel.app", "at"],
+    ["/ch/magazin/sitemap.xml", "alleinerziehende-singles.vercel.app", "ch"],
+    ["/magazin/sitemap.xml", "alleinerziehende-singles.at", "at"],
+  ]) {
+    const response = proxy(request(pathname, { host }));
+    assert.match(response.headers.get("x-middleware-rewrite") ?? "", new RegExp(`/market-sitemap/${market}$`), pathname);
+  }
+  const de = proxy(request("/de/magazin/sitemap.xml", { host: "alleinerziehende-singles.vercel.app" }));
+  assert.match(de.headers.get("x-middleware-rewrite") ?? "", /\/magazin\/sitemap\.xml$/);
+});

@@ -209,7 +209,8 @@ function resolveRegionalMarket(
     return { action: "market-robots", market, pathname: `/market-robots/${market}` };
   }
 
-  if (requestedPath === "/sitemap.xml") {
+  // /magazin/sitemap.xml: ICONYs sitemap.php verweist darauf, hinter nginx kommt /sitemap.xml nie bei Vercel an.
+  if (requestedPath === "/sitemap.xml" || requestedPath === "/magazin/sitemap.xml") {
     return { action: "market-sitemap", market, pathname: `/market-sitemap/${market}` };
   }
 
