@@ -23,8 +23,12 @@ test("alle WordPress-Slugs sind als Datei da (Inventar vor der Migration)", asyn
   // ein Slug (kindergeld-auszahlungstermine-mai-2021) war Beitrag und Seite zugleich
   const expected = new Set([...inventory.posts, ...inventory.pages]);
   assert.equal(expected.size, 218);
-  assert.deepEqual([...expected].filter((slug) => !slugs.has(slug)), []);
-  assert.equal(entries.length, expected.size);
+  // bewusst gelöscht und per Weiterleitung umgeleitet (family-deals: reine Amazon-Linkliste ohne Nutzen)
+  const redirects = JSON.parse(await read("data/weiterleitungen.json")).slugs;
+  const removed = ["family-deals"];
+  for (const slug of removed) assert.ok(redirects[slug], `${slug} braucht eine Weiterleitung`);
+  assert.deepEqual([...expected].filter((slug) => !slugs.has(slug)), removed);
+  assert.equal(entries.length, expected.size - removed.length);
   assert.equal(entries.filter((e) => e.data.kind === "post").length, 162);
 });
 
@@ -127,13 +131,11 @@ test("die Magazin-Plattformkachel führt absolut auf die Live-Domain und trägt 
   assert.match(content, /\]\(https:\/\/alleinerziehende-singles\.de\/\?AID=magazin\)/);
 });
 
-test("korrigierte Tippfehler kommen nicht wieder, Amazon-Widgets sind Textlinks mit Partner-ID", () => {
+test("korrigierte Tippfehler kommen nicht wieder", () => {
   for (const { slug, data, content } of entries) {
     const text = `${data.title} ${data.imageAlt ?? ""} ${content}`;
     assert.doesNotMatch(text, /Kindergerd|Elterne\b|Schwangerschftswoche/, slug);
   }
-  const deals = entries.find((e) => e.slug === "family-deals").content;
-  assert.equal([...deals.matchAll(/https:\/\/www\.amazon\.de\/dp\/[A-Z0-9]{10}\?tag=elflirt-21/g)].length, 6);
   const year = entries.find((e) => e.slug === "kindergeld-auszahlungstermine-2025").content;
   assert.match(year, /kindergeld-auszahlungstermine-april-2025\//);
   assert.doesNotMatch(year, /-(april|mai|juni)-2024\//);
@@ -167,8 +169,8 @@ test("Inhalte werden aus den Dateien gelesen: Einträge, Kategorien, Reihenfolge
   assert.ok(related.every((post) => post.slug !== "finanzielle-hilfe"));
 
   const search = lib.getMagazineSearchIndex();
-  assert.equal(search.length, 219); // 218 Dateien + Kindergeld 2026 (Facebook-Daten)
-  assert.equal(lib.getMagazineSlugs().length, 219);
+  assert.equal(search.length, 218); // 217 Dateien + Kindergeld 2026 (Facebook-Daten)
+  assert.equal(lib.getMagazineSlugs().length, 218);
 
   const audio = lib.getMagazineEntryBySlug("finanzielle-hilfe");
   assert.match(audio.contentHtml, /<audio controls preload="none" src="https:\/\/alleinerziehende-singles\.vercel\.app\/app-assets\/magazin\/wp-content\/uploads\/2026\/05\/finanzielle-hilfe-audio-zusammenfassung\.mp3"/);
