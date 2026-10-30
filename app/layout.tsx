@@ -4,6 +4,7 @@ import { staticAsset, assetHost } from "@/lib/static-asset";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { vercelAnalyticsProps } from "@/lib/vercel-analytics";
+import { IconyGa4 } from "@/components/icony-ga4";
 
 // Überschriften: Bricolage Grotesque (wie die übrigen Nischen), Fließtext: Open Sans wie auf der ICONY-Plattform.
 const display = Bricolage_Grotesque({
@@ -40,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de" className={`${display.variable} ${body.variable}`}>
-      <body>{children}<Analytics {...vercelAnalyticsProps(assetHost)} /></body>
+      <body>{children}<Analytics {...vercelAnalyticsProps(assetHost)} /><IconyGa4 /></body>
     </html>
   );
 }
