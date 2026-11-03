@@ -14,7 +14,13 @@ const entries = await Promise.all(
     return { slug: file.replace(/\.md$/, ""), data, content };
   }),
 );
-const slugs = new Set(entries.map((e) => e.slug));
+// Kindergeld-Monatsbeiträge ab 2026 erzeugt scripts/update_kindergeld_facebook.py, sie gehören nicht zum WordPress-Inventar.
+const generated = entries.filter((e) => /^kindergeld-auszahlungstermine-[a-z]+-(\d{4})$/.test(e.slug) && Number(e.slug.slice(-4)) >= 2026);
+const wpEntries = entries.filter((e) => !generated.includes(e));
+const facebookYears = (await readdir(new URL("data/", root)))
+  .map((f) => /^kindergeld-facebook-(\d{4})\.json$/.exec(f)?.[1])
+  .filter(Boolean);
+const slugs = new Set([...entries.map((e) => e.slug), ...facebookYears.map((year) => `kindergeld-auszahlungstermine-${year}`)]);
 
 test("alle WordPress-Slugs sind als Datei da (Inventar vor der Migration)", async () => {
   const inventory = JSON.parse(await read("data/magazin-slugs-wordpress.json"));
@@ -28,8 +34,9 @@ test("alle WordPress-Slugs sind als Datei da (Inventar vor der Migration)", asyn
   const removed = ["family-deals"];
   for (const slug of removed) assert.ok(redirects[slug], `${slug} braucht eine Weiterleitung`);
   assert.deepEqual([...expected].filter((slug) => !slugs.has(slug)), removed);
-  assert.equal(entries.length, expected.size - removed.length);
-  assert.equal(entries.filter((e) => e.data.kind === "post").length, 162);
+  assert.equal(wpEntries.length, expected.size - removed.length);
+  assert.equal(wpEntries.filter((e) => e.data.kind === "post").length, 162);
+  assert.ok(generated.every((e) => e.data.kind === "post"));
 });
 
 test("Weiterleitungen alter Slugs zeigen auf vorhandene Beiträge und stehen in der next.config", async () => {
@@ -150,13 +157,13 @@ test("Artikel zeigen das Änderungsdatum, feste Seiten und Texte kein Datum", as
 test("Inhalte werden aus den Dateien gelesen: Einträge, Kategorien, Reihenfolge, Suche, Kindergeld-Übersicht", async () => {
   const lib = await import("../lib/magazine-content.ts");
   const posts = lib.getMagazinePosts(1000);
-  assert.equal(posts.length, 162);
+  assert.equal(posts.length, 162 + generated.length);
   const dates = posts.map((p) => p.date);
   assert.deepEqual([...dates].sort().reverse(), dates);
 
   const categories = lib.getMagazineCategories();
   assert.deepEqual(categories.map((c) => [c.id, c.slug]), [[1, "singleleben"], [8, "kindergeld"], [26, "singleboersen"]]);
-  assert.equal(lib.getMagazinePosts(1000, 8).length, 124);
+  assert.equal(lib.getMagazinePosts(1000, 8).length, 124 + generated.length);
   assert.equal(lib.getMagazinePostsByCategories([26, 1], 1000).length, 38);
 
   const page = lib.getMagazineEntryBySlug("kindergeld-auszahlungstermine-2025");
@@ -169,8 +176,9 @@ test("Inhalte werden aus den Dateien gelesen: Einträge, Kategorien, Reihenfolge
   assert.ok(related.every((post) => post.slug !== "finanzielle-hilfe"));
 
   const search = lib.getMagazineSearchIndex();
-  assert.equal(search.length, 218); // 217 Dateien + Kindergeld 2026 (Facebook-Daten)
-  assert.equal(lib.getMagazineSlugs().length, 218);
+  // 217 WordPress-Dateien + Kindergeld-Jahresübersichten und -Monatsbeiträge aus den Facebook-Daten
+  assert.equal(search.length, 217 + facebookYears.length + generated.length);
+  assert.equal(lib.getMagazineSlugs().length, 217 + facebookYears.length + generated.length);
 
   const audio = lib.getMagazineEntryBySlug("finanzielle-hilfe");
   assert.match(audio.contentHtml, /<audio controls preload="none" src="https:\/\/alleinerziehende-singles\.vercel\.app\/app-assets\/magazin\/wp-content\/uploads\/2026\/05\/finanzielle-hilfe-audio-zusammenfassung\.mp3"/);

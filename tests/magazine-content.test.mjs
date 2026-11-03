@@ -112,7 +112,8 @@ test("exposes the 2026 kindergeld overview as a static magazine page", async () 
   assert.ok(page);
   assert.equal(page.slug, "kindergeld-auszahlungstermine-2026");
   assert.match(page.contentHtml, /Auszahlungstermine 2026 nach Monat/);
-  assert.match(page.contentHtml, /Facebook-Beitrag öffnen/);
+  assert.match(page.contentHtml, /href="\/magazin\/kindergeld-auszahlungstermine-juli-2026\/"/);
+  assert.doesNotMatch(page.contentHtml, /Facebook-Beitrag öffnen/);
   assert.match(page.contentHtml, /Januar/);
   assert.match(page.contentHtml, /November/);
   assert.match(page.contentHtml, /kindergeld-auszahlungstermine-2025\//);
@@ -140,6 +141,13 @@ test("keeps the automatic 2026 kindergeld data in a dedicated JSON source", asyn
   assert.match(scriptSource, /graph\.facebook\.com/);
   assert.match(scriptSource, /kindergeld-facebook-\{year\}\.json/);
   assert.match(scriptSource, /FACEBOOK_PAGES_SYSTEM_TOKEN/);
+  for (const month of dataSource.months) {
+    assert.equal(month.paymentDays?.length, 10, `${month.month}: Zahltage je Endziffer fehlen`);
+    const article = await readFile(new URL(`../content/magazin/${month.slug}.md`, import.meta.url), "utf8");
+    assert.match(article, /categories: \["kindergeld"\]/);
+    assert.match(article, /\| 9 \| /);
+    await readFile(new URL(`../public${month.image}`, import.meta.url));
+  }
   assert.doesNotMatch(scriptSource, /google_api|PAGE_ACCESS_TOKEN/);
 });
 

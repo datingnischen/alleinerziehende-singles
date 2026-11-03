@@ -10,67 +10,221 @@
       "month": "Januar",
       "publishedAt": "2025-12-27T17:31:08+0000",
       "postUrl": "https://www.facebook.com/1034334292437869/posts/873780425159924",
-      "imageUrl": "https://scontent-fra5-1.xx.fbcdn.net/v/t39.30808-6/606073612_873780111826622_5444504418397512496_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=a0tdzQM3YmMQ7kNvwHrmyNa&_nc_oc=AdpKYJ0GzL0ac6rvLOcsJVE-XQcq5M909ykeKmh_rg5f-nvDypVvew2hNiuIduoTREXtTxnVubt9qLTrTYrmLlvP&_nc_zt=23&_nc_ht=scontent-fra5-1.xx&edm=AKIiGfEEAAAA&_nc_gid=GnTkLED4mpQ7FqHBKK7xZQ&_nc_tpa=Q5bMBQJBkFUaIWcB5WI1F182syQmVkcLzEd5dFhtHSD5UhxvpDniPk2APP-6ICQKOZXX9Dz5_g_uwpYgTQ&oh=00_AQRciNOr4W5w4VWIbVxCVUSWDNABNCXG17cTrmp221eZ2w&oe=6AF005C6"
+      "imageUrl": "https://scontent-fra5-1.xx.fbcdn.net/v/t39.30808-6/606073612_873780111826622_5444504418397512496_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=a0tdzQM3YmMQ7kNvwHrmyNa&_nc_oc=AdpKYJ0GzL0ac6rvLOcsJVE-XQcq5M909ykeKmh_rg5f-nvDypVvew2hNiuIduoTREXtTxnVubt9qLTrTYrmLlvP&_nc_zt=23&_nc_ht=scontent-fra5-1.xx&edm=AKIiGfEEAAAA&_nc_gid=mC67nw3pXaASu9sWFkyitw&_nc_tpa=Q5bMBQK-RFVYfPJXmjdeauNnvRyRQ2_sJMep1eFiTgPrErPnVE0mrXocbLOpUKkRDjjO9mpE48JULAaPeA&oh=00_AQTTb0VV5ajOhoMczdvbqyg4CLn4_Kgd1M3NMXmUeFd-SQ&oe=6AF03E06",
+      "slug": "kindergeld-auszahlungstermine-januar-2026",
+      "image": "/magazin/wp-content/uploads/2026/kindergeld/januar.jpg",
+      "paymentDays": [
+        8,
+        8,
+        9,
+        13,
+        14,
+        15,
+        16,
+        19,
+        22,
+        23
+      ]
     },
     {
       "month": "Februar",
       "publishedAt": "2026-01-28T06:30:32+0000",
       "postUrl": "https://www.facebook.com/1034334292437869/posts/897046682833298",
-      "imageUrl": "https://scontent-fra5-1.xx.fbcdn.net/v/t39.30808-6/621803019_897046489499984_2641218428859961307_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=2mKSM2ftC64Q7kNvwGf1B3r&_nc_oc=AdonsXhSTHAntVKiEmrwB-J6Efayp3OQFhLT2IfTr7KaDCVeLNEvYaENqeqoXhgS48L-1uUoFsG9ZFsk4XaavriE&_nc_zt=23&_nc_ht=scontent-fra5-1.xx&edm=AKIiGfEEAAAA&_nc_gid=GnTkLED4mpQ7FqHBKK7xZQ&_nc_tpa=Q5bMBQKgzUlfTv1edKUNiGv1Vq-9h1KI2FslSIpFB9Z4nNUsf8OmfKGkYJRrJU3-4TAN-z_DzPf_ksdHyA&oh=00_AQT_VvFMSDif8uM6usgFHyBI9swCc-EPfhD01FfDMUle0Q&oe=6AEFF7CE"
+      "imageUrl": "https://scontent-fra5-1.xx.fbcdn.net/v/t39.30808-6/621803019_897046489499984_2641218428859961307_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=2mKSM2ftC64Q7kNvwGf1B3r&_nc_oc=AdonsXhSTHAntVKiEmrwB-J6Efayp3OQFhLT2IfTr7KaDCVeLNEvYaENqeqoXhgS48L-1uUoFsG9ZFsk4XaavriE&_nc_zt=23&_nc_ht=scontent-fra5-1.xx&edm=AKIiGfEEAAAA&_nc_gid=mC67nw3pXaASu9sWFkyitw&_nc_tpa=Q5bMBQIeUGfR1MqYhnO0X7aowvxBbSVy9fToG0gndz1IO3YZZEMpnxhsuB5nU54YfOnLomZUJtsZsK51WQ&oh=00_AQRqR6g4t7zEy0mbuJfuER4fofq76AlmyOQ5TDkHs-h3vg&oe=6AF0300E",
+      "slug": "kindergeld-auszahlungstermine-februar-2026",
+      "image": "/magazin/wp-content/uploads/2026/kindergeld/februar.jpg",
+      "paymentDays": [
+        4,
+        6,
+        10,
+        12,
+        13,
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
     },
     {
       "month": "März",
       "publishedAt": "2026-02-27T08:39:33+0000",
       "postUrl": "https://www.facebook.com/1034334292437869/posts/921935150344451",
-      "imageUrl": "https://scontent-fra3-2.xx.fbcdn.net/v/t39.30808-6/874970751_1128449236359707_680304707944650745_n.avif?stp=dst-jpg_tt6&_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=rR2HXRJRjxsQ7kNvwEl1uhA&_nc_oc=Adr3kSFjcKy_GBWwyeatjZjsX3ZmQEMbCJFwlUDcYL8ZpvlSsejLp4MmJw0uovPR45jnbTah2T1OtTIgbybVtCCJ&_nc_zt=23&_nc_ht=scontent-fra3-2.xx&edm=AKIiGfEEAAAA&_nc_gid=GnTkLED4mpQ7FqHBKK7xZQ&_nc_tpa=Q5bMBQL4cBRCQEhddcsrbuic-GA0YJ2XiOHwaD7ezriyLKinfUQtSgwb1gCRLBhW1uBfC5C6YsB9yuCP1w&oh=00_AQT91S1R6IdYeDQ3B_kKPPHbUWRlAkFfBFC1Dlh4dl6j2Q&oe=6AF001B4"
+      "imageUrl": "https://scontent-fra3-2.xx.fbcdn.net/v/t39.30808-6/874970751_1128449236359707_680304707944650745_n.avif?stp=dst-jpg_tt6&_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=rR2HXRJRjxsQ7kNvwEl1uhA&_nc_oc=Adr3kSFjcKy_GBWwyeatjZjsX3ZmQEMbCJFwlUDcYL8ZpvlSsejLp4MmJw0uovPR45jnbTah2T1OtTIgbybVtCCJ&_nc_zt=23&_nc_ht=scontent-fra3-2.xx&edm=AKIiGfEEAAAA&_nc_gid=mC67nw3pXaASu9sWFkyitw&_nc_tpa=Q5bMBQKQKQuejo2_XNCJZbez8caekQiN7Q56ZBelqDo6knckGODsi9rEJNUsdeF9pXZYUIPrLumF7hSAYQ&oh=00_AQTPGZmD2OKnQrUERBSjmqRlfUtRjOYd0WiwYx0-8uyUrA&oe=6AF039F4",
+      "slug": "kindergeld-auszahlungstermine-maerz-2026",
+      "image": "/magazin/wp-content/uploads/2026/kindergeld/maerz.jpg",
+      "paymentDays": [
+        4,
+        5,
+        6,
+        9,
+        10,
+        11,
+        12,
+        16,
+        17,
+        20
+      ]
     },
     {
       "month": "April",
       "publishedAt": "2026-03-26T11:49:38+0000",
       "postUrl": "https://www.facebook.com/1034334292437869/posts/943175341553765",
-      "imageUrl": "https://scontent-fra3-2.xx.fbcdn.net/v/t39.30808-6/873870994_1128190026385628_1037490798569736928_n.avif?stp=dst-jpg_tt6&_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=fRUU7g8pWjAQ7kNvwHPhJZL&_nc_oc=AdqUS-Mi6-Dn96IowoYbn82yErf2ewknH18VETmT7tEruGVxvtVfcQBKf0UgHqmKLM-fZz8hVjvqxfFP3l27imcQ&_nc_zt=23&_nc_ht=scontent-fra3-2.xx&edm=AKIiGfEEAAAA&_nc_gid=GnTkLED4mpQ7FqHBKK7xZQ&_nc_tpa=Q5bMBQJotLCuQ0eixsIKa6z-PJTO7C--Eh32-GvFHyUhXtdLPHV9PB8GVplatfxztIeg3Ssc1A6JAAaxAw&oh=00_AQRGcudo1keE5xG_Br6hqKhdgLCiqNNfy7tcvhqK8OAD_w&oe=6AF00BC0"
+      "imageUrl": "https://scontent-fra3-2.xx.fbcdn.net/v/t39.30808-6/873870994_1128190026385628_1037490798569736928_n.avif?stp=dst-jpg_tt6&_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=fRUU7g8pWjAQ7kNvwHPhJZL&_nc_oc=AdqUS-Mi6-Dn96IowoYbn82yErf2ewknH18VETmT7tEruGVxvtVfcQBKf0UgHqmKLM-fZz8hVjvqxfFP3l27imcQ&_nc_zt=23&_nc_ht=scontent-fra3-2.xx&edm=AKIiGfEEAAAA&_nc_gid=mC67nw3pXaASu9sWFkyitw&_nc_tpa=Q5bMBQIWFvSXMhdHQY7Q9YiNfQr5FqKq9oQE1zDcXw7lEjTTg6saYpov55MkF9hq0Gy70SBIAYvcSjZkGw&oh=00_AQR4QfW9E7HLoGB4oNc7_WxK2_fA6sapjdWhSUznTDoYKA&oe=6AF04400",
+      "slug": "kindergeld-auszahlungstermine-april-2026",
+      "image": "/magazin/wp-content/uploads/2026/kindergeld/april.jpg",
+      "paymentDays": [
+        8,
+        9,
+        13,
+        14,
+        15,
+        16,
+        17,
+        20,
+        21,
+        23
+      ]
     },
     {
       "month": "Mai",
       "publishedAt": "2026-04-28T06:06:50+0000",
       "postUrl": "https://www.facebook.com/1034334292437869/posts/968865442318088",
-      "imageUrl": "https://scontent-fra5-1.xx.fbcdn.net/v/t39.30808-6/861379385_1127656736438957_1497620086468799449_n.avif?stp=dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=2TVRQwsWpywQ7kNvwFFmwe7&_nc_oc=Ado3Yv5XLJtiiq9fC80LNXRw38r_W5uUeKGF0cNvrCu1iPAXhY0519yXLV-RXuEY267j9xae_iQf-eINjZfiU1mQ&_nc_zt=23&_nc_ht=scontent-fra5-1.xx&edm=AKIiGfEEAAAA&_nc_gid=GnTkLED4mpQ7FqHBKK7xZQ&_nc_tpa=Q5bMBQKfNBxI_bIwuxk97lvUgYPwBSCzVxl5uYEkrL6O5suiOHjEoBrdbzP5UvRLeZ21jGzH3HtQ3rrbMg&oh=00_AQTAPeR241LlSYhz8OPA3PZT4HQ-QsaTOSjwl4Af9xoyfg&oe=6AEFFD17"
+      "imageUrl": "https://scontent-fra5-1.xx.fbcdn.net/v/t39.30808-6/861379385_1127656736438957_1497620086468799449_n.avif?stp=dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=2TVRQwsWpywQ7kNvwFFmwe7&_nc_oc=Ado3Yv5XLJtiiq9fC80LNXRw38r_W5uUeKGF0cNvrCu1iPAXhY0519yXLV-RXuEY267j9xae_iQf-eINjZfiU1mQ&_nc_zt=23&_nc_ht=scontent-fra5-1.xx&edm=AKIiGfEEAAAA&_nc_gid=mC67nw3pXaASu9sWFkyitw&_nc_tpa=Q5bMBQJTF6oVV-qfkKn2GiAQ7dXFVxy6OErYXJDfET4_ap90nZSsXIjMuVnq_54fVKoxYEnV8v30G2nHXg&oh=00_AQSxBVqUgO6xPEUfq7i2UDKoRxFYsGw1LgM9-9QOENPeDA&oe=6AF03557",
+      "slug": "kindergeld-auszahlungstermine-mai-2026",
+      "image": "/magazin/wp-content/uploads/2026/kindergeld/mai.jpg",
+      "paymentDays": [
+        6,
+        7,
+        8,
+        12,
+        13,
+        18,
+        19,
+        20,
+        21,
+        22
+      ]
     },
     {
       "month": "Juni",
       "publishedAt": "2026-05-28T05:07:07+0000",
       "postUrl": "https://www.facebook.com/1034334292437869/posts/993206559883976",
-      "imageUrl": "https://scontent-fra3-2.xx.fbcdn.net/v/t39.30808-6/706396956_993206313217334_3490743817833932633_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=0niujPZ3iCQQ7kNvwG7IOH6&_nc_oc=AdrQs8JWyTm5STS3HGJb5C47vYmhBFgDNfz-GNo5P8PsYevQBolVf-seSfHEJkkrCEA36NCAZSfGNi5vX_8OaYJo&_nc_zt=23&_nc_ht=scontent-fra3-2.xx&edm=AKIiGfEEAAAA&_nc_gid=GnTkLED4mpQ7FqHBKK7xZQ&_nc_tpa=Q5bMBQIpZVv89zIfUSD8Fmos587JakJV-cPFqMlDNFPa4Jjar3d1QQTbByUarmXEjGZJX5RiCOJHTnD43Q&oh=00_AQQeMjXZKrvLHkmD4VM7nMPhD8XbX0ts6-FZn_GmIJpaGg&oe=6AF019B9"
+      "imageUrl": "https://scontent-fra3-2.xx.fbcdn.net/v/t39.30808-6/706396956_993206313217334_3490743817833932633_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=mmh46-kkEuQQ7kNvwHSAV-W&_nc_oc=AdoKuhFA7EEZ6tn1mwijKYWKnN6hBecNIKWkESMiBZU7aVDV-Q8DtcD4U0lHz1x1TK_CpdUInG8974-kmQ9Onsij&_nc_zt=23&_nc_ht=scontent-fra3-2.xx&edm=AKIiGfEEAAAA&_nc_gid=mC67nw3pXaASu9sWFkyitw&_nc_tpa=Q5bMBQI5I29-FHyiT9pdZMT5zKmNDkvHc4Zg-0c7GrQXaF5WuJNJFtcLn-8Tz1x5wi4u1z9hSL7LVYSjog&oh=00_AQRWPNnOo4ayIbx91cB6XmnxNBzB-DzmpF1AOxQxOn2jbw&oe=6AF019B9",
+      "slug": "kindergeld-auszahlungstermine-juni-2026",
+      "image": "/magazin/wp-content/uploads/2026/kindergeld/juni.jpg",
+      "paymentDays": [
+        3,
+        8,
+        9,
+        10,
+        12,
+        15,
+        16,
+        17,
+        18,
+        22
+      ]
     },
     {
       "month": "Juli",
       "publishedAt": "2026-06-27T07:14:47+0000",
       "postUrl": "https://www.facebook.com/1034334292437869/posts/1018564500681515",
-      "imageUrl": "https://scontent-fra5-1.xx.fbcdn.net/v/t39.30808-6/731146891_1018564274014871_7472492591873468101_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=eVA9NmwMhHoQ7kNvwG-ZC0Y&_nc_oc=AdrSqWnZxUnMVI5zS4rrIuKIDZ1XMmQ-huucC8X0fJp54aubo8pHS_j8CArWQIxJMBnWU0RKJQ9jB3Oy2sMCshz0&_nc_zt=23&_nc_ht=scontent-fra5-1.xx&edm=AKIiGfEEAAAA&_nc_gid=GnTkLED4mpQ7FqHBKK7xZQ&_nc_tpa=Q5bMBQKo2VzpqoA_WGA3Kj6_R2SVhk5b1rRXfkHSYHmbMp_eOVyfdv7oTPDAO_7lR2gKKWnpQAJdlp5CSw&oh=00_AQQEuelQVYT45fIF67hf0cGmTMjz-bACRfvvSTEux4HJOw&oe=6AEFF353"
+      "imageUrl": "https://scontent-fra5-1.xx.fbcdn.net/v/t39.30808-6/731146891_1018564274014871_7472492591873468101_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=eVA9NmwMhHoQ7kNvwG-ZC0Y&_nc_oc=AdrSqWnZxUnMVI5zS4rrIuKIDZ1XMmQ-huucC8X0fJp54aubo8pHS_j8CArWQIxJMBnWU0RKJQ9jB3Oy2sMCshz0&_nc_zt=23&_nc_ht=scontent-fra5-1.xx&edm=AKIiGfEEAAAA&_nc_gid=mC67nw3pXaASu9sWFkyitw&_nc_tpa=Q5bMBQIhh7WrtO0-qWmR3NwHwdlV2TGuvSycn4ipqZTwii1fCAOUsP2V4tVq21wTYAf7VtKUTIEVkfxSuA&oh=00_AQR6K0dx0sTJCUB1AqTirgPg5pkmIUFiJu-nKaeR3tYgGA&oe=6AF02B93",
+      "slug": "kindergeld-auszahlungstermine-juli-2026",
+      "image": "/magazin/wp-content/uploads/2026/kindergeld/juli.jpg",
+      "paymentDays": [
+        3,
+        6,
+        7,
+        9,
+        10,
+        13,
+        14,
+        17,
+        20,
+        21
+      ]
     },
     {
       "month": "August",
       "publishedAt": "2026-07-30T05:44:28+0000",
       "postUrl": "https://www.facebook.com/1034334292437869/posts/1045622221309076",
-      "imageUrl": "https://scontent-fra5-1.xx.fbcdn.net/v/t39.30808-6/760677213_1045621891309109_955347461878880577_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=LaJgsdU1dz0Q7kNvwE16a_G&_nc_oc=AdrwiVJVNTQrJjMeI0EUR9XL1vcdii-EKA8maP3Yq4dfkzxkW20rzDnFeQFkcaiS4pJEXAk13c9_0LJmfazU5eQd&_nc_zt=23&_nc_ht=scontent-fra5-1.xx&edm=AKIiGfEEAAAA&_nc_gid=GnTkLED4mpQ7FqHBKK7xZQ&_nc_tpa=Q5bMBQLvk1K_eMJMRbUO6xVU_HHGlyXvYYrMiFmy06BIFcumaHtvHMX51t7te0aHbVOlGQE6uW91gatLEw&oh=00_AQTH_ZJ3f3Z2UEfWCOTyfq2tIiJ1P-PvmS320pEMJcRnIA&oe=6AF0181E"
+      "imageUrl": "https://scontent-fra5-1.xx.fbcdn.net/v/t39.30808-6/760677213_1045621891309109_955347461878880577_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=LaJgsdU1dz0Q7kNvwE16a_G&_nc_oc=AdrwiVJVNTQrJjMeI0EUR9XL1vcdii-EKA8maP3Yq4dfkzxkW20rzDnFeQFkcaiS4pJEXAk13c9_0LJmfazU5eQd&_nc_zt=23&_nc_ht=scontent-fra5-1.xx&edm=AKIiGfEEAAAA&_nc_gid=mC67nw3pXaASu9sWFkyitw&_nc_tpa=Q5bMBQIIVCuIboGQDJna5X4-OtTm-Eie0MpgBT8XH9c1HUCDDV9cKAOkns_tFFKGLd_ujn6VdxF6Jzev5Q&oh=00_AQTSAjVrvDGwj_onZiYbut5qabW5XrMMBm9cmDpSnp4Eeg&oe=6AF0181E",
+      "slug": "kindergeld-auszahlungstermine-august-2026",
+      "image": "/magazin/wp-content/uploads/2026/kindergeld/august.jpg",
+      "paymentDays": [
+        5,
+        6,
+        7,
+        10,
+        12,
+        14,
+        17,
+        18,
+        19,
+        21
+      ]
     },
     {
       "month": "September",
       "publishedAt": "2026-08-27T06:21:47+0000",
       "postUrl": "https://www.facebook.com/1034334292437869/posts/1069455645592400",
-      "imageUrl": "https://scontent-fra3-2.xx.fbcdn.net/v/t39.30808-6/787368118_1069455465592418_7441425131356726598_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=cCeCUiQBVhcQ7kNvwGy7JNQ&_nc_oc=AdrZKnPEw77e9inPb_We8pk1yFNM0h1xebKrY365MEqDDrLo-Ecbd3nyjCtWuYi7OzDTa54tca2rIfV7bvtRPkvo&_nc_zt=23&_nc_ht=scontent-fra3-2.xx&edm=AKIiGfEEAAAA&_nc_gid=GnTkLED4mpQ7FqHBKK7xZQ&_nc_tpa=Q5bMBQIDmd8vUZQ63GeDr4HpYnWSOKcTRAyOxLmItXF_O0ANeK_DrlCug_odDNmEE1pnhyN4z8hBCrPHPQ&oh=00_AQRuaFLd-MTrfcs-euvMJtImUgr_PZ2uUeD-HV3Av2VmXg&oe=6AF00F5E"
+      "imageUrl": "https://scontent-fra3-2.xx.fbcdn.net/v/t39.30808-6/787368118_1069455465592418_7441425131356726598_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=cCeCUiQBVhcQ7kNvwGy7JNQ&_nc_oc=AdrZKnPEw77e9inPb_We8pk1yFNM0h1xebKrY365MEqDDrLo-Ecbd3nyjCtWuYi7OzDTa54tca2rIfV7bvtRPkvo&_nc_zt=23&_nc_ht=scontent-fra3-2.xx&edm=AKIiGfEEAAAA&_nc_gid=mC67nw3pXaASu9sWFkyitw&_nc_tpa=Q5bMBQKKx7E5swzVr2V7cKneAqGLSqkZpdxGTrfkIQ-ZhWGERfOO6J6OowVXXF2QrWc4MLs-8HRNZdzBAQ&oh=00_AQTyj_3ZzccrnMEWGhJ24pHWZd1OfcJPUcCMZdxaJr0eiw&oe=6AF00F5E",
+      "slug": "kindergeld-auszahlungstermine-september-2026",
+      "image": "/magazin/wp-content/uploads/2026/kindergeld/september.jpg",
+      "paymentDays": [
+        3,
+        7,
+        8,
+        10,
+        11,
+        15,
+        16,
+        17,
+        18,
+        21
+      ]
     },
     {
       "month": "Oktober",
       "publishedAt": "2026-09-29T05:45:00+0000",
       "postUrl": "https://www.facebook.com/1034334292437869/posts/1097766859427945",
-      "imageUrl": "https://scontent-fra3-2.xx.fbcdn.net/v/t39.30808-6/830613345_1097766602761304_7200127939684007577_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=aHpJk3OmINUQ7kNvwGBtr_r&_nc_oc=AdoqMhq4iXHdtkf5Niv4-6g2VixsbOD2TA4riVi5zTi_Cp77QZUeMBtBFlPyKNPDIGmXEzF0TYPMW0WI1D1UGVLW&_nc_zt=23&_nc_ht=scontent-fra3-2.xx&edm=AKIiGfEEAAAA&_nc_gid=GnTkLED4mpQ7FqHBKK7xZQ&_nc_tpa=Q5bMBQIQXiJCy0Hu6U4A0CuMEqV-fR5jZxRhJtJ6D4OHq_uTzZlIo3Xvtwe03h7Kh_dPNkVrBHQW3FB1Pw&oh=00_AQRNqrIr9U66cB7Fwg7mNqai8CNrK1DqZ8A-kInhv50GLg&oe=6AF015EF"
+      "imageUrl": "https://scontent-fra3-2.xx.fbcdn.net/v/t39.30808-6/830613345_1097766602761304_7200127939684007577_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=BoscqnfzjE0Q7kNvwGgkNTa&_nc_oc=AdruY3KOcogX5E2uRHNwEk3NyyKhZNRjK5_mF4Fapd1UBraNHJK1ELTkgwx1d1PPs8OnxmQQ6cAEhtxwmhNJwFMk&_nc_zt=23&_nc_ht=scontent-fra3-2.xx&edm=AKIiGfEEAAAA&_nc_gid=mC67nw3pXaASu9sWFkyitw&_nc_tpa=Q5bMBQJAzqjOTiuzsLgvi9r98BxLYRaRxd9hTgJKNeLCp-eGuQlwRDSXHL9OqTWLUZUcOekgiNO4PIv1cw&oh=00_AQTs1J7xRBqiEfC5P-6jp9jm-P63yxsZJTHHgs6fMFo2PA&oe=6AF015EF",
+      "slug": "kindergeld-auszahlungstermine-oktober-2026",
+      "image": "/magazin/wp-content/uploads/2026/kindergeld/oktober.jpg",
+      "paymentDays": [
+        5,
+        6,
+        8,
+        9,
+        12,
+        13,
+        15,
+        16,
+        19,
+        20
+      ]
     },
     {
       "month": "November",
       "publishedAt": "2026-10-22T06:43:12+0000",
       "postUrl": "https://www.facebook.com/1034334292437869/posts/1119371947267436",
-      "imageUrl": "https://scontent-fra3-2.xx.fbcdn.net/v/t39.30808-6/855107285_1119371857267445_1296589776894005163_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=9tmEDsFufb8Q7kNvwH9P80C&_nc_oc=AdrulKbVYj2SIKxjdqH0GcUg_ZY9RHYNX13HdWvsggHpB5dwdu_QkwnYjEZ4aJ33q1p92-fCpjPUUZF99u3WCVGG&_nc_zt=23&_nc_ht=scontent-fra3-2.xx&edm=AKIiGfEEAAAA&_nc_gid=GnTkLED4mpQ7FqHBKK7xZQ&_nc_tpa=Q5bMBQKNblFMVk0iegHTpw6kA8jG4VAMUTsNeSYHs7CHaYD_cazCgAUf8S5-AuzP7O6pyed55OmqAALKNQ&oh=00_AQR9vxhBQiuyansbdoJL1tlP7y_14d7mnMWxRQmZNWZ_Ig&oe=6AF00481"
+      "imageUrl": "https://scontent-fra3-2.xx.fbcdn.net/v/t39.30808-6/855107285_1119371857267445_1296589776894005163_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=9tmEDsFufb8Q7kNvwH9P80C&_nc_oc=AdrulKbVYj2SIKxjdqH0GcUg_ZY9RHYNX13HdWvsggHpB5dwdu_QkwnYjEZ4aJ33q1p92-fCpjPUUZF99u3WCVGG&_nc_zt=23&_nc_ht=scontent-fra3-2.xx&edm=AKIiGfEEAAAA&_nc_gid=mC67nw3pXaASu9sWFkyitw&_nc_tpa=Q5bMBQJ0u35Wk9CLDa4rTJAPb6gDQOyFyOi6sD1F5NejC1txsa1gqQ6SWvCnQn8HCSbBm6wmlqASItAgaw&oh=00_AQRH-cmjKqRogIPiHf8BMK0BGBKOknYHCoIM2aPuKKOu8g&oe=6AF03CC1",
+      "slug": "kindergeld-auszahlungstermine-november-2026",
+      "image": "/magazin/wp-content/uploads/2026/kindergeld/november.jpg",
+      "paymentDays": [
+        4,
+        5,
+        6,
+        10,
+        11,
+        12,
+        13,
+        16,
+        17,
+        20
+      ]
     }
   ]
 }

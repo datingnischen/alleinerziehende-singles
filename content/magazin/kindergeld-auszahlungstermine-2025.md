@@ -70,6 +70,7 @@ Achte darauf, die Auszahlungstermine im Kalender einzutragen. Falls sich deine B
 
 **Hier findest du die Auszahlungstermine für**
 
+- [Kindergeld Auszahlungstermine 2026](/magazin/kindergeld-auszahlungstermine-2026/)
 - [Kindergeld Auszahlungstermine 2025](/magazin/kindergeld-auszahlungstermine-2025/)
 - [Kindergeld Auszahlungstermine 2024](/magazin/kindergeld-auszahlungstermine-2024/)
 - [Kindergeld Auszahlungstermine 2023](/magazin/kindergeld-auszahlungstermine-2023/)

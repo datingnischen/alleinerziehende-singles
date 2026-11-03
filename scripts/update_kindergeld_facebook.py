@@ -4,6 +4,13 @@
 Schreibt je Jahr data/kindergeld-facebook-<Jahr>.json (Jahresübersicht /magazin/kindergeld-auszahlungstermine-<Jahr>/).
 Ohne --year: laufendes und folgendes Jahr (der Januar-Post erscheint Ende Dezember). Ein Jahr ohne Posts wird nicht angelegt.
 
+Je Monat:
+- Tabellenbild nach public/magazin/wp-content/uploads/<Jahr>/kindergeld/<monat>.jpg (fbcdn-Links laufen ab).
+- Zahltage je Endziffer 0–9 ("paymentDays") liest ein Mensch oder Agent vom Bild ab und übergibt sie mit
+  --days Juli=3,6,7,9,10,13,14,17,20,21. Bereits erfasste Zahltage bleiben bei jedem Lauf erhalten.
+- Sobald Zahltage vorliegen, entsteht content/magazin/kindergeld-auszahlungstermine-<monat>-<Jahr>.md
+  (gleicher Aufbau wie die Monatsbeiträge bis 2025). Ohne Zahltage verlinkt die Jahresübersicht auf den Facebook-Post.
+
 Token: FACEBOOK_PAGES_SYSTEM_TOKEN (Systemnutzer, läuft nicht ab) aus der Umgebung, der Windows-User-Variable
 oder .env.local. Der Seiten-Token wird daraus per /me/accounts geholt. Tokens nie ausgeben.
 """
@@ -15,11 +22,13 @@ import subprocess
 import sys
 import urllib.parse
 import urllib.request
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
+CONTENT_DIR = ROOT / "content" / "magazin"
+UPLOADS_DIR = ROOT / "public" / "magazin" / "wp-content" / "uploads"
 GRAPH = "https://graph.facebook.com/v23.0"
 PAGE_NAME = "Wir wollen mehr Kindergeld"
 PAGE_LINK = "https://www.facebook.com/wirwollenmehrkindergeld/"
@@ -39,8 +48,13 @@ MONTH_ORDER = {
     "November": 11,
     "Dezember": 12,
 }
+WEEKDAYS = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
 # Ohne "Kindergeld" davor: der November-2026-Post hieß "… heute schon die Auszahlungstermine für November 2026"
 POST_PATTERN = re.compile(r"Auszahlungstermine für ([A-Za-zÄÖÜäöüß]+) (\d{4})", re.I)
+
+
+def month_slug(month: str) -> str:
+    return month.lower().replace("ä", "ae").replace("ö", "oe").replace("ü", "ue")
 
 
 def load_system_token() -> str:
@@ -111,6 +125,97 @@ def extract_months(posts, year: int):
     return [items[name] for name in sorted(items, key=lambda key: MONTH_ORDER[key])]
 
 
+def parse_days_args(values):
+    """--days Juli=3,6,7,… → {"Juli": [3, 6, 7, …]} (Zahltag je Endziffer 0–9)."""
+    result = {}
+    for value in values or []:
+        month, _, days = value.partition("=")
+        month = month.strip().capitalize()
+        if month not in MONTH_ORDER:
+            raise RuntimeError(f"--days: unbekannter Monat '{month}'")
+        parsed = [int(day) for day in days.split(",") if day.strip()]
+        if len(parsed) != 10 or parsed != sorted(parsed):
+            raise RuntimeError(f"--days {month}: genau 10 aufsteigende Tage (Endziffer 0–9) erwartet")
+        result[month] = parsed
+    return result
+
+
+def validate_days(year: int, month: str, days):
+    for day in days:
+        weekday = date(year, MONTH_ORDER[month], day).weekday()
+        if weekday > 4:
+            raise RuntimeError(f"{month} {year}: Zahltag {day}. fällt auf {WEEKDAYS[weekday]} – bitte Bild prüfen")
+
+
+def save_image(item, year: int) -> str:
+    relative = f"/magazin/wp-content/uploads/{year}/kindergeld/{month_slug(item['month'])}.jpg"
+    target = ROOT / "public" / relative.lstrip("/")
+    if not target.exists() and item.get("imageUrl"):
+        target.parent.mkdir(parents=True, exist_ok=True)
+        with urllib.request.urlopen(item["imageUrl"], timeout=30) as response:
+            target.write_bytes(response.read())
+    return relative if target.exists() else ""
+
+
+def iso_local(value: str) -> str:
+    return datetime.strptime(value, "%Y-%m-%dT%H:%M:%S%z").strftime("%Y-%m-%dT%H:%M:%S")
+
+
+def render_month_markdown(item, year: int) -> str:
+    month = item["month"]
+    number = MONTH_ORDER[month]
+    days = item["paymentDays"]
+    example = date(year, number, days[2]).strftime("%d.%m.%Y")
+    title = f"Kindergeld Auszahlungstermine {month} {year}"
+    description = (
+        f"Kindergeld im {month} {year}: alle Auszahlungstermine nach der Endziffer der Kindergeldnummer, "
+        f"von 0 bis 9 übersichtlich mit Datum und Wochentag."
+    )
+    excerpt = (
+        f"Die Auszahlungstermine für das Kindergeld im {month} {year} richten sich nach der Endziffer der "
+        "Kindergeldnummer. Die Kindergeldnummer findet man auf dem Kontoauszug oder auf dem Schreiben der Familienkasse."
+    )
+    rows = "\n".join(
+        f"| {digit} | {WEEKDAYS[date(year, number, day).weekday()]}, {date(year, number, day).strftime('%d.%m.%Y')} |"
+        for digit, day in enumerate(days)
+    )
+    published = iso_local(item["publishedAt"])
+    lines = [
+        "---",
+        f'title: "{title}"',
+        f'seoTitle: "{title}"',
+        f'description: "{description}"',
+        'kind: "post"',
+        f"wpId: {year * 100 + number}",
+        f'published: "{published}"',
+        f'updated: "{published}"',
+        'author: "redaktion"',
+        'categories: ["kindergeld"]',
+        f'excerpt: "{excerpt}"',
+        f'image: "{item["image"]}"',
+        f'imageAlt: "Kalender {month} {year} mit den Kindergeld-Zahltagen, farbig markiert je Endziffer der Kindergeldnummer"',
+        "---",
+        "",
+        f"Die Auszahlungstermine für das Kindergeld im {month} {year} richten sich nach der Endziffer der Kindergeldnummer.  ",
+        "Die Kindergeldnummer findet man auf dem Kontoauszug oder auf dem Schreiben der Familienkasse.  ",
+        f"**Beispiel**: Kindergeldnummer 129FK12476**2** ist die Auszahlung am **{example}**  ",
+        "Hier muss man nur die Farbe zuordnen. Weitere Informationen zu staatlichen Leistungen für Eltern findest du im "
+        "Beitrag [Finanzielle Hilfe nach der Trennung](/magazin/finanzielle-hilfe/).",
+        "",
+        f"## Alle Termine im {month} {year} nach Endziffer",
+        "",
+        "| Endziffer | Auszahlung |",
+        "| --- | --- |",
+        rows,
+        "",
+        f"Die Termine stammen aus dem Kalender der Facebook-Seite „{PAGE_NAME}“.",
+        "",
+        f"Alle Monate im Überblick: [Kindergeld Auszahlungstermine {year}](/magazin/kindergeld-auszahlungstermine-{year}/)",
+        "",
+    ]
+    return "\n".join(lines)
+
+
 def build_payload(months, year: int):
     updated_at = max(item["publishedAt"] for item in months) if months else datetime.now(timezone.utc).isoformat()
     return {
@@ -127,9 +232,13 @@ def build_payload(months, year: int):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--year", type=int, action="append", help="Jahr (mehrfach möglich); Standard: laufendes + folgendes")
+    parser.add_argument("--days", action="append", help="Zahltage je Endziffer 0–9, z. B. Juli=3,6,7,9,10,13,14,17,20,21")
     args = parser.parse_args()
     this_year = datetime.now().year
     years = args.year or [this_year, this_year + 1]
+    new_days = parse_days_args(args.days)
+    if new_days and len(years) != 1:
+        raise RuntimeError("--days nur zusammen mit genau einem --year")
 
     posts = fetch_posts(load_page_token(load_system_token()))
     report = []
@@ -142,12 +251,27 @@ def main():
         previous = json.loads(data_file.read_text(encoding="utf-8")) if data_file.exists() else {"months": []}
         if len(months) < len(previous["months"]):
             raise RuntimeError(f"{year}: nur {len(months)} statt bisher {len(previous['months'])} Monate gefunden – nichts überschrieben")
+        previous_by_month = {item["month"]: item for item in previous["months"]}
+
+        for item in months:
+            item["slug"] = f"kindergeld-auszahlungstermine-{month_slug(item['month'])}-{year}"
+            item["image"] = save_image(item, year)
+            days = new_days.get(item["month"]) or previous_by_month.get(item["month"], {}).get("paymentDays")
+            item["paymentDays"] = days
+            if days:
+                validate_days(year, item["month"], days)
+                if not item["image"]:
+                    raise RuntimeError(f"{item['month']} {year}: Bild fehlt")
+                (CONTENT_DIR / f"{item['slug']}.md").write_text(render_month_markdown(item, year), encoding="utf-8")
+
         payload = build_payload(months, year)
         data_file.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         report.append({
             "year": year,
             "months": [item["month"] for item in months],
-            "new": [item["month"] for item in months if item["month"] not in {m["month"] for m in previous["months"]}],
+            "new": [item["month"] for item in months if item["month"] not in previous_by_month],
+            # Diese Monate brauchen noch Zahltage: Bild ansehen und mit --days nachreichen
+            "missingDays": [item["month"] for item in months if not item["paymentDays"]],
             "written": True,
         })
     print(json.dumps(report, ensure_ascii=False))
