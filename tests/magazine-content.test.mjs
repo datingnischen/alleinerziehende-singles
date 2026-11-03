@@ -22,9 +22,9 @@ test("magazine landing: theme worlds, kindergeld service, pregnancy weeks and cl
   assert.match(source, /de \? getMagazinePosts\(4, KINDERGELD_CATEGORY_ID\) : \[\]/);
   assert.match(source, /marketThemes\(market\)/);
   assert.deepEqual(MAGAZINE_THEMES.map((theme) => theme.categoryId), [26, 1, 8]);
-  assert.match(contentSource, /const KINDERGELD_2026 =/);
+  assert.match(contentSource, /const KINDERGELD_FACEBOOK_YEARS =/);
   assert.match(contentSource, /getStaticMagazinePages/);
-  assert.match(contentSource, /kindergeld-facebook-2026\.json/);
+  assert.match(contentSource, /kindergeld-facebook-\$\{year\}\.json/);
   assert.doesNotMatch(source, /Headless-Migration|WordPress|REST-Anbindung|Slice|Taxonomien/);
   assert.doesNotMatch(contentSource, /wp-json|WordPress-REST|wordpressFetch/);
 
@@ -114,7 +114,9 @@ test("exposes the 2026 kindergeld overview as a static magazine page", async () 
   assert.match(page.contentHtml, /Auszahlungstermine 2026 nach Monat/);
   assert.match(page.contentHtml, /Facebook-Beitrag öffnen/);
   assert.match(page.contentHtml, /Januar/);
-  assert.match(page.contentHtml, /August/);
+  assert.match(page.contentHtml, /November/);
+  assert.match(page.contentHtml, /kindergeld-auszahlungstermine-2025\//);
+  assert.doesNotMatch(page.contentHtml, /href="\/magazin\/kindergeld-auszahlungstermine-2026\//);
   assert.match(page.contentHtml, /Wir wollen mehr Kindergeld/);
   assert.ok(getStaticMagazinePages().some((entry) => entry.slug === "kindergeld-auszahlungstermine-2026"));
 });
@@ -124,19 +126,21 @@ test("keeps the automatic 2026 kindergeld data in a dedicated JSON source", asyn
     await readFile(new URL("../data/kindergeld-facebook-2026.json", import.meta.url), "utf8"),
   );
   const scriptSource = await readFile(
-    new URL("../scripts/update_kindergeld_facebook_2026.py", import.meta.url),
+    new URL("../scripts/update_kindergeld_facebook.py", import.meta.url),
     "utf8",
   );
 
   assert.equal(dataSource.slug, "kindergeld-auszahlungstermine-2026");
   assert.equal(dataSource.sourceLabel, "Wir wollen mehr Kindergeld");
   assert.ok(Array.isArray(dataSource.months));
-  assert.ok(dataSource.months.length >= 8);
+  assert.ok(dataSource.months.length >= 11);
   assert.equal(dataSource.months[0].month, "Januar");
-  assert.equal(dataSource.months.at(-1).month, "August");
+  assert.equal(dataSource.months.at(-1).month, "November");
   assert.match(scriptSource, /PAGE_NAME = "Wir wollen mehr Kindergeld"/);
   assert.match(scriptSource, /graph\.facebook\.com/);
-  assert.match(scriptSource, /kindergeld-facebook-2026\.json/);
+  assert.match(scriptSource, /kindergeld-facebook-\{year\}\.json/);
+  assert.match(scriptSource, /FACEBOOK_PAGES_SYSTEM_TOKEN/);
+  assert.doesNotMatch(scriptSource, /google_api|PAGE_ACCESS_TOKEN/);
 });
 
 test("articles show the modified date, fixed pages show none", async () => {

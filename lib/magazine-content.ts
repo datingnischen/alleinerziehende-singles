@@ -56,9 +56,20 @@ export type MagazineCategory = {
   description: string;
 };
 
-const KINDERGELD_2026 = JSON.parse(
-  readFileSync(join(process.cwd(), "data", "kindergeld-facebook-2026.json"), "utf8"),
-) as KindergeldFacebookData;
+/** Jahresübersichten aus data/kindergeld-facebook-<Jahr>.json (scripts/update_kindergeld_facebook.py), neuestes Jahr zuerst. */
+const KINDERGELD_FACEBOOK_YEARS = readdirSync(join(process.cwd(), "data"))
+  .map((file) => /^kindergeld-facebook-(\d{4})\.json$/.exec(file)?.[1])
+  .filter((year): year is string => Boolean(year))
+  .sort((a, b) => Number(b) - Number(a))
+  .map((year) => ({
+    year,
+    data: JSON.parse(
+      readFileSync(join(process.cwd(), "data", `kindergeld-facebook-${year}.json`), "utf8"),
+    ) as KindergeldFacebookData,
+  }));
+
+/** Ältere Jahresübersichten als Markdown-Seiten unter content/magazin. */
+const KINDERGELD_ARCHIVE_YEARS = ["2025", "2024", "2023", "2022"];
 
 function escapeHtml(value: string): string {
   return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -69,49 +80,51 @@ function escapeText(value: string): string {
   return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
-function renderKindergeld2026Content() {
-  const monthCards = KINDERGELD_2026.months.map(
+function renderKindergeldFacebookContent(year: string, data: KindergeldFacebookData) {
+  const monthCards = data.months.map(
     (item) =>
       `<a class="kindergeld-month-card" href="${item.postUrl}" target="_blank" rel="nofollow noopener noreferrer"><span class="kindergeld-month-label">${item.month}</span><span class="kindergeld-month-cta">Facebook-Beitrag öffnen</span></a>`,
   ).join("");
 
-  const firstMonth = KINDERGELD_2026.months.at(0)?.month;
-  const lastMonth = KINDERGELD_2026.months.at(-1)?.month;
-  const sourceLabel = KINDERGELD_2026.sourceLabel;
+  const firstMonth = data.months.at(0)?.month;
+  const lastMonth = data.months.at(-1)?.month;
+  const sourceLabel = data.sourceLabel;
+  const otherYears = [...KINDERGELD_FACEBOOK_YEARS.map((entry) => entry.year), ...KINDERGELD_ARCHIVE_YEARS]
+    .filter((other) => other !== year)
+    .map((other) => `<li><a href="/magazin/kindergeld-auszahlungstermine-${other}/">${other}</a></li>`)
+    .join("");
 
   return [
     '<section class="kindergeld-month-overview">',
     '<div class="kindergeld-section-intro">',
-    '<h2>Auszahlungstermine 2026 nach Monat</h2>',
+    `<h2>Auszahlungstermine ${year} nach Monat</h2>`,
     `<p>Hier findest du die aktuell verfügbaren Monatsübersichten aus den Facebook-Beiträgen von „${sourceLabel}“.</p>`,
     '</div>',
     `<div class="kindergeld-month-grid">${monthCards}</div>`,
     '</section>',
     '<div class="kindergeld-note"><p>Neue Monate ergänzen wir, sobald sie dort veröffentlicht sind. So bleibt die Jahresübersicht früh sichtbar, auch wenn noch nicht alle Termine für das ganze Jahr vorliegen.</p></div>',
-    `<div class="kindergeld-faq-box"><ul><li>Stand heute liegen Einträge von ${firstMonth} bis ${lastMonth} 2026 vor.</li><li>Jeder Monatslink führt direkt zum zugehörigen Facebook-Beitrag.</li><li>Die Quelle ist die Facebook-Seite „${sourceLabel}“.</li></ul></div>`,
-    '<section class="kindergeld-years"><h2>Weitere Jahresübersichten</h2><div class="kindergeld-year-list"><ul><li><a href="/magazin/kindergeld-auszahlungstermine-2025/">2025</a></li><li><a href="/magazin/kindergeld-auszahlungstermine-2024/">2024</a></li><li><a href="/magazin/kindergeld-auszahlungstermine-2023/">2023</a></li><li><a href="/magazin/kindergeld-auszahlungstermine-2022/">2022</a></li></ul></div></section>',
+    `<div class="kindergeld-faq-box"><ul><li>Stand heute liegen Einträge von ${firstMonth} bis ${lastMonth} ${year} vor.</li><li>Jeder Monatslink führt direkt zum zugehörigen Facebook-Beitrag.</li><li>Die Quelle ist die Facebook-Seite „${sourceLabel}“.</li></ul></div>`,
+    `<section class="kindergeld-years"><h2>Weitere Jahresübersichten</h2><div class="kindergeld-year-list"><ul>${otherYears}</ul></div></section>`,
   ].join("");
 }
 
 export function getStaticMagazinePages(): MagazineEntry[] {
-  return [
-    {
-      id: 2026001,
-      slug: KINDERGELD_2026.slug,
-      link: `${SITE_ORIGIN}/magazin/${KINDERGELD_2026.slug}/`,
-      titleHtml: KINDERGELD_2026.title,
-      excerptHtml: `<p>${KINDERGELD_2026.intro}</p>`,
-      contentHtml: renderKindergeld2026Content(),
-      date: KINDERGELD_2026.updatedAt,
-      modified: KINDERGELD_2026.updatedAt,
-      authorName: "Redaktion",
-      authorSlug: "redaktion",
-      featuredImageUrl: KINDERGELD_2026.months.at(-1)?.imageUrl,
-      featuredImageAlt: KINDERGELD_2026.title,
-      categoryIds: [],
-      kind: "page",
-    },
-  ];
+  return KINDERGELD_FACEBOOK_YEARS.map(({ year, data }) => ({
+    id: Number(year) * 1000 + 1,
+    slug: data.slug,
+    link: `${SITE_ORIGIN}/magazin/${data.slug}/`,
+    titleHtml: data.title,
+    excerptHtml: `<p>${data.intro}</p>`,
+    contentHtml: renderKindergeldFacebookContent(year, data),
+    date: data.updatedAt,
+    modified: data.updatedAt,
+    authorName: "Redaktion",
+    authorSlug: "redaktion",
+    featuredImageUrl: data.months.at(-1)?.imageUrl,
+    featuredImageAlt: data.title,
+    categoryIds: [],
+    kind: "page" as const,
+  }));
 }
 
 export function getStaticMagazinePageBySlug(slug: string): MagazineEntry | null {

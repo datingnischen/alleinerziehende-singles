@@ -17,7 +17,7 @@ bleibt auf ICONY.
 | `/partnersuche/`, `/partnersuche/<stadt>/` | `data/icony-import.json` (Hub + 15 Städte) |
 | `/faq/` | `data/icony-import.json`, mit FAQPage-JSON-LD |
 | `/ueber-uns/`, `/ueber-uns/social-media/`, `/ueber-uns/bewertungen/`, `/ueber-uns/kooperationen/` | Über-uns-Bereich; `/social-media/` und `/bewertungen-und-erfahrungen/` leiten per 301 dorthin |
-| `/magazin/`, `/magazin/<slug>/` | Dateien in `content/magazin/<slug>.md` (162 Artikel, 56 Seiten), Kategorien in `data/magazin-kategorien.json`, Kindergeld-2026-Übersicht aus `data/kindergeld-facebook-2026.json` |
+| `/magazin/`, `/magazin/<slug>/` | Dateien in `content/magazin/<slug>.md` (162 Artikel, 56 Seiten), Kategorien in `data/magazin-kategorien.json`, Kindergeld-Jahresübersichten ab 2026 aus `data/kindergeld-facebook-<Jahr>.json` |
 | `/ueber-uns/suche/?q=` | Seitensuche (Magazin aus `content/magazin`, Städte, Partnersuche-Hub, FAQ, Über uns), `noindex, follow`, nicht in der Sitemap. `/suche` gehört ICONY |
 
 **AT/CH** (`alleinerziehende-singles.at` / `.ch`, Host-Routing in `proxy.ts` + `lib/markets.ts`)
@@ -56,7 +56,7 @@ sonst keinen Parameter.
 | `data/magazin-kategorien.json` | Die drei Themenwelten (WordPress-Kategorien 26, 1, 8) | von Hand |
 | `data/weiterleitungen.json` | Alte WordPress-Slugs und Archivpfade → aktuelle Pfade (lesen `next.config.ts`) | von Hand |
 | `public/magazin/wp-content/uploads/…` | Bilder (WebP) und Audio-Zusammenfassungen des Magazins, Pfad wie früher in WordPress | Datei ablegen, im Artikel `![Alt](/magazin/wp-content/uploads/…)` |
-| `data/kindergeld-facebook-2026.json` | Kindergeld-Termine 2026 von der Facebook-Seite | `python scripts/update_kindergeld_facebook_2026.py` |
+| `data/kindergeld-facebook-<Jahr>.json` | Kindergeld-Termine je Jahr von der Facebook-Seite (monatlich per Scheduled Task) | `python scripts/update_kindergeld_facebook.py` |
 | `data/startseiten.json` | Startseitentexte DE/AT/CH (ICONY-CMS, Abschnitt unter den Plattform-Kacheln) | `npm run import:startseiten` bzw. `python scripts/import_startseiten.py [--check]` |
 | `data/country-maps.json` | Landesumrisse DE/AT/CH für die Karten (Natural Earth, gemeinfrei) | `python scripts/build_country_maps.py` |
 
