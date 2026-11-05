@@ -5,6 +5,7 @@ import { getIconyWidgetConfig } from "./icony-widget-config.ts";
 import { getMarketCityPages, getMarketPartnersucheHub } from "./market-icony-import.ts";
 import type { MarketCode } from "./markets.ts";
 import { registrationUrlForContext } from "./registration-links.ts";
+import seoData from "../data/partnersuche-seo.json" with { type: "json" };
 
 /** Eine Stadtseite, egal aus welchem Markt – Grundlage für Stadtseite, Übersicht und Startseite. */
 export type CityPage = {
@@ -15,6 +16,10 @@ export type CityPage = {
   title: string;
   heroTitle: string;
   description: string;
+  /** <title> der Seite (absolut, ohne Domain-Suffix, max. 60 Zeichen) aus data/partnersuche-seo.json. */
+  metaTitle: string;
+  /** Meta-Description aus data/partnersuche-seo.json; der sichtbare Lead bleibt `description`. */
+  metaDescription: string;
   contentHtml: string;
   imageUrl: string | null;
   imageAlt: string;
@@ -28,7 +33,7 @@ export type CityPage = {
 const COUNTRY_CODE: Record<MarketCode, number> = { de: 49, at: 43, ch: 41 };
 const PLATFORM_ID = "alleinerziehende";
 
-function deCities(): CityPage[] {
+function deCities(): Omit<CityPage, "metaTitle" | "metaDescription">[] {
   return importedCityPages.map((page) => {
     const image = leadImage(page.contentHtml);
     const widget = getIconyWidgetConfig(page.slug);
@@ -52,7 +57,7 @@ function deCities(): CityPage[] {
   });
 }
 
-function regionalCities(market: "at" | "ch"): CityPage[] {
+function regionalCities(market: "at" | "ch"): Omit<CityPage, "metaTitle" | "metaDescription">[] {
   return getMarketCityPages(market).map((page) => {
     const zip = page.icony.locationValue.match(/^(\d{4})/)?.[1] ?? "";
     return {
@@ -75,10 +80,23 @@ function regionalCities(market: "at" | "ch"): CityPage[] {
   });
 }
 
+/**
+ * Individuelle <title> und Meta-Descriptions je Stadt (2026-11-04, keine Schablone, in der nur die Stadt wechselt).
+ * Eigene Datei, damit ein Re-Import (scripts/import_icony.py) sie nicht überschreibt; H1 und Lead bleiben aus dem Import.
+ */
+const seoOverrides = seoData as Record<MarketCode, Record<string, { metaTitle: string; description: string }>>;
+
+function withSeo(market: MarketCode, pages: Omit<CityPage, "metaTitle" | "metaDescription">[]): CityPage[] {
+  return pages.map((page) => {
+    const seo = seoOverrides[market]?.[page.slug];
+    return { ...page, metaTitle: seo?.metaTitle ?? page.title, metaDescription: seo?.description ?? page.description };
+  });
+}
+
 const cache = new Map<MarketCode, CityPage[]>();
 
 export function getCityPages(market: MarketCode): CityPage[] {
-  if (!cache.has(market)) cache.set(market, market === "de" ? deCities() : regionalCities(market));
+  if (!cache.has(market)) cache.set(market, withSeo(market, market === "de" ? deCities() : regionalCities(market)));
   return cache.get(market)!;
 }
 

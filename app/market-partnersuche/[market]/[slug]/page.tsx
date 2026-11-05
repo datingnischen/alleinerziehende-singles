@@ -27,8 +27,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!page) return { title: { absolute: "Regionale Partnersuche" }, robots: { index: false, follow: false } };
 
   return {
-    title: { absolute: page.title },
-    description: page.description,
+    title: { absolute: page.metaTitle },
+    description: page.metaDescription,
     alternates: { canonical: publicUrl(market, page.path) },
     robots: { index: true, follow: true },
     openGraph: page.imageUrl ? { images: [{ url: page.imageUrl }] } : undefined,
