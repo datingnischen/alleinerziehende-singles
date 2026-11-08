@@ -1,7 +1,7 @@
 ---
 title: "Kindergeld Auszahlungstermine Dezember 2020"
 seoTitle: "Kindergeld Auszahlungstermine Dezember 2020"
-description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
+description: "Wann wurde das Kindergeld im Dezember 2020 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 2136
 published: "2020-12-01T18:05:31"

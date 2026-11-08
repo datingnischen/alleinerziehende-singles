@@ -1,7 +1,7 @@
 ---
 title: "Kindergeld Auszahlungstermine November 2017"
 seoTitle: "Kindergeld Auszahlungstermine November 2017"
-description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
+description: "Wann wurde das Kindergeld im November 2017 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 1480
 published: "2017-11-01T07:00:07"

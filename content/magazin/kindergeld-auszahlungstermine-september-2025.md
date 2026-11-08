@@ -1,7 +1,7 @@
 ---
 title: "Kindergeld Auszahlungstermine September 2025"
 seoTitle: "Kindergeld Auszahlungstermine September 2025"
-description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer und den Auszahlungsterminen."
+description: "Wann wurde das Kindergeld im September 2025 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 3244
 published: "2025-09-18T14:18:16"

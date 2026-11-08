@@ -1,7 +1,7 @@
 ---
 title: "Kindergeld Auszahlungstermine April 2021"
 seoTitle: "Kindergeld Auszahlungstermine April 2021"
-description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer und den Auszahlungsterminen."
+description: "Wann wurde das Kindergeld im April 2021 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 2503
 published: "2021-04-12T16:55:37"

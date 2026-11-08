@@ -1,7 +1,7 @@
 ---
 title: "Kindergeld Auszahlungstermine Juni 2018"
 seoTitle: "Kindergeld Auszahlungstermine Juni 2018"
-description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
+description: "Wann wurde das Kindergeld im Juni 2018 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 1746
 published: "2018-06-01T06:27:34"

@@ -1,7 +1,7 @@
 ---
 title: "Kindergeld Auszahlungstermine Mai 2025"
 seoTitle: "Kindergeld Auszahlungstermine Mai 2025"
-description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
+description: "Wann wurde das Kindergeld im Mai 2025 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 3194
 published: "2025-05-17T11:00:28"

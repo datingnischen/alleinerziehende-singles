@@ -1,7 +1,7 @@
 ---
 title: "Kindergeld Auszahlungstermine Januar 2023"
 seoTitle: "Kindergeld Auszahlungstermine Januar 2023"
-description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
+description: "Wann wurde das Kindergeld im Januar 2023 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 2998
 published: "2023-01-09T23:08:46"

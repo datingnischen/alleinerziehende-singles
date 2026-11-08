@@ -1,7 +1,7 @@
 ---
 title: "Kindergeld Auszahlungstermine August 2022"
 seoTitle: "Kindergeld Auszahlungstermine August 2022"
-description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
+description: "Wann wurde das Kindergeld im August 2022 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 2955
 published: "2022-08-01T10:12:24"

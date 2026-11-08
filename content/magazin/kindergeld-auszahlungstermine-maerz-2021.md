@@ -1,7 +1,7 @@
 ---
 title: "Kindergeld Auszahlungstermine März 2021"
 seoTitle: "Kindergeld Auszahlungstermine März 2021"
-description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
+description: "Wann wurde das Kindergeld im März 2021 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 2499
 published: "2021-04-12T16:54:17"

@@ -1,7 +1,7 @@
 ---
 title: "Kindergeld Auszahlungstermine Dezember 2021"
 seoTitle: "Kindergeld Auszahlungstermine Dezember 2021"
-description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
+description: "Wann wurde das Kindergeld im Dezember 2021 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 2891
 published: "2021-12-05T20:45:37"

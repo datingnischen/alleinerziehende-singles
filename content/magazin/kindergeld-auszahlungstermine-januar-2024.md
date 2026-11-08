@@ -1,7 +1,7 @@
 ---
 title: "Kindergeld Auszahlungstermine Januar 2024"
 seoTitle: "Kindergeld Auszahlungstermine Januar 2024"
-description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
+description: "Wann wurde das Kindergeld im Januar 2024 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 3076
 published: "2024-01-12T11:50:31"

@@ -1,7 +1,7 @@
 ---
 title: "Kindergeld Auszahlungstermine Juli 2023"
 seoTitle: "Kindergeld Auszahlungstermine Juli 2023"
-description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
+description: "Wann wurde das Kindergeld im Juli 2023 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 3047
 published: "2023-07-14T16:24:13"

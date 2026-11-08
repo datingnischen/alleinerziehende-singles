@@ -1,7 +1,7 @@
 ---
 title: "Kindergeld Auszahlungstermine September 2018"
 seoTitle: "Kindergeld Auszahlungstermine September 2018"
-description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
+description: "Wann wurde das Kindergeld im September 2018 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 1752
 published: "2018-09-01T06:31:14"

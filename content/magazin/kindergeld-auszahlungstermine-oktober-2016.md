@@ -1,7 +1,7 @@
 ---
 title: "Kindergeld Auszahlungstermine Oktober 2016"
 seoTitle: "Kindergeld Auszahlungstermine Oktober 2016"
-description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
+description: "Wann wurde das Kindergeld im Oktober 2016 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 1391
 published: "2016-10-01T07:00:28"

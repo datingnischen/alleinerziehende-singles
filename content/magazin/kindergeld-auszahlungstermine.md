@@ -1,6 +1,6 @@
 ---
 title: "Kindergeld Auszahlungstermine"
-seoTitle: "Kindergeld Auszahlungstermine"
+seoTitle: "Kindergeld: Auszahlungstermine im Jahresüberblick"
 description: "Kindergeld wird nicht für alle Berechtigten am selben Tag überwiesen. Entscheidend ist in der Regel die Endziffer der Kindergeldnummer."
 kind: "page"
 wpId: 2015

@@ -1,7 +1,7 @@
 ---
 title: "Kindergeld Auszahlungstermine Juli 2019"
 seoTitle: "Kindergeld Auszahlungstermine Juli 2019"
-description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
+description: "Wann wurde das Kindergeld im Juli 2019 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 2060
 published: "2019-07-01T19:51:34"

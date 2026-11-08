@@ -1,7 +1,7 @@
 ---
 title: "Kindergeld Auszahlungstermine September 2020"
 seoTitle: "Kindergeld Auszahlungstermine September 2020"
-description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
+description: "Wann wurde das Kindergeld im September 2020 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 2127
 published: "2020-09-01T20:25:00"

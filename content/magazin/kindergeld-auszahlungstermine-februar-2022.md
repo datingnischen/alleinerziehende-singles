@@ -1,7 +1,7 @@
 ---
 title: "Kindergeld Auszahlungstermine Februar 2022"
 seoTitle: "Kindergeld Auszahlungstermine Februar 2022"
-description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
+description: "Wann wurde das Kindergeld im Februar 2022 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 2902
 published: "2022-02-10T21:00:37"

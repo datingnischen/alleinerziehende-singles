@@ -1,7 +1,7 @@
 ---
 title: "Kindergeld Auszahlungstermine 2020"
-seoTitle: "Kindergeld Auszahlungstermine"
-description: "Hier findest du alle Kindergeld Auszahlungstermine zusammengefasst für das Jahr 2020"
+seoTitle: "Kindergeld-Auszahlungstermine 2020"
+description: "Die Auszahlungstermine für das Kindergeld im Jahr 2020 im Überblick. Finde den passenden Monat und prüfe den Termin für deine Endziffer."
 kind: "page"
 wpId: 2211
 published: "2020-10-28T09:43:14"

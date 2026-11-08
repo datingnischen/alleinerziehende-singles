@@ -1,7 +1,7 @@
 ---
 title: "Kindergeld Auszahlungstermine Mai 2018"
 seoTitle: "Kindergeld Auszahlungstermine Mai 2018"
-description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
+description: "Wann wurde das Kindergeld im Mai 2018 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 1744
 published: "2018-05-01T06:26:13"

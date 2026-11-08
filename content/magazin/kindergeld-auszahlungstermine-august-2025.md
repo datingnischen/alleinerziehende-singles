@@ -1,7 +1,7 @@
 ---
 title: "Kindergeld Auszahlungstermine August 2025"
 seoTitle: "Kindergeld Auszahlungstermine August 2025"
-description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
+description: "Wann wurde das Kindergeld im August 2025 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 3232
 published: "2025-08-18T14:13:01"

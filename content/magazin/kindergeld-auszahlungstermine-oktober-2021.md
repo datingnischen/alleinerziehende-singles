@@ -1,7 +1,7 @@
 ---
 title: "Kindergeld Auszahlungstermine Oktober 2021"
 seoTitle: "Kindergeld Auszahlungstermine Oktober 2021"
-description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
+description: "Wann wurde das Kindergeld im Oktober 2021 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 2882
 published: "2021-10-05T20:33:04"

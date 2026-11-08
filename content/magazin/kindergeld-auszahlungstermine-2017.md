@@ -1,6 +1,6 @@
 ---
 title: "Kindergeld Auszahlungstermine 2017"
-seoTitle: "Kindergeld Auszahlungstermine"
+seoTitle: "Kindergeld-Auszahlungstermine 2017"
 description: "Hier findest du alle Kindergeld Auszahlungstermine zusammengefasst für das Jahr 2017"
 kind: "page"
 wpId: 2240

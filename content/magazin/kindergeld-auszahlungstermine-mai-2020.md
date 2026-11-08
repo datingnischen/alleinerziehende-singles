@@ -1,7 +1,7 @@
 ---
 title: "Kindergeld Auszahlungstermine Mai 2020"
 seoTitle: "Kindergeld Auszahlungstermine Mai 2020"
-description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
+description: "Wann wurde das Kindergeld im Mai 2020 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 2109
 published: "2020-05-01T20:17:43"

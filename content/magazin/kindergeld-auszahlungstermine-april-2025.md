@@ -1,7 +1,7 @@
 ---
 title: "Kindergeld Auszahlungstermine April 2025"
 seoTitle: "Kindergeld Auszahlungstermine April 2025"
-description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
+description: "Wann wurde das Kindergeld im April 2025 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 3193
 published: "2025-04-17T11:00:26"

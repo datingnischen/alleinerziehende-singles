@@ -1,7 +1,7 @@
 ---
 title: "Kindergeld Auszahlungstermine November 2022"
 seoTitle: "Kindergeld Auszahlungstermine November 2022"
-description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
+description: "Wann wurde das Kindergeld im November 2022 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 2968
 published: "2022-11-17T14:52:13"
