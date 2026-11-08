@@ -145,7 +145,7 @@ export function MagazineOverview({ market, thema, seite }: MagazineOverviewProps
             <h1>Liebe, Alltag und {de ? "Finanzen" : "Familie"} – <em>ehrlich erzählt</em></h1>
             <p className="ae-lead">
               Hier findest du hilfreiche Artikel für den Alltag als alleinerziehender Single: von Familie und Finanzen bis zu
-              neuen Chancen in Liebe, Freizeit und Beruf.
+              neuen Chancen in Liebe, Freizeit und Beruf. Die Beiträge sind ehrlich erzählt und nah an deinem Familienalltag.
               {market === "ch" ? " Das Magazin erzählt auch davon, wie sich Partnersuche und Familienalltag miteinander verbinden lassen." : null}
             </p>
             <ul className="ae-stats">

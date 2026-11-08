@@ -152,8 +152,8 @@ export function AboutHub({ market = "de", reviews, social }: { market?: MarketCo
             <p className="aei-lead">
               {config.domain} bringt Mütter und Väter {inCountry(market)} zusammen, die ihre besondere Lebenssituation nicht erst
               erklären möchten. {market === "ch"
-                ? "Hier bekommst Du Einblicke in unsere Arbeit. Unabhängige Bewertungen und Informationen zum Team helfen Dir, Dir selbst ein Bild zu machen und Vertrauen aufzubauen."
-                : "Hier findest Du die wichtigsten Hintergründe, offiziellen Kanäle und unabhängigen Bewertungen unserer Plattform."}
+                ? "Hier bekommst Du Einblicke in unsere Arbeit. Unabhängige Bewertungen und Informationen zum Team helfen Dir, Dir selbst ein Bild zu machen, Vertrauen aufzubauen und Verständnis für unsere Arbeit zu gewinnen."
+                : "Hier findest Du die wichtigsten Hintergründe, offiziellen Kanäle und unabhängigen Bewertungen unserer Plattform. Diese Einblicke sollen Vertrauen schaffen und Verständnis für unsere Arbeit wecken."}
             </p>
             <div className="aea-search">
               <AboutSearchForm market={market} />
