@@ -135,6 +135,7 @@ export function MagazineArticle({ market, entry }: { market: MarketCode; entry: 
                 begleitet von Christian M. Haas, unabhängiger Datingexperte.
               </p>
               <MarketLink market={market} path="/ueber-uns/">Mehr über uns <ArrowIcon /></MarketLink>
+              <p><a href="https://datingnischen.de/christian/">Zur Vita von Christian M. Haas</a></p>
             </div>
           </aside>
         </article>
