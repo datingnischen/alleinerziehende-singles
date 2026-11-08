@@ -146,6 +146,7 @@ export function MagazineOverview({ market, thema, seite }: MagazineOverviewProps
             <p className="ae-lead">
               Hier findest du hilfreiche Artikel für den Alltag als alleinerziehender Single: von Familie und Finanzen bis zu
               neuen Chancen in Liebe, Freizeit und Beruf.
+              {market === "ch" ? " Das Magazin erzählt auch davon, wie sich Partnersuche und Familienalltag miteinander verbinden lassen." : null}
             </p>
             <ul className="ae-stats">
               <li><strong>{themes.length}</strong> Themenwelten</li>
