@@ -33,8 +33,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!isAboutSlug(slug)) return {};
   const config = getMarket(market);
 
-  // Bewertungen und Social Media sind ICONY-Seiten der DE-Domain, Kooperationen gelten projektweit:
-  // kanonisch bleibt die DE-Adresse, die Landesdomain zeigt denselben Inhalt mit eigener Navigation.
+  // Bewertungen, Social Media und Kooperationen stehen in der Landes-Sitemap: kanonisch ist die eigene
+  // Landesadresse. Eine Canonical auf die .de-Domain wertet Seobility als Fehler (Christian 2026-11-08: „die MÜSSEN weg“).
   const imported = slug === "social-media" ? getImportedRootPageBySlug("social-media") : slug === "bewertungen" ? getImportedRootPageBySlug("bewertungen-und-erfahrungen") : null;
   const title = imported?.title ?? `Kooperationen mit ${config.domain}`;
   const description =
@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: { absolute: title },
     description,
-    alternates: { canonical: publicUrl("de", `/ueber-uns/${slug}/`) },
+    alternates: { canonical: publicUrl(market, `/ueber-uns/${slug}/`) },
     robots: { index: true, follow: true },
   };
 }

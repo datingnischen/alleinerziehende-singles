@@ -283,8 +283,9 @@ test("market magazine, FAQ and about routes exist with market shells and the agr
   assert.match(article, /permanentRedirect\(publicUrl\("de", `\/magazin\/\$\{slug\}\/`\)\)/);
   assert.doesNotMatch(article, /<MagazineArticle/);
   assert.doesNotMatch(article, /canonical/);
-  // Die ICONY-Unterseiten von Über uns zeigen auf die DE-Adresse (gleicher Text)
-  assert.match(aboutDetail, /canonical: publicUrl\("de", `\/ueber-uns\/\$\{slug\}\/`\)/);
+  // Die Unterseiten von Über uns sind kanonisch auf der Landesdomain (keine Canonical auf .de, Seobility-Fehler 2026-11-08)
+  assert.match(aboutDetail, /canonical: publicUrl\(market, `\/ueber-uns\/\$\{slug\}\/`\)/);
+  assert.doesNotMatch(aboutDetail, /canonical: publicUrl\("de"/);
   const postCard = await read("../components/magazine/post-card.tsx");
   const articleLink = await read("../components/magazine/article-link.tsx");
   assert.match(postCard, /<ArticleLink/);
