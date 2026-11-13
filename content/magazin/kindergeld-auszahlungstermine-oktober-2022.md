@@ -5,7 +5,7 @@ description: "Eine kurze Orientierung hilft dabei, den Tag der Überweisung des 
 kind: "post"
 wpId: 2965
 published: "2022-11-17T15:50:26"
-updated: "2026-07-08T11:47:23"
+updated: "2026-06-24T11:47:23"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Eine kurze Orientierung hilft dabei, den Tag der Überweisung des Kindergeldes besser einzuordnen. Die Auszahlungstermine für Oktober 2022 lassen sich über die Endziffer der Kindergeldnummer zuordnen."

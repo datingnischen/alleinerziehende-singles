@@ -60,6 +60,8 @@ sonst keinen Parameter.
 | `data/startseiten.json` | Startseitentexte DE/AT/CH (ICONY-CMS, Abschnitt unter den Plattform-Kacheln) | `npm run import:startseiten` bzw. `python scripts/import_startseiten.py [--check]` |
 | `data/country-maps.json` | Landesumrisse DE/AT/CH für die Karten (Natural Earth, gemeinfrei) | `python scripts/build_country_maps.py` |
 
+Zeitstempel (`published`/`updated`): nie runde oder immer gleiche Uhrzeiten, höchstens zwei Beiträge je Erscheinungstag, keine Sammel-Aktualisierung vieler Beiträge an einem Tag. Werte liefert `node scripts/zeitstempel.mjs <slug> [JJJJ-MM-TT] [--update]`; die Prüfsperre steht in `tests/magazine-timestamps.test.mjs` (Kindergeld-Terminbeiträge sind datumsgebunden und ausgenommen).
+
 Der ICONY-Import (`scripts/import_icony.py`, nur Python-Standardbibliothek) liest die Live-Seiten
 und übernimmt Titel, Meta-Description, H1 und Text 1:1. Vor dem Schreiben lohnt ein Vergleich:
 

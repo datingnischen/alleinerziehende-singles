@@ -5,7 +5,7 @@ description: "Die Auszahlungstermine für das Kindergeld im Jahr 2023 im Überbl
 kind: "page"
 wpId: 3001
 published: "2023-01-09T10:13:36"
-updated: "2026-06-22T10:50:35"
+updated: "2026-05-29T10:50:35"
 author: "redaktion"
 excerpt: "Kindergeld ist eine wichtige Unterstützung für Familien in Deutschland."
 ---

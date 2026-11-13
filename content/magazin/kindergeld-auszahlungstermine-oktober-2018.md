@@ -5,7 +5,7 @@ description: "Eine kurze Übersicht hilft dabei, den Auszahlungstermin im Oktobe
 kind: "post"
 wpId: 1755
 published: "2018-10-01T10:31:15"
-updated: "2026-07-08T20:26:49"
+updated: "2026-06-12T20:26:49"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Eine kurze Übersicht hilft dabei, den Auszahlungstermin im Oktober 2018 schneller einzuordnen. In diesem Monat gibt es eine Besonderheit: Die Endziffer 0 und 1 werden gemeinsam am 05.10. ausgezahlt."

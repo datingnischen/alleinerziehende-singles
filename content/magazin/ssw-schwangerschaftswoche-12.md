@@ -5,7 +5,7 @@ description: "Wir erklären dir alles, was du über die 12. Schwangerschaftswoch
 kind: "page"
 wpId: 2350
 published: "2020-12-29T14:33:22"
-updated: "2026-07-14T17:23:19"
+updated: "2026-06-26T17:23:19"
 author: "redaktion"
 excerpt: "In der 12. Schwangerschaftswoche ist die kritische Zeit bereits überstanden. Das Risiko einer Fehlgeburt ist ab jetzt minimal und das größte Projekt, der Aufbau sämtlicher Körperstrukturen des Babys wird nun vollendet."
 ---

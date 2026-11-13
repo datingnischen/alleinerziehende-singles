@@ -5,7 +5,7 @@ description: "Wir erklären dir alles, was du über die 15. Schwangerschaftswoch
 kind: "page"
 wpId: 2360
 published: "2021-01-06T06:32:04"
-updated: "2026-07-14T16:55:44"
+updated: "2026-06-21T16:55:44"
 author: "redaktion"
 excerpt: "Die Schwangerschaft ist vom ersten bis zum letzten Tag eine sehr spannende Zeit. Jede Schwangerschaftswoche ist anders als die vorherige. In der 15."
 ---

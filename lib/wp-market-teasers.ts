@@ -30,9 +30,9 @@ const TEASER_CITIES: Record<MarketTeaserCode, { slug: string; width: number; hei
 };
 
 // Feste Datumswerte: Reihenfolge = Einwohnerzahl (neuester „Beitrag“ zuerst). Bewusst unregelmäßige Uhrzeiten;
-// GMT = Ortszeit Europe/Berlin minus 2 h (Sommerzeit am 20.10.).
-const DATES = ["2026-10-20T16:24:51", "2026-10-20T13:47:08", "2026-10-20T09:52:33"];
-const DATES_GMT = ["2026-10-20T14:24:51", "2026-10-20T11:47:08", "2026-10-20T07:52:33"];
+// Höchstens zwei je Tag; GMT = Ortszeit Europe/Berlin minus 2 h (Sommerzeit im Oktober bis 25.10.).
+const DATES = ["2026-10-20T16:24:51", "2026-10-20T13:47:08", "2026-10-17T19:52:33"];
+const DATES_GMT = ["2026-10-20T14:24:51", "2026-10-20T11:47:08", "2026-10-17T17:52:33"];
 const ID_BASE: Record<MarketTeaserCode, number> = { at: 910_000, ch: 920_000 };
 const MEDIA_ID_OFFSET = 1_000_000;
 

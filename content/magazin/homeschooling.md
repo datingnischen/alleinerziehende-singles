@@ -4,8 +4,8 @@ seoTitle: "Homeschooling"
 description: "Was ist Homescholing? Wie funktioniert es in Deutschland und in anderen Ländern? Was sind Pros und Contras?"
 kind: "post"
 wpId: 2508
-published: "2021-04-12T19:53:19"
-updated: "2025-03-20T13:55:23"
+published: "2021-04-09T13:56:51"
+updated: "2025-03-20T16:14:48"
 author: "redaktion"
 categories: ["singleleben"]
 excerpt: "Homeschooling wird in Deutschland auch Hausunterricht, Domizilunterricht oder Heimunterricht genannt. Diese Art der Bildung sowie Erziehung findet zu Hause statt."

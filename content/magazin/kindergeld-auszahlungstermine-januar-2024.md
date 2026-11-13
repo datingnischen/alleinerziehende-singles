@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im Januar 2024 überwiesen? Hier findest
 kind: "post"
 wpId: 3076
 published: "2024-01-12T18:04:32"
-updated: "2026-07-02T13:05:51"
+updated: "2026-06-25T13:05:51"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."

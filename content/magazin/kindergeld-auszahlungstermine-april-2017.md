@@ -5,7 +5,7 @@ description: "Kindergeld ist eine wichtige finanzielle Unterstützung für Famil
 kind: "post"
 wpId: 1422
 published: "2017-04-01T12:36:12"
-updated: "2026-06-22T16:40:02"
+updated: "2026-06-04T16:40:02"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Kindergeld ist eine wichtige finanzielle Unterstützung für Familien. Die Auszahlung erfolgt zu festen Terminen, die sich nach der Endziffer der Kindergeldnummer richten."

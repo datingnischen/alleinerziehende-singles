@@ -5,7 +5,7 @@ description: "Wie erfolgt die Partnersuche auf www.singlemitkind.at? Wie gut sin
 kind: "post"
 wpId: 2687
 published: "2021-08-12T13:15:01"
-updated: "2026-07-14T17:21:39"
+updated: "2026-07-02T17:21:39"
 author: "redaktion"
 categories: ["singleboersen"]
 excerpt: "In Österreich gibt es nicht nur Hansi Hinterseher und Dj. Ötzi, sondern tausende Singles mit Kind, die einen Partner oder eine Partnerin suchen, um mit ihnen gemeinsam eine Familie zu gründen."

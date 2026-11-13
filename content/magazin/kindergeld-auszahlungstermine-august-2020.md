@@ -5,7 +5,7 @@ description: "Die Kindergeld Auszahlungstermine im August 2020 sind für viele F
 kind: "post"
 wpId: 2122
 published: "2020-08-01T14:34:58"
-updated: "2026-06-24T08:25:03"
+updated: "2026-06-20T08:25:03"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Die Kindergeld Auszahlungstermine im August 2020 sind für viele Familien wichtig, um laufende Ausgaben besser zu planen."

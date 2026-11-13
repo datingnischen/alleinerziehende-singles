@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im Juli 2023 überwiesen? Hier findest d
 kind: "post"
 wpId: 3047
 published: "2023-07-14T07:17:09"
-updated: "2026-07-02T10:45:41"
+updated: "2026-05-29T10:45:41"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Die Auszahlungstermine im Juli 2023 richten sich ebenfalls danach."
