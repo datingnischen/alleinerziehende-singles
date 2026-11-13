@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im November 2022 überwiesen? Hier finde
 kind: "post"
 wpId: 2968
 published: "2022-11-17T14:52:13"
-updated: "2026-05-10T10:00:28"
+updated: "2026-05-10T14:55:27"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Die Kindergeldnummer findet man auf dem Kontoauszug oder auf dem Schreiben der Familienkasse."

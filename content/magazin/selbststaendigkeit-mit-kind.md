@@ -5,7 +5,7 @@ description: "Es ist nicht einfach, sich mit einem Kind selbstständig zu machen
 kind: "post"
 wpId: 2853
 published: "2022-01-16T19:27:41"
-updated: "2026-07-12T04:03:29"
+updated: "2026-07-12T16:09:43"
 author: "redaktion"
 categories: ["singleleben"]
 excerpt: "Es ist schon per se nicht einfach, sich selbstständig zu machen und langfristig Erfolg zu haben."

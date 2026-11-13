@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im September 2018 überwiesen? Hier find
 kind: "post"
 wpId: 1752
 published: "2018-09-01T06:31:14"
-updated: "2026-07-11T10:02:59"
+updated: "2026-07-11T08:38:08"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."

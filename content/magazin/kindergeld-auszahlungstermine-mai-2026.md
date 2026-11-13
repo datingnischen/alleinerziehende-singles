@@ -4,8 +4,8 @@ seoTitle: "Kindergeld Auszahlungstermine Mai 2026"
 description: "Kindergeld im Mai 2026: alle Auszahlungstermine nach der Endziffer der Kindergeldnummer, von 0 bis 9 übersichtlich mit Datum und Wochentag."
 kind: "post"
 wpId: 202605
-published: "2026-04-28T06:06:50"
-updated: "2026-04-28T06:06:50"
+published: "2026-04-28T16:45:29"
+updated: "2026-04-28T16:45:29"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlungstermine für das Kindergeld im Mai 2026 richten sich nach der Endziffer der Kindergeldnummer. Die Kindergeldnummer findet man auf dem Kontoauszug oder auf dem Schreiben der Familienkasse."

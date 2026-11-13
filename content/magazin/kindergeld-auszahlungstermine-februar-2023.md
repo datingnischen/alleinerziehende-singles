@@ -5,7 +5,7 @@ description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der En
 kind: "post"
 wpId: 3007
 published: "2023-02-08T10:01:00"
-updated: "2026-06-28T08:01:51"
+updated: "2026-06-28T11:59:39"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Eine kurze Einordnung: Die Auszahlungstermine sind nach der Endziffer der Kindergeldnummer gestaffelt. Die folgende Übersicht soll helfen, den passenden Termin im Februar 2023 schneller zu finden."

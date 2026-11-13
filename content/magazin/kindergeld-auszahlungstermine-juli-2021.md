@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im Juli 2021 überwiesen? Hier findest d
 kind: "post"
 wpId: 2873
 published: "2021-07-03T20:16:12"
-updated: "2026-07-01T18:04:04"
+updated: "2026-07-01T10:00:20"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."

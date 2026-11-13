@@ -5,7 +5,7 @@ description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der En
 kind: "post"
 wpId: 3196
 published: "2025-07-17T11:09:38"
-updated: "2026-06-26T00:04:00"
+updated: "2026-06-26T20:15:01"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer, maßgeblich sind dabei die Auszahlungstermine im Juli 2025."

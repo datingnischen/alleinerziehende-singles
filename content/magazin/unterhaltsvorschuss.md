@@ -5,7 +5,7 @@ description: "Was ist Unterhaltsvorschuss, wer hat Anspruch und wie beantragen S
 kind: "post"
 wpId: 3220
 published: "2025-12-10T12:19:08"
-updated: "2026-05-25T10:17:40"
+updated: "2026-05-25T22:21:37"
 author: "redaktion"
 categories: ["singleleben"]
 excerpt: "Eine Trennung bedeutet für viele Alleinerziehende nicht nur eine emotionale Umstellung, sondern auch finanzielle Unsicherheit."

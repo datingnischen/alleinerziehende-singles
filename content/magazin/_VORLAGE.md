@@ -8,8 +8,10 @@ seoTitle: "Kurzer SEO-Titel"
 description: "Ein bis zwei Sätze, die den Artikel zusammenfassen und zum Lesen einladen. Zwischen 70 und 160 Zeichen lang."
 # post = Artikel (zeigt "Aktualisiert am …" aus updated), page = feste Seite (ohne Datum)
 kind: "post"
-published: "2026-10-02T09:00:00"
-updated: "2026-10-02T09:00:00"
+# Datum + Uhrzeit (Ortszeit) eintragen: Uhrzeit unregelmäßig wählen (z. B. 14:37:12), nie volle/halbe Stunden,
+# nie dieselbe Zeit wie bei anderen Artikeln und nie in der Zukunft. updated = letzte inhaltliche Änderung.
+published: "JJJJ-MM-TTThh:mm:ss"
+updated: "JJJJ-MM-TTThh:mm:ss"
 author: "redaktion"
 # Themenwelten: singleboersen (Partnersuche), singleleben (Singleleben), kindergeld (Kindergeld) – oder keine
 categories: ["singleleben"]

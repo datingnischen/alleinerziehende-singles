@@ -4,8 +4,8 @@ seoTitle: "Nicht sofort zurückschreiben: Was Funkstille beim Dating …"
 description: "Nicht sofort zurückschreiben ist beim Dating schnell ein Reizthema. Eine Nachricht bleibt unbeantwortet, der Chat wirkt plötzlich kühl, und schon …"
 kind: "post"
 wpId: 3453
-published: "2026-05-13T05:17:46"
-updated: "2026-05-13T13:11:22"
+published: "2026-05-13T18:22:03"
+updated: "2026-05-13T19:21:59"
 author: "redaktion"
 categories: ["singleboersen"]
 excerpt: "Beim Dating mit Kind können verzögerte Antworten viele Gründe haben: Alltag, Erschöpfung, mentale Last oder Unsicherheit. Dieser Ratgeber zeigt, wie Alleinerziehende Funkstille einordnen, Erwartungen klären und respektvoll nachfragen."

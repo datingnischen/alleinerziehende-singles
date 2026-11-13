@@ -5,7 +5,7 @@ description: "Kurze, allgemein verständliche Einleitung, die erklärt, dass Aus
 kind: "post"
 wpId: 2944
 published: "2022-06-30T20:00:36"
-updated: "2026-07-03T04:03:46"
+updated: "2026-07-03T09:39:25"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Kurze, allgemein verständliche Einleitung, die erklärt, dass Auszahlungstermine zur besseren Orientierung nach der Endziffer der Kindergeldnummer geprüft werden können."

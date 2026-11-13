@@ -5,7 +5,7 @@ description: "Der folgende Überblick hilft dir, den Auszahlungstermin für Sept
 kind: "post"
 wpId: 1388
 published: "2016-09-01T07:00:32"
-updated: "2026-07-09T00:03:52"
+updated: "2026-07-09T20:48:55"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der folgende Überblick hilft dir, den Auszahlungstermin für September 2016 schnell einzuordnen. Maßgeblich ist dabei die Endziffer der Kindergeldnummer."

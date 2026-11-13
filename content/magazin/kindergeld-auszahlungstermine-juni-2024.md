@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im Juni 2024 überwiesen? Hier findest d
 kind: "post"
 wpId: 3153
 published: "2024-06-17T10:14:52"
-updated: "2026-05-10T03:00:27"
+updated: "2026-05-10T19:15:56"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Die Kindergeldnummer findet man auf dem Kontoauszug oder auf dem Schreiben der Familienkasse."

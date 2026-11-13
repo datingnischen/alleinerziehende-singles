@@ -5,7 +5,7 @@ description: "Mit dieser kurzen Übersicht findest du schnell den passenden Ausz
 kind: "post"
 wpId: 1413
 published: "2017-01-02T07:00:21"
-updated: "2026-06-29T06:02:08"
+updated: "2026-06-29T11:29:46"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Mit dieser kurzen Übersicht findest du schnell den passenden Auszahlungstag für das Kindergeld anhand der Endziffer der Kindergeldnummer. So lässt sich die Zuordnung im Januar 2017 einfacher nachvollziehen."

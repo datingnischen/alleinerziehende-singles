@@ -5,7 +5,7 @@ description: "Als alleinerziehender Vater haben Sie möglicherweise Schwierigkei
 kind: "post"
 wpId: 2021
 published: "2020-04-09T13:24:19"
-updated: "2026-06-17T18:04:36"
+updated: "2026-06-17T21:51:53"
 author: "redaktion"
 categories: ["singleleben"]
 excerpt: "Allgemeines Als alleinerziehender Vater haben Sie möglicherweise Schwierigkeiten, Ihre vielen Aufgaben zu erfüllen."

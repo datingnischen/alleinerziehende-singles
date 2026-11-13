@@ -5,7 +5,7 @@ description: "Wir erklären dir alles, was du über die 28. Schwangerschaftswoch
 kind: "page"
 wpId: 2436
 published: "2021-02-10T04:07:10"
-updated: "2026-07-16T06:04:30"
+updated: "2026-07-16T11:06:34"
 author: "redaktion"
 excerpt: "Die 28. Schwangerschaftswoche markiert für viele werdende Eltern einen wichtigen Abschnitt: Der Körper der Mutter wird spürbar belasteter, und gleichzeitig macht das Baby weitere Entwicklungsschritte."
 ---

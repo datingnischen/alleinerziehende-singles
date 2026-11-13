@@ -5,7 +5,7 @@ description: "Wir erklären dir alles, was du über die 23. Schwangerschaftswoch
 kind: "page"
 wpId: 2430
 published: "2021-02-03T15:21:18"
-updated: "2026-07-14T04:02:11"
+updated: "2026-07-14T12:28:19"
 author: "redaktion"
 excerpt: "Die 23. Schwangerschaftswoche liegt mitten im zweiten Trimester. Für viele werdende Eltern ist das eine Phase, in der sich die Schwangerschaft schon deutlich bemerkbar macht, der Alltag aber oft noch gut zu bewältigen …"
 ---

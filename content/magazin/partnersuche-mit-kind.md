@@ -5,7 +5,7 @@ description: "Eine Partnersuche mit Kind kann heute kostenlos im Netz stattfinde
 kind: "post"
 wpId: 2929
 published: "2022-04-28T10:30:56"
-updated: "2026-07-11T12:02:12"
+updated: "2026-07-11T14:01:55"
 author: "redaktion"
 categories: ["singleboersen", "singleleben"]
 excerpt: "Eine Partnersuche mit Kind kann heute kostenlos sein und in puncto Vorauswahl im Netz stattfinden. Gerade als alleinerziehende Mama stellen sich dabei oft ganz praktische Fragen: Wie viel Zeit passt in den Alltag?"

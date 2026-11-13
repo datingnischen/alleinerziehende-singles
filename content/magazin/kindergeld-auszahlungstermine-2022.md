@@ -5,7 +5,7 @@ description: "Hier findest du alle Kindergeld Auszahlungstermine zusammengefasst
 kind: "page"
 wpId: 2896
 published: "2022-03-25T20:53:30"
-updated: "2026-06-22T16:02:30"
+updated: "2026-06-22T15:43:39"
 author: "redaktion"
 excerpt: "Hier findest du alle Kindergeld Auszahlungstermine für das Jahr 2022 übersichtlich zusammengestellt. Zusätzlich geben wir Hinweise, wie du die Termine prüfen kannst und welche Punkte bei der Auszahlung zu beachten sind."
 ---

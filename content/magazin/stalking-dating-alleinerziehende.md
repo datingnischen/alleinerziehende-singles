@@ -4,8 +4,8 @@ seoTitle: "Stalking nach dem Date: Warum Alleinerziehende ihre …"
 description: "Ein gutes Date soll neugierig machen, nicht verunsichern. Trotzdem kann es passieren, dass aus einem Kontakt nach dem Kennenlernen ein unangenehmes …"
 kind: "post"
 wpId: 3466
-published: "2026-05-30T05:03:01"
-updated: "2026-05-30T07:11:15"
+published: "2026-05-30T19:32:19"
+updated: "2026-05-30T19:32:19"
 author: "redaktion"
 categories: ["singleboersen"]
 excerpt: "Ein praxisnaher Sicherheitsratgeber für alleinerziehende Singles: Wie sich Privatsphäre, Wohnort, Kinder und Alltagsroutinen beim Dating besser schützen lassen."

@@ -5,7 +5,7 @@ description: "Kann ein Urlaub zu Hause erholsam sein? - Wir sagen: Ja! Aber eini
 kind: "post"
 wpId: 2598
 published: "2021-07-12T11:01:15"
-updated: "2026-07-17T02:04:11"
+updated: "2026-07-17T14:53:57"
 author: "redaktion"
 categories: ["singleleben"]
 excerpt: "Manche lieben es, manche hassen es: Den Urlaub zu Hause zu verbringen. Dabei könnte man Urlaub auf Balkonien machen oder mit den Kindern etwas unternehmen."

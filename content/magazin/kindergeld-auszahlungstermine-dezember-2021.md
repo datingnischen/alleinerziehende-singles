@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im Dezember 2021 überwiesen? Hier finde
 kind: "post"
 wpId: 2891
 published: "2021-12-05T20:45:37"
-updated: "2026-09-24T18:02:05"
+updated: "2026-09-24T21:10:42"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."

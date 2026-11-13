@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im Februar 2022 überwiesen? Hier findes
 kind: "post"
 wpId: 2902
 published: "2022-02-10T21:00:37"
-updated: "2026-06-22T12:02:18"
+updated: "2026-06-22T19:05:52"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Die Kindergeld Auszahlungstermine im Februar 2022 richten sich nach der Endziffer der Kindergeldnummer."

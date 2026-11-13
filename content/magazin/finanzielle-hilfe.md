@@ -5,7 +5,7 @@ description: "Welche finanziellen Hilfen gibt es nach einer Trennung? Überblick
 kind: "post"
 wpId: 3216
 published: "2025-12-18T12:17:54"
-updated: "2026-06-20T08:02:32"
+updated: "2026-06-20T10:41:59"
 author: "redaktion"
 categories: ["singleleben"]
 excerpt: "Eine Trennung verändert den Alltag – organisatorisch, emotional und oft auch finanziell. Plötzlich entstehen doppelte Haushaltskosten, neue Betreuungspläne und Fragen wie: Wer zahlt was? Welche Leistungen stehen mir zu?"

@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im Januar 2023 überwiesen? Hier findest
 kind: "post"
 wpId: 2998
 published: "2023-01-09T23:08:46"
-updated: "2026-06-24T00:03:31"
+updated: "2026-06-24T07:09:17"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Die Kindergeld Auszahlungstermine im Januar 2023 richten sich nach der Endziffer der Kindergeldnummer."

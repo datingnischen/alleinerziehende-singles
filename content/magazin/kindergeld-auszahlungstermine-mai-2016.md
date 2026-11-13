@@ -5,7 +5,7 @@ description: "Die Auszahlungstermine für das Kindergeld im Mai 2016 lassen sich
 kind: "post"
 wpId: 1372
 published: "2016-05-01T14:42:08"
-updated: "2026-07-05T00:01:48"
+updated: "2026-07-05T08:09:55"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlungstermine für das Kindergeld im Mai 2016 lassen sich anhand der Endziffer der Kindergeldnummer einordnen. So kannst du schnell erkennen, an welchem Tag die Überweisung ungefähr eingeplant ist."

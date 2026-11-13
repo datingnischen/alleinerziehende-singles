@@ -5,7 +5,7 @@ description: "Getrennte oder alleinerziehende Eltern stehen vor vielen Herausfor
 kind: "post"
 wpId: 3224
 published: "2025-12-01T12:30:21"
-updated: "2026-06-19T20:04:09"
+updated: "2026-06-19T22:42:24"
 author: "redaktion"
 categories: ["singleleben"]
 excerpt: "Eine Trennung verändert vieles im Leben aller Beteiligten. Der gewohnte Alltag bricht oft abrupt weg und muss Schritt für Schritt neu aufgebaut werden."

@@ -4,8 +4,8 @@ seoTitle: "Getrennt, aber noch zusammenwohnend: Wie Eltern nach der …"
 description: "Getrennt zusammenwohnen als Eltern klingt zunächst widersprüchlich. Die Paarbeziehung ist beendet oder steht kurz davor, doch der Alltag läuft weiter …"
 kind: "post"
 wpId: 3748
-published: "2026-07-06T05:05:26"
-updated: "2026-07-07T06:03:34"
+published: "2026-07-06T08:05:49"
+updated: "2026-07-07T15:15:29"
 author: "redaktion"
 categories: ["singleboersen"]
 excerpt: "Getrennt sein und trotzdem unter einem Dach leben: Für viele Eltern ist das keine freie Entscheidung, sondern eine Übergangslösung. Der Ratgeber zeigt, wie emotionale Grenzen, klare Absprachen und ein kindgerechter Alltag helfen können."

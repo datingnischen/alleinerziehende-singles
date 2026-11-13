@@ -5,7 +5,7 @@ description: "Wir erklären dir alles, was du über die 14. Schwangerschaftswoch
 kind: "page"
 wpId: 2355
 published: "2020-12-31T16:08:35"
-updated: "2026-07-13T04:03:17"
+updated: "2026-07-13T09:52:38"
 author: "redaktion"
 excerpt: "In der 14. Schwangerschaftswoche geschieht einiges im Leben der Mutter und des Babys. Die Schwangerschaftswoche 14 bringt dabei viele Veränderungen mit sich. Das Baby hat jetzt in etwa die Größe eines Apfels."
 ---

@@ -5,7 +5,7 @@ description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der En
 kind: "post"
 wpId: 3056
 published: "2023-10-10T14:52:11"
-updated: "2026-07-05T20:03:32"
+updated: "2026-07-05T07:45:06"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Im Oktober 2023 gilt dafür die folgende Übersicht."

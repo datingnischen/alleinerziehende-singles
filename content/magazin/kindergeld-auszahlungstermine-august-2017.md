@@ -5,7 +5,7 @@ description: "Kindergeld ist eine wichtige finanzielle Unterstützung für Famil
 kind: "post"
 wpId: 1471
 published: "2017-08-01T07:00:03"
-updated: "2026-06-23T20:03:43"
+updated: "2026-06-23T13:40:12"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Kindergeld ist eine wichtige finanzielle Unterstützung für Familien und Alleinerziehende."

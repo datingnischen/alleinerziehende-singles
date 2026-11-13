@@ -4,8 +4,8 @@ seoTitle: "Vom One-Night-Stand zur Familie: Wenn aus lockerem Dating …"
 description: "Es gibt Liebesgeschichten, die nicht mit großen Plänen beginnen. Kein langsames Kennenlernen über Monate, kein sorgfältig sortiertes Bauchgefühl, kein …"
 kind: "post"
 wpId: 3541
-published: "2026-06-12T05:02:57"
-updated: "2026-06-12T07:11:17"
+published: "2026-06-12T08:44:56"
+updated: "2026-06-12T10:29:02"
 author: "redaktion"
 categories: ["singleboersen"]
 excerpt: "Manchmal beginnt etwas unverbindlich und entwickelt sich schneller als erwartet. Gerade für Singles mit Kind oder Familienwunsch braucht es dann Ehrlichkeit, Tempo und klare Absprachen."

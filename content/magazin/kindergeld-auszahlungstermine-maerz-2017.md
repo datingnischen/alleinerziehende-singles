@@ -5,7 +5,7 @@ description: "Die Auszahlungstermine für das Kindergeld werden hier nach der En
 kind: "post"
 wpId: 1420
 published: "2017-03-01T07:00:56"
-updated: "2026-07-03T20:04:06"
+updated: "2026-07-03T19:37:54"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlungstermine für das Kindergeld werden hier nach der Endziffer der Kindergeldnummer geordnet."

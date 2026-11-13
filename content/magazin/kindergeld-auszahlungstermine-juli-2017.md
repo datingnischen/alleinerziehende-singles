@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im Juli 2017 überwiesen? Hier findest d
 kind: "post"
 wpId: 1468
 published: "2017-07-01T07:00:15"
-updated: "2026-07-01T06:02:20"
+updated: "2026-07-01T13:13:21"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Dieser Monatsüberblick hilft dabei, den passenden Auszahlungstermin für Juli 2017 schnell einzuordnen."

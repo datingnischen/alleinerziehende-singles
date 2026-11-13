@@ -5,7 +5,7 @@ description: "Ist das Leben als alleinerziehende Mama nicht schon schwer genug? 
 kind: "post"
 wpId: 1718
 published: "2018-10-03T17:10:36"
-updated: "2026-09-15T22:02:06"
+updated: "2026-09-15T11:00:14"
 author: "redaktion"
 categories: ["singleleben"]
 excerpt: "Ist das Leben als alleinerziehende Mutter oder alleinerziehender Single nicht schon anspruchsvoll und manchmal auch herausfordernd genug? Ohne Zweifel."

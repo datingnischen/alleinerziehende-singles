@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im Dezember 2020 überwiesen? Hier finde
 kind: "post"
 wpId: 2136
 published: "2020-12-01T18:05:31"
-updated: "2026-08-24T16:02:51"
+updated: "2026-08-24T18:39:31"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Diese Endziffer ist entscheidend für den genauen Auszahlungstermin, der sich monatlich ändern kann."

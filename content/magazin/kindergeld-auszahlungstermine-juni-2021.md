@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im Juni 2021 überwiesen? Hier findest d
 kind: "post"
 wpId: 2870
 published: "2021-06-05T20:09:16"
-updated: "2026-06-27T22:02:44"
+updated: "2026-06-27T13:08:35"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Im Juni 2021 gelten dafür die Auszahlungstermine des Kindergeldes besonders."

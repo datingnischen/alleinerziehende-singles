@@ -5,7 +5,7 @@ description: "Als alleinerziehende Papa ist es nicht leicht mit der neuen Liebe.
 kind: "post"
 wpId: 1850
 published: "2018-10-04T09:18:42"
-updated: "2026-06-19T02:02:53"
+updated: "2026-06-19T18:35:58"
 author: "redaktion"
 categories: ["singleleben"]
 excerpt: "Die Suche nach einer neuen Liebe als alleinerziehender Vater bringt besondere Herausforderungen mit sich, aber auch schöne Chancen."

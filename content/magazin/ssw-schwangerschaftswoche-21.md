@@ -5,7 +5,7 @@ description: "Wir erklären dir alles, was du über die 21. Schwangerschaftswoch
 kind: "page"
 wpId: 2389
 published: "2021-01-24T09:05:15"
-updated: "2026-07-15T12:03:47"
+updated: "2026-07-15T09:02:13"
 author: "redaktion"
 excerpt: "In der 21. Schwangerschaftswoche verändert sich vieles weiter spürbar. Körpergefühl, Bauchgröße und die Wahrnehmung des Babys können sich von Woche zu Woche deutlich wandeln."
 ---

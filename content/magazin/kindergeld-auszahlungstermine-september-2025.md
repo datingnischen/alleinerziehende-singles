@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im September 2025 überwiesen? Hier find
 kind: "post"
 wpId: 3244
 published: "2025-09-18T14:18:16"
-updated: "2026-07-08T02:01:54"
+updated: "2026-07-08T12:02:44"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeld es richtet sich nach der Endziffer der Kindergeldnummer und den Auszahlungsterminen. Die Kindergeldnummer findet man auf dem Kontoauszug oder auf dem Schreiben der Familienkasse."

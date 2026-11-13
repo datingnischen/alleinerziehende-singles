@@ -5,7 +5,7 @@ description: "Kurze Einordnung: Dieser Beitrag bietet einen schnellen Überblick
 kind: "post"
 wpId: 2076
 published: "2019-10-01T19:58:17"
-updated: "2026-07-08T04:03:03"
+updated: "2026-07-08T11:12:35"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Kurze Einordnung: Dieser Beitrag bietet einen schnellen Überblick zum Auszahlungstermin für Oktober 2019. Die Zuordnung erfolgt über die Endziffer der Kindergeldnummer."

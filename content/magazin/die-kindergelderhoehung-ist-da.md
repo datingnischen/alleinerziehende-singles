@@ -5,7 +5,7 @@ description: "Die Kindergelderhöhung für das Jahr 2015 ist endlich beschlossen
 kind: "post"
 wpId: 381
 published: "2015-07-13T18:43:08"
-updated: "2026-06-18T02:03:28"
+updated: "2026-06-18T11:02:28"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Die Kindergelderhöhung für das Jahr 2015 ist endlich beschlossen und wirkt sich direkt auf Millionen Familien aus."

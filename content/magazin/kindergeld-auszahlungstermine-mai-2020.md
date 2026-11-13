@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im Mai 2020 überwiesen? Hier findest du
 kind: "post"
 wpId: 2109
 published: "2020-05-01T20:17:43"
-updated: "2026-07-05T12:04:24"
+updated: "2026-07-05T08:51:20"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."

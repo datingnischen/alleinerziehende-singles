@@ -5,7 +5,7 @@ description: "Wir erklären dir alles, was du über die 24. Schwangerschaftswoch
 kind: "page"
 wpId: 2412
 published: "2021-01-26T14:57:59"
-updated: "2026-07-15T20:01:57"
+updated: "2026-07-15T17:20:19"
 author: "redaktion"
 excerpt: "Das Ende des zweiten Trimesters – die 24. Schwangerschaftswoche In der 24. Schwangerschaftswoche verändert sich für viele Schwangere spürbar einiges."
 ---

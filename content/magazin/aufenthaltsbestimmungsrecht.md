@@ -5,7 +5,7 @@ description: "Was regelt Aufenthaltsbestimmungsrecht? Wie kann man alleiniges Au
 kind: "post"
 wpId: 2552
 published: "2021-04-28T20:36:19"
-updated: "2026-06-17T16:05:02"
+updated: "2026-06-17T11:07:47"
 author: "redaktion"
 categories: ["singleleben"]
 excerpt: "Das Aufenthaltsrecht regelt bei getrennt lebenden Eltern, wo das Kind lebt. Das Aufenthaltsrecht ist ein Teilbereich des Sorgerechts."

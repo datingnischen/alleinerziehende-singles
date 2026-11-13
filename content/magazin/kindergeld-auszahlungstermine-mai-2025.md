@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im Mai 2025 überwiesen? Hier findest du
 kind: "post"
 wpId: 3194
 published: "2025-05-17T11:00:28"
-updated: "2026-07-06T04:02:47"
+updated: "2026-07-06T16:53:08"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Im Mai 2025 richtet sich der Auszahlungstermin ebenfalls nach der Endziffer der Kindergeldnummer."

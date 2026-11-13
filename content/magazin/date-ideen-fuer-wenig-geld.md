@@ -5,7 +5,7 @@ description: "Romantische Dates müssen nicht immer teuer sein. Wir haben hier d
 kind: "post"
 wpId: 2698
 published: "2021-08-19T18:23:21"
-updated: "2026-06-19T12:04:14"
+updated: "2026-06-19T14:13:17"
 author: "redaktion"
 categories: ["singleleben"]
 excerpt: "Wenn Gefühle im Spiel sind möchte man gerne so viel Zeit wie möglich gemeinsam verbringen."

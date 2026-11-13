@@ -5,7 +5,7 @@ description: "Das Kindergeld wurde im März 2015 vom Bundeskabinett beschlossen 
 kind: "post"
 wpId: 412
 published: "2015-06-12T16:59:03"
-updated: "2026-09-15T00:03:26"
+updated: "2026-09-15T09:32:54"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Das Kindergeld wurde im März 2015 vom Bundeskabinett beschlossen und rückwirkend zum Januar 2015 um 4 Euro pro Kind erhöht."

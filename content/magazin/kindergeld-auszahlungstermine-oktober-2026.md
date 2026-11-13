@@ -4,8 +4,8 @@ seoTitle: "Kindergeld Auszahlungstermine Oktober 2026"
 description: "Kindergeld im Oktober 2026: alle Auszahlungstermine nach der Endziffer der Kindergeldnummer, von 0 bis 9 übersichtlich mit Datum und Wochentag."
 kind: "post"
 wpId: 202610
-published: "2026-09-29T05:45:00"
-updated: "2026-09-29T05:45:00"
+published: "2026-09-29T20:08:45"
+updated: "2026-09-29T21:07:54"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlungstermine für das Kindergeld im Oktober 2026 richten sich nach der Endziffer der Kindergeldnummer. Die Kindergeldnummer findet man auf dem Kontoauszug oder auf dem Schreiben der Familienkasse."

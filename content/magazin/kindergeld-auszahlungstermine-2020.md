@@ -5,7 +5,7 @@ description: "Die Auszahlungstermine für das Kindergeld im Jahr 2020 im Überbl
 kind: "page"
 wpId: 2211
 published: "2020-10-28T09:43:14"
-updated: "2026-06-22T10:03:01"
+updated: "2026-06-22T11:08:48"
 author: "redaktion"
 excerpt: "Dieser Artikel bietet eine Übersicht der Kindergeld Auszahlungstermine für das Jahr 2020 in Deutschland. Zusätzlich findest du praktische Hinweise zur Antragstellung und was du bei der Auszahlung beachten solltest."
 ---

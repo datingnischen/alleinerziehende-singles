@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im Mai 2023 überwiesen? Hier findest du
 kind: "post"
 wpId: 3035
 published: "2023-06-09T10:35:02"
-updated: "2026-05-10T08:00:28"
+updated: "2026-05-10T11:33:20"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Die Kindergeldnummer findet man auf dem Kontoauszug oder auf dem Schreiben der Familienkasse."

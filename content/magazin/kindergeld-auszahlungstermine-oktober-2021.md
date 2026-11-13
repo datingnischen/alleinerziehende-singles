@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im Oktober 2021 überwiesen? Hier findes
 kind: "post"
 wpId: 2882
 published: "2021-10-05T20:33:04"
-updated: "2026-07-10T08:02:55"
+updated: "2026-07-10T08:34:11"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."

@@ -4,8 +4,8 @@ seoTitle: "AirTags, Dating und Stalking: Was Alleinerziehende nach …"
 description: "Bluetooth-Tracker wie AirTags, Tile, Chipolo oder ähnliche kleine Ortungsgeräte sind im Familienalltag oft nützlich."
 kind: "post"
 wpId: 3554
-published: "2026-06-14T05:05:25"
-updated: "2026-06-17T12:03:55"
+published: "2026-06-14T14:18:28"
+updated: "2026-06-17T09:27:52"
 author: "redaktion"
 categories: ["singleboersen"]
 excerpt: "Bluetooth-Tracker wie AirTags helfen beim Wiederfinden von Schlüsseln, Taschen oder Kinderwagen. Nach einer Trennung können sie aber auch zum Sicherheitsrisiko werden. Der Artikel erklärt ruhig und praxisnah, worauf Alleinerziehende achten sollten."

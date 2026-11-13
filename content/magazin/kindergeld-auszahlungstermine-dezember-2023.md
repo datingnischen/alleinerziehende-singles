@@ -5,7 +5,7 @@ description: "Die Auszahlungstermine für das Kindergeld im Dezember 2023 sind a
 kind: "post"
 wpId: 3069
 published: "2023-12-12T11:34:53"
-updated: "2026-06-26T04:02:05"
+updated: "2026-06-26T11:39:27"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlungstermine für das Kindergeld im Dezember 2023 sind abhängig von der Endziffer Ihrer Kindergeldnummer. Diese Termine helfen, den Zeitpunkt der Überweisung besser einzuordnen und den Geldfluss zu planen."

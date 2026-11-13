@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im August 2018 überwiesen? Hier findest
 kind: "post"
 wpId: 1750
 published: "2018-08-01T06:30:02"
-updated: "2026-06-24T22:04:29"
+updated: "2026-06-24T10:09:08"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Dies ermöglicht Familien, genau zu wissen, wann das Geld auf ihrem Konto eingeht."

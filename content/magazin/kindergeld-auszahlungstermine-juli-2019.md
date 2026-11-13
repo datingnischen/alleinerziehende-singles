@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im Juli 2019 überwiesen? Hier findest d
 kind: "post"
 wpId: 2060
 published: "2019-07-01T19:51:34"
-updated: "2026-07-01T12:03:17"
+updated: "2026-07-01T20:26:33"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."

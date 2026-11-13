@@ -5,7 +5,7 @@ description: "Weiß du nicht, wie du deine Kinder in den Ferien beschäftigen ka
 kind: "post"
 wpId: 2582
 published: "2021-06-09T12:28:51"
-updated: "2026-06-20T00:02:42"
+updated: "2026-06-20T14:54:54"
 author: "redaktion"
 categories: ["singleleben"]
 excerpt: "Ferienzeit ist Urlaubszeit. Mit Kindern ist dies eine ganz besondere Zeit."

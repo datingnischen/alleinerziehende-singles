@@ -5,7 +5,7 @@ description: "In diesem Beitrag findest du eine kurze Orientierung zu den Kinder
 kind: "post"
 wpId: 1748
 published: "2018-07-01T06:28:49"
-updated: "2026-07-02T12:04:13"
+updated: "2026-07-02T22:04:08"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "In diesem Beitrag findest du eine kurze Orientierung zu den Kindergeld-Auszahlungsterminen im Juli 2018. Die Zuordnung erfolgt über die Endziffer der Kindergeldnummer, sodass sich der Termin leichter einordnen lässt."

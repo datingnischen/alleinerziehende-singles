@@ -5,7 +5,7 @@ description: "Wir erklären dir alles, was du über die 33. Schwangerschaftswoch
 kind: "page"
 wpId: 2454
 published: "2021-03-03T15:18:09"
-updated: "2026-07-16T22:04:31"
+updated: "2026-07-16T22:37:42"
 author: "redaktion"
 excerpt: "Die Schwangerschaftswoche 33 fällt in das dritte Drittel einer Schwangerschaft und markiert demnach das letzte Schwangerschaftsdrittel bzw. Trimeneon."
 ---

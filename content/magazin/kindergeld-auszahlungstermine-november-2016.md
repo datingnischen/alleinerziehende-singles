@@ -5,7 +5,7 @@ description: "Die Auszahlungstermine für das Kindergeld folgen einer festen Log
 kind: "post"
 wpId: 1396
 published: "2016-11-01T07:00:49"
-updated: "2026-07-08T06:03:05"
+updated: "2026-07-08T12:48:40"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlungstermine für das Kindergeld folgen einer festen Logik. Für den schnellen Überblick hilft vor allem die Endziffer der Kindergeldnummer, denn danach richtet sich der Tag der Überweisung."

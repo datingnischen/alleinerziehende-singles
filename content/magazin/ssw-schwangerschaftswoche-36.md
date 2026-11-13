@@ -5,7 +5,7 @@ description: "Wir erklären dir alles, was du über die 36. Schwangerschaftswoch
 kind: "page"
 wpId: 2488
 published: "2021-03-17T17:35:23"
-updated: "2026-07-15T12:02:06"
+updated: "2026-07-15T19:49:25"
 author: "redaktion"
 excerpt: "In der 36. SSW reift die Lunge vollständig aus und ist komplett funktionsfähig. Aktuell wiegt das Baby mehr als 2,2 kg. Es wird in den nächsten Wochen aber nochmal ordentlich zulegen."
 ---

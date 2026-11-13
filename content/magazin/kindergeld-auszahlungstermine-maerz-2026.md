@@ -4,8 +4,8 @@ seoTitle: "Kindergeld Auszahlungstermine März 2026"
 description: "Kindergeld im März 2026: alle Auszahlungstermine nach der Endziffer der Kindergeldnummer, von 0 bis 9 übersichtlich mit Datum und Wochentag."
 kind: "post"
 wpId: 202603
-published: "2026-02-27T08:39:33"
-updated: "2026-02-27T08:39:33"
+published: "2026-02-27T21:38:53"
+updated: "2026-02-27T21:38:53"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlungstermine für das Kindergeld im März 2026 richten sich nach der Endziffer der Kindergeldnummer. Die Kindergeldnummer findet man auf dem Kontoauszug oder auf dem Schreiben der Familienkasse."

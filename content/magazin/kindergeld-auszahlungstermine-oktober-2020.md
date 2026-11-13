@@ -5,7 +5,7 @@ description: "Die Auszahlungstermine für das Kindergeld werden monatlich nach e
 kind: "post"
 wpId: 2132
 published: "2020-10-01T18:05:05"
-updated: "2026-07-10T04:03:37"
+updated: "2026-07-10T21:36:49"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlungstermine für das Kindergeld werden monatlich nach einem festen Schema veröffentlicht."

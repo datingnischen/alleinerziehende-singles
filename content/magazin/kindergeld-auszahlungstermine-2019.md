@@ -5,7 +5,7 @@ description: "Hier findest du alle Kindergeld Auszahlungstermine zusammengefasst
 kind: "page"
 wpId: 2227
 published: "2020-10-29T18:26:01"
-updated: "2026-06-22T06:04:16"
+updated: "2026-06-22T09:11:32"
 author: "redaktion"
 excerpt: "Kindergeld ist eine regelmäßige staatliche Zahlung an Eltern zur Unterstützung der Kindererziehung."
 ---

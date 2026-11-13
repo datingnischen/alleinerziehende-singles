@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im August 2025 überwiesen? Hier findest
 kind: "post"
 wpId: 3232
 published: "2025-08-18T14:13:01"
-updated: "2026-06-25T00:03:47"
+updated: "2026-06-25T09:16:48"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Die Kindergeld Auszahlungstermine im August 2025 ergeben sich daraus."

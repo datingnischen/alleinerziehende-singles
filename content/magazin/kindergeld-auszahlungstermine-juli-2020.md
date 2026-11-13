@@ -5,7 +5,7 @@ description: "Hier findest du eine schnelle Orientierung zu den Kindergeld-Ausza
 kind: "post"
 wpId: 2118
 published: "2020-07-01T20:21:10"
-updated: "2026-07-01T16:02:00"
+updated: "2026-07-01T21:32:45"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Hier findest du eine schnelle Orientierung zu den Kindergeld-Auszahlungsterminen im Juli 2020. Der Tag der Überweisung richtet sich nach der Endziffer der Kindergeldnummer."

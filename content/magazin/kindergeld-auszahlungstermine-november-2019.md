@@ -4,8 +4,8 @@ seoTitle: "Kindergeld Auszahlungstermine November 2019"
 description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Die Auszahlungstermine November 2019 sind dabei nach"
 kind: "post"
 wpId: 2081
-published: "2019-11-01T20:00:00"
-updated: "2026-07-03T12:02:10"
+published: "2019-11-01T22:49:55"
+updated: "2026-07-03T16:09:59"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Die Auszahlungstermine November 2019 sind dabei nach"

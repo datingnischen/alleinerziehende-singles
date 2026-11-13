@@ -5,7 +5,7 @@ description: "Wir erklären dir alles, was du über die 37. Schwangerschaftswoch
 kind: "page"
 wpId: 2475
 published: "2021-03-15T12:38:20"
-updated: "2026-07-15T14:02:32"
+updated: "2026-07-15T20:12:29"
 author: "redaktion"
 excerpt: "In der 37. Schwangerschaftswoche ist es schon fast geschafft. Das Baby gilt nicht mehr als Frühchen, sondern als termin-gerecht geboren!"
 ---

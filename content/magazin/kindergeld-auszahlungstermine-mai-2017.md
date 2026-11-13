@@ -5,7 +5,7 @@ description: "Dieser Beitrag dient als schnelle Orientierung für den Auszahlung
 kind: "post"
 wpId: 1460
 published: "2017-05-01T07:00:51"
-updated: "2026-07-05T02:04:02"
+updated: "2026-07-05T09:57:40"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Dieser Beitrag dient als schnelle Orientierung für den Auszahlungstermin des Kindergeldes im Mai 2017. Maßgeblich ist dabei die Endziffer der Kindergeldnummer."

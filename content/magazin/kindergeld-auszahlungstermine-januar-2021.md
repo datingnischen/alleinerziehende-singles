@@ -5,7 +5,7 @@ description: "Kurze Einordnung: Dieser Beitrag bietet eine Orientierung zu den A
 kind: "post"
 wpId: 2396
 published: "2021-01-24T09:17:13"
-updated: "2026-06-29T18:04:11"
+updated: "2026-06-29T07:24:47"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Kurze Einordnung: Dieser Beitrag bietet eine Orientierung zu den Auszahlungsterminen des Kindergeldes im Januar 2021. Maßgeblich ist die Endziffer der Kindergeldnummer."

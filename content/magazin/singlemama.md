@@ -5,7 +5,7 @@ description: "Du bist alleinerziehend und willst eine Patchwork-Family? Auf Sing
 kind: "post"
 wpId: 2287
 published: "2020-11-02T08:40:31"
-updated: "2026-07-14T02:03:16"
+updated: "2026-07-14T13:27:41"
 author: "redaktion"
 categories: ["singleleben"]
 excerpt: "Alleinerziehende, darunter Singlemamas, gibt es immer mehr. Alleine in Deutschland leben rund 2,6 Millionen alleinerziehende Elternteile. Etwa 2,4 Millionen Kinder leben ausschließlich mit Mutter oder Vater zusammen."

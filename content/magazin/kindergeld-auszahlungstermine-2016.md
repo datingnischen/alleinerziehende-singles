@@ -5,7 +5,7 @@ description: "Hier findest du alle Kindergeld Auszahlungstermine zusammengefasst
 kind: "page"
 wpId: 2244
 published: "2020-10-29T19:01:25"
-updated: "2026-06-20T02:03:44"
+updated: "2026-06-20T16:35:12"
 author: "redaktion"
 excerpt: "In diesem Artikel findest du eine Übersicht aller Auszahlungstermine für das Kindergeld im Jahr 2016. Zusätzlich geben wir praktische Hinweise, wie du deine Termine im Blick behalten kannst und was du beachten solltest."
 ---

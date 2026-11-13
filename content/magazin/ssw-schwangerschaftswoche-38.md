@@ -5,7 +5,7 @@ description: "Wir erklären dir alles, was du über die 38. Schwangerschaftswoch
 kind: "page"
 wpId: 2466
 published: "2021-03-10T16:39:05"
-updated: "2026-07-17T14:01:59"
+updated: "2026-07-17T08:38:02"
 author: "redaktion"
 excerpt: "38 Wochen bist du schon schwanger – nur noch zwei Wochen bis zum errechneten Geburtstermin. Nicht mehr lange, und du kannst mit deinem Baby kuscheln."
 ---

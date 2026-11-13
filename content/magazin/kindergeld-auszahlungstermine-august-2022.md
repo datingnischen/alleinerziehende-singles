@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im August 2022 überwiesen? Hier findest
 kind: "post"
 wpId: 2955
 published: "2022-08-01T10:12:24"
-updated: "2026-06-25T12:04:19"
+updated: "2026-06-25T19:23:36"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Die Auszahlungstermine für August 2022 richten sich ebenfalls danach."

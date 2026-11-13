@@ -5,7 +5,7 @@ description: "Die Auszahlungstermine dienen als schnelle Orientierung. Der Tag d
 kind: "post"
 wpId: 975
 published: "2016-01-01T17:30:32"
-updated: "2026-06-30T06:03:35"
+updated: "2026-06-30T13:23:59"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlungstermine dienen als schnelle Orientierung. Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."

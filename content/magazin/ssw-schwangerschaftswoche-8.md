@@ -5,7 +5,7 @@ description: "Wir erklären dir alles, was du über die 8. Schwangerschaftswoche
 kind: "page"
 wpId: 2326
 published: "2020-12-15T14:18:18"
-updated: "2026-07-18T08:03:54"
+updated: "2026-07-18T09:59:43"
 author: "redaktion"
 excerpt: "Eine Schwangerschaft ist für wohl fast jede Frau ein einzigartiges und schönes Erlebnis. Doch viele Frauen, gerade die, die ihr erstes Kind erwarten, sind mit der Schwangerschaft bereits etwas überfordert."
 ---

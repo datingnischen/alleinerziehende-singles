@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im Juni 2016 überwiesen? Hier findest d
 kind: "post"
 wpId: 1375
 published: "2016-06-01T07:00:19"
-updated: "2026-07-03T16:02:43"
+updated: "2026-07-03T15:29:04"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."

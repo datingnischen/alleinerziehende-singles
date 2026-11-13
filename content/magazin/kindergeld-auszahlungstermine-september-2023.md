@@ -5,7 +5,7 @@ description: "Kurze Einleitung, die erklärt, dass diese Übersicht dabei hilft,
 kind: "post"
 wpId: 3055
 published: "2023-10-10T14:52:08"
-updated: "2026-07-09T22:02:14"
+updated: "2026-07-09T19:35:56"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Kurze Einleitung, die erklärt, dass diese Übersicht dabei hilft, den Auszahlungstermin für September 2023 anhand der Endziffer schnell einzuordnen."

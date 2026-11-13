@@ -5,7 +5,7 @@ description: "Wir erklären dir alles, was du über die 39. Schwangerschaftswoch
 kind: "page"
 wpId: 2479
 published: "2021-03-16T15:31:02"
-updated: "2026-07-17T16:03:22"
+updated: "2026-07-17T14:03:02"
 author: "redaktion"
 excerpt: "Während der 39. SSW, also der Schwangerschaftswoche 39, ist zu erkennen, dass sich das Längenwachstum des Babys verlangsamt hat, bei vielen ist es zu dem Zeitpunkt auch schon abgeschlossen."
 ---

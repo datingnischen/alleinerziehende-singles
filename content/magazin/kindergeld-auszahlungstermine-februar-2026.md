@@ -4,8 +4,8 @@ seoTitle: "Kindergeld Auszahlungstermine Februar 2026"
 description: "Kindergeld im Februar 2026: alle Auszahlungstermine nach der Endziffer der Kindergeldnummer, von 0 bis 9 übersichtlich mit Datum und Wochentag."
 kind: "post"
 wpId: 202602
-published: "2026-01-28T06:30:32"
-updated: "2026-01-28T06:30:32"
+published: "2026-01-28T17:38:12"
+updated: "2026-01-28T18:52:21"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlungstermine für das Kindergeld im Februar 2026 richten sich nach der Endziffer der Kindergeldnummer. Die Kindergeldnummer findet man auf dem Kontoauszug oder auf dem Schreiben der Familienkasse."

@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im Februar 2018 überwiesen? Hier findes
 kind: "post"
 wpId: 1603
 published: "2018-02-01T07:00:53"
-updated: "2026-06-27T14:04:06"
+updated: "2026-06-27T18:03:02"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Diese kurze Übersicht hilft dabei, den passenden Termin für den Monat schnell einzuordnen."

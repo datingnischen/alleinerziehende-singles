@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im März 2022 überwiesen? Hier findest 
 kind: "post"
 wpId: 2905
 published: "2022-03-25T21:04:48"
-updated: "2026-07-04T10:04:21"
+updated: "2026-07-04T12:56:09"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlungstermine für das Kindergeld richten sich nach der Endziffer der Kindergeldnummer. Damit lässt sich schnell erkennen, an welchem Tag die Überweisung vorgesehen ist."

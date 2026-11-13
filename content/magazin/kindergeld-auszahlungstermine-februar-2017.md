@@ -5,7 +5,7 @@ description: "Kurze Einordnung: In diesem Beitrag wird der Auszahlungstermin üb
 kind: "post"
 wpId: 1416
 published: "2017-02-01T07:00:30"
-updated: "2026-06-27T12:02:07"
+updated: "2026-06-27T15:40:40"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Kurze Einordnung: In diesem Beitrag wird der Auszahlungstermin übersichtlich über die Endziffer der Kindergeldnummer erklärt. So lässt sich das Beispiel leichter mit der eigenen Nummer vergleichen."

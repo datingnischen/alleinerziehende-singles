@@ -5,7 +5,7 @@ description: "Kindergeld wird monatlich von der Familienkasse ausgezahlt. Die ge
 kind: "post"
 wpId: 3155
 published: "2024-08-17T10:21:06"
-updated: "2026-06-24T20:03:45"
+updated: "2026-06-24T17:47:56"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Kindergeld wird monatlich von der Familienkasse ausgezahlt. Die genauen Auszahlungstermine im August 2024 richten sich dabei nach der Endziffer der Kindergeldnummer, die auf Ihrem Schreiben der Familienkasse zu finden …"

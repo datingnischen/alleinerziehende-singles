@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im September 2022 überwiesen? Hier find
 kind: "post"
 wpId: 2960
 published: "2022-11-17T14:45:31"
-updated: "2026-06-07T04:11:20"
+updated: "2026-06-07T20:02:56"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Die Kindergeldnummer findet man auf dem Kontoauszug oder auf dem Schreiben der Familienkasse."

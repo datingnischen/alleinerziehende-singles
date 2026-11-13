@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im Oktober 2016 überwiesen? Hier findes
 kind: "post"
 wpId: 1391
 published: "2016-10-01T07:00:28"
-updated: "2026-07-07T18:02:07"
+updated: "2026-07-07T11:51:31"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Diese kurze Übersicht hilft dabei, den passenden Auszahlungstermin schnell zuzuordnen."

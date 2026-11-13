@@ -5,7 +5,7 @@ description: "Die Auszahlungstermine für das Kindergeld im April 2019 richten s
 kind: "post"
 wpId: 2047
 published: "2019-04-01T20:13:59"
-updated: "2026-06-22T20:03:08"
+updated: "2026-06-22T13:03:02"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlungstermine für das Kindergeld im April 2019 richten sich nach der Endziffer der Kindergeldnummer, die auf dem Kontoauszug oder den Unterlagen der Familienkasse zu finden ist."

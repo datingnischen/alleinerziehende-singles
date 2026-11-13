@@ -5,7 +5,7 @@ description: "Wir erklären dir alles, was du über die 35. Schwangerschaftswoch
 kind: "page"
 wpId: 2460
 published: "2021-03-05T17:04:56"
-updated: "2026-07-15T10:02:07"
+updated: "2026-07-15T16:15:35"
 author: "redaktion"
 excerpt: "Hurra, du bist in der 35. Schwangerschaftswoche und damit ist dein Baby lebensfähig, sollte es jetzt schon zur Welt kommen."
 ---

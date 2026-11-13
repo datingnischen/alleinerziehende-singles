@@ -5,7 +5,7 @@ description: "Dieser Beitrag gibt einen kurzen Überblick über die Auszahlungst
 kind: "post"
 wpId: 1580
 published: "2018-01-01T07:00:49"
-updated: "2026-06-29T08:04:22"
+updated: "2026-06-29T20:58:27"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Dieser Beitrag gibt einen kurzen Überblick über die Auszahlungstermine für das Kindergeld im Januar 2018. Maßgeblich ist dabei die Endziffer der Kindergeldnummer."

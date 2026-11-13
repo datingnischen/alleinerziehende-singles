@@ -5,7 +5,7 @@ description: "Wir erklären dir alles, was du über die 20. Schwangerschaftswoch
 kind: "page"
 wpId: 2383
 published: "2021-01-16T07:48:15"
-updated: "2026-07-15T10:03:30"
+updated: "2026-07-15T18:21:07"
 author: "redaktion"
 excerpt: "Yeah, Halbzeit. Jetzt wird es richtig spannend. Die 20. Schwangerschaftswoche ist der Startschuss für Babys in Ihrer Entwicklung richtig loszulegen."
 ---

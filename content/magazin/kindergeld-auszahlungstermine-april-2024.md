@@ -5,7 +5,7 @@ description: "Kindergeld wird regelmäßig an berechtigte Eltern und Erziehungsb
 kind: "post"
 wpId: 3162
 published: "2024-04-17T10:10:35"
-updated: "2026-06-23T12:02:33"
+updated: "2026-06-23T16:25:54"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Kindergeld wird regelmäßig an berechtigte Eltern und Erziehungsberechtigte ausgezahlt. Die konkreten Auszahlungstermine richten sich nach der Endziffer der Kindergeldnummer."

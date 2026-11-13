@@ -5,7 +5,7 @@ description: "Eine kurze Einordnung hilft bei der Orientierung: Der Tag der Übe
 kind: "post"
 wpId: 3192
 published: "2025-03-17T11:00:24"
-updated: "2026-07-04T20:03:39"
+updated: "2026-07-04T11:02:03"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Eine kurze Einordnung hilft bei der Orientierung: Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."

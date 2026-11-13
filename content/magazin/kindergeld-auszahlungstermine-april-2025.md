@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im April 2025 überwiesen? Hier findest 
 kind: "post"
 wpId: 3193
 published: "2025-04-17T11:00:26"
-updated: "2026-06-24T12:04:30"
+updated: "2026-06-24T07:49:31"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Diese Staffelung ermöglicht eine geregelte und übersichtliche Auszahlung für Empfänger im Verlauf des Monats."

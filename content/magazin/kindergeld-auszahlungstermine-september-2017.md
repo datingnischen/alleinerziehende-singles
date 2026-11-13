@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im September 2017 überwiesen? Hier find
 kind: "post"
 wpId: 1475
 published: "2017-09-01T07:00:27"
-updated: "2026-05-12T11:45:18"
+updated: "2026-05-12T18:19:12"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Die Kindergeldnummer findet man auf dem Kontoauszug oder auf dem Schreiben der Familienkasse."

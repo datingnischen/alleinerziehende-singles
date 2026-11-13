@@ -5,7 +5,7 @@ description: "Kindergeld ist eine wichtige Leistung zur finanziellen Unterstütz
 kind: "post"
 wpId: 2105
 published: "2020-04-01T20:13:21"
-updated: "2026-06-22T22:04:26"
+updated: "2026-06-22T08:42:59"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Kindergeld ist eine wichtige Leistung zur finanziellen Unterstützung von Familien. Der genaue Auszahlungstermin variiert nach der individuellen Kindergeldnummer."

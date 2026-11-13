@@ -5,7 +5,7 @@ description: "Die Auszahlungstermine für das Kindergeld im Dezember 2025 richte
 kind: "post"
 wpId: 3235
 published: "2025-12-05T14:13:30"
-updated: "2026-05-22T21:17:35"
+updated: "2026-05-22T07:42:22"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlungstermine für das Kindergeld im Dezember 2025 richten sich nach der Endziffer der Kindergeldnummer. Die Kindergeldnummer findet man auf dem Kontoauszug oder auf dem Schreiben der Familienkasse."

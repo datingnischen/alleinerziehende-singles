@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im September 2020 überwiesen? Hier find
 kind: "post"
 wpId: 2127
 published: "2020-09-01T20:25:00"
-updated: "2026-07-11T16:03:23"
+updated: "2026-07-11T09:23:52"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."

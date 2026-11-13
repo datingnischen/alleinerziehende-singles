@@ -5,7 +5,7 @@ description: "Wir erklären dir alles, was du über die 9. Schwangerschaftswoche
 kind: "page"
 wpId: 2331
 published: "2020-12-15T14:23:48"
-updated: "2026-07-16T08:03:09"
+updated: "2026-07-16T14:08:16"
 author: "redaktion"
 excerpt: "Mit der 9. Schwangerschaftswoche beginnt der dritte Monat. Nun beginnt die Fetalperiode. Das Baby ist also kein Embryo mehr, sondern ein Fötus."
 ---

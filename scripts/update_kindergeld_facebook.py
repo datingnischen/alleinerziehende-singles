@@ -15,6 +15,7 @@ Token: FACEBOOK_PAGES_SYSTEM_TOKEN (Systemnutzer, läuft nicht ab) aus der Umgeb
 oder .env.local. Der Seiten-Token wird daraus per /me/accounts geholt. Tokens nie ausgeben.
 """
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -22,7 +23,7 @@ import subprocess
 import sys
 import urllib.parse
 import urllib.request
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -157,11 +158,51 @@ def save_image(item, year: int) -> str:
     return relative if target.exists() else ""
 
 
-def iso_local(value: str) -> str:
-    return datetime.strptime(value, "%Y-%m-%dT%H:%M:%S%z").strftime("%Y-%m-%dT%H:%M:%S")
+def berlin_offset_hours(utc: datetime) -> int:
+    """UTC-Offset Europe/Berlin (Sommerzeit: letzter So. März 01:00 UTC bis letzter So. Oktober 01:00 UTC)."""
+    def last_sunday(year: int, month: int) -> date:
+        d = date(year, month + 1, 1) - timedelta(days=1)
+        return d - timedelta(days=(d.weekday() + 1) % 7)
+    start = datetime.combine(last_sunday(utc.year, 3), datetime.min.time()) + timedelta(hours=1)
+    end = datetime.combine(last_sunday(utc.year, 10), datetime.min.time()) + timedelta(hours=1)
+    return 2 if start <= utc.replace(tzinfo=None) < end else 1
 
 
-def render_month_markdown(item, year: int) -> str:
+def natural_publish_time(slug: str, facebook_time: str) -> str:
+    """Ortszeit für published/updated eines neuen Monatsbeitrags.
+
+    Tag = Tag des Facebook-Posts (Europe/Berlin). Uhrzeit deterministisch je Slug, aber unregelmäßig
+    (tagsüber, keine runden Zeiten, nie gleich), damit keine Serie mit immer derselben Uhrzeit entsteht.
+    Nie in der Zukunft: liegt die Zeit noch vor uns, wird sie kurz vor den Lauf gelegt.
+    """
+    utc = datetime.strptime(facebook_time, "%Y-%m-%dT%H:%M:%S%z").astimezone(timezone.utc)
+    local_post = utc.replace(tzinfo=None) + timedelta(hours=berlin_offset_hours(utc))
+    x = int(hashlib.sha256(f"{slug}|date".encode("utf-8")).hexdigest(), 16)
+    hours = [h for h, w in {8: 4, 9: 7, 10: 9, 11: 8, 12: 5, 13: 5, 14: 8, 15: 8, 16: 7, 17: 6,
+                            18: 5, 19: 6, 20: 7, 21: 5}.items() for _ in range(w)]
+    minute, second = (x >> 16) % 60, (x >> 32) % 60 or 7 + (x >> 40) % 50
+    if minute in (0, 30) and second < 10:
+        minute += 3
+    result = datetime(local_post.year, local_post.month, local_post.day, hours[x % len(hours)], minute, second)
+    now_local = datetime.now()
+    if result > now_local:
+        result = now_local - timedelta(minutes=11 + x % 37, seconds=(x >> 8) % 60)
+    return result.strftime("%Y-%m-%dT%H:%M:%S")
+
+
+def existing_times(path: Path):
+    """published/updated eines bereits vorhandenen Monatsbeitrags (bleiben bei jedem Lauf stabil)."""
+    if not path.exists():
+        return None
+    text = path.read_text(encoding="utf-8")
+    published = re.search(r'^published: "([^"]+)"', text, re.M)
+    updated = re.search(r'^updated: "([^"]+)"', text, re.M)
+    if not published:
+        return None
+    return published.group(1), (updated.group(1) if updated else published.group(1))
+
+
+def render_month_markdown(item, year: int, times=None) -> str:
     month = item["month"]
     number = MONTH_ORDER[month]
     days = item["paymentDays"]
@@ -179,7 +220,7 @@ def render_month_markdown(item, year: int) -> str:
         f"| {digit} | {WEEKDAYS[date(year, number, day).weekday()]}, {date(year, number, day).strftime('%d.%m.%Y')} |"
         for digit, day in enumerate(days)
     )
-    published = iso_local(item["publishedAt"])
+    published, updated = times or (natural_publish_time(item["slug"], item["publishedAt"]),) * 2
     lines = [
         "---",
         f'title: "{title}"',
@@ -188,7 +229,7 @@ def render_month_markdown(item, year: int) -> str:
         'kind: "post"',
         f"wpId: {year * 100 + number}",
         f'published: "{published}"',
-        f'updated: "{published}"',
+        f'updated: "{updated}"',
         'author: "redaktion"',
         'categories: ["kindergeld"]',
         f'excerpt: "{excerpt}"',
@@ -262,7 +303,8 @@ def main():
                 validate_days(year, item["month"], days)
                 if not item["image"]:
                     raise RuntimeError(f"{item['month']} {year}: Bild fehlt")
-                (CONTENT_DIR / f"{item['slug']}.md").write_text(render_month_markdown(item, year), encoding="utf-8")
+                target = CONTENT_DIR / f"{item['slug']}.md"
+                target.write_text(render_month_markdown(item, year, existing_times(target)), encoding="utf-8")
 
         payload = build_payload(months, year)
         data_file.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

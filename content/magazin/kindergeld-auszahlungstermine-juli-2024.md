@@ -5,7 +5,7 @@ description: "Kurze, allgemein verständliche Einordnung: Die Auszahlung erfolgt
 kind: "post"
 wpId: 3154
 published: "2024-07-17T10:18:50"
-updated: "2026-07-02T04:02:59"
+updated: "2026-07-02T19:02:44"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Kurze, allgemein verständliche Einordnung: Die Auszahlung erfolgt je nach Endziffer gestaffelt. Wer den eigenen Termin prüfen möchte, kann sich an der Kindergeldnummer orientieren."

@@ -5,7 +5,7 @@ description: "Kurzer einordnender Einstieg: Die Auszahlungstermine für das Kind
 kind: "post"
 wpId: 2879
 published: "2021-09-05T20:29:03"
-updated: "2026-07-09T18:02:05"
+updated: "2026-07-09T22:02:15"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Kurzer einordnender Einstieg: Die Auszahlungstermine für das Kindergeld folgen einem festen Muster. Entscheidend ist dabei die Endziffer der Kindergeldnummer, die du mit dem passenden Termin abgleichen kannst."

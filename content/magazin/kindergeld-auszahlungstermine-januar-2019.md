@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im Januar 2019 überwiesen? Hier findest
 kind: "post"
 wpId: 2030
 published: "2019-01-01T14:31:47"
-updated: "2026-05-12T09:00:36"
+updated: "2026-05-12T18:11:08"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Die Kindergeldnummer findet man auf dem Kontoauszug oder auf dem Schreiben der Familienkasse."

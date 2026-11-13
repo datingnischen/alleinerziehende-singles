@@ -5,7 +5,7 @@ description: "Das Leben als alleinerziehender Elternteil bringt viele Herausford
 kind: "post"
 wpId: 3128
 published: "2024-10-23T10:47:31"
-updated: "2026-06-17T08:38:42"
+updated: "2026-06-17T20:13:26"
 author: "redaktion"
 categories: ["singleboersen"]
 excerpt: "Das Leben als alleinerziehender Elternteil bringt viele Herausforderungen mit sich, aber die Partnersuche muss keine davon sein."

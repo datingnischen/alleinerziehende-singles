@@ -5,7 +5,7 @@ description: "Eine kurze Einordnung: Die Auszahlungstermine sind nach der Endzif
 kind: "post"
 wpId: 1729
 published: "2018-03-01T06:18:12"
-updated: "2026-07-03T22:01:52"
+updated: "2026-07-03T11:03:07"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Eine kurze Einordnung: Die Auszahlungstermine sind nach der Endziffer der Kindergeldnummer gestaffelt. Diese Übersicht hilft dabei, den eigenen Termin schnell einzuordnen."

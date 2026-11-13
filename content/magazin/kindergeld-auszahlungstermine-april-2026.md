@@ -4,8 +4,8 @@ seoTitle: "Kindergeld Auszahlungstermine April 2026"
 description: "Kindergeld im April 2026: alle Auszahlungstermine nach der Endziffer der Kindergeldnummer, von 0 bis 9 übersichtlich mit Datum und Wochentag."
 kind: "post"
 wpId: 202604
-published: "2026-03-26T11:49:38"
-updated: "2026-03-26T11:49:38"
+published: "2026-03-26T18:03:20"
+updated: "2026-03-26T18:03:20"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlungstermine für das Kindergeld im April 2026 richten sich nach der Endziffer der Kindergeldnummer. Die Kindergeldnummer findet man auf dem Kontoauszug oder auf dem Schreiben der Familienkasse."

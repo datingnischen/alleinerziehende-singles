@@ -5,7 +5,7 @@ description: "Kurze Einordnung: Die Auszahlung des Kindergeldes erfolgt gestaffe
 kind: "post"
 wpId: 3233
 published: "2025-10-18T14:13:26"
-updated: "2026-07-08T22:01:55"
+updated: "2026-07-08T12:55:11"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Kurze Einordnung: Die Auszahlung des Kindergeldes erfolgt gestaffelt nach der Endziffer der Kindergeldnummer. Deshalb kann der Überweisungstermin je nach Nummer unterschiedlich sein."

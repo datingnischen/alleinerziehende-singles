@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im Mai 2022 überwiesen? Hier findest du
 kind: "post"
 wpId: 2939
 published: "2022-05-11T20:24:14"
-updated: "2026-07-05T20:02:39"
+updated: "2026-07-05T11:02:10"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Wer den Auszahlungstermin prüfen möchte, gleicht deshalb die eigene Endziffer vorsichtig mit der Übersicht ab."

@@ -5,7 +5,7 @@ description: "Diese Übersicht hilft dabei, den voraussichtlichen Auszahlungstag
 kind: "post"
 wpId: 2101
 published: "2020-03-01T20:11:39"
-updated: "2026-07-04T04:03:19"
+updated: "2026-07-04T13:12:04"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Diese Übersicht hilft dabei, den voraussichtlichen Auszahlungstag des Kindergeldes im März 2020 schneller einzuordnen. Der Tag der Überweisung richtet sich nach der Endziffer der Kindergeldnummer."

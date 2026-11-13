@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im Juni 2017 überwiesen? Hier findest d
 kind: "post"
 wpId: 1463
 published: "2017-06-01T07:00:38"
-updated: "2026-07-02T14:03:11"
+updated: "2026-07-02T16:52:42"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlungstermine für das Kindergeld richten sich nach der Endziffer der Kindergeldnummer. So lässt sich schnell einordnen, an welchem Tag die Überweisung voraussichtlich erfolgt."

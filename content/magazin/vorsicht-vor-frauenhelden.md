@@ -5,7 +5,7 @@ description: "Was ist ein Womanizer wirklich? Wie erkennst du ihn? Und noch wich
 kind: "post"
 wpId: 2294
 published: "2020-11-17T07:47:09"
-updated: "2026-07-19T20:01:42"
+updated: "2026-07-19T09:40:35"
 author: "redaktion"
 categories: ["singleleben"]
 excerpt: "Bei der Suche nach einem Partner ist es wirklich nicht einfach, interessante Männer (oder Frauen) zu finden."

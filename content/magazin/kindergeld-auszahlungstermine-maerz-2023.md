@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im März 2023 überwiesen? Hier findest 
 kind: "post"
 wpId: 3024
 published: "2023-03-13T20:54:49"
-updated: "2026-07-04T14:03:13"
+updated: "2026-07-04T15:06:29"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. So lässt sich der Auszahlungstermin meist schnell einordnen, ohne lange suchen zu müssen."

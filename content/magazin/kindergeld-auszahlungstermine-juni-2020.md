@@ -5,7 +5,7 @@ description: "Diese Übersicht hilft dabei, den Auszahlungstag für das Kinderge
 kind: "post"
 wpId: 2114
 published: "2020-06-01T20:19:23"
-updated: "2026-07-02T22:02:26"
+updated: "2026-07-02T11:51:37"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Diese Übersicht hilft dabei, den Auszahlungstag für das Kindergeld im Juni 2020 schnell zu finden. Maßgeblich ist die Endziffer der Kindergeldnummer, sodass sich der Termin mit einem Blick zuordnen lässt."

@@ -5,7 +5,7 @@ description: "Das Kindergeld wurde in Deutschland monatlich ausgezahlt. Die Ausz
 kind: "post"
 wpId: 1410
 published: "2016-12-01T07:00:32"
-updated: "2026-07-28T08:02:01"
+updated: "2026-07-28T10:20:40"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Das Kindergeld wurde in Deutschland monatlich ausgezahlt. Die Auszahlungstermine richteten sich nach der Endziffer der Kindergeldnummer, damit die Zahlungen gestaffelt erfolgten und die Familienkassen den Überblick …"

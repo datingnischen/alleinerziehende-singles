@@ -5,7 +5,7 @@ description: "Was dies bedeutet eine LAT-Beziehung und welche Vor- und Nachteile
 kind: "post"
 wpId: 2716
 published: "2021-09-28T18:45:31"
-updated: "2026-07-12T20:02:39"
+updated: "2026-07-12T10:06:29"
 author: "redaktion"
 categories: ["singleleben"]
 excerpt: "Das gängige Modell von einer Familie, wie wir es in den letzten Jahrzehnten erlebt haben, gilt für viele Menschen nicht mehr. Es zeigen sich immer mehr neue Lebensmodelle und eines davon ist LAT."

@@ -5,7 +5,7 @@ description: "Die Dating-App Even richtet sich an Single-Eltern. Die App ist üb
 kind: "post"
 wpId: 3138
 published: "2024-11-13T20:32:12"
-updated: "2026-06-18T16:04:32"
+updated: "2026-06-18T14:03:12"
 author: "redaktion"
 categories: ["singleboersen"]
 excerpt: "Auf konventionellen Dating-Plattformen wie Lovoo oder Tinder fühlen sich Alleinerziehende oftmals fehl am Platz."

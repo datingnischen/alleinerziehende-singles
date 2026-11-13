@@ -5,7 +5,7 @@ description: "Wir erklären dir alles, was du über die 40. Schwangerschaftswoch
 kind: "page"
 wpId: 2485
 published: "2021-03-16T15:34:38"
-updated: "2026-07-17T20:01:39"
+updated: "2026-07-17T14:24:42"
 author: "redaktion"
 excerpt: "Schwangerschaftswoche 40- jetzt haben Sie es fast geschafft"
 ---

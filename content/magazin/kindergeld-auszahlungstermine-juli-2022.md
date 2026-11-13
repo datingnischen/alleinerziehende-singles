@@ -5,7 +5,7 @@ description: "Die Überweisung des Kindergeldes richtet sich nach der Endziffer 
 kind: "post"
 wpId: 2952
 published: "2022-07-01T10:08:06"
-updated: "2026-07-03T02:03:58"
+updated: "2026-07-03T17:33:09"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Die Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Anhand dieser Zuordnung lassen sich die Auszahlungstermine für das Kindergeld im Juli 2022 besser einordnen."

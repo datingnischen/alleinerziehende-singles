@@ -4,8 +4,8 @@ seoTitle: "Kindergeld Auszahlungstermine November 2026"
 description: "Kindergeld im November 2026: alle Auszahlungstermine nach der Endziffer der Kindergeldnummer, von 0 bis 9 übersichtlich mit Datum und Wochentag."
 kind: "post"
 wpId: 202611
-published: "2026-10-22T06:43:12"
-updated: "2026-10-22T06:43:12"
+published: "2026-10-22T09:31:12"
+updated: "2026-10-22T10:26:03"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlungstermine für das Kindergeld im November 2026 richten sich nach der Endziffer der Kindergeldnummer. Die Kindergeldnummer findet man auf dem Kontoauszug oder auf dem Schreiben der Familienkasse."

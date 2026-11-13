@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im August 2016 überwiesen? Hier findest
 kind: "post"
 wpId: 1386
 published: "2016-07-29T07:00:22"
-updated: "2026-06-23T18:02:17"
+updated: "2026-06-23T14:25:12"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Diese Zahl ist ein wichtiges Merkmal, das den genauen Zahlungstermin im Monat bestimmt."

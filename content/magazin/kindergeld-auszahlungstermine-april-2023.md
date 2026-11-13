@@ -5,7 +5,7 @@ description: "Die Auszahlung des Kindergeldes erfolgt geregelt und zeitlich gest
 kind: "post"
 wpId: 3032
 published: "2023-06-09T10:33:19"
-updated: "2026-06-23T08:03:39"
+updated: "2026-06-23T15:21:47"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlung des Kindergeldes erfolgt geregelt und zeitlich gestaffelt, um die Bearbeitung der Familienkasse zu optimieren. Der genaue Tag der Überweisung hängt von der Endziffer der individuellen Kindergeldnummer ab."

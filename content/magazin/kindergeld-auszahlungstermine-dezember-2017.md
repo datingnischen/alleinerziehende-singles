@@ -5,7 +5,7 @@ description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der En
 kind: "post"
 wpId: 1788
 published: "2017-12-01T07:26:24"
-updated: "2026-07-26T10:03:16"
+updated: "2026-07-26T18:56:57"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Dadurch werden die Auszahlungen gestaffelt."

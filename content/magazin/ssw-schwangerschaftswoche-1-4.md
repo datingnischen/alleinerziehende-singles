@@ -5,7 +5,7 @@ description: "Wir erklären dir alles, was du über die Schwangerschaftswoche 1�
 kind: "page"
 wpId: 2308
 published: "2020-12-06T07:44:22"
-updated: "2026-07-12T14:02:31"
+updated: "2026-07-12T16:30:39"
 author: "redaktion"
 excerpt: "Die 1. bis 4. Schwangerschaftswoche ist vor allem eines – der Beginn einer kleinen Veränderung in ihrem Leben, mit großen Folgen!"
 ---

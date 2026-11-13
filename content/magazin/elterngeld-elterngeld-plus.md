@@ -5,7 +5,7 @@ description: "Hast du Fragen zum Elterngeld? Hier erfährst du, wie berechnet ma
 kind: "post"
 wpId: 2724
 published: "2021-10-31T18:02:37"
-updated: "2026-06-19T06:02:58"
+updated: "2026-06-19T17:47:07"
 author: "redaktion"
 categories: ["singleleben"]
 excerpt: "Elterngeld und Elterngeld Plus sollen Eltern in der Zeit nach der Geburt finanziell entlasten."

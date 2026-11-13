@@ -5,7 +5,7 @@ description: "Kurze Einordnung: Dieser Beitrag fasst die Auszahlungstermine für
 kind: "post"
 wpId: 2042
 published: "2019-03-01T20:10:52"
-updated: "2026-07-04T00:04:15"
+updated: "2026-07-04T10:01:06"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Kurze Einordnung: Dieser Beitrag fasst die Auszahlungstermine für März 2019 übersichtlich zusammen und hilft beim schnellen Nachschlagen."

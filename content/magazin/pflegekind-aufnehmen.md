@@ -5,7 +5,7 @@ description: "Was ist ein Pflegekind? Welche Voraussetzungen gibt es, um Pflegee
 kind: "post"
 wpId: 2557
 published: "2021-05-12T07:29:45"
-updated: "2026-07-11T22:02:07"
+updated: "2026-07-11T10:31:45"
 author: "redaktion"
 categories: ["singleleben"]
 excerpt: "Ein Pflegekind aufzunehmen ist für viele Familien ein wichtiger und zugleich sensibler Schritt."

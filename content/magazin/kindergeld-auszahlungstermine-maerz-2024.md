@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im März 2024 überwiesen? Hier findest 
 kind: "post"
 wpId: 3161
 published: "2024-03-17T09:59:40"
-updated: "2026-06-30T08:03:43"
+updated: "2026-06-30T20:54:52"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Im März 2024 hängen die Kindergeld Auszahlungstermine ebenfalls von dieser Endziffer ab."

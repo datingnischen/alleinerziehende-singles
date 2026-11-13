@@ -5,7 +5,7 @@ description: "Wir erklären dir alles, was du über die 16. Schwangerschaftswoch
 kind: "page"
 wpId: 2362
 published: "2021-01-06T06:33:27"
-updated: "2026-07-13T10:03:26"
+updated: "2026-07-13T21:28:16"
 author: "redaktion"
 excerpt: "Nun wird es spannend! Ab jetzt bewegt Ihr Baby seine Arme und Beine kräftig, auch fängt es an, seinen Kopf aus der gekrümmtem Haltung zu heben. Ab der 16."
 ---

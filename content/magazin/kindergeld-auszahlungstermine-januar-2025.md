@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im Januar 2025 überwiesen? Hier findest
 kind: "post"
 wpId: 3190
 published: "2025-01-17T11:00:19"
-updated: "2026-06-24T12:02:17"
+updated: "2026-06-24T11:12:58"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Die Auszahlungstermine für das Kindergeld im Januar 2025 richten sich ebenfalls nach dieser Endziffer."

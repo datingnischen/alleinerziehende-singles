@@ -5,7 +5,7 @@ description: "Im Jahr 2018 wird das Kindergeld um 2 Euro pro Kind erhöht, um Fa
 kind: "post"
 wpId: 1508
 published: "2017-11-07T07:00:05"
-updated: "2026-06-16T20:02:00"
+updated: "2026-06-16T19:52:15"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Im Jahr 2018 wird das Kindergeld um 2 Euro pro Kind erhöht, um Familien finanziell zu entlasten. Wie diese Erhöhung konkret wirkt und welche Beträge nun gelten, erfahren Sie hier."

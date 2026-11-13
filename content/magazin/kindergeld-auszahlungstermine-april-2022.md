@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im April 2022 überwiesen? Hier findest 
 kind: "post"
 wpId: 2921
 published: "2022-04-09T09:16:45"
-updated: "2026-06-23T06:02:13"
+updated: "2026-06-23T21:58:35"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."

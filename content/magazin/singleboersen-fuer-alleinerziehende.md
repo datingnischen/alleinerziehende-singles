@@ -5,7 +5,7 @@ description: "Singlebörsen für Alleinerziehende bieten eine spezielle Communit
 kind: "page"
 wpId: 3100
 published: "2024-10-10T12:40:59"
-updated: "2026-06-18T02:03:06"
+updated: "2026-06-18T16:26:28"
 author: "redaktion"
 excerpt: "Singlebörsen für Alleinerziehende bieten eine spezielle Community, die auf die besonderen Lebensumstände von Eltern mit Kind abgestimmt ist."
 ---

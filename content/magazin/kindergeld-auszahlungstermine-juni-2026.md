@@ -4,8 +4,8 @@ seoTitle: "Kindergeld Auszahlungstermine Juni 2026"
 description: "Kindergeld im Juni 2026: alle Auszahlungstermine nach der Endziffer der Kindergeldnummer, von 0 bis 9 übersichtlich mit Datum und Wochentag."
 kind: "post"
 wpId: 202606
-published: "2026-05-28T05:07:07"
-updated: "2026-05-28T05:07:07"
+published: "2026-05-28T08:02:39"
+updated: "2026-05-28T08:02:39"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlungstermine für das Kindergeld im Juni 2026 richten sich nach der Endziffer der Kindergeldnummer. Die Kindergeldnummer findet man auf dem Kontoauszug oder auf dem Schreiben der Familienkasse."

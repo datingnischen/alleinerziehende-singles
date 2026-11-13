@@ -5,7 +5,7 @@ description: "Kindergeld wird monatlich von der Familienkasse an berechtigte Per
 kind: "post"
 wpId: 1369
 published: "2016-04-01T07:00:48"
-updated: "2026-06-22T10:04:11"
+updated: "2026-06-22T14:49:19"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Kindergeld wird monatlich von der Familienkasse an berechtigte Personen ausgezahlt. Die Auszahlungstermine richten sich nach der Endziffer der Kindergeldnummer, um eine geordnete Verteilung der Zahlungen sicherzustellen."

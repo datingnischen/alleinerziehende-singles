@@ -5,7 +5,7 @@ description: "Diese Monatsübersicht hilft dabei, den Auszahlungstag des Kinderg
 kind: "post"
 wpId: 2071
 published: "2019-09-01T19:55:37"
-updated: "2026-07-09T10:04:02"
+updated: "2026-07-09T16:04:20"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Diese Monatsübersicht hilft dabei, den Auszahlungstag des Kindergeldes für September 2019 anhand der Endziffer der Kindergeldnummer einzuordnen. So lässt sich der passende Termin schneller finden."

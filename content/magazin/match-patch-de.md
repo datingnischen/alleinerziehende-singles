@@ -5,7 +5,7 @@ description: "Was verbirgt sich hinter dem Begriff: www.match-patch.de? Wer ist 
 kind: "post"
 wpId: 2652
 published: "2021-07-26T11:14:06"
-updated: "2026-07-08T18:03:11"
+updated: "2026-07-08T14:05:26"
 author: "redaktion"
 categories: ["singleboersen"]
 excerpt: "Hierbei handelt es sich um eine Singlebörse für Singles mit Kind und Familiensinn!"

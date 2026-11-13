@@ -5,7 +5,7 @@ description: "Wann wurde das Kindergeld im April 2021 überwiesen? Hier findest 
 kind: "post"
 wpId: 2503
 published: "2021-04-12T16:55:37"
-updated: "2026-06-23T02:02:31"
+updated: "2026-06-23T13:57:28"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer und den Auszahlungsterminen."

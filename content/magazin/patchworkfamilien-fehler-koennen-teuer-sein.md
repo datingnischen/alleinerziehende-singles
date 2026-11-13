@@ -5,7 +5,7 @@ description: "Kinder sind nicht nur eine der schönsten Dinge in unserem Leben, 
 kind: "page"
 wpId: 2009
 published: "2018-10-24T10:57:08"
-updated: "2026-07-13T12:02:10"
+updated: "2026-07-13T19:49:52"
 author: "redaktion"
 excerpt: "Kinder sind nicht nur eine der schönsten Dinge in unserem Leben, sondern auch eine der teuersten Angelegenheiten, die es gibt."
 image: "/magazin/wp-content/uploads/2018/10/Patchworkfamilien-Fehler-koennen-teuer-sein-jpg.webp"

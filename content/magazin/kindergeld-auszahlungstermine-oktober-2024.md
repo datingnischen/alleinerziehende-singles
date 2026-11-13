@@ -5,7 +5,7 @@ description: "Kurze, verständliche Einordnung der Terminlogik: Der Tag der Übe
 kind: "post"
 wpId: 3157
 published: "2024-10-17T10:27:26"
-updated: "2026-07-08T20:03:43"
+updated: "2026-07-08T19:11:40"
 author: "redaktion"
 categories: ["kindergeld"]
 excerpt: "Kurze, verständliche Einordnung der Terminlogik: Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
