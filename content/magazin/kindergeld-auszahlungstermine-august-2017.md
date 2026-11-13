@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine August 2017"
 description: "Kindergeld ist eine wichtige finanzielle Unterstützung für Familien und Alleinerziehende."
 kind: "post"
 wpId: 1471
-published: "2017-08-01T07:00:03"
+published: "2017-08-01T09:03:14"
 updated: "2026-06-23T13:40:12"
 author: "redaktion"
 categories: ["kindergeld"]

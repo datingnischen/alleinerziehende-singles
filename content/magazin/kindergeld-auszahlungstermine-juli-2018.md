@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Juli 2018"
 description: "In diesem Beitrag findest du eine kurze Orientierung zu den Kindergeld-Auszahlungsterminen im Juli 2018."
 kind: "post"
 wpId: 1748
-published: "2018-07-01T06:28:49"
+published: "2018-07-01T22:02:49"
 updated: "2026-07-02T22:04:08"
 author: "redaktion"
 categories: ["kindergeld"]

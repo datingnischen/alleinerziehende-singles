@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Januar 2025"
 description: "Wann wurde das Kindergeld im Januar 2025 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 3190
-published: "2025-01-17T11:00:19"
+published: "2025-01-17T09:14:22"
 updated: "2026-06-24T11:12:58"
 author: "redaktion"
 categories: ["kindergeld"]

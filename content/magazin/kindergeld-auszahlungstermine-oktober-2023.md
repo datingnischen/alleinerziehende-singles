@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Oktober 2023"
 description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Im Oktober 2023 gilt dafür die folgende Übersicht."
 kind: "post"
 wpId: 3056
-published: "2023-10-10T14:52:11"
+published: "2023-10-10T15:10:24"
 updated: "2026-07-05T07:45:06"
 author: "redaktion"
 categories: ["kindergeld"]

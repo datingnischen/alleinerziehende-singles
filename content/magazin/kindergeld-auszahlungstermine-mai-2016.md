@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Mai 2016"
 description: "Die Auszahlungstermine für das Kindergeld im Mai 2016 lassen sich anhand der Endziffer der Kindergeldnummer einordnen."
 kind: "post"
 wpId: 1372
-published: "2016-05-01T14:42:08"
+published: "2016-05-01T16:20:08"
 updated: "2026-07-05T08:09:55"
 author: "redaktion"
 categories: ["kindergeld"]

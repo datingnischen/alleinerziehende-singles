@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Januar 2019"
 description: "Wann wurde das Kindergeld im Januar 2019 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 2030
-published: "2019-01-01T14:31:47"
+published: "2019-01-01T20:35:19"
 updated: "2026-05-12T18:11:08"
 author: "redaktion"
 categories: ["kindergeld"]

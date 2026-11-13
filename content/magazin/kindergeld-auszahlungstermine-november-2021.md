@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine November 2021"
 description: "Die folgende Übersicht hilft dabei, den passenden Auszahlungstag für das Kindergeld im November 2021 schnell einzuordnen."
 kind: "post"
 wpId: 2885
-published: "2021-11-05T20:38:37"
+published: "2021-11-05T17:33:29"
 updated: "2026-07-07T10:48:20"
 author: "redaktion"
 categories: ["kindergeld"]

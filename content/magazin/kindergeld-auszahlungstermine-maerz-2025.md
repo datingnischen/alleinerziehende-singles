@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine März 2025"
 description: "Eine kurze Einordnung hilft bei der Orientierung: Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 3192
-published: "2025-03-17T11:00:24"
+published: "2025-03-17T11:15:30"
 updated: "2026-07-04T11:02:03"
 author: "redaktion"
 categories: ["kindergeld"]

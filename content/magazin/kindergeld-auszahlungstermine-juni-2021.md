@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Juni 2021"
 description: "Wann wurde das Kindergeld im Juni 2021 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 2870
-published: "2021-06-05T20:09:16"
+published: "2021-06-05T22:12:18"
 updated: "2026-06-27T13:08:35"
 author: "redaktion"
 categories: ["kindergeld"]

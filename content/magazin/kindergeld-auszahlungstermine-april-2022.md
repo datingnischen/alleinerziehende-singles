@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine April 2022"
 description: "Wann wurde das Kindergeld im April 2022 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 2921
-published: "2022-04-09T09:16:45"
+published: "2022-04-09T13:17:11"
 updated: "2026-06-23T21:58:35"
 author: "redaktion"
 categories: ["kindergeld"]

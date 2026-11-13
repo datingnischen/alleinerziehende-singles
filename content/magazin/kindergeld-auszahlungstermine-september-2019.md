@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine September 2019"
 description: "Diese Monatsübersicht hilft dabei, den Auszahlungstag des Kindergeldes für September 2019 anhand der Endziffer der Kindergeldnummer einzuordnen."
 kind: "post"
 wpId: 2071
-published: "2019-09-01T19:55:37"
+published: "2019-09-01T09:49:04"
 updated: "2026-07-09T16:04:20"
 author: "redaktion"
 categories: ["kindergeld"]

@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Mai 2023"
 description: "Wann wurde das Kindergeld im Mai 2023 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 3035
-published: "2023-06-09T10:35:02"
+published: "2023-06-09T10:17:24"
 updated: "2026-05-10T11:33:20"
 author: "redaktion"
 categories: ["kindergeld"]

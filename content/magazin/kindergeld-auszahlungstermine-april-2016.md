@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine April 2016"
 description: "Kindergeld wird monatlich von der Familienkasse an berechtigte Personen ausgezahlt."
 kind: "post"
 wpId: 1369
-published: "2016-04-01T07:00:48"
+published: "2016-04-01T08:50:27"
 updated: "2026-06-22T14:49:19"
 author: "redaktion"
 categories: ["kindergeld"]

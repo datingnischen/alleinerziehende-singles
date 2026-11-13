@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine April 2018"
 description: "Das Kindergeld wird monatlich überwiesen, wobei der genaue Auszahlungstermin von der Endziffer der Kindergeldnummer abhängt."
 kind: "post"
 wpId: 1734
-published: "2018-04-01T06:21:35"
+published: "2018-04-01T16:53:22"
 updated: "2026-06-22T13:34:39"
 author: "redaktion"
 categories: ["kindergeld"]

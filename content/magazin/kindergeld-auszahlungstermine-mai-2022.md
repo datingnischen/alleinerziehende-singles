@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Mai 2022"
 description: "Wann wurde das Kindergeld im Mai 2022 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 2939
-published: "2022-05-11T20:24:14"
+published: "2022-05-11T17:47:41"
 updated: "2026-07-05T11:02:10"
 author: "redaktion"
 categories: ["kindergeld"]

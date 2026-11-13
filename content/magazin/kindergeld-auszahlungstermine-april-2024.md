@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine April 2024"
 description: "Kindergeld wird regelmäßig an berechtigte Eltern und Erziehungsberechtigte ausgezahlt."
 kind: "post"
 wpId: 3162
-published: "2024-04-17T10:10:35"
+published: "2024-04-17T21:42:12"
 updated: "2026-06-23T16:25:54"
 author: "redaktion"
 categories: ["kindergeld"]

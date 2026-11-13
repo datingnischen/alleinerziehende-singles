@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine September 2022"
 description: "Wann wurde das Kindergeld im September 2022 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 2960
-published: "2022-11-17T14:45:31"
+published: "2022-11-17T15:34:44"
 updated: "2026-06-07T20:02:56"
 author: "redaktion"
 categories: ["kindergeld"]

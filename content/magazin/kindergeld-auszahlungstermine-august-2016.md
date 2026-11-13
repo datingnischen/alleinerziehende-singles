@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine August 2016"
 description: "Wann wurde das Kindergeld im August 2016 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 1386
-published: "2016-07-29T07:00:22"
+published: "2016-07-29T11:07:45"
 updated: "2026-06-23T14:25:12"
 author: "redaktion"
 categories: ["kindergeld"]

@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine März 2024"
 description: "Wann wurde das Kindergeld im März 2024 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 3161
-published: "2024-03-17T09:59:40"
+published: "2024-03-17T16:52:49"
 updated: "2026-06-30T20:54:52"
 author: "redaktion"
 categories: ["kindergeld"]

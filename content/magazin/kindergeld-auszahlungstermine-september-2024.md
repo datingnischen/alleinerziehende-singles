@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine September 2024"
 description: "Der Tag der Überweisung des Kindergeldes für die Auszahlungstermine September 2024 richtet sich nach der Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 3156
-published: "2024-09-17T10:24:31"
+published: "2024-09-17T17:29:29"
 updated: "2026-07-07T14:33:03"
 author: "redaktion"
 categories: ["kindergeld"]

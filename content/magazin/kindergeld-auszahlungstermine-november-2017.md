@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine November 2017"
 description: "Wann wurde das Kindergeld im November 2017 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 1480
-published: "2017-11-01T07:00:07"
+published: "2017-11-01T20:37:28"
 updated: "2026-07-08T18:24:51"
 author: "redaktion"
 categories: ["kindergeld"]

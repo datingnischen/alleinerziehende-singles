@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Oktober 2025"
 description: "Kurze Einordnung: Die Auszahlung des Kindergeldes erfolgt gestaffelt nach der Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 3233
-published: "2025-10-18T14:13:26"
+published: "2025-10-18T08:18:31"
 updated: "2026-07-08T12:55:11"
 author: "redaktion"
 categories: ["kindergeld"]

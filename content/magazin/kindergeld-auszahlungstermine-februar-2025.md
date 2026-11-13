@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Februar 2025"
 description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer und den Auszahlungsterminen für Februar 2025."
 kind: "post"
 wpId: 3191
-published: "2025-02-17T11:00:21"
+published: "2025-02-17T09:32:57"
 updated: "2026-06-30T15:49:43"
 author: "redaktion"
 categories: ["kindergeld"]

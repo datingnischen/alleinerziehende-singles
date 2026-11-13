@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Dezember 2016"
 description: "Das Kindergeld wurde in Deutschland monatlich ausgezahlt. Die Auszahlungstermine richteten sich nach der Endziffer der Kindergeldnummer, damit die …"
 kind: "post"
 wpId: 1410
-published: "2016-12-01T07:00:32"
+published: "2016-12-01T18:12:49"
 updated: "2026-07-28T10:20:40"
 author: "redaktion"
 categories: ["kindergeld"]

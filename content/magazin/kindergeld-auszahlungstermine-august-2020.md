@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine August 2020"
 description: "Die Kindergeld Auszahlungstermine im August 2020 sind für viele Familien wichtig, um laufende Ausgaben besser zu planen."
 kind: "post"
 wpId: 2122
-published: "2020-08-01T20:23:01"
+published: "2020-08-01T14:34:58"
 updated: "2026-06-24T08:25:03"
 author: "redaktion"
 categories: ["kindergeld"]

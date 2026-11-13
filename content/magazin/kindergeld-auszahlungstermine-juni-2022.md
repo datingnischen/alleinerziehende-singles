@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Juni 2022"
 description: "Kurze, allgemein verständliche Einleitung, die erklärt, dass Auszahlungstermine zur besseren Orientierung nach der Endziffer der Kindergeldnummer …"
 kind: "post"
 wpId: 2944
-published: "2022-06-30T20:00:36"
+published: "2022-06-30T16:11:48"
 updated: "2026-07-03T09:39:25"
 author: "redaktion"
 categories: ["kindergeld"]

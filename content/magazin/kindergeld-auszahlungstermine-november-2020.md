@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine November 2020"
 description: "Kurze Einordnung: Dieser Beitrag hilft dabei, den Auszahlungstermin für das Kindergeld im November 2020 anhand der Endziffer der Kindergeldnummer …"
 kind: "post"
 wpId: 2134
-published: "2020-11-01T12:05:18"
+published: "2020-11-01T20:47:37"
 updated: "2026-07-06T20:01:23"
 author: "redaktion"
 categories: ["kindergeld"]

@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine September 2021"
 description: "Kurzer einordnender Einstieg: Die Auszahlungstermine für das Kindergeld folgen einem festen Muster."
 kind: "post"
 wpId: 2879
-published: "2021-09-05T20:29:03"
+published: "2021-09-05T09:29:30"
 updated: "2026-07-09T22:02:15"
 author: "redaktion"
 categories: ["kindergeld"]

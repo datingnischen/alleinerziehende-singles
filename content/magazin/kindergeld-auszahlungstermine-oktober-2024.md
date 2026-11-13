@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Oktober 2024"
 description: "Kurze, verständliche Einordnung der Terminlogik: Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 3157
-published: "2024-10-17T10:27:26"
+published: "2024-10-17T10:36:46"
 updated: "2026-07-08T19:11:40"
 author: "redaktion"
 categories: ["kindergeld"]

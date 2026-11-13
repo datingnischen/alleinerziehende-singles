@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Juni 2019"
 description: "Der Beitrag gibt einen schnellen Überblick über die Auszahlungstermine für das Kindergeld im Juni 2019."
 kind: "post"
 wpId: 2056
-published: "2019-06-01T19:49:36"
+published: "2019-06-01T11:34:09"
 updated: "2026-07-02T18:13:19"
 author: "redaktion"
 categories: ["kindergeld"]

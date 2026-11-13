@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine März 2017"
 description: "Die Auszahlungstermine für das Kindergeld werden hier nach der Endziffer der Kindergeldnummer geordnet."
 kind: "post"
 wpId: 1420
-published: "2017-03-01T07:00:56"
+published: "2017-03-01T10:06:58"
 updated: "2026-07-03T19:37:54"
 author: "redaktion"
 categories: ["kindergeld"]

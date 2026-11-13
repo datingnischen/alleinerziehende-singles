@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine August 2023"
 description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer; die Auszahlungstermine lassen sich daran ablesen."
 kind: "post"
 wpId: 3054
-published: "2023-10-10T14:52:06"
+published: "2023-10-10T12:36:54"
 updated: "2026-06-29T13:22:35"
 author: "redaktion"
 categories: ["kindergeld"]

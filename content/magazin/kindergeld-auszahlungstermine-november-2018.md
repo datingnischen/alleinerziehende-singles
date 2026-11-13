@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine November 2018"
 description: "Wann wurde das Kindergeld im November 2018 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 1966
-published: "2018-10-09T11:53:32"
+published: "2018-10-09T22:15:28"
 updated: "2026-07-06T22:14:53"
 author: "redaktion"
 categories: ["kindergeld"]

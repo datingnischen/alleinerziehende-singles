@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Juni 2024"
 description: "Wann wurde das Kindergeld im Juni 2024 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 3153
-published: "2024-06-17T10:14:52"
+published: "2024-06-17T18:46:13"
 updated: "2026-05-10T19:15:56"
 author: "redaktion"
 categories: ["kindergeld"]

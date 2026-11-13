@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine August 2019"
 description: "Das Kindergeld wird monatlich von der Familienkasse überwiesen. Der genaue Zahlungstag im Monat richtet sich nach der Endziffer der Kindergeldnummer, um …"
 kind: "post"
 wpId: 2065
-published: "2019-08-01T19:53:19"
+published: "2019-08-01T10:13:04"
 updated: "2026-06-25T13:41:56"
 author: "redaktion"
 categories: ["kindergeld"]

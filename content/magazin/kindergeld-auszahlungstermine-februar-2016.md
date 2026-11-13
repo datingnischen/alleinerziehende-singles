@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Februar 2016"
 description: "Dieser Beitrag gibt einen kurzen Überblick, wann das Kindergeld im Februar 2016 überwiesen wird. Maßgeblich ist dabei die Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 978
-published: "2016-02-01T17:39:10"
+published: "2016-02-01T20:19:08"
 updated: "2026-06-26T21:48:55"
 author: "redaktion"
 categories: ["kindergeld"]

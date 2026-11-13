@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Februar 2023"
 description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Die Kindergeldnummer findet man auf dem Kontoauszug."
 kind: "post"
 wpId: 3007
-published: "2023-02-08T10:01:00"
+published: "2023-02-08T10:28:20"
 updated: "2026-06-28T11:59:39"
 author: "redaktion"
 categories: ["kindergeld"]

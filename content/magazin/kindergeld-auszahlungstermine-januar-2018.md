@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Januar 2018"
 description: "Dieser Beitrag gibt einen kurzen Überblick über die Auszahlungstermine für das Kindergeld im Januar 2018."
 kind: "post"
 wpId: 1580
-published: "2018-01-01T07:00:49"
+published: "2018-01-01T11:40:52"
 updated: "2026-06-29T20:58:27"
 author: "redaktion"
 categories: ["kindergeld"]

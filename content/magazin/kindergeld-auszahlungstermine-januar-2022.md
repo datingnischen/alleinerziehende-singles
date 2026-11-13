@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Januar 2022"
 description: "Wann wurde das Kindergeld im Januar 2022 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 2898
-published: "2022-01-05T20:57:42"
+published: "2022-01-05T19:08:41"
 updated: "2026-06-07T20:21:54"
 author: "redaktion"
 categories: ["kindergeld"]

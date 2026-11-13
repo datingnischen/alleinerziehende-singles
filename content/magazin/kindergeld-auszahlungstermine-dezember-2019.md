@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Dezember 2019"
 description: "Kindergeld ist eine staatliche Leistung zur Unterstützung von Familien. Die Auszahlungstermine richten sich nach der Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 2085
-published: "2019-12-01T20:01:37"
+published: "2019-12-01T15:30:56"
 updated: "2026-08-23T10:54:41"
 author: "redaktion"
 categories: ["kindergeld"]

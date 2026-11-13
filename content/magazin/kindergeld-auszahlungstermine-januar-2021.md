@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Januar 2021"
 description: "Kurze Einordnung: Dieser Beitrag bietet eine Orientierung zu den Auszahlungsterminen des Kindergeldes im Januar 2021."
 kind: "post"
 wpId: 2396
-published: "2021-01-24T09:17:13"
+published: "2021-01-24T10:40:58"
 updated: "2026-06-29T07:24:47"
 author: "redaktion"
 categories: ["kindergeld"]

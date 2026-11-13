@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine März 2020"
 description: "Diese Übersicht hilft dabei, den voraussichtlichen Auszahlungstag des Kindergeldes im März 2020 schneller einzuordnen."
 kind: "post"
 wpId: 2101
-published: "2020-03-01T20:11:39"
+published: "2020-03-01T20:52:23"
 updated: "2026-07-04T13:12:04"
 author: "redaktion"
 categories: ["kindergeld"]

@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine März 2023"
 description: "Wann wurde das Kindergeld im März 2023 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 3024
-published: "2023-03-13T20:54:49"
+published: "2023-03-13T10:52:03"
 updated: "2026-07-04T15:06:29"
 author: "redaktion"
 categories: ["kindergeld"]

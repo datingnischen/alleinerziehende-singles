@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Mai 2018"
 description: "Wann wurde das Kindergeld im Mai 2018 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 1744
-published: "2018-05-01T06:26:13"
+published: "2018-05-01T09:27:34"
 updated: "2026-05-12T15:27:21"
 author: "redaktion"
 categories: ["kindergeld"]

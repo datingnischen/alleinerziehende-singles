@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Januar 2017"
 description: "Mit dieser kurzen Übersicht findest du schnell den passenden Auszahlungstag für das Kindergeld anhand der Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 1413
-published: "2017-01-02T07:00:21"
+published: "2017-01-02T16:50:02"
 updated: "2026-06-29T11:29:46"
 author: "redaktion"
 categories: ["kindergeld"]

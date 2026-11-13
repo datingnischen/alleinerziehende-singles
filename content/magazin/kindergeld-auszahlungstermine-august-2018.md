@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine August 2018"
 description: "Wann wurde das Kindergeld im August 2018 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 1750
-published: "2018-08-01T06:30:02"
+published: "2018-08-01T22:00:17"
 updated: "2026-06-24T10:09:08"
 author: "redaktion"
 categories: ["kindergeld"]

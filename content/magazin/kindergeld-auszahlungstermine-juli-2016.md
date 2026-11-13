@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Juli 2016"
 description: "Die Kindergeld-Auszahlungstermine im Juli 2016 richten sich nach der Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 1378
-published: "2016-07-01T07:00:50"
+published: "2016-07-01T08:31:05"
 updated: "2026-06-30T18:51:15"
 author: "redaktion"
 categories: ["kindergeld"]

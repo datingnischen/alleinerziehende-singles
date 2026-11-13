@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Dezember 2017"
 description: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Dadurch werden die Auszahlungen gestaffelt."
 kind: "post"
 wpId: 1788
-published: "2017-12-01T07:26:24"
+published: "2017-12-01T10:17:32"
 updated: "2026-07-26T18:56:57"
 author: "redaktion"
 categories: ["kindergeld"]

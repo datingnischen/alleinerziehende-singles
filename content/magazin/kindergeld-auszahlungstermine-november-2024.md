@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine November 2024"
 description: "Wann wurde das Kindergeld im November 2024 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 3158
-published: "2024-11-17T09:59:13"
+published: "2024-11-17T10:46:09"
 updated: "2026-07-09T09:50:53"
 author: "redaktion"
 categories: ["kindergeld"]

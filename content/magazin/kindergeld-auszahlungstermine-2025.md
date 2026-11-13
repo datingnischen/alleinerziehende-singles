@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine 2025"
 description: "Hier findest du alle Kindergeld Auszahlungstermine zusammengefasst für das Jahr 2025."
 kind: "page"
 wpId: 3186
-published: "2025-07-17T10:35:54"
+published: "2025-07-17T13:44:30"
 updated: "2026-06-22T18:05:02"
 author: "redaktion"
 excerpt: "Hier findest du alle Kindergeld Auszahlungstermine zusammengefasst für das Jahr 2025. Zusätzlich geben wir praktische Hinweise, wie du die Termine nutzen kannst und beantworten häufige Fragen zum Kindergeld."

@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine November 2023"
 description: "Die Kindergeld-Auszahlungstermine lassen sich anhand der Endziffer der Kindergeldnummer zuordnen."
 kind: "post"
 wpId: 3067
-published: "2023-11-12T11:39:44"
+published: "2023-11-12T13:09:06"
 updated: "2026-07-09T10:46:41"
 author: "redaktion"
 categories: ["kindergeld"]

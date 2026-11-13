@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Juli 2017"
 description: "Wann wurde das Kindergeld im Juli 2017 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 1468
-published: "2017-07-01T07:00:15"
+published: "2017-07-01T20:00:35"
 updated: "2026-07-01T13:13:21"
 author: "redaktion"
 categories: ["kindergeld"]

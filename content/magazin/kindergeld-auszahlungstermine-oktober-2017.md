@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Oktober 2017"
 description: "Wann wurde das Kindergeld im Oktober 2017 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 1477
-published: "2017-10-01T07:00:20"
+published: "2017-10-01T17:12:13"
 updated: "2026-05-12T11:47:26"
 author: "redaktion"
 categories: ["kindergeld"]

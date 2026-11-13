@@ -4,7 +4,7 @@ seoTitle: "Kindergeld-Auszahlungstermine 2018"
 description: "Hier findest du alle Kindergeld Auszahlungstermine zusammengefasst für das Jahr 2018"
 kind: "page"
 wpId: 2229
-published: "2020-10-29T18:34:57"
+published: "2020-10-29T09:28:22"
 updated: "2026-06-19T18:05:54"
 author: "redaktion"
 excerpt: "Kindergeld ist eine wichtige finanzielle Unterstützung für Familien in Deutschland. In diesem Artikel findest du die Auszahlungstermine für das Jahr 2018."

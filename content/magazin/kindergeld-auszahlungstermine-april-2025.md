@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine April 2025"
 description: "Wann wurde das Kindergeld im April 2025 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 3193
-published: "2025-04-17T11:00:26"
+published: "2025-04-17T12:34:59"
 updated: "2026-06-24T07:49:31"
 author: "redaktion"
 categories: ["kindergeld"]

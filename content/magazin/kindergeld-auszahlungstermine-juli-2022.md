@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Juli 2022"
 description: "Die Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 2952
-published: "2022-07-01T10:08:06"
+published: "2022-07-01T10:30:47"
 updated: "2026-07-03T17:33:09"
 author: "redaktion"
 categories: ["kindergeld"]

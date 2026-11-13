@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine 2021"
 description: "Hier findest du alle Kindergeld Auszahlungstermine zusammengefasst für das Jahr 2021"
 kind: "page"
 wpId: 2404
-published: "2021-01-24T09:25:20"
+published: "2021-01-24T15:56:38"
 updated: "2026-06-22T12:30:41"
 author: "redaktion"
 excerpt: "Hier findest du alle Kindergeld Auszahlungstermine für 2021 zusammengefasst. Das Kindergeld ist eine staatliche Unterstützung für Familien und Alleinerziehende, um die finanzielle Versorgung von Kindern zu sichern."

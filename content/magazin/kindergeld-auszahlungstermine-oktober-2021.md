@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Oktober 2021"
 description: "Wann wurde das Kindergeld im Oktober 2021 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 2882
-published: "2021-10-05T20:33:04"
+published: "2021-10-05T18:11:31"
 updated: "2026-07-10T08:34:11"
 author: "redaktion"
 categories: ["kindergeld"]

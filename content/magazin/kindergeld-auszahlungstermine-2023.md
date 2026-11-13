@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine 2023"
 description: "Die Auszahlungstermine für das Kindergeld im Jahr 2023 im Überblick. Finde den passenden Monat und prüfe den Termin für deine Endziffer."
 kind: "page"
 wpId: 3001
-published: "2023-01-09T23:21:14"
+published: "2023-01-09T10:13:36"
 updated: "2026-06-22T10:50:35"
 author: "redaktion"
 excerpt: "Kindergeld ist eine wichtige Unterstützung für Familien in Deutschland."

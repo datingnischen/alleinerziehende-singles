@@ -4,7 +4,7 @@ seoTitle: "Kindergeld-Auszahlungstermine 2019"
 description: "Hier findest du alle Kindergeld Auszahlungstermine zusammengefasst für das Jahr 2019"
 kind: "page"
 wpId: 2227
-published: "2020-10-29T18:26:01"
+published: "2020-10-29T08:00:44"
 updated: "2026-06-22T09:11:32"
 author: "redaktion"
 excerpt: "Kindergeld ist eine regelmäßige staatliche Zahlung an Eltern zur Unterstützung der Kindererziehung."

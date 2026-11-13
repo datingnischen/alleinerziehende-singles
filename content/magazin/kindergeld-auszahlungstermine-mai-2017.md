@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Mai 2017"
 description: "Dieser Beitrag dient als schnelle Orientierung für den Auszahlungstermin des Kindergeldes im Mai 2017."
 kind: "post"
 wpId: 1460
-published: "2017-05-01T07:00:51"
+published: "2017-05-01T09:40:46"
 updated: "2026-07-05T09:57:40"
 author: "redaktion"
 categories: ["kindergeld"]

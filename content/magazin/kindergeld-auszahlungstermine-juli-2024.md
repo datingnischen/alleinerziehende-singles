@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Juli 2024"
 description: "Kurze, allgemein verständliche Einordnung: Die Auszahlung erfolgt je nach Endziffer gestaffelt."
 kind: "post"
 wpId: 3154
-published: "2024-07-17T10:18:50"
+published: "2024-07-17T19:12:21"
 updated: "2026-07-02T19:02:44"
 author: "redaktion"
 categories: ["kindergeld"]

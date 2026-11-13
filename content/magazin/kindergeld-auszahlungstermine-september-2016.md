@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine September 2016"
 description: "Der folgende Überblick hilft dir, den Auszahlungstermin für September 2016 schnell einzuordnen. Maßgeblich ist dabei die Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 1388
-published: "2016-09-01T07:00:32"
+published: "2016-09-01T19:23:04"
 updated: "2026-07-09T20:48:55"
 author: "redaktion"
 categories: ["kindergeld"]

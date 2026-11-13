@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine März 2018"
 description: "Eine kurze Einordnung: Die Auszahlungstermine sind nach der Endziffer der Kindergeldnummer gestaffelt."
 kind: "post"
 wpId: 1729
-published: "2018-03-01T06:18:12"
+published: "2018-03-01T18:19:20"
 updated: "2026-07-03T11:03:07"
 author: "redaktion"
 categories: ["kindergeld"]

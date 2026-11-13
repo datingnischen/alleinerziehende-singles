@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine August 2025"
 description: "Wann wurde das Kindergeld im August 2025 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 3232
-published: "2025-08-18T14:13:01"
+published: "2025-08-18T07:16:29"
 updated: "2026-06-25T09:16:48"
 author: "redaktion"
 categories: ["kindergeld"]

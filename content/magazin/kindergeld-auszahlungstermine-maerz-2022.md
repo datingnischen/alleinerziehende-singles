@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine März 2022"
 description: "Wann wurde das Kindergeld im März 2022 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 2905
-published: "2022-03-25T21:04:48"
+published: "2022-03-25T10:34:19"
 updated: "2026-07-04T12:56:09"
 author: "redaktion"
 categories: ["kindergeld"]

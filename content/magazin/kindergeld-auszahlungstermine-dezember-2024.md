@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Dezember 2024"
 description: "Der Tag der Überweisung des Kindergeldes im Dezember richtet sich nach der Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 3159
-published: "2024-12-17T09:59:17"
+published: "2024-12-17T19:35:34"
 updated: "2026-06-19T15:10:47"
 author: "redaktion"
 categories: ["kindergeld"]

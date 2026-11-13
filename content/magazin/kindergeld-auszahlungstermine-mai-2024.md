@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Mai 2024"
 description: "Wann wurde das Kindergeld im Mai 2024 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 3163
-published: "2024-05-17T10:12:43"
+published: "2024-05-17T15:49:30"
 updated: "2026-05-10T07:30:16"
 author: "redaktion"
 categories: ["kindergeld"]

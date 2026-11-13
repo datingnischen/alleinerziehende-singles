@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine September 2025"
 description: "Wann wurde das Kindergeld im September 2025 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 3244
-published: "2025-09-18T14:18:16"
+published: "2025-09-18T13:47:03"
 updated: "2026-07-08T12:02:44"
 author: "redaktion"
 categories: ["kindergeld"]

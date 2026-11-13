@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Juni 2025"
 description: "Eine kurze Orientierung zu den Auszahlungsterminen im Juni 2025: Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der …"
 kind: "post"
 wpId: 3195
-published: "2025-06-17T11:00:30"
+published: "2025-06-17T15:30:23"
 updated: "2026-07-03T20:07:55"
 author: "redaktion"
 categories: ["kindergeld"]

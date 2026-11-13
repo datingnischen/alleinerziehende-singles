@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Mai 2020"
 description: "Wann wurde das Kindergeld im Mai 2020 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 2109
-published: "2020-05-01T20:17:43"
+published: "2020-05-01T18:55:25"
 updated: "2026-07-05T08:51:20"
 author: "redaktion"
 categories: ["kindergeld"]

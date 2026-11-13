@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine November 2025"
 description: "Wann wurde das Kindergeld im November 2025 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 3234
-published: "2025-11-18T14:13:28"
+published: "2025-11-18T10:37:48"
 updated: "2026-05-22T18:18:24"
 author: "redaktion"
 categories: ["kindergeld"]

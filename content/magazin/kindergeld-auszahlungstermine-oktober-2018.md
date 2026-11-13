@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Oktober 2018"
 description: "Eine kurze Übersicht hilft dabei, den Auszahlungstermin im Oktober 2018 schneller einzuordnen."
 kind: "post"
 wpId: 1755
-published: "2018-10-01T06:32:44"
+published: "2018-10-01T10:31:15"
 updated: "2026-07-08T20:26:49"
 author: "redaktion"
 categories: ["kindergeld"]

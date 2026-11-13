@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Mai 2019"
 description: "Dieser Monatsüberblick zeigt, wie sich die Auszahlungstermine für das Kindergeld im Mai 2019 nach der Endziffer der Kindergeldnummer richten."
 kind: "post"
 wpId: 2051
-published: "2019-05-01T19:47:33"
+published: "2019-05-01T21:49:47"
 updated: "2026-07-05T09:57:14"
 author: "redaktion"
 categories: ["kindergeld"]

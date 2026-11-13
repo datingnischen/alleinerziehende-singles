@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Juni 2023"
 description: "Wann wurde das Kindergeld im Juni 2023 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 3038
-published: "2023-06-09T10:36:36"
+published: "2023-06-09T14:12:17"
 updated: "2026-06-28T17:16:28"
 author: "redaktion"
 categories: ["kindergeld"]

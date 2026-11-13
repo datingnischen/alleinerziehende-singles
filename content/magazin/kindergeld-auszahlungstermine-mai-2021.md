@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Mai 2021"
 description: "Wann wurde das Kindergeld im Mai 2021 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 2867
-published: "2021-05-03T20:04:40"
+published: "2021-05-03T10:23:26"
 updated: "2026-07-02T15:10:35"
 author: "redaktion"
 categories: ["kindergeld"]

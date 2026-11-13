@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Februar 2017"
 description: "Kurze Einordnung: In diesem Beitrag wird der Auszahlungstermin übersichtlich über die Endziffer der Kindergeldnummer erklärt."
 kind: "post"
 wpId: 1416
-published: "2017-02-01T07:00:30"
+published: "2017-02-01T08:53:20"
 updated: "2026-06-27T15:40:40"
 author: "redaktion"
 categories: ["kindergeld"]

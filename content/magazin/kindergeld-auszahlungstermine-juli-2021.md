@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Juli 2021"
 description: "Wann wurde das Kindergeld im Juli 2021 überwiesen? Hier findest du die Auszahlungstermine nach Endziffer der Kindergeldnummer."
 kind: "post"
 wpId: 2873
-published: "2021-07-03T20:16:12"
+published: "2021-07-03T15:27:01"
 updated: "2026-07-01T10:00:20"
 author: "redaktion"
 categories: ["kindergeld"]

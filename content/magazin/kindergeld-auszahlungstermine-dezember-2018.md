@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Dezember 2018"
 description: "Das Kindergeld wird monatlich von der Familienkasse ausgezahlt, wobei der genaue Zahlungstermin von der Endziffer Ihrer Kindergeldnummer abhängt."
 kind: "post"
 wpId: 1969
-published: "2018-10-09T11:56:06"
+published: "2018-10-09T12:22:07"
 updated: "2026-06-30T21:53:58"
 author: "redaktion"
 categories: ["kindergeld"]

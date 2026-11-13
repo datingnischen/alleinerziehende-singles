@@ -4,7 +4,7 @@ seoTitle: "Kindergeld Auszahlungstermine Juni 2020"
 description: "Diese Übersicht hilft dabei, den Auszahlungstag für das Kindergeld im Juni 2020 schnell zu finden."
 kind: "post"
 wpId: 2114
-published: "2020-06-01T20:19:23"
+published: "2020-06-01T08:04:52"
 updated: "2026-07-02T11:51:37"
 author: "redaktion"
 categories: ["kindergeld"]
