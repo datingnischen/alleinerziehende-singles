@@ -57,7 +57,11 @@ export default function nextConfig(phase: string): NextConfig {
     },
     async redirects() {
       return [
-        { source: "/magazin/airtags-stalking-dating/", destination: "/magazin/stalking-dating-alleinerziehende/", statusCode: 301 },
+        ...["", "/de"].map((prefix) => ({
+          source: `${prefix}/magazin/airtags-stalking-dating/`,
+          destination: "https://alleinerziehende-singles.de/magazin/stalking-dating-alleinerziehende/",
+          statusCode: 301,
+        })),
         ...Object.entries(WEITERLEITUNGEN.slugs).filter(([slug]) => slug !== "airtags-stalking-dating").map(([alt, neu]) => ({
           source: `/magazin/${alt}/`,
           destination: `/magazin/${neu}/`,
