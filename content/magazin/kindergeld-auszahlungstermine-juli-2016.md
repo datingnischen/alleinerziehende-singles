@@ -6,7 +6,7 @@ kind: "post"
 wpId: 1378
 published: "2016-07-01T08:31:05"
 updated: "2026-06-30T18:51:15"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Die Kindergeld-Auszahlungstermine im Juli 2016 richten sich nach der Endziffer der Kindergeldnummer. So lässt sich schnell erkennen, an welchem Tag die Überweisung eingeht."
 ---

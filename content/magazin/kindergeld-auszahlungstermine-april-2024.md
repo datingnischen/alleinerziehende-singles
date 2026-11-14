@@ -6,7 +6,7 @@ kind: "post"
 wpId: 3162
 published: "2024-04-17T21:42:12"
 updated: "2026-06-23T16:25:54"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Kindergeld wird regelmäßig an berechtigte Eltern und Erziehungsberechtigte ausgezahlt. Die konkreten Auszahlungstermine richten sich nach der Endziffer der Kindergeldnummer."
 image: "/magazin/wp-content/uploads/2025/07/april-2024-jpg.webp"

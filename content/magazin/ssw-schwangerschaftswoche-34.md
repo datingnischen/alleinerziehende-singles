@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2463
 published: "2021-03-05T17:07:08"
 updated: "2021-11-27T16:34:25"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "Das Baby benötigt ab der SSW 34 immer mehr Platz im Bauch, da jetzt alles so gut wie ausgeprägt ist und es lediglich noch an Größe und Gewicht zulegt. Dadurch wird Ihr Kind jetzt immer größer."
 ---
 

@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2488
 published: "2021-03-17T17:35:23"
 updated: "2026-07-15T19:49:25"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "In der 36. SSW reift die Lunge vollständig aus und ist komplett funktionsfähig. Aktuell wiegt das Baby mehr als 2,2 kg. Es wird in den nächsten Wochen aber nochmal ordentlich zulegen."
 ---
 

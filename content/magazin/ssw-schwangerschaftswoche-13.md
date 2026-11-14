@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2346
 published: "2020-12-25T15:05:10"
 updated: "2021-11-27T17:02:51"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "Das Ende des ersten Trimesters ist mit der 13. Schwangerschaftswoche erreicht. Bald schon wird die Umwelt die Schwangerschaft an den körperlichen Veränderungen bemerken."
 ---
 

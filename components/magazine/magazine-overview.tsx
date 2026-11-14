@@ -199,8 +199,12 @@ export function MagazineOverview({ market, thema, seite }: MagazineOverviewProps
           <div className="aemag-head-row">
             <div className="ae-head">
               <span className="ae-eyebrow"><HeartIcon />Neueste Artikel</span>
-              <h2 id="aemag-latest-title">Frisch aus der Redaktion</h2>
-              <p>Neue Artikel, Tipps und Geschichten für alleinerziehende Singles.</p>
+              <h2 id="aemag-latest-title">Neu geschrieben und aktualisiert</h2>
+              <p>
+                Artikel, Tipps und Geschichten für alleinerziehende Singles – zuletzt bearbeitet zuerst, geschrieben von
+                {" "}
+                <MarketLink market="de" path="/magazin/christian-m-haas/">Christian M. Haas</MarketLink>.
+              </p>
             </div>
           </div>
           <div className="aemag-grid">

@@ -6,7 +6,7 @@ kind: "page"
 wpId: 982
 published: "2016-02-11T18:03:09"
 updated: "2026-06-18T13:14:56"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "Die Düsseldorfer Tabelle enthält alle relevanten Informationen und fungiert als Richtlinie und Maßstab, über die zu leistende Unterhaltshöhe, die als Unterhaltspflichtiger nach einer Trennung und anschließender …"
 ---
 

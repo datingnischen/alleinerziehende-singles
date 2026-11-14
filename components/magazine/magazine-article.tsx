@@ -1,5 +1,6 @@
 import { ArrowIcon, BookIcon, CalendarIcon, ClockIcon, FamilyHeartIcon, HeartIcon, PinIcon } from "@/components/icons";
 import { ArticleLink } from "@/components/magazine/article-link";
+import { AUTHOR_NAME, AUTHOR_PATH, AUTHOR_URL, AuthorByline } from "@/components/magazine/author-page";
 import { MarketLink } from "@/components/market-link";
 import { PostCard } from "@/components/magazine/post-card";
 import { breadcrumbJsonLd, serializeJsonLd } from "@/lib/json-ld";
@@ -47,7 +48,7 @@ function articleJsonLd(entry: MagazineEntry, url: string) {
     datePublished: entry.date,
     dateModified: entry.modified || entry.date,
     image: entry.featuredImageUrl ? [entry.featuredImageUrl] : undefined,
-    author: { "@type": "Organization", name: "Redaktion alleinerziehende-singles.de", url: publicUrl("de", "/ueber-uns/") },
+    author: { "@type": "Person", "@id": `${AUTHOR_URL}#person`, name: AUTHOR_NAME, url: AUTHOR_URL },
     publisher: { "@type": "Organization", name: "alleinerziehende-singles.de", url: publicUrl("de", "/") },
     inLanguage: "de-DE",
   };
@@ -95,7 +96,7 @@ export function MagazineArticle({ market, entry }: { market: MarketCode; entry: 
           <h1 dangerouslySetInnerHTML={{ __html: entry.titleHtml }} />
           {isPost && excerptText(entry.excerptHtml) ? <p className="aemag-lead">{excerptText(entry.excerptHtml)}</p> : null}
           <div className="aemag-meta">
-            <span className="aemag-author"><span aria-hidden="true"><FamilyHeartIcon /></span>Redaktion alleinerziehende-singles.de</span>
+            <span className="aemag-author"><span aria-hidden="true"><FamilyHeartIcon /></span><MarketLink market="de" path={AUTHOR_PATH}>{AUTHOR_NAME}</MarketLink></span>
             {entry.kind === "post" && formatArticleUpdated(entry) ? <span><CalendarIcon />{formatArticleUpdated(entry)}</span> : null}
             <span><ClockIcon />{minutes} Min. Lesezeit</span>
           </div>
@@ -126,18 +127,7 @@ export function MagazineArticle({ market, entry }: { market: MarketCode; entry: 
             </nav>
           ) : null}
 
-          <aside className="aemag-byline">
-            <span className="aemag-byline-icon" aria-hidden="true"><FamilyHeartIcon /></span>
-            <div>
-              <strong>Redaktion alleinerziehende-singles.de</strong>
-              <p>
-                Wir schreiben für Mütter und Väter, die Familie, Alltag und Liebe unter einen Hut bringen. Das Projekt wird
-                begleitet von Christian M. Haas, unabhängiger Datingexperte.
-              </p>
-              <MarketLink market={market} path="/ueber-uns/">Mehr über uns <ArrowIcon /></MarketLink>
-              <p><a href="https://datingnischen.de/christian/">Zur Vita von Christian M. Haas</a></p>
-            </div>
-          </aside>
+          <AuthorByline />
         </article>
 
         {toc.length >= 3 ? (

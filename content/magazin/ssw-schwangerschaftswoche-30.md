@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2447
 published: "2021-02-22T07:36:22"
 updated: "2021-11-27T16:12:38"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "In der 30. Schwangerschaftswoche hat das Baby ungefähr die Größe eines Kohlkopfes. Dies entspricht in etwa einem Gewicht von 1300 – 1400 Gramm und einer Größe von ca. 38 – 43 cm."
 ---
 

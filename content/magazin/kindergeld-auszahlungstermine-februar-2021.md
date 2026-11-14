@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2494
 published: "2021-04-12T18:40:20"
 updated: "2026-06-28T09:40:44"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer, maßgeblich für die Auszahlungstermine im Februar 2021."
 image: "/magazin/wp-content/uploads/2021/04/kindergeld-auszahlungstermin-februar-2021-jpeg.webp"

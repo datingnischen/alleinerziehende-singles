@@ -57,7 +57,8 @@ export default function nextConfig(phase: string): NextConfig {
     },
     async redirects() {
       return [
-        ...Object.entries(WEITERLEITUNGEN.slugs).map(([alt, neu]) => ({
+        { source: "/magazin/airtags-stalking-dating/", destination: "/magazin/stalking-dating-alleinerziehende/", statusCode: 301 },
+        ...Object.entries(WEITERLEITUNGEN.slugs).filter(([slug]) => slug !== "airtags-stalking-dating").map(([alt, neu]) => ({
           source: `/magazin/${alt}/`,
           destination: `/magazin/${neu}/`,
           permanent: true,

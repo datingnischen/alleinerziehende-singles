@@ -1234,3 +1234,151 @@ details.magazine-sources .magazine-sources__body a {
     transition: none;
   }
 }
+
+/* ---------- Autorenseite /magazin/christian-m-haas/ ---------- */
+
+.aemag-author-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 260px);
+  align-items: center;
+  gap: 48px;
+}
+
+.aemag-author-hero h1 {
+  max-width: 20ch;
+}
+
+.aemag-author-photo {
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--ae-radius);
+  box-shadow: var(--ae-shadow-lg);
+  transform: rotate(-1.5deg);
+}
+
+.aemag-author-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.aemag-author-text p {
+  max-width: 68ch;
+}
+
+.aemag-author-book {
+  display: grid;
+  grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+  gap: 36px;
+  align-items: start;
+  padding: clamp(22px, 4vw, 34px);
+  border-radius: var(--ae-radius);
+  background: #fff;
+  box-shadow: var(--ae-shadow), inset 0 0 0 1px var(--ae-line);
+}
+
+.aemag-author-book figure {
+  margin: 0;
+}
+
+.aemag-author-book figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: var(--ae-shadow-lg);
+}
+
+.aemag-author-book h2 {
+  margin: 6px 0 4px;
+}
+
+.aemag-author-book-sub {
+  margin: 0 0 14px;
+  color: var(--ae-muted);
+  font-weight: 700;
+}
+
+.aemag-author-facts {
+  margin: 16px 0 22px;
+  padding: 0;
+  list-style: none;
+  color: var(--ae-muted);
+  font-size: 0.95rem;
+}
+
+.aemag-author-facts li {
+  padding-left: 18px;
+  position: relative;
+}
+
+.aemag-author-facts li::before {
+  content: "";
+  position: absolute;
+  top: 0.6em;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ae-green);
+}
+
+.aemag-author-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.aemag-author-links a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: var(--ae-shadow), inset 0 0 0 1px var(--ae-line);
+  color: var(--ae-ink);
+  font-weight: 700;
+}
+
+.aemag-author-links a:hover,
+.aemag-author-links a:focus-visible {
+  color: var(--ae-green-dark);
+}
+
+.aemag-author-links span {
+  flex: 1;
+}
+
+.aemag-author-links svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+
+.aemag-byline-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+@media (max-width: 860px) {
+  .aemag-author-hero,
+  .aemag-author-book {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .aemag-author-photo {
+    max-width: 220px;
+    transform: none;
+  }
+
+  .aemag-author-book figure {
+    max-width: 190px;
+  }
+}

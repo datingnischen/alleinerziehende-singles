@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2566
 published: "2021-05-25T05:18:09"
 updated: "2026-06-08T16:50:01"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleleben"]
 excerpt: "Der Entlastungsbetrag für Alleinerziehende 2021 dient dazu die besondere finanzielle Belastung von Elternteilen, die ihr Kinder allein groß ziehen, bei der Einkommensteuer bzw. Lohnsteuer zu berücksichtigen."
 image: "/magazin/wp-content/uploads/2021/05/Entlastungsbetrag-fuer-Alleinerziehende-1024x682-jpg.webp"

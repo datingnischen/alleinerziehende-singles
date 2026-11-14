@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2692
 published: "2021-08-13T09:22:03"
 updated: "2026-06-02T10:56:05"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleboersen"]
 excerpt: "FlirtMoms beschreibt eine Singlebörse für Frauen. Dabei werden entweder werdende Single-Mütter oder auch alleinerziehende Mütter vor allem auf der Plattform zu sehen sein."
 image: "/magazin/wp-content/uploads/2021/08/flirtmoms-jpg.webp"

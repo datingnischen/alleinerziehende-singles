@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2369
 published: "2021-01-07T18:24:16"
 updated: "2026-07-15T16:07:14"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "In der 19. Woche steht die 2. Vorsorgeuntersuchung an. Hier entwickeln sich die Sinneswahrnehmungen sowie das Immunsystem."
 ---
 

@@ -6,7 +6,7 @@ kind: "post"
 wpId: 3024
 published: "2023-03-13T10:52:03"
 updated: "2026-07-04T15:06:29"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. So lässt sich der Auszahlungstermin meist schnell einordnen, ohne lange suchen zu müssen."
 image: "/magazin/wp-content/uploads/2023/03/kindergeld-auszahlung-maerz-2023-jpg.webp"

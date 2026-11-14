@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2227
 published: "2020-10-29T08:00:44"
 updated: "2026-06-03T09:11:32"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "Kindergeld ist eine regelmäßige staatliche Zahlung an Eltern zur Unterstützung der Kindererziehung."
 ---
 

@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2334
 published: "2020-12-15T14:26:28"
 updated: "2026-07-14T10:01:22"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "Kurze Einordnung zur 10. Schwangerschaftswoche: In dieser Phase sind viele Schwangere oft schon etwas ruhiger, weil sich die frühe Schwangerschaft langsam stabiler anfühlen kann."
 ---
 

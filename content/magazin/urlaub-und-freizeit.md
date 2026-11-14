@@ -6,7 +6,7 @@ kind: "page"
 wpId: 285
 published: "2015-07-25T19:19:42"
 updated: "2026-07-19T10:24:21"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "Das TUI ReiseCenter Borken unter der Leitung von Martin Gabbey ist mit seinem kompetenten Team der optimale Ansprechpartner zum Thema Urlaub und Freizeit. Auch für Babys und Kinder ist das Team gut aufgestellt."
 ---
 

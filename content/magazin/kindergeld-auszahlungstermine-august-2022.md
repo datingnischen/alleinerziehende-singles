@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2955
 published: "2022-08-01T16:45:35"
 updated: "2026-06-25T19:23:36"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Die Auszahlungstermine für August 2022 richten sich ebenfalls danach."
 image: "/magazin/wp-content/uploads/2022/08/Kindergeld-Auszahlungstermine-August-2022-jpg.webp"

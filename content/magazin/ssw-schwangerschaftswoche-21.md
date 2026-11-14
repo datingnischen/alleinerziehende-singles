@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2389
 published: "2021-01-22T20:51:26"
 updated: "2026-07-15T09:02:13"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "In der 21. Schwangerschaftswoche verändert sich vieles weiter spürbar. Körpergefühl, Bauchgröße und die Wahrnehmung des Babys können sich von Woche zu Woche deutlich wandeln."
 ---
 

@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2724
 published: "2021-10-31T18:02:37"
 updated: "2026-06-19T17:47:07"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleleben"]
 excerpt: "Elterngeld und Elterngeld Plus sollen Eltern in der Zeit nach der Geburt finanziell entlasten."
 image: "/magazin/wp-content/uploads/2021/10/Elterngeld-Elterngeld-plus-1024x682-jpg.webp"

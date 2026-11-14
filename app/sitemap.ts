@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: publicUrl("de"), changeFrequency: "daily", priority: 1 },
     { url: publicUrl("de", "/magazin/"), changeFrequency: "daily", priority: 0.9 },
     { url: publicUrl("de", "/partnersuche/"), changeFrequency: "weekly", priority: 0.9 },
+    { url: publicUrl("de", "/magazin/christian-m-haas/"), changeFrequency: "monthly", priority: 0.5 },
     ...getMagazineSlugs().map((slug) => {
       const entry = getMagazineEntryBySlug(slug);
       return {

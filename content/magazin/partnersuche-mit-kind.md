@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2929
 published: "2022-04-28T10:30:56"
 updated: "2026-07-11T14:01:55"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleboersen", "singleleben"]
 excerpt: "Eine Partnersuche mit Kind kann heute kostenlos sein und in puncto Vorauswahl im Netz stattfinden. Gerade als alleinerziehende Mama stellen sich dabei oft ganz praktische Fragen: Wie viel Zeit passt in den Alltag?"
 image: "/magazin/wp-content/uploads/2022/04/Partnersuche-mit-Kind-1024x682-jpg.webp"

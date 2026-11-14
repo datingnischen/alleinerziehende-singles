@@ -6,7 +6,7 @@ kind: "post"
 wpId: 3196
 published: "2025-07-17T08:34:40"
 updated: "2026-06-26T20:15:01"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer, maßgeblich sind dabei die Auszahlungstermine im Juli 2025."
 image: "/magazin/wp-content/uploads/2025/07/juli-2025-jpg.webp"

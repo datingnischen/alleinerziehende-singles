@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2609
 published: "2021-07-15T20:04:06"
 updated: "2024-04-17T13:43:52"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleboersen"]
 excerpt: "Die Singlebörse „moms-dads-kids“ lässt offenkundig worum es auf der Seite im wesentlich geht, nämlich die Partnersuche mit einem Kind. Doch braucht es wirklich eine spezielle Börse für alleinerziehende Singles?"
 image: "/magazin/wp-content/uploads/2021/07/alleinerziehende-singles-momsdadskids-jpg.webp"

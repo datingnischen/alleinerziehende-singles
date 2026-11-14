@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2582
 published: "2021-06-09T12:28:51"
 updated: "2026-06-20T14:54:54"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleleben"]
 excerpt: "Ferienzeit ist Urlaubszeit. Mit Kindern ist dies eine ganz besondere Zeit."
 image: "/magazin/wp-content/uploads/2021/06/Kinder-beschaeftigen-in-den-Ferien-1024x682-jpg.webp"

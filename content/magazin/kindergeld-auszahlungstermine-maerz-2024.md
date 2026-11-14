@@ -6,7 +6,7 @@ kind: "post"
 wpId: 3161
 published: "2024-03-17T16:52:49"
 updated: "2026-06-30T20:54:52"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Im März 2024 hängen die Kindergeld Auszahlungstermine ebenfalls von dieser Endziffer ab."
 ---

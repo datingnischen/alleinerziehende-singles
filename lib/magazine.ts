@@ -18,6 +18,7 @@ export const MAGAZINE_THEMES: MagazineTheme[] = [
 ];
 
 /** Artikel ohne die monatlichen Kindergeld-Termine: Partnersuche + Singleleben. */
+export const DATING_CATEGORY_IDS = [MAGAZINE_THEMES[0].categoryId];
 export const EDITORIAL_CATEGORY_IDS = [26, 1];
 
 export function themeForCategories(ids: number[]): MagazineTheme | null {

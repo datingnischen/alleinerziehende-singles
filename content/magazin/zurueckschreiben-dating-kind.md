@@ -6,12 +6,14 @@ kind: "post"
 wpId: 3453
 published: "2026-05-13T18:22:03"
 updated: "2026-05-13T19:21:59"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleboersen"]
 excerpt: "Beim Dating mit Kind können verzögerte Antworten viele Gründe haben: Alltag, Erschöpfung, mentale Last oder Unsicherheit. Dieser Ratgeber zeigt, wie Alleinerziehende Funkstille einordnen, Erwartungen klären und respektvoll nachfragen."
-image: "/magazin/wp-content/uploads/2026/05/zurueckschreiben-dating-kind-1024x683-png.webp"
-imageAlt: "Nicht sofort zurückschreiben: Was Funkstille beim Dating mit Kind wirklich bedeuten kann"
+image: "/magazin/wp-content/uploads/2022/04/Partnersuche-mit-Kind-1024x682-jpg.webp"
+imageAlt: "Eine Mutter sitzt mit ihrem kleinen Kind auf einer Picknickdecke."
 ---
+
+Eine kurze Nachricht kann das Warten einordnen: „Ich bringe gerade mein Kind ins Bett und melde mich morgen.“ Schreib nur so viel über deinen Familienalltag, wie du teilen möchtest. Achte darauf, ob die andere Person deine Zeit respektiert.
 
 **Nicht sofort zurückschreiben** ist beim Dating schnell ein Reizthema. Eine Nachricht bleibt unbeantwortet, der Chat wirkt plötzlich kühl, und schon beginnt das innere Deuten: War das zu viel? War das Interesse nur höflich? Oder hat die andere Person längst weitergesucht?
 

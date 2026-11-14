@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2375
 published: "2021-01-11T19:20:57"
 updated: "2026-07-13T19:31:50"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "Die SSW 17 beginnt und damit bereits der fünfte Monat der Schwangerschaft! Eine aufregende Zeit für das kleine Wesen, das in deinem Bauch heranwächst."
 ---
 

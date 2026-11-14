@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2326
 published: "2020-12-15T14:18:18"
 updated: "2026-07-18T09:59:43"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "Eine Schwangerschaft ist für wohl fast jede Frau ein einzigartiges und schönes Erlebnis. Doch viele Frauen, gerade die, die ihr erstes Kind erwarten, sind mit der Schwangerschaft bereits etwas überfordert."
 ---
 

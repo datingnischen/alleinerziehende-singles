@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2344
 published: "2020-12-25T15:02:29"
 updated: "2021-11-27T17:04:42"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "Das Wachstum Ihres Kindes schreitet in der 11. SSW besonders schnell voran. Vor allem das Gehirn bildet in jeder Minute Tausende von Nervenbahnen aus. Es wird schon von einer knorpeligen und weichen Schicht umgeben."
 ---
 

@@ -6,7 +6,7 @@ kind: "post"
 wpId: 1471
 published: "2017-08-01T09:03:14"
 updated: "2026-06-23T13:40:12"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Kindergeld ist eine wichtige finanzielle Unterstützung für Familien und Alleinerziehende."
 ---

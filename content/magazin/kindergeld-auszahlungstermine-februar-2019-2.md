@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2038
 published: "2019-02-01T18:09:01"
 updated: "2026-06-27T10:55:40"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Kurze Einordnung: Die Auszahlungstermine für das Kindergeld sind für den jeweiligen Monat nach der Endziffer der Kindergeldnummer gestaffelt. Dieser Beitrag hilft dabei, den passenden Termin schnell zuzuordnen."
 ---

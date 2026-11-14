@@ -6,11 +6,11 @@ kind: "post"
 wpId: 3220
 published: "2025-12-10T12:19:08"
 updated: "2026-05-25T22:21:37"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleleben"]
 excerpt: "Eine Trennung bedeutet für viele Alleinerziehende nicht nur eine emotionale Umstellung, sondern auch finanzielle Unsicherheit."
 image: "/magazin/wp-content/uploads/2025/12/Unterhaltsvorschuss-2-1024x636-jpg.webp"
-imageAlt: "Unterhaltsvorschuss (2)"
+imageAlt: "Mutter und Sohn sitzen gemeinsam am Schreibtisch vor dem Rechner"
 ---
 
 Eine Trennung bedeutet für viele Alleinerziehende nicht nur eine emotionale Umstellung, sondern auch finanzielle Unsicherheit. Besonders schwierig wird es, wenn der andere Elternteil keinen oder nur unregelmäßig Unterhalt zahlt. Genau hier setzt der Unterhaltsvorschuss an und sorgt dafür, dass Kinder dennoch abgesichert sind.

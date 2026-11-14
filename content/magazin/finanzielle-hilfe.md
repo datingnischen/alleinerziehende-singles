@@ -6,11 +6,11 @@ kind: "post"
 wpId: 3216
 published: "2025-12-18T12:17:54"
 updated: "2026-06-20T10:41:59"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleleben"]
 excerpt: "Eine Trennung verändert den Alltag – organisatorisch, emotional und oft auch finanziell. Plötzlich entstehen doppelte Haushaltskosten, neue Betreuungspläne und Fragen wie: Wer zahlt was? Welche Leistungen stehen mir zu?"
 image: "/magazin/wp-content/uploads/2025/12/Finanzielle-Hilfe-nach-der-Trennung-2-1024x683-jpg.webp"
-imageAlt: "Finanzielle Hilfe nach der Trennung (2)"
+imageAlt: "Zwei Frauen gehen am Küchentisch mit Taschenrechner gemeinsam Unterlagen durch"
 ---
 
 ## Artikel kurz anhören

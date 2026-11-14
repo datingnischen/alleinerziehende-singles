@@ -12,7 +12,7 @@ kind: "post"
 # nie dieselbe Zeit wie bei anderen Artikeln und nie in der Zukunft. updated = letzte inhaltliche Änderung.
 published: "JJJJ-MM-TTThh:mm:ss"
 updated: "JJJJ-MM-TTThh:mm:ss"
-author: "redaktion"
+author: "christian-m-haas"
 # Themenwelten: singleboersen (Partnersuche), singleleben (Singleleben), kindergeld (Kindergeld) – oder keine
 categories: ["singleleben"]
 # Auszug für Karten und Lead (ein bis zwei vollständige Sätze)

@@ -6,7 +6,7 @@ kind: "post"
 wpId: 3155
 published: "2024-08-17T11:10:44"
 updated: "2026-05-31T17:47:56"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Kindergeld wird monatlich von der Familienkasse ausgezahlt. Die genauen Auszahlungstermine im August 2024 richten sich dabei nach der Endziffer der Kindergeldnummer, die auf Ihrem Schreiben der Familienkasse zu finden …"
 image: "/magazin/wp-content/uploads/2025/07/august-2024-jpg.webp"

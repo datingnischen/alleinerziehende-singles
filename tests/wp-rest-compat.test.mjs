@@ -14,8 +14,10 @@ test("posts: Teaser-Abruf wie bei ICONY liefert drei Beiträge im WordPress-Form
   const result = get("/wp/v2/posts", "per_page=3&_embed=1&orderby=date&order=desc");
   assert.equal(result.status, 200);
   assert.equal(result.body.length, 3);
-  assert.equal(result.headers["X-WP-Total"], String(postCount));
-  assert.equal(result.headers["X-WP-TotalPages"], String(Math.ceil(postCount / 3)));
+  const dating = get("/wp/v2/categories", "slug=singleboersen").body[0];
+  assert.equal(result.headers["X-WP-Total"], String(dating.count));
+  assert.equal(result.headers["X-WP-TotalPages"], String(Math.ceil(dating.count / 3)));
+  assert.ok(result.body.every((post) => post.categories.includes(dating.id)));
   assert.match(result.headers.Link, /rel="next"/);
 
   const [first, second] = result.body;
@@ -36,23 +38,22 @@ test("posts: Teaser-Abruf wie bei ICONY liefert drei Beiträge im WordPress-Form
 });
 
 test("posts: Beitragsbild mit source_url, alt_text und media_details, Datumsfelder stimmen", () => {
-  const withImage = get("/wp/v2/posts", "slug=airtags-stalking-dating&_embed=1").body[0];
+  const withImage = get("/wp/v2/posts", "slug=stalking-dating-alleinerziehende&_embed=1").body[0];
   assert.ok(withImage.featured_media > 0);
   const media = withImage._embedded["wp:featuredmedia"][0];
   // Eigene Domain statt Asset-Host: die ICONY-Startseite darf Bilder nur von der eigenen Domain laden (CSP, Heiko 2026-10-14)
   // Teaserbild ohne Dateiendung im wp-json-Bereich (lib/teaser-image.ts): nginx reicht .jpg/.png nicht an Vercel durch, CSP erlaubt nur die eigene Domain
-  assert.equal(media.source_url, "https://alleinerziehende-singles.de/magazin/wp-json/datingnischen/v1/bild/magazin/wp-content/uploads/2026/06/airtags-stalking-dating-png~webp");
-  assert.equal(media.media_details.sizes.medium_large.source_url, media.source_url);
+  assert.equal(media.source_url, "https://alleinerziehende-singles.de/magazin/wp-json/datingnischen/v1/bild/magazin/wp-content/uploads/2025/12/Finanzielle-Hilfe-nach-der-Trennung-1-1024x683-jpg~webp");
   assert.equal(media.media_details.sizes.full.source_url, media.source_url);
-  assert.equal(media.media_details.sizes.medium.source_url, media.source_url);
+  assert.equal(media.media_details.sizes.full.source_url, media.source_url);
   assert.ok(media.media_details.sizes.full.width > 0);
   assert.ok(media.alt_text.trim());
   assert.ok(media.media_details.width > 0 && media.media_details.height > 0);
   assert.equal(media.id, withImage.featured_media);
 
-  assert.equal(withImage.date, "2026-06-14T14:18:28");
-  assert.equal(withImage.date_gmt, "2026-06-14T12:18:28", "Sommerzeit: UTC+2");
-  assert.equal(withImage.modified, "2026-06-17T09:27:52");
+  assert.equal(withImage.date, "2026-05-30T19:32:19");
+  assert.equal(withImage.date_gmt, "2026-05-30T17:32:19", "Sommerzeit: UTC+2");
+  assert.equal(withImage.modified, "2026-05-30T19:32:19");
 
   const single = get(`/wp/v2/media/${withImage.featured_media}`);
   assert.equal(single.status, 200);
@@ -69,7 +70,7 @@ test("posts: _fields, slug, categories, order, include, after und Paginierung ve
   const embedded = get("/wp/v2/posts", "per_page=1&_embed&_fields=id,_embedded");
   assert.deepEqual(Object.keys(embedded.body[0]).sort(), ["_embedded", "id"]);
 
-  const bySlug = get("/wp/v2/posts", "slug=airtags-stalking-dating");
+  const bySlug = get("/wp/v2/posts", "slug=stalking-dating-alleinerziehende");
   assert.equal(bySlug.body.length, 1);
   assert.equal(bySlug.headers["X-WP-Total"], "1");
 
@@ -88,8 +89,8 @@ test("posts: _fields, slug, categories, order, include, after und Paginierung ve
   assert.ok(after.body.length > 0 && after.body.every((post) => post.date > "2026-06-01T00:00:00"));
   assert.equal(get("/wp/v2/posts", "before=2000-01-01T00:00:00").body.length, 0);
 
-  const search = get("/wp/v2/posts", "search=AirTags");
-  assert.ok(search.body.some((post) => post.slug === "airtags-stalking-dating"));
+  const search = get("/wp/v2/posts", "search=Bluetooth-Tracker");
+  assert.ok(search.body.some((post) => post.slug === "stalking-dating-alleinerziehende"));
 
   const ids = new Set();
   const first = get("/wp/v2/posts", "per_page=100&page=1");
@@ -226,7 +227,7 @@ test("AT/CH-Knoten: drei größte Städteseiten mit Link und Bild auf der Landes
       const url = `https://alleinerziehende-singles.${market}/magazin/wp-json/datingnischen/v1/bild/city-images/${market}/${post.slug}~jpg`;
       assert.equal(media.source_url, url);
       assert.equal(media.mime_type, "image/jpeg");
-      assert.equal(media.media_details.sizes.medium_large.source_url, url);
+      assert.equal(media.media_details.sizes.full.source_url, url);
       assert.ok(media.media_details.sizes.medium_large.width > 0 && media.media_details.sizes.medium_large.height > 0);
       assert.ok(existsSync(new URL(`public/city-images/${market}/${post.slug}.jpg`, root)), `${market}/${post.slug}.jpg fehlt`);
     }

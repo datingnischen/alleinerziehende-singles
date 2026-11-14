@@ -6,7 +6,7 @@ kind: "post"
 wpId: 3038
 published: "2023-06-09T14:12:17"
 updated: "2026-06-28T17:16:28"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Die Kindergeldnummer findet man auf dem Kontoauszug oder auf dem Schreiben der Familienkasse."
 image: "/magazin/wp-content/uploads/2023/06/Kindergeld-Auszahlungstermine-fuer-Juni-2023-jpg.webp"

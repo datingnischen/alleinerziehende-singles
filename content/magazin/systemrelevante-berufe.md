@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2657
 published: "2021-07-26T11:54:10"
 updated: "2026-07-19T11:25:17"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleleben"]
 excerpt: "Systemrelevante Berufe, diesen Begriff kennt spätestens seit der Corona-Pandemie jeder."
 image: "/magazin/wp-content/uploads/2021/07/systemrelevante-Berufe-1024x682-jpg.webp"

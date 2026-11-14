@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2557
 published: "2021-05-12T07:29:45"
 updated: "2026-07-11T10:31:45"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleleben"]
 excerpt: "Ein Pflegekind aufzunehmen ist für viele Familien ein wichtiger und zugleich sensibler Schritt."
 image: "/magazin/wp-content/uploads/2021/05/pflegekind-aufnehmen-1024x682-jpg.webp"

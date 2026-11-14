@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2578
 published: "2021-05-26T06:20:52"
 updated: "2026-07-18T15:58:39"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleleben"]
 excerpt: "Alleinerziehende Mütter oder Väter teilen ein schweres Los. Jeder für sich muss Erziehung und Job unter einem Hut bekommen. Das ganze Programm auch nur mit einem Einkommen des Alleinerziehenden für die Miete."
 image: "/magazin/wp-content/uploads/2021/05/steuerklasse-alleinerziehend-1024x682-jpg.webp"

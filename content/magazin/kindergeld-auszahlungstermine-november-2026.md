@@ -6,7 +6,7 @@ kind: "post"
 wpId: 202611
 published: "2026-10-22T09:31:12"
 updated: "2026-10-22T10:26:03"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlungstermine für das Kindergeld im November 2026 richten sich nach der Endziffer der Kindergeldnummer. Die Kindergeldnummer findet man auf dem Kontoauszug oder auf dem Schreiben der Familienkasse."
 image: "/magazin/wp-content/uploads/2026/kindergeld/november.jpg"
@@ -33,6 +33,6 @@ Hier muss man nur die Farbe zuordnen. Weitere Informationen zu staatlichen Leist
 | 8 | Dienstag, 17.11.2026 |
 | 9 | Freitag, 20.11.2026 |
 
-Die Termine stammen aus dem Kalender der Facebook-Seite „Wir wollen mehr Kindergeld“.
+Verbindlich sind die Auszahlungstermine der [Familienkasse der Bundesagentur für Arbeit](https://www.arbeitsagentur.de/familie-und-kinder/auszahlungstermine). An Wochenenden und Feiertagen kann sich der Geldeingang verschieben; einen Rechtsanspruch auf einen bestimmten Tag gibt es nicht.
 
 Alle Monate im Überblick: [Kindergeld Auszahlungstermine 2026](/magazin/kindergeld-auszahlungstermine-2026/)

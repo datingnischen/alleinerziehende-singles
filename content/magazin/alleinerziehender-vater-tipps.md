@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2021
 published: "2020-04-09T13:24:19"
 updated: "2026-06-17T21:51:53"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleleben"]
 excerpt: "Allgemeines Als alleinerziehender Vater haben Sie möglicherweise Schwierigkeiten, Ihre vielen Aufgaben zu erfüllen."
 image: "/magazin/wp-content/uploads/2020/04/tipps-alleinerziehender-vater-1-1024x682-jpg.webp"

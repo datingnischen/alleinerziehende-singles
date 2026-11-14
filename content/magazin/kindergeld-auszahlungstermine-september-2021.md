@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2879
 published: "2021-09-05T09:29:30"
 updated: "2026-07-09T22:02:15"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Kurzer einordnender Einstieg: Die Auszahlungstermine für das Kindergeld folgen einem festen Muster. Entscheidend ist dabei die Endziffer der Kindergeldnummer, die du mit dem passenden Termin abgleichen kannst."
 image: "/magazin/wp-content/uploads/2022/03/Kindergeld-Auszahlungstermine-September-2021-jpg.webp"

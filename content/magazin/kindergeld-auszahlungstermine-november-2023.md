@@ -6,7 +6,7 @@ kind: "post"
 wpId: 3067
 published: "2023-11-12T13:09:06"
 updated: "2026-07-09T10:46:41"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Die Kindergeld-Auszahlungstermine lassen sich anhand der Endziffer der Kindergeldnummer zuordnen. Dieser Beitrag hilft dir dabei, den passenden Auszahlungstermin für November 2023 schneller zu finden."
 image: "/magazin/wp-content/uploads/2024/02/Kindergeld-Auszahlungstermine-November-2023-jpg.webp"

@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2065
 published: "2019-08-01T10:13:04"
 updated: "2026-06-25T13:41:56"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Das Kindergeld wird monatlich von der Familienkasse überwiesen. Der genaue Zahlungstag im Monat richtet sich nach der Endziffer der Kindergeldnummer, um die Auszahlung zu staffeln und Bearbeitungsprozesse zu optimieren."
 ---

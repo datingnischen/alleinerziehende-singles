@@ -5,7 +5,7 @@ import { SiteShell } from "@/components/site-shell";
 import { isMarketCode, publicUrl } from "@/lib/markets";
 import { getHomeContent } from "@/lib/startseite";
 import { getMagazinePostsByCategories } from "@/lib/magazine-content";
-import { EDITORIAL_CATEGORY_IDS } from "@/lib/magazine";
+import { DATING_CATEGORY_IDS } from "@/lib/magazine";
 
 type PageProps = { params: Promise<{ market: string }> };
 
@@ -32,8 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function MarketHomePage({ params }: PageProps) {
   const market = activeMarket((await params).market);
-  // Magazin-Teaser wie auf .de, ohne die deutschen Kindergeld-Termine (EDITORIAL_CATEGORY_IDS)
-  const posts = getMagazinePostsByCategories(EDITORIAL_CATEGORY_IDS, 3);
+  const posts = getMagazinePostsByCategories(DATING_CATEGORY_IDS, 3);
 
   return (
     <SiteShell market={market} registrationContext="location">

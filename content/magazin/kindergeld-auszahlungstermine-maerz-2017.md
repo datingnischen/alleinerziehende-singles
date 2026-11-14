@@ -6,7 +6,7 @@ kind: "post"
 wpId: 1420
 published: "2017-03-01T10:06:58"
 updated: "2026-07-03T19:37:54"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlungstermine für das Kindergeld werden hier nach der Endziffer der Kindergeldnummer geordnet."
 ---

@@ -6,7 +6,7 @@ kind: "post"
 wpId: 893
 published: "2016-01-19T18:30:04"
 updated: "2026-06-16T22:23:28"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Unsere Politiker haben das Kindergeld in 2016 um 2 Euro pro Kind erhöht. Diese Erhöhung betrifft alle anspruchsberechtigten Familien und soll die finanzielle Unterstützung für Kinder verbessern."
 ---

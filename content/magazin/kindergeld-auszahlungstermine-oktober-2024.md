@@ -6,7 +6,7 @@ kind: "post"
 wpId: 3157
 published: "2024-10-17T10:36:46"
 updated: "2026-06-26T19:11:40"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Kurze, verständliche Einordnung der Terminlogik: Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
 image: "/magazin/wp-content/uploads/2025/07/oktober-2024-jpg.webp"

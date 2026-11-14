@@ -6,7 +6,7 @@ kind: "post"
 wpId: 3159
 published: "2024-12-17T19:35:34"
 updated: "2026-06-16T15:10:47"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes im Dezember richtet sich nach der Endziffer der Kindergeldnummer. Die Kindergeldnummer findet man auf dem Kontoauszug oder auf dem Schreiben der Familienkasse."
 image: "/magazin/wp-content/uploads/2025/07/dezember-2024-jpg.webp"

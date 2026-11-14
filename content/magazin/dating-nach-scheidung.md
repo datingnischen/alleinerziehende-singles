@@ -1,14 +1,16 @@
 ---
 title: "Dating nach der Scheidung: Wie Alleinerziehende ihren Neuanfang gestalten"
-seoTitle: "Dating nach der Scheidung: Wie Alleinerziehende ihren …"
+seoTitle: "Dating nach der Scheidung: Neuanfang mit Kind"
 description: "Dating nach Scheidung klingt in sozialen Netzwerken oft nach Befreiung in Sommerkleidern, neuen Profilfotos und demonstrativem Selbstbewusstsein."
 kind: "post"
 wpId: 3461
 published: "2026-05-24T16:11:36"
 updated: "2026-06-05T20:13:57"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleboersen"]
 excerpt: "Nach einer Scheidung wieder zu daten, ist für Alleinerziehende selten nur romantisch. Es geht um Selbstvertrauen, Alltag, Kinder, Grenzen und die Frage, wie viel neues Leben gerade wirklich Platz hat."
+image: "/magazin/wp-content/uploads/2022/04/Partnersuche-mit-Kind-1024x682-jpg.webp"
+imageAlt: "Eine Mutter sitzt mit ihrem kleinen Kind auf einer Picknickdecke."
 ---
 
 Dating nach Scheidung klingt in sozialen Netzwerken oft nach Befreiung in Sommerkleidern, neuen Profilfotos und demonstrativem Selbstbewusstsein. Der Begriff "Hot Divorcee Summer", den der [Guardian](https://www.theguardian.com/lifeandstyle/2026/may/12/hot-divorcee-summer) im Mai 2026 aufgegriffen hat, beschreibt genau diese kulturelle Stimmung: getrennt, sichtbar, selbstbestimmt, nicht mehr bereit, sich kleinzumachen.

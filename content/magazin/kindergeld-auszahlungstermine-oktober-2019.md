@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2076
 published: "2019-10-01T19:39:24"
 updated: "2026-06-25T11:12:35"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Kurze Einordnung: Dieser Beitrag bietet einen schnellen Überblick zum Auszahlungstermin für Oktober 2019. Die Zuordnung erfolgt über die Endziffer der Kindergeldnummer."
 ---

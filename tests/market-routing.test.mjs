@@ -196,7 +196,7 @@ test("proxy, canonical helpers and market-specific rendered copy are wired", asy
   assert.match(proxySource, /NextResponse\.rewrite/);
   assert.match(marketHomeSource, /publicUrl\(market\)/);
   assert.match(marketHomeSource, /<HomePage market=\{market\} posts=\{posts\} \/>/);
-  assert.match(marketHomeSource, /getMagazinePostsByCategories\(EDITORIAL_CATEGORY_IDS, 3\)/);
+  assert.match(marketHomeSource, /getMagazinePostsByCategories\(DATING_CATEGORY_IDS, 3\)/);
   assert.match(marketHomeSource, /getHomeContent\(market\)/);
   const startseiten = JSON.parse(await readFile(new URL("../data/startseiten.json", import.meta.url), "utf8"));
   assert.equal(startseiten.at.h1, "Alleinerziehende Singles in Österreich finden");

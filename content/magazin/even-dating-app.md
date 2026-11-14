@@ -6,7 +6,7 @@ kind: "post"
 wpId: 3138
 published: "2024-11-13T20:32:12"
 updated: "2026-06-18T14:03:12"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleboersen"]
 excerpt: "Auf konventionellen Dating-Plattformen wie Lovoo oder Tinder fühlen sich Alleinerziehende oftmals fehl am Platz."
 image: "/magazin/wp-content/uploads/2024/11/---_13-11-2024_213645_de.even-dating.com_-jpeg.webp"

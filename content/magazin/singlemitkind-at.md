@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2687
 published: "2021-08-12T13:15:01"
 updated: "2026-07-02T17:21:39"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleboersen"]
 excerpt: "In Österreich gibt es nicht nur Hansi Hinterseher und Dj. Ötzi, sondern tausende Singles mit Kind, die einen Partner oder eine Partnerin suchen, um mit ihnen gemeinsam eine Familie zu gründen."
 image: "/magazin/wp-content/uploads/2021/08/singlesmitkind-jpg.webp"

@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2867
 published: "2021-05-03T10:23:26"
 updated: "2026-06-05T15:10:35"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Die Auszahlungstermine für das Kindergeld im Mai 2021 richten sich nach der Endziffer der Kindergeldnummer."
 image: "/magazin/wp-content/uploads/2022/03/Kindergeld-Auszahlungstermine-Mai-2021-1024x484-jpg.webp"

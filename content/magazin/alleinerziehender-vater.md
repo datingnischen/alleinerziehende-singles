@@ -6,7 +6,7 @@ kind: "post"
 wpId: 1850
 published: "2018-10-04T09:18:42"
 updated: "2026-06-19T18:35:58"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleleben"]
 excerpt: "Die Suche nach einer neuen Liebe als alleinerziehender Vater bringt besondere Herausforderungen mit sich, aber auch schöne Chancen."
 image: "/magazin/wp-content/uploads/2018/10/Alleinerziehender-Vater-mit-Kind-Strand-1024x420-jpg.webp"

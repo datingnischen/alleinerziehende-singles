@@ -6,7 +6,7 @@ kind: "post"
 wpId: 202608
 published: "2026-07-30T15:43:33"
 updated: "2026-07-30T17:03:14"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlungstermine für das Kindergeld im August 2026 richten sich nach der Endziffer der Kindergeldnummer. Die Kindergeldnummer findet man auf dem Kontoauszug oder auf dem Schreiben der Familienkasse."
 image: "/magazin/wp-content/uploads/2026/kindergeld/august.jpg"
@@ -33,6 +33,6 @@ Hier muss man nur die Farbe zuordnen. Weitere Informationen zu staatlichen Leist
 | 8 | Mittwoch, 19.08.2026 |
 | 9 | Freitag, 21.08.2026 |
 
-Die Termine stammen aus dem Kalender der Facebook-Seite „Wir wollen mehr Kindergeld“.
+Verbindlich sind die Auszahlungstermine der [Familienkasse der Bundesagentur für Arbeit](https://www.arbeitsagentur.de/familie-und-kinder/auszahlungstermine). An Wochenenden und Feiertagen kann sich der Geldeingang verschieben; einen Rechtsanspruch auf einen bestimmten Tag gibt es nicht.
 
 Alle Monate im Überblick: [Kindergeld Auszahlungstermine 2026](/magazin/kindergeld-auszahlungstermine-2026/)

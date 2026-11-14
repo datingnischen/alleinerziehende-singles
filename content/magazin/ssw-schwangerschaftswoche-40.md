@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2485
 published: "2021-03-16T15:34:38"
 updated: "2026-07-17T14:24:42"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "Schwangerschaftswoche 40- jetzt haben Sie es fast geschafft"
 ---
 

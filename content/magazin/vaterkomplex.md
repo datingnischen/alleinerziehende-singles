@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2914
 published: "2022-04-06T11:48:14"
 updated: "2026-07-17T19:28:08"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleleben"]
 excerpt: "Deine Beziehungen scheitern wiederholt, da du immer wieder auf denselben Männertyp hereinfällst? Dahinter kann sich möglicherweise ein Vaterkomplex verbergen."
 image: "/magazin/wp-content/uploads/2022/04/vater-1024x693-jpg.webp"

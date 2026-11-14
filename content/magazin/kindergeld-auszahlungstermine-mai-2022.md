@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2939
 published: "2022-05-11T17:47:41"
 updated: "2026-07-05T11:02:10"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Wer den Auszahlungstermin prüfen möchte, gleicht deshalb die eigene Endziffer vorsichtig mit der Übersicht ab."
 image: "/magazin/wp-content/uploads/2022/05/Kindergeld-Auszahlungstermine-Mai-2022-1024x479-jpg.webp"

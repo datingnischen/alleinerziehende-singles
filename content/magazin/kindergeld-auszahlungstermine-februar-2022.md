@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2902
 published: "2022-02-10T09:19:46"
 updated: "2026-06-18T19:05:52"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Die Kindergeld Auszahlungstermine im Februar 2022 richten sich nach der Endziffer der Kindergeldnummer."
 image: "/magazin/wp-content/uploads/2022/03/Kindergeld-Auszahlungstermine-Februar-2022-jpg.webp"

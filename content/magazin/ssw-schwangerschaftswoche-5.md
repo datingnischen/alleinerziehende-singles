@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2339
 published: "2020-12-18T18:14:22"
 updated: "2026-07-18T08:18:01"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "In der 5. Schwangerschaftswoche zeigen sich die ersten Anzeichen, dass sich in der Gebärmutter ein befruchtetes Ei eingenistet hat und ein Baby heranwächst."
 ---
 

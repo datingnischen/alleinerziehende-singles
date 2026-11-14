@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2320
 published: "2020-12-07T14:55:26"
 updated: "2026-07-18T20:57:46"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "Eine Schwangerschaft ist immer aufregend für eine werdende Mutter. Ganz egal, ob es sich um die erste Schwangerschaft handelt oder nicht, jede Schwangerschaft ist anders und bleibt vom ersten Tag bis zur Geburt des …"
 ---
 

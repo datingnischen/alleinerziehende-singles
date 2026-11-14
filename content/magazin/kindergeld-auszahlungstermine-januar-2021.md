@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2396
 published: "2021-01-24T10:40:58"
 updated: "2026-06-29T07:24:47"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Kurze Einordnung: Dieser Beitrag bietet eine Orientierung zu den Auszahlungsterminen des Kindergeldes im Januar 2021. Maßgeblich ist die Endziffer der Kindergeldnummer."
 image: "/magazin/wp-content/uploads/2021/01/kindergeld-auszahlungstermin-januar-2021-1-jpg.webp"

@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2240
 published: "2020-10-29T14:36:07"
 updated: "2026-06-20T14:53:38"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "Hier findest du alle Kindergeld Auszahlungstermine 2017 zusammengefasst für das Jahr 2017."
 ---
 

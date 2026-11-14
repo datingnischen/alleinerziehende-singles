@@ -118,7 +118,7 @@ test("exposes the 2026 kindergeld overview as a static magazine page", async () 
   assert.match(page.contentHtml, /November/);
   assert.match(page.contentHtml, /kindergeld-auszahlungstermine-2025\//);
   assert.doesNotMatch(page.contentHtml, /href="\/magazin\/kindergeld-auszahlungstermine-2026\//);
-  assert.match(page.contentHtml, /Wir wollen mehr Kindergeld/);
+  assert.match(page.contentHtml, /Familienkasse der Bundesagentur für Arbeit/);
   assert.ok(getStaticMagazinePages().some((entry) => entry.slug === "kindergeld-auszahlungstermine-2026"));
 });
 
@@ -132,12 +132,12 @@ test("keeps the automatic 2026 kindergeld data in a dedicated JSON source", asyn
   );
 
   assert.equal(dataSource.slug, "kindergeld-auszahlungstermine-2026");
-  assert.equal(dataSource.sourceLabel, "Wir wollen mehr Kindergeld");
+  assert.equal(dataSource.sourceLabel, "Familienkasse der Bundesagentur für Arbeit");
   assert.ok(Array.isArray(dataSource.months));
   assert.ok(dataSource.months.length >= 11);
   assert.equal(dataSource.months[0].month, "Januar");
   assert.equal(dataSource.months.at(-1).month, "November");
-  assert.match(scriptSource, /PAGE_NAME = "Wir wollen mehr Kindergeld"/);
+  assert.match(scriptSource, /SOURCE_NAME = "Familienkasse der Bundesagentur für Arbeit"/);
   assert.match(scriptSource, /graph\.facebook\.com/);
   assert.match(scriptSource, /kindergeld-facebook-\{year\}\.json/);
   assert.match(scriptSource, /FACEBOOK_PAGES_SYSTEM_TOKEN/);

@@ -6,7 +6,7 @@ kind: "post"
 wpId: 1413
 published: "2017-01-02T16:50:02"
 updated: "2026-06-29T11:29:46"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Mit dieser kurzen Übersicht findest du schnell den passenden Auszahlungstag für das Kindergeld anhand der Endziffer der Kindergeldnummer. So lässt sich die Zuordnung im Januar 2017 einfacher nachvollziehen."
 ---

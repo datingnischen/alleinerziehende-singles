@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2870
 published: "2021-06-05T22:12:18"
 updated: "2026-06-27T13:08:35"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Im Juni 2021 gelten dafür die Auszahlungstermine des Kindergeldes besonders."
 image: "/magazin/wp-content/uploads/2022/03/Kindergeld-Auszahlungstermine-Juni-2021-1024x442-jpg.webp"

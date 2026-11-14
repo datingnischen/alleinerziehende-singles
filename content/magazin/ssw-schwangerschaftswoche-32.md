@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2451
 published: "2021-03-01T16:25:42"
 updated: "2021-11-27T16:25:09"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "In der 32. SSW befinden sich Mutter und Kind in der letzten Woche der Schwangerschaft des achten Monats."
 ---
 

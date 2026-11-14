@@ -6,7 +6,7 @@ kind: "post"
 wpId: 3154
 published: "2024-07-17T19:12:21"
 updated: "2026-07-02T19:02:44"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Kurze, allgemein verständliche Einordnung: Die Auszahlung erfolgt je nach Endziffer gestaffelt. Wer den eigenen Termin prüfen möchte, kann sich an der Kindergeldnummer orientieren."
 image: "/magazin/wp-content/uploads/2025/07/juli-2024-jpg.webp"

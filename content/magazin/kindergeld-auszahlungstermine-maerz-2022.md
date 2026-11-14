@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2905
 published: "2022-03-25T10:34:19"
 updated: "2026-07-04T12:56:09"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlungstermine für das Kindergeld richten sich nach der Endziffer der Kindergeldnummer. Damit lässt sich schnell erkennen, an welchem Tag die Überweisung vorgesehen ist."
 image: "/magazin/wp-content/uploads/2022/03/Kindergeld-Auszahlungstermine-Maerz-2022-jpg.webp"

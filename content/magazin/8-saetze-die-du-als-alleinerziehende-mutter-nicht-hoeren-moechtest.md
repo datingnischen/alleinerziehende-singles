@@ -6,7 +6,7 @@ kind: "post"
 wpId: 1718
 published: "2018-10-03T17:10:36"
 updated: "2026-09-15T11:00:14"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleleben"]
 excerpt: "Ist das Leben als alleinerziehende Mutter oder alleinerziehender Single nicht schon anspruchsvoll und manchmal auch herausfordernd genug? Ohne Zweifel."
 image: "/magazin/wp-content/uploads/2018/10/alleinerziehende-mutter-mit-baby-2-1024x445-jpg.webp"

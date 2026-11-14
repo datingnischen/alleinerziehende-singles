@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2366
 published: "2021-01-07T18:16:47"
 updated: "2026-07-15T12:13:29"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "Die Schwangerschaft ist ein schöner Vorgang und in jeder Woche entwickelt sich diese weiter. In der 18 Schwangerschaftswoche gibt es interessante Dinge, die wir hier aufführen möchten."
 ---
 

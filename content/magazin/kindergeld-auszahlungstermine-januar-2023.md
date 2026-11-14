@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2998
 published: "2023-01-09T20:26:56"
 updated: "2026-06-24T07:09:17"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Die Kindergeld Auszahlungstermine im Januar 2023 richten sich nach der Endziffer der Kindergeldnummer."
 image: "/magazin/wp-content/uploads/2023/01/kinderauszahlungstermine-Januar-2023-1024x437-jpg.webp"

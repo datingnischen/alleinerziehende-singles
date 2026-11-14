@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2508
 published: "2021-04-09T13:56:51"
 updated: "2025-03-20T16:14:48"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleleben"]
 excerpt: "Homeschooling wird in Deutschland auch Hausunterricht, Domizilunterricht oder Heimunterricht genannt. Diese Art der Bildung sowie Erziehung findet zu Hause statt."
 image: "/magazin/wp-content/uploads/2021/04/Homeschooling-1024x683-jpg.webp"

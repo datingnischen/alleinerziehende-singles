@@ -6,7 +6,7 @@ kind: "post"
 wpId: 202609
 published: "2026-08-27T19:46:29"
 updated: "2026-08-27T19:46:29"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlungstermine für das Kindergeld im September 2026 richten sich nach der Endziffer der Kindergeldnummer. Die Kindergeldnummer findet man auf dem Kontoauszug oder auf dem Schreiben der Familienkasse."
 image: "/magazin/wp-content/uploads/2026/kindergeld/september.jpg"
@@ -33,6 +33,6 @@ Hier muss man nur die Farbe zuordnen. Weitere Informationen zu staatlichen Leist
 | 8 | Freitag, 18.09.2026 |
 | 9 | Montag, 21.09.2026 |
 
-Die Termine stammen aus dem Kalender der Facebook-Seite „Wir wollen mehr Kindergeld“.
+Verbindlich sind die Auszahlungstermine der [Familienkasse der Bundesagentur für Arbeit](https://www.arbeitsagentur.de/familie-und-kinder/auszahlungstermine). An Wochenenden und Feiertagen kann sich der Geldeingang verschieben; einen Rechtsanspruch auf einen bestimmten Tag gibt es nicht.
 
 Alle Monate im Überblick: [Kindergeld Auszahlungstermine 2026](/magazin/kindergeld-auszahlungstermine-2026/)

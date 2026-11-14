@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2118
 published: "2020-07-01T14:32:53"
 updated: "2026-07-01T21:32:45"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Hier findest du eine schnelle Orientierung zu den Kindergeld-Auszahlungsterminen im Juli 2020. Der Tag der Überweisung richtet sich nach der Endziffer der Kindergeldnummer."
 ---

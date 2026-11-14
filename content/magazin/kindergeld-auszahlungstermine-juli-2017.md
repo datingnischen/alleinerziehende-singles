@@ -6,7 +6,7 @@ kind: "post"
 wpId: 1468
 published: "2017-07-01T20:00:35"
 updated: "2026-07-01T13:13:21"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Dieser Monatsüberblick hilft dabei, den passenden Auszahlungstermin für Juli 2017 schnell einzuordnen."
 ---

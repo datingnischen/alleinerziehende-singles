@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2698
 published: "2021-08-19T18:23:21"
 updated: "2026-06-19T14:13:17"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleleben"]
 excerpt: "Wenn Gefühle im Spiel sind möchte man gerne so viel Zeit wie möglich gemeinsam verbringen."
 image: "/magazin/wp-content/uploads/2021/08/date-ideen-fuer-wenig-geld-1024x683-jpg.webp"

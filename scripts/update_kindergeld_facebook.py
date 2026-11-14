@@ -32,6 +32,12 @@ CONTENT_DIR = ROOT / "content" / "magazin"
 UPLOADS_DIR = ROOT / "public" / "magazin" / "wp-content" / "uploads"
 GRAPH = "https://graph.facebook.com/v23.0"
 PAGE_NAME = "Wir wollen mehr Kindergeld"
+# Veroeffentlichte Quelle der Termine: Die Zahltage sind die offiziellen Termine der Familienkasse; der
+# Facebook-Kalender ist nur der technische Abrufweg (Tabellenbild). Oktober und November 2026 wurden am
+# 14.11.2026 gegen die offizielle Tabelle geprueft und stimmten ueberein. Neue Monate vor dem Commit dort
+# gegenpruefen, bevor sie mit dieser Quellenangabe erscheinen.
+SOURCE_NAME = "Familienkasse der Bundesagentur für Arbeit"
+SOURCE_URL = "https://www.arbeitsagentur.de/familie-und-kinder/auszahlungstermine"
 PAGE_LINK = "https://www.facebook.com/wirwollenmehrkindergeld/"
 PAGE_ID = "1596456913977259"
 MAX_POSTS = 400
@@ -230,7 +236,7 @@ def render_month_markdown(item, year: int, times=None) -> str:
         f"wpId: {year * 100 + number}",
         f'published: "{published}"',
         f'updated: "{updated}"',
-        'author: "redaktion"',
+        'author: "christian-m-haas"',
         'categories: ["kindergeld"]',
         f'excerpt: "{excerpt}"',
         f'image: "{item["image"]}"',
@@ -249,7 +255,9 @@ def render_month_markdown(item, year: int, times=None) -> str:
         "| --- | --- |",
         rows,
         "",
-        f"Die Termine stammen aus dem Kalender der Facebook-Seite „{PAGE_NAME}“.",
+        f"Verbindlich sind die Auszahlungstermine der [{SOURCE_NAME}]({SOURCE_URL}). "
+        "An Wochenenden und Feiertagen kann sich der Geldeingang verschieben; "
+        "einen Rechtsanspruch auf einen bestimmten Tag gibt es nicht.",
         "",
         f"Alle Monate im Überblick: [Kindergeld Auszahlungstermine {year}](/magazin/kindergeld-auszahlungstermine-{year}/)",
         "",
@@ -263,8 +271,8 @@ def build_payload(months, year: int):
         "slug": f"kindergeld-auszahlungstermine-{year}",
         "title": f"Kindergeld Auszahlungstermine {year}",
         "intro": f"Hier findest du die bisher veröffentlichten Kindergeld-Auszahlungstermine {year} gesammelt in einer Jahresübersicht.",
-        "sourceLabel": PAGE_NAME,
-        "sourceUrl": PAGE_LINK,
+        "sourceLabel": SOURCE_NAME,
+        "sourceUrl": SOURCE_URL,
         "updatedAt": updated_at,
         "months": months,
     }

@@ -6,7 +6,7 @@ kind: "post"
 wpId: 1396
 published: "2016-11-01T16:59:56"
 updated: "2026-06-14T12:48:40"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlungstermine für das Kindergeld folgen einer festen Logik. Für den schnellen Überblick hilft vor allem die Endziffer der Kindergeldnummer, denn danach richtet sich der Tag der Überweisung."
 ---

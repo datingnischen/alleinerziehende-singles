@@ -31,11 +31,11 @@ test("alle WordPress-Slugs sind als Datei da (Inventar vor der Migration)", asyn
   assert.equal(expected.size, 218);
   // bewusst gelöscht und per Weiterleitung umgeleitet (family-deals: reine Amazon-Linkliste ohne Nutzen)
   const redirects = JSON.parse(await read("data/weiterleitungen.json")).slugs;
-  const removed = ["family-deals"];
+  const removed = ["airtags-stalking-dating", "family-deals"];
   for (const slug of removed) assert.ok(redirects[slug], `${slug} braucht eine Weiterleitung`);
   assert.deepEqual([...expected].filter((slug) => !slugs.has(slug)), removed);
   assert.equal(wpEntries.length, expected.size - removed.length);
-  assert.equal(wpEntries.filter((e) => e.data.kind === "post").length, 162);
+  assert.equal(wpEntries.filter((e) => e.data.kind === "post").length, 161);
   assert.ok(generated.every((e) => e.data.kind === "post"));
 });
 
@@ -157,14 +157,14 @@ test("Artikel zeigen das Änderungsdatum, feste Seiten und Texte kein Datum", as
 test("Inhalte werden aus den Dateien gelesen: Einträge, Kategorien, Reihenfolge, Suche, Kindergeld-Übersicht", async () => {
   const lib = await import("../lib/magazine-content.ts");
   const posts = lib.getMagazinePosts(1000);
-  assert.equal(posts.length, 162 + generated.length);
-  const dates = posts.map((p) => p.date);
+  assert.equal(posts.length, 161 + generated.length);
+  const dates = posts.map((p) => p.modified || p.date);
   assert.deepEqual([...dates].sort().reverse(), dates);
 
   const categories = lib.getMagazineCategories();
   assert.deepEqual(categories.map((c) => [c.id, c.slug]), [[1, "singleleben"], [8, "kindergeld"], [26, "singleboersen"]]);
   assert.equal(lib.getMagazinePosts(1000, 8).length, 124 + generated.length);
-  assert.equal(lib.getMagazinePostsByCategories([26, 1], 1000).length, 38);
+  assert.equal(lib.getMagazinePostsByCategories([26, 1], 1000).length, 37);
 
   const page = lib.getMagazineEntryBySlug("kindergeld-auszahlungstermine-2025");
   assert.equal(page.kind, "page");
@@ -176,9 +176,9 @@ test("Inhalte werden aus den Dateien gelesen: Einträge, Kategorien, Reihenfolge
   assert.ok(related.every((post) => post.slug !== "finanzielle-hilfe"));
 
   const search = lib.getMagazineSearchIndex();
-  // 217 WordPress-Dateien + Kindergeld-Jahresübersichten und -Monatsbeiträge aus den Facebook-Daten
-  assert.equal(search.length, 217 + facebookYears.length + generated.length);
-  assert.equal(lib.getMagazineSlugs().length, 217 + facebookYears.length + generated.length);
+  // 216 WordPress-Dateien + Kindergeld-Jahresübersichten und -Monatsbeiträge aus den Facebook-Daten
+  assert.equal(search.length, 216 + facebookYears.length + generated.length);
+  assert.equal(lib.getMagazineSlugs().length, 216 + facebookYears.length + generated.length);
 
   const audio = lib.getMagazineEntryBySlug("finanzielle-hilfe");
   assert.match(audio.contentHtml, /<audio controls preload="none" src="https:\/\/alleinerziehende-singles\.vercel\.app\/app-assets\/magazin\/wp-content\/uploads\/2026\/05\/finanzielle-hilfe-audio-zusammenfassung\.mp3"/);

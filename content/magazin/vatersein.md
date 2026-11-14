@@ -6,11 +6,11 @@ kind: "post"
 wpId: 3228
 published: "2025-11-18T13:05:37"
 updated: "2026-07-19T15:57:21"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleleben"]
 excerpt: "„Alle 14 Tage Papa“ klingt nach einem klaren Plan: jedes zweite Wochenende, manchmal noch ein zusätzlicher Nachmittag oder ein Ferientag."
 image: "/magazin/wp-content/uploads/2025/12/vatersein-2-1024x683-jpg.webp"
-imageAlt: "vatersein (2)"
+imageAlt: "Vater spielt mit seiner kleinen Tochter in den Dünen"
 ---
 
 ## Was „alle 14 Tage Papa“ für Kinder wirklich bedeutet

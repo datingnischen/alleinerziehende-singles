@@ -6,7 +6,7 @@ kind: "post"
 wpId: 1748
 published: "2018-07-01T22:02:49"
 updated: "2026-07-02T22:04:08"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "In diesem Beitrag findest du eine kurze Orientierung zu den Kindergeld-Auszahlungsterminen im Juli 2018. Die Zuordnung erfolgt über die Endziffer der Kindergeldnummer, sodass sich der Termin leichter einordnen lässt."
 ---

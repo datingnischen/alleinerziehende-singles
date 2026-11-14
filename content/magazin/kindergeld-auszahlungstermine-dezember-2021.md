@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2891
 published: "2021-12-05T16:25:52"
 updated: "2026-09-24T21:10:42"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
 image: "/magazin/wp-content/uploads/2022/03/Kindergeld-Auszahlungstermine-Dezember-2021-jpg.webp"

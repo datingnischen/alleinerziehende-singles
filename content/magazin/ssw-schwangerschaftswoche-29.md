@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2438
 published: "2021-02-10T04:08:19"
 updated: "2026-05-26T10:32:11"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "Mit der 29. Schwangerschaftswoche beginnt das dritte Trimester. In diesem letzten Trimester der Schwangerschaft ist das Baby schon vollständig entwickelt und jetzt geht es vor allem um die Gewichtszunahme."
 ---
 

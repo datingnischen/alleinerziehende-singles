@@ -6,7 +6,7 @@ kind: "page"
 wpId: 1994
 published: "2018-10-15T19:02:37"
 updated: "2018-10-15T19:02:37"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "Deutschland gewährt als Sozialstaat viele Unterstützungen, vor allem Familien profitieren von immer neuen Förderungen, Geldern und Steuererleichterungen."
 ---
 

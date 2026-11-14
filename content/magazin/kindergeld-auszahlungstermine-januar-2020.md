@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2092
 published: "2020-01-01T11:05:55"
 updated: "2026-06-29T16:22:40"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Diese Monatsübersicht zeigt die Auszahlungstermine für Januar 2020. Je nach Endziffer der Kindergeldnummer kann der Überweisungstag unterschiedlich ausfallen."
 ---

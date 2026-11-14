@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2302
 published: "2020-12-05T22:00:42"
 updated: "2026-07-13T13:28:55"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "Diese Übersichtsseite hilft dir dabei, die Schwangerschaftswochen besser einzuordnen und die passenden Einzelartikel schneller zu finden."
 image: "/magazin/wp-content/uploads/2021/04/Schwangerschaftswochen-SSW-1024x465-jpg.webp"
 imageAlt: "Schwangerschaftswochen im Überblick"

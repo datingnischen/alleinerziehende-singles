@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2598
 published: "2021-07-12T11:01:15"
 updated: "2026-07-17T14:53:57"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleleben"]
 excerpt: "Manche lieben es, manche hassen es: Den Urlaub zu Hause zu verbringen. Dabei könnte man Urlaub auf Balkonien machen oder mit den Kindern etwas unternehmen."
 image: "/magazin/wp-content/uploads/2021/07/Urlaub-zu-Hause-1024x682-jpg.webp"

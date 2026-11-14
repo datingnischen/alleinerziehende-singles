@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2466
 published: "2021-03-10T16:39:05"
 updated: "2026-07-17T08:38:02"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "38 Wochen bist du schon schwanger – nur noch zwei Wochen bis zum errechneten Geburtstermin. Nicht mehr lange, und du kannst mit deinem Baby kuscheln."
 ---
 

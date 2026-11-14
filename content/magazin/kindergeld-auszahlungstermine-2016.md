@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2244
 published: "2020-10-29T19:31:21"
 updated: "2026-06-20T16:35:12"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "In diesem Artikel findest du eine Übersicht aller Auszahlungstermine für das Kindergeld im Jahr 2016. Zusätzlich geben wir praktische Hinweise, wie du deine Termine im Blick behalten kannst und was du beachten solltest."
 ---
 

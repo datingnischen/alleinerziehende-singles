@@ -6,7 +6,7 @@ kind: "post"
 wpId: 381
 published: "2015-07-13T18:43:08"
 updated: "2026-06-18T11:02:28"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Die Kindergelderhöhung für das Jahr 2015 ist endlich beschlossen und wirkt sich direkt auf Millionen Familien aus."
 ---

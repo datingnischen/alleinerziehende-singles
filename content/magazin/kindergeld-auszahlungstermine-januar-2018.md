@@ -6,7 +6,7 @@ kind: "post"
 wpId: 1580
 published: "2018-01-01T11:40:52"
 updated: "2026-06-29T20:58:27"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Dieser Beitrag gibt einen kurzen Überblick über die Auszahlungstermine für das Kindergeld im Januar 2018. Maßgeblich ist dabei die Endziffer der Kindergeldnummer."
 ---

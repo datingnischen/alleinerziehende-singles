@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2639
 published: "2021-07-22T06:02:39"
 updated: "2024-04-17T13:43:09"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleboersen"]
 excerpt: "Das Verständnis von Familie unterliegt dem Wandel der Zeit. Infolge der vielen Freiheiten, die Menschen gegeben sind, ergeben sich neue Familienkonstellationen."
 image: "/magazin/wp-content/uploads/2021/07/patchworkglueck-jpg.webp"

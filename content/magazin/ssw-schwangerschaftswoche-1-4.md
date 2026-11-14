@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2308
 published: "2020-12-06T07:44:22"
 updated: "2026-07-12T16:30:39"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "Die 1. bis 4. Schwangerschaftswoche ist vor allem eines – der Beginn einer kleinen Veränderung in ihrem Leben, mit großen Folgen!"
 ---
 

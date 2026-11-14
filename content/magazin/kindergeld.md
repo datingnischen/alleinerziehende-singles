@@ -6,7 +6,7 @@ kind: "page"
 wpId: 64
 published: "2015-06-09T10:49:40"
 updated: "2026-07-10T21:19:52"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "In unserer Kategorie Kindergeld findet Ihr Neuigkeiten und Tipps rund um das Thema Kindergeld."
 ---
 

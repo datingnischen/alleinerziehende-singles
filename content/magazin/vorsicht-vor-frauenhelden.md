@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2294
 published: "2020-11-17T07:47:09"
 updated: "2026-07-19T09:40:35"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleleben"]
 excerpt: "Bei der Suche nach einem Partner ist es wirklich nicht einfach, interessante Männer (oder Frauen) zu finden."
 image: "/magazin/wp-content/uploads/2020/11/Frauenheld-1024x682-jpg.webp"

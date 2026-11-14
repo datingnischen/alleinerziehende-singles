@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2136
 published: "2020-12-01T14:43:44"
 updated: "2026-08-24T18:39:31"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Diese Endziffer ist entscheidend für den genauen Auszahlungstermin, der sich monatlich ändern kann."
 image: "/magazin/wp-content/uploads/2020/12/kindergeld-auszahlungstermine-dezember-2020-jpg.webp"

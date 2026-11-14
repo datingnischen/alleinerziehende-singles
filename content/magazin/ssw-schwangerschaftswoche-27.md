@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2428
 published: "2021-02-03T15:19:54"
 updated: "2026-07-10T08:33:48"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "In der 27. Schwangerschaftswoche erreicht das Baby einen großen Meilenstein, denn auch wenn es jetzt zu einer Frühgeburt kommen würde, hätte dieses als Frühchen eine große Chance von etwa 95 Prozent außerhalb des …"
 ---
 

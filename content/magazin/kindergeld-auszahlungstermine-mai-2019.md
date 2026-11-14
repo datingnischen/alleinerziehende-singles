@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2051
 published: "2019-05-01T21:49:47"
 updated: "2026-07-05T09:57:14"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Dieser Monatsüberblick zeigt, wie sich die Auszahlungstermine für das Kindergeld im Mai 2019 nach der Endziffer der Kindergeldnummer richten. So lässt sich der passende Termin schneller einordnen."
 ---

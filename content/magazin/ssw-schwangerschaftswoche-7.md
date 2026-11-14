@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2353
 published: "2020-12-31T16:07:16"
 updated: "2026-07-18T14:31:21"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "In der 7. SSW entwickeln sich die Arme und Beine des Babys. Die Hände wachsen schneller als die Beine. Das Baby ist ca. 5 mm groß und wächst rasant in dieser Woche. Das Herz schlägt bis zu 150 Mal in der Minute."
 ---
 

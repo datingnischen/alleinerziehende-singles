@@ -6,7 +6,7 @@ kind: "post"
 wpId: 1734
 published: "2018-04-01T16:53:22"
 updated: "2026-05-25T13:34:39"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Das Kindergeld wird monatlich überwiesen, wobei der genaue Auszahlungstermin von der Endziffer der Kindergeldnummer abhängt."
 ---

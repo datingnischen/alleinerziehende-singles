@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2898
 published: "2022-01-05T19:08:41"
 updated: "2026-06-07T20:21:54"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Die Kindergeldnummer findet man auf dem Kontoauszug oder auf dem Schreiben der Familienkasse."
 image: "/magazin/wp-content/uploads/2022/03/Kindergeld-Auszahlungstermine-Januar-2022-jpg.webp"

@@ -6,7 +6,7 @@ kind: "post"
 wpId: 3054
 published: "2023-10-10T12:36:54"
 updated: "2026-06-29T13:22:35"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer; die Auszahlungstermine lassen sich daran ablesen."
 image: "/magazin/wp-content/uploads/2023/10/August-jpg.webp"

@@ -6,7 +6,7 @@ kind: "post"
 wpId: 3032
 published: "2023-06-09T16:41:10"
 updated: "2026-06-23T15:21:47"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlung des Kindergeldes erfolgt geregelt und zeitlich gestaffelt, um die Bearbeitung der Familienkasse zu optimieren. Der genaue Tag der Überweisung hängt von der Endziffer der individuellen Kindergeldnummer ab."
 image: "/magazin/wp-content/uploads/2023/06/Kindergeld-Auszahlungstermine-fuer-April-2023-jpg.webp"

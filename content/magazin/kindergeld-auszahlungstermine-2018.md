@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2229
 published: "2020-10-29T09:28:22"
 updated: "2026-06-19T18:05:54"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "Kindergeld ist eine wichtige finanzielle Unterstützung für Familien in Deutschland. In diesem Artikel findest du die Auszahlungstermine für das Jahr 2018."
 ---
 

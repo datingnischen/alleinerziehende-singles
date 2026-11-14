@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { getMagazineCategories, getMagazinePosts } from "./magazine-content.ts";
+import { DATING_CATEGORY_IDS } from "./magazine.ts";
 import type { MagazineCategory, MagazineEntry } from "./magazine-content.ts";
 
 import { teaserImageUrl } from "./teaser-image.ts";
@@ -18,7 +19,7 @@ import { teaserImageUrl } from "./teaser-image.ts";
 export const PUBLIC_ORIGIN = "https://alleinerziehende-singles.de";
 export const WP_ORIGIN = `${PUBLIC_ORIGIN}/magazin`;
 const REST_BASE = `${WP_ORIGIN}/wp-json/wp/v2`;
-const AUTHOR_IDS: Record<string, number> = { redaktion: 1 };
+const AUTHOR_IDS: Record<string, number> = { "christian-m-haas": 1 };
 const MEDIA_ID_OFFSET = 1_000_000;
 
 export const WP_REST_HEADERS: Record<string, string> = {
@@ -91,7 +92,8 @@ type MediaItem = {
   mime?: string;
 };
 
-export type WpSource = { posts: PostItem[]; media: MediaItem[]; categories: (MagazineCategory & { count: number })[] };
+export type WpSource = {
+  homepageTeasers?: boolean; posts: PostItem[]; media: MediaItem[]; categories: (MagazineCategory & { count: number })[] };
 
 const BERLIN = new Intl.DateTimeFormat("en-GB", {
   timeZone: "Europe/Berlin",
@@ -188,7 +190,7 @@ function buildSource(): WpSource {
       titlePlain: plain(title),
       excerpt,
       content,
-      author: AUTHOR_IDS[entry.authorSlug ?? "redaktion"] ?? 1,
+      author: AUTHOR_IDS[entry.authorSlug ?? "christian-m-haas"] ?? 1,
       categories: entry.categoryIds,
       featuredMedia: featured,
       haystack: `${plain(title)} ${plain(excerpt)} ${plain(content)}`,
@@ -199,7 +201,7 @@ function buildSource(): WpSource {
     ...category,
     count: posts.filter((post) => post.categories.includes(category.id)).length,
   }));
-  return { posts, media, categories };
+  return { posts, media, categories, homepageTeasers: true };
 }
 
 let cached: WpSource | null = null;
@@ -392,7 +394,7 @@ function applyFields(object: Json, fields: string[] | null): Json {
 
 const stripZ = (value: string) => value.replace(/Z$/, "");
 
-function queryPosts(posts: PostItem[], params: URLSearchParams) {
+function queryPosts(posts: PostItem[], params: URLSearchParams, homepageTeasers: boolean) {
   let items = posts.slice();
 
   const include = idList(params, "include");
@@ -418,6 +420,16 @@ function queryPosts(posts: PostItem[], params: URLSearchParams) {
   if (modifiedAfter) items = items.filter((post) => post.modified > stripZ(modifiedAfter));
   const modifiedBefore = params.get("modified_before");
   if (modifiedBefore) items = items.filter((post) => post.modified < stripZ(modifiedBefore));
+
+  // ICONY holt die drei Startseiten-Teaser ohne Auswahlparameter (?per_page=3&_embed). Die monatlichen
+  // Kindergeld-Termine sind die neuesten Beiträge und standen darum immer in den Teasern; gewünscht sind dort
+  // Dating-Themen (Christian, 13.11.2026). Ohne jeden auswählenden Parameter liefert die Sammlung deshalb nur
+  // die redaktionellen Artikel. Mit categories=8 (oder slug/include/search) bleiben die Kindergeld-Beiträge
+  // unverändert abrufbar.
+  const selecting = Boolean(include || slugs.length || authors || categories || categoriesExclude || search || params.has("tags"));
+  if (homepageTeasers && params.get("per_page") === "3" && params.has("_embed") && !selecting) {
+    items = items.filter((post) => post.categories.some((id) => DATING_CATEGORY_IDS.includes(id)));
+  }
 
   const filtered = Boolean(authors || categories);
   const orderby = params.get("orderby") || "date";
@@ -467,7 +479,7 @@ function collectionHeaders(route: string, params: URLSearchParams, total: number
 }
 
 function postCollection(params: URLSearchParams, source: WpSource): WpRestResponse {
-  const { items, total, totalPages } = queryPosts(source.posts, params);
+  const { items, total, totalPages } = queryPosts(source.posts, params, source.homepageTeasers === true);
   const page = intParam(params, "page", 1, 1, Number.MAX_SAFE_INTEGER);
   if (page > 1 && page > totalPages && !params.has("offset")) {
     return error(400, "rest_post_invalid_page_number", "Die angeforderte Seitennummer ist größer als die Anzahl der verfügbaren Seiten.");

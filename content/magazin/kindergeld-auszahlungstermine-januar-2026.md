@@ -6,7 +6,7 @@ kind: "post"
 wpId: 202601
 published: "2025-12-27T17:31:08"
 updated: "2025-12-27T17:31:08"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlungstermine für das Kindergeld im Januar 2026 richten sich nach der Endziffer der Kindergeldnummer. Die Kindergeldnummer findet man auf dem Kontoauszug oder auf dem Schreiben der Familienkasse."
 image: "/magazin/wp-content/uploads/2026/kindergeld/januar.jpg"
@@ -33,6 +33,6 @@ Hier muss man nur die Farbe zuordnen. Weitere Informationen zu staatlichen Leist
 | 8 | Donnerstag, 22.01.2026 |
 | 9 | Freitag, 23.01.2026 |
 
-Die Termine stammen aus dem Kalender der Facebook-Seite „Wir wollen mehr Kindergeld“.
+Verbindlich sind die Auszahlungstermine der [Familienkasse der Bundesagentur für Arbeit](https://www.arbeitsagentur.de/familie-und-kinder/auszahlungstermine). An Wochenenden und Feiertagen kann sich der Geldeingang verschieben; einen Rechtsanspruch auf einen bestimmten Tag gibt es nicht.
 
 Alle Monate im Überblick: [Kindergeld Auszahlungstermine 2026](/magazin/kindergeld-auszahlungstermine-2026/)

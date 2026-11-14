@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2853
 published: "2022-01-16T19:27:41"
 updated: "2026-07-12T16:09:43"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleleben"]
 excerpt: "Es ist schon per se nicht einfach, sich selbstständig zu machen und langfristig Erfolg zu haben."
 image: "/magazin/wp-content/uploads/2022/01/selbststaendig-mit-kind-1024x682-jpg.webp"

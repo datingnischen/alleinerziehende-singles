@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { HomePage } from "@/components/home/home-page";
 import { SiteShell } from "@/components/site-shell";
 import { getHomeContent } from "@/lib/startseite";
-import { getMagazinePosts } from "@/lib/magazine-content";
+import { DATING_CATEGORY_IDS } from "@/lib/magazine";
+import { getMagazinePostsByCategories } from "@/lib/magazine-content";
 
 const content = getHomeContent("de");
 
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const posts = getMagazinePosts(3);
+  const posts = getMagazinePostsByCategories(DATING_CATEGORY_IDS, 3);
 
   return (
     <SiteShell market="de">

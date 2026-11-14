@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2404
 published: "2021-01-24T15:56:38"
 updated: "2026-06-22T12:30:41"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "Hier findest du alle Kindergeld Auszahlungstermine für 2021 zusammengefasst. Das Kindergeld ist eine staatliche Unterstützung für Familien und Alleinerziehende, um die finanzielle Versorgung von Kindern zu sichern."
 ---
 

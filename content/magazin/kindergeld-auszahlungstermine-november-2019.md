@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2081
 published: "2019-11-01T22:49:55"
 updated: "2026-07-03T16:09:59"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Die Auszahlungstermine November 2019 sind dabei nach"
 ---

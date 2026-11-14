@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2056
 published: "2019-06-01T11:34:09"
 updated: "2026-06-25T18:13:19"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Der Beitrag gibt einen schnellen Überblick über die Auszahlungstermine für das Kindergeld im Juni 2019. Die Zuordnung erfolgt über die Endziffer der Kindergeldnummer, sodass man den passenden Termin direkt ablesen kann."
 ---

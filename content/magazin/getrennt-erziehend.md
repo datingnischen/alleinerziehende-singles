@@ -6,11 +6,11 @@ kind: "post"
 wpId: 3224
 published: "2025-12-01T12:30:21"
 updated: "2026-06-19T22:42:24"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleleben"]
 excerpt: "Eine Trennung verändert vieles im Leben aller Beteiligten. Der gewohnte Alltag bricht oft abrupt weg und muss Schritt für Schritt neu aufgebaut werden."
 image: "/magazin/wp-content/uploads/2025/12/getrennt-erziehend-1-1024x683-jpg.webp"
-imageAlt: "getrennt erziehend (2)"
+imageAlt: "Vater beugt sich auf dem Bett zu seinem Kleinkind hinunter"
 ---
 
 Eine Trennung verändert vieles im Leben aller Beteiligten. Der gewohnte Alltag bricht oft abrupt weg und muss Schritt für Schritt neu aufgebaut werden. Wohnungen werden gewechselt, Arbeits- und Betreuungszeiten müssen angepasst werden, Termine verdoppeln sich. Was früher selbstverständlich war, braucht plötzlich Planung und Abstimmung. Für Eltern bedeutet das häufig organisatorischen Stress, emotionale Belastung und Unsicherheit über die Zukunft. Viele fühlen sich überfordert, weil sie gleichzeitig trauern, funktionieren und Verantwortung übernehmen müssen.

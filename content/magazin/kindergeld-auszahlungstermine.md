@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2015
 published: "2019-04-29T18:24:33"
 updated: "2026-07-12T08:55:58"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "Kindergeld wird nicht für alle Berechtigten am selben Tag überwiesen. Entscheidend ist in der Regel die Endziffer der Kindergeldnummer."
 image: "/magazin/wp-content/uploads/2018/10/Kindergeld-Auszahlungstermine-Dezember-2018-jpg.webp"
 imageAlt: "Kindergeld Auszahlungstermine Dezember 2018"

@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2414
 published: "2021-01-26T14:59:23"
 updated: "2026-07-14T11:15:40"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "Die 25. Schwangerschaftswoche ist für viele werdende Eltern ein guter Zeitpunkt, um den bisherigen Verlauf der Schwangerschaft noch einmal bewusst wahrzunehmen."
 ---
 

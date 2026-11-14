@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2618
 published: "2021-07-19T15:00:08"
 updated: "2026-07-19T17:52:08"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleboersen"]
 excerpt: "In Deutschland haben sich bewusst gerade einmal 4 Prozent für eine Ein-Elternschaft entschieden. Eine feste Partnerschaft wünschen sich 96 Prozent."
 ---

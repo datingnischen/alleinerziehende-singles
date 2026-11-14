@@ -6,7 +6,7 @@ kind: "post"
 wpId: 3128
 published: "2024-10-23T10:47:31"
 updated: "2026-06-17T20:13:26"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleboersen"]
 excerpt: "Das Leben als alleinerziehender Elternteil bringt viele Herausforderungen mit sich, aber die Partnersuche muss keine davon sein."
 image: "/magazin/wp-content/uploads/2024/10/singleboerese-alleinerziehende-singles-jpg.webp"

@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2499
 published: "2021-04-12T11:08:48"
 updated: "2026-07-06T20:29:33"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer."
 image: "/magazin/wp-content/uploads/2021/04/kindergeld-auszahlungstermin-Maerz-2021-jpeg.webp"

@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2876
 published: "2021-08-05T18:10:50"
 updated: "2026-06-24T20:48:05"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Die Auszahlungstermine für das Kindergeld im August 2021 richten sich nach der Endziffer der Kindergeldnummer, sodass Eltern leicht nachvollziehen können, wann sie mit der Zahlung rechnen können."
 image: "/magazin/wp-content/uploads/2022/03/Kindergeld-Auszahlungstermine-August-2021-jpg.webp"

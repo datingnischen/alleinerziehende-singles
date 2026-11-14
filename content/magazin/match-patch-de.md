@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2652
 published: "2021-07-26T11:14:06"
 updated: "2026-07-08T14:05:26"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleboersen"]
 excerpt: "Hierbei handelt es sich um eine Singlebörse für Singles mit Kind und Familiensinn!"
 image: "/magazin/wp-content/uploads/2021/07/alleinerziehende-singles-matchpatch-jpg.webp"

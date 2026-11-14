@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2105
 published: "2020-04-01T20:19:41"
 updated: "2026-06-22T08:42:59"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Kindergeld ist eine wichtige Leistung zur finanziellen Unterstützung von Familien. Der genaue Auszahlungstermin variiert nach der individuellen Kindergeldnummer."
 ---

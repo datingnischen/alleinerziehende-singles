@@ -6,7 +6,7 @@ kind: "post"
 wpId: 3190
 published: "2025-01-17T09:14:22"
 updated: "2026-06-24T11:12:58"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["kindergeld"]
 excerpt: "Der Tag der Überweisung des Kindergeldes richtet sich nach der Endziffer der Kindergeldnummer. Die Auszahlungstermine für das Kindergeld im Januar 2025 richten sich ebenfalls nach dieser Endziffer."
 image: "/magazin/wp-content/uploads/2025/07/januar-2025-jpg.webp"

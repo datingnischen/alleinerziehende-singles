@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2444
 published: "2021-02-16T15:48:26"
 updated: "2021-11-27T16:21:14"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "In der 31. SSW wird es im Bauch der Mutter so langsam eng für das Baby. Durch die Gewichtszunahme verringert sich vor allem in der 31."
 ---
 

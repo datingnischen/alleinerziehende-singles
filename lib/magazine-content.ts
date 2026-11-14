@@ -90,7 +90,7 @@ function renderKindergeldFacebookContent(year: string, data: KindergeldFacebookD
   const monthCards = data.months.map((item) =>
     item.paymentDays?.length && item.slug
       ? `<a class="kindergeld-month-card" href="/magazin/${item.slug}/"><span class="kindergeld-month-label">${item.month}</span><span class="kindergeld-month-cta">Termine ${year} ansehen</span></a>`
-      : `<a class="kindergeld-month-card" href="${item.postUrl}" target="_blank" rel="nofollow noopener noreferrer"><span class="kindergeld-month-label">${item.month}</span><span class="kindergeld-month-cta">Facebook-Beitrag öffnen</span></a>`,
+      : `<a class="kindergeld-month-card" href="${data.sourceUrl}" target="_blank" rel="nofollow noopener noreferrer"><span class="kindergeld-month-label">${item.month}</span><span class="kindergeld-month-cta">Termine bei der Familienkasse öffnen</span></a>`,
   ).join("");
 
   const firstMonth = data.months.at(0)?.month;
@@ -110,7 +110,7 @@ function renderKindergeldFacebookContent(year: string, data: KindergeldFacebookD
     `<div class="kindergeld-month-grid">${monthCards}</div>`,
     '</section>',
     '<div class="kindergeld-note"><p>Neue Monate ergänzen wir, sobald sie dort veröffentlicht sind. So bleibt die Jahresübersicht früh sichtbar, auch wenn noch nicht alle Termine für das ganze Jahr vorliegen.</p></div>',
-    `<div class="kindergeld-faq-box"><ul><li>Stand heute liegen Einträge von ${firstMonth} bis ${lastMonth} ${year} vor.</li><li>Jede Monatsseite zeigt die Zahltage für alle Endziffern 0 bis 9.</li><li>Die Termine stammen aus dem Kalender der Facebook-Seite „${sourceLabel}“.</li></ul></div>`,
+    `<div class="kindergeld-faq-box"><ul><li>Stand heute liegen Einträge von ${firstMonth} bis ${lastMonth} ${year} vor.</li><li>Jede Monatsseite zeigt die Zahltage für alle Endziffern 0 bis 9.</li><li>Verbindlich sind die Auszahlungstermine der <a href="${data.sourceUrl}" rel="noopener">${sourceLabel}</a>.</li></ul></div>`,
     `<section class="kindergeld-years"><h2>Weitere Jahresübersichten</h2><div class="kindergeld-year-list"><ul>${otherYears}</ul></div></section>`,
   ].join("");
 }
@@ -125,8 +125,8 @@ export function getStaticMagazinePages(): MagazineEntry[] {
     contentHtml: renderKindergeldFacebookContent(year, data),
     date: data.updatedAt,
     modified: data.updatedAt,
-    authorName: "Redaktion",
-    authorSlug: "redaktion",
+    authorName: "Christian M. Haas",
+    authorSlug: "christian-m-haas",
     // Lokale Kopie bevorzugen: fbcdn-Links laufen nach einigen Wochen ab.
     featuredImageUrl: data.months.at(-1)?.image ? staticAsset(data.months.at(-1)!.image!) : data.months.at(-1)?.imageUrl,
     featuredImageAlt: data.title,
@@ -322,8 +322,8 @@ function readEntries(categories: MagazineCategory[]): MagazineEntry[] {
       contentHtml,
       date: dateValue(data.published),
       modified: dateValue(data.updated),
-      authorName: "Redaktion",
-      authorSlug: String(data.author ?? "redaktion"),
+      authorName: "Christian M. Haas",
+      authorSlug: String(data.author ?? "christian-m-haas"),
       featuredImageUrl: data.image ? staticAsset(String(data.image)) : undefined,
       featuredImageAlt: data.imageAlt ? String(data.imageAlt) : undefined,
       categoryIds: (Array.isArray(data.categories) ? data.categories : [])
@@ -335,8 +335,11 @@ function readEntries(categories: MagazineCategory[]): MagazineEntry[] {
     };
   });
 
-  // neueste zuerst, wie die WordPress-Listen
-  return entries.sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""));
+  // Neueste zuerst nach dem sichtbaren Datum: Die Karten zeigen „Aktualisiert am …“ (modified, Fallback date),
+  // sortiert wurde aber nach dem Veröffentlichungsdatum – in „Neueste Artikel“ stand dadurch der 30.5. vor dem 5.6.
+  // (Christian, 13.11.2026). Der WP-REST-Knoten sortiert selbst (orderby=date wie WordPress) und bleibt unberührt.
+  const sortKey = (entry: MagazineEntry) => entry.modified || entry.date || "";
+  return entries.sort((a, b) => sortKey(b).localeCompare(sortKey(a)) || (b.date ?? "").localeCompare(a.date ?? ""));
 }
 
 function load(): Loaded {

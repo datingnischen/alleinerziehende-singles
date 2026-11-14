@@ -6,7 +6,7 @@ kind: "page"
 wpId: 3077
 published: "2024-02-12T20:44:23"
 updated: "2025-07-17T10:20:26"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "Hier findest du alle Kindergeld Auszahlungstermine zusammengefasst für das Jahr 2024"
 ---
 

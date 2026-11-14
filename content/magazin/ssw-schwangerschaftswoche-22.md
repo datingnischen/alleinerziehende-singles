@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2379
 published: "2021-01-12T12:50:14"
 updated: "2026-07-06T14:54:02"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "Die 22. Schwangerschaftswoche ist für viele werdende Mütter eine Phase, in der die Schwangerschaft im Alltag spürbarer wird."
 ---
 

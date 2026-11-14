@@ -6,7 +6,7 @@ kind: "post"
 wpId: 2705
 published: "2021-08-23T06:18:23"
 updated: "2026-06-18T12:48:32"
-author: "redaktion"
+author: "christian-m-haas"
 categories: ["singleleben"]
 excerpt: "Wer arbeitet und ein Kind bekommt, kann nach der Geburt des Kindes unbezahlt zu Hause bleiben, um das Kind zu betreuen und zu erziehen. Das nennt man Elternzeit. Diese kann vom Arbeitgeber eingefordert werden."
 image: "/magazin/wp-content/uploads/2021/08/elternzeit-1024x682-jpg.webp"

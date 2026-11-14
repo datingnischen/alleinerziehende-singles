@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2425
 published: "2021-02-02T17:58:03"
 updated: "2021-11-27T15:55:57"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "Jeder Tag Ihrer Schwangerschaft ist ein Abenteuer. Und auch in der 26. Schwangerschaftswoche ist in Ihrem Bauch viel los. Was in SSW 26 alles mit Ihnen und Ihrem Baby passiert, erfahren Sie hier."
 ---
 

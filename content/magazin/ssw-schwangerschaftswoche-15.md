@@ -6,7 +6,7 @@ kind: "page"
 wpId: 2360
 published: "2021-01-06T06:32:04"
 updated: "2026-06-21T16:55:44"
-author: "redaktion"
+author: "christian-m-haas"
 excerpt: "Die Schwangerschaft ist vom ersten bis zum letzten Tag eine sehr spannende Zeit. Jede Schwangerschaftswoche ist anders als die vorherige. In der 15."
 ---
 
