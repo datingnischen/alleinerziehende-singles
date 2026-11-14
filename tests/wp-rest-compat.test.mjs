@@ -144,7 +144,7 @@ test("categories: Themenwelten mit Anzahl und Live-Link", () => {
 });
 
 test("Response: CORS, Cache-Control, WP-Header, HEAD und OPTIONS", async () => {
-  const response = wpRestResponse(get("/wp/v2/posts", "per_page=3"), "GET");
+  const response = wpRestResponse(get("/wp/v2/posts", "per_page=4"), "GET");
   assert.equal(response.status, 200);
   assert.equal(response.headers.get("access-control-allow-origin"), "*");
   assert.match(response.headers.get("content-type"), /^application\/json/);
@@ -152,9 +152,9 @@ test("Response: CORS, Cache-Control, WP-Header, HEAD und OPTIONS", async () => {
   assert.equal(response.headers.get("x-wp-total"), String(postCount));
   assert.ok(Number(response.headers.get("x-wp-totalpages")) >= 1);
   assert.match(response.headers.get("access-control-expose-headers"), /X-WP-Total/);
-  assert.equal((await response.json()).length, 3);
+  assert.equal((await response.json()).length, 4);
 
-  const head = wpRestResponse(get("/wp/v2/posts", "per_page=3"), "HEAD");
+  const head = wpRestResponse(get("/wp/v2/posts", "per_page=4"), "HEAD");
   assert.equal(head.status, 200);
   assert.equal(head.headers.get("x-wp-total"), String(postCount));
   assert.equal(await head.text(), "");

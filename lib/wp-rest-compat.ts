@@ -427,7 +427,7 @@ function queryPosts(posts: PostItem[], params: URLSearchParams, homepageTeasers:
   // die redaktionellen Artikel. Mit categories=8 (oder slug/include/search) bleiben die Kindergeld-Beiträge
   // unverändert abrufbar.
   const selecting = Boolean(include || slugs.length || authors || categories || categoriesExclude || search || params.has("tags"));
-  if (homepageTeasers && params.get("per_page") === "3" && params.has("_embed") && !selecting) {
+  if (homepageTeasers && ["3", null].includes(params.get("per_page")) && !selecting && !params.has("after") && !params.has("before")) {
     items = items.filter((post) => post.categories.some((id) => DATING_CATEGORY_IDS.includes(id)));
   }
 
