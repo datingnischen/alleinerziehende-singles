@@ -1,6 +1,7 @@
+import { christianPerson } from "@/lib/christian-person";
 import { ArrowIcon, BookIcon, CalendarIcon, ClockIcon, FamilyHeartIcon, HeartIcon, PinIcon } from "@/components/icons";
 import { ArticleLink } from "@/components/magazine/article-link";
-import { AUTHOR_NAME, AUTHOR_PATH, AUTHOR_URL, AuthorByline } from "@/components/magazine/author-page";
+import { AUTHOR_NAME, AUTHOR_PATH, AuthorByline } from "@/components/magazine/author-page";
 import { MarketLink } from "@/components/market-link";
 import { PostCard } from "@/components/magazine/post-card";
 import { breadcrumbJsonLd, serializeJsonLd } from "@/lib/json-ld";
@@ -48,7 +49,7 @@ function articleJsonLd(entry: MagazineEntry, url: string) {
     datePublished: entry.date,
     dateModified: entry.modified || entry.date,
     image: entry.featuredImageUrl ? [entry.featuredImageUrl] : undefined,
-    author: { "@type": "Person", "@id": `${AUTHOR_URL}#person`, name: AUTHOR_NAME, url: AUTHOR_URL },
+    author: christianPerson(),
     publisher: { "@type": "Organization", name: "alleinerziehende-singles.de", url: publicUrl("de", "/") },
     inLanguage: "de-DE",
   };

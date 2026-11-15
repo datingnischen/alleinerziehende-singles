@@ -1,3 +1,4 @@
+import { CHRISTIAN_NAME, CHRISTIAN_PERSON_ID, CHRISTIAN_VITA_URL, christianPerson } from "@/lib/christian-person";
 import { ArrowIcon, BookIcon, FamilyHeartIcon, HeartIcon, PinIcon, SparkIcon, UsersIcon } from "@/components/icons";
 import { MarketLink } from "@/components/market-link";
 import { breadcrumbJsonLd, serializeJsonLd } from "@/lib/json-ld";
@@ -14,12 +15,12 @@ import "@/components/magazine/magazine.css";
  * anonymes Redaktionskürzel (Christian, 13.11.2026). Feste Seiten zeigen kein Datum.
  */
 
-export const AUTHOR_NAME = "Christian M. Haas";
+export const AUTHOR_NAME = CHRISTIAN_NAME;
 export const AUTHOR_PATH = "/magazin/christian-m-haas/";
 export const AUTHOR_URL = publicUrl("de", AUTHOR_PATH);
 export const AUTHOR_PHOTO = "/brand/christian-m-haas.jpg";
 
-const VITA_URL = "https://datingnischen.de/christian/";
+const VITA_URL = CHRISTIAN_VITA_URL;
 const AMAZON_AUTHOR_URL = "https://www.amazon.com/author/christian-m-haas";
 const LINKEDIN_URL = "https://www.linkedin.com/in/christian-m-haas-457323379";
 
@@ -41,17 +42,13 @@ export const AUTHOR_META_DESCRIPTION =
 function personJsonLd() {
   return {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": `${AUTHOR_URL}#person`,
-    name: AUTHOR_NAME,
-    url: AUTHOR_URL,
+    ...christianPerson(),
     image: staticAsset(AUTHOR_PHOTO),
     jobTitle: "Datingexperte",
     description:
       "Betreibt seit 2008 spezialisierte Singlebörsen im deutschsprachigen Raum und schreibt über Partnersuche mit Kind.",
     knowsAbout: ["Online-Dating", "Partnersuche für Alleinerziehende", "Singlebörsen"],
     knowsLanguage: ["Deutsch", "Englisch"],
-    sameAs: [VITA_URL, AMAZON_AUTHOR_URL, LINKEDIN_URL],
   };
 }
 
@@ -62,7 +59,7 @@ function bookJsonLd() {
     "@id": `${AUTHOR_URL}#book-isbn-${BOOK.isbn}`,
     name: BOOK.title,
     alternateName: BOOK.subtitle,
-    author: { "@id": `${AUTHOR_URL}#person` },
+    author: { "@id": CHRISTIAN_PERSON_ID },
     isbn: BOOK.isbn,
     datePublished: BOOK.published,
     inLanguage: "de-DE",
@@ -151,9 +148,9 @@ export function AuthorPage() {
         </div>
         <div className="ae-rich aemag-author-text">
           <p>
-            Ich war selbst jahrelang alleinerziehend. Kita-Zeiten, Krankheitstage, ein Kalender, der für zwei reicht und
-            trotzdem nie – das kenne ich nicht aus Studien, sondern aus dem eigenen Alltag. Darüber schreibe ich auch in
-            meinem Buch.
+            Von 2021 bis 2024 war ich über weite Strecken alleinerziehend. Ich weiß aus eigener Erfahrung, wie es ist,
+            die Betreuung und den Beruf unter einen Hut zu bringen und dabei Zeit fürs Kennenlernen zu finden.
+            Über diese Zeit schreibe ich auch in meinem Buch „{BOOK.title}“.
           </p>
           <p>
             Genau deshalb gibt es dieses Magazin: Es soll keine Ratgeber-Floskeln liefern, sondern das beschreiben, was
