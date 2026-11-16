@@ -302,10 +302,11 @@
       "bytes": 15601
     },
     {
-      "path": "/site-images/faq.jpg",
-      "sourceUrl": "https://static-cms.icony-hosting.de/cms/F13E20643F788D513B0A8A2F93F50D79FA5504D637C3FCCAC0DAEC2C2C7765CC/600/faq-(1).jpg",
-      "sha256": "173c1e3edb634c0698a2fefd7d7fa06b6ead510f1795b24d4b1280e9f3ae24d2",
-      "bytes": 43086
+      "path": "/site-images/faq.webp",
+      "source": "OpenAI ImageGen · KI-generiertes redaktionelles Symbolbild · 2026-11-16",
+      "bytes": 121488,
+      "sha256": "c131b8b174e582e20b110b5f93feabbaf33bcd63fb3e83eecbdbdecbd5a7b9f5",
+      "sourceUrl": "https://static-cms.icony-hosting.de/cms/F13E20643F788D513B0A8A2F93F50D79FA5504D637C3FCCAC0DAEC2C2C7765CC/600/faq-(1).jpg"
     },
     {
       "path": "/site-images/icon-facebook.png",

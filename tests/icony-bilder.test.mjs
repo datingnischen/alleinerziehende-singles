@@ -63,7 +63,7 @@ test("jede lokale Kopie aus data/icony-bilder.json liegt in public/ und wird ref
   assert.ok(manifest.images.length >= 60);
   const data = (await Promise.all(["icony-import.json", "icony-import-at.json", "icony-import-ch.json", "startseiten.json"].map((name) => read(`data/${name}`)))).join("\n");
   for (const image of manifest.images) {
-    assert.match(image.path, /^\/(?:city-images|site-images)\/[a-z0-9/-]+\.(?:jpg|png)$/, image.path);
+    assert.match(image.path, /^\/(?:city-images|site-images)\/[a-z0-9/-]+\.(?:jpg|png|webp)$/, image.path);
     assert.match(image.sourceUrl, /^https:\/\/static-cms\.icony-hosting\.de\/cms\/[0-9A-F]{64}\//);
     await access(new URL(`public${image.path}`, root));
     assert.ok(data.includes(image.path), `${image.path} wird nicht verwendet`);
