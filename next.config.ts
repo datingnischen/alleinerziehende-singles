@@ -67,6 +67,12 @@ export default function nextConfig(phase: string): NextConfig {
           destination: `/magazin/${neu}/`,
           permanent: true,
         })),
+        // Autorenseite seit 17.11.2026 unter „Über uns“ (Christian), alte Magazin-URL leitet dauerhaft dorthin.
+        ...["", "/de"].map((prefix) => ({
+          source: `${prefix}/magazin/christian-m-haas/`,
+          destination: `${prefix}/ueber-uns/christian-m-haas/`,
+          permanent: true,
+        })),
         // WordPress-Archive: Kategorien sind die Themenwelten, alles andere geht auf die Übersicht
         { source: "/magazin/category/:slug(kindergeld|singleboersen|singleleben)/", destination: "/magazin/?thema=:slug", permanent: true },
         { source: "/magazin/category/:path*", destination: "/magazin/", permanent: true },

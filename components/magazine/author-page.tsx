@@ -8,7 +8,10 @@ import { staticAsset } from "@/lib/static-asset";
 import "@/components/magazine/magazine.css";
 
 /**
- * Autorenseite /magazin/christian-m-haas/ (nur DE, wie die Artikel selbst).
+ * Autorenseite /ueber-uns/christian-m-haas/ (nur DE, wie die Artikel selbst).
+ *
+ * Seit 17.11.2026 im Bereich „Über uns“ statt im Magazin (Christian: Autorenseite gehört in den ueber-uns-Bereich),
+ * einheitlich mit fussballsingles und christlich-verliebt. /magazin/christian-m-haas/ leitet per 308 dorthin (next.config.ts).
  *
  * Hintergrund: Die Beiträge liefen bis November 2026 unter „Redaktion“. Christian M. Haas war selbst jahrelang
  * alleinerziehend; namentliche Autorenschaft mit Hintergrund und Buch ist für die E-E-A-T-Bewertung besser als ein
@@ -16,7 +19,7 @@ import "@/components/magazine/magazine.css";
  */
 
 export const AUTHOR_NAME = CHRISTIAN_NAME;
-export const AUTHOR_PATH = "/magazin/christian-m-haas/";
+export const AUTHOR_PATH = "/ueber-uns/christian-m-haas/";
 export const AUTHOR_URL = publicUrl("de", AUTHOR_PATH);
 export const AUTHOR_PHOTO = "/brand/christian-m-haas.jpg";
 

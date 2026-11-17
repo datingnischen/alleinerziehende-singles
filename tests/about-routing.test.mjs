@@ -63,3 +63,22 @@ test("publishes only canonical about URLs in the DE sitemap", async () => {
   assert.match(sitemap, /\/ueber-uns\/kooperationen/);
   assert.match(sitemap, /MOVED_ROOT_SLUGS/);
 });
+
+// Autorenseite liegt seit 17.11.2026 unter „Über uns“ (Christian), die alte Magazin-URL leitet dauerhaft dorthin.
+test("Autorenseite liegt unter /ueber-uns/christian-m-haas/ und die Magazin-URL leitet dorthin", async () => {
+  const [page, author, config, sitemap, overview] = await Promise.all([
+    read("../app/ueber-uns/christian-m-haas/page.tsx"),
+    read("../components/magazine/author-page.tsx"),
+    read("../next.config.ts"),
+    read("../app/sitemap.ts"),
+    read("../components/magazine/magazine-overview.tsx"),
+  ]);
+  assert.match(page, /AuthorPage/);
+  assert.match(author, /AUTHOR_PATH = "\/ueber-uns\/christian-m-haas\/"/);
+  assert.doesNotMatch(author, /AUTHOR_PATH = "\/magazin\/christian-m-haas\/"/);
+  assert.match(config, /source: `\$\{prefix\}\/magazin\/christian-m-haas\/`/);
+  assert.match(config, /destination: `\$\{prefix\}\/ueber-uns\/christian-m-haas\/`/);
+  assert.match(sitemap, /ueber-uns\/christian-m-haas/);
+  assert.doesNotMatch(sitemap, /magazin\/christian-m-haas/);
+  assert.match(overview, /path="\/ueber-uns\/christian-m-haas\/"/);
+});

@@ -203,7 +203,7 @@ export function MagazineOverview({ market, thema, seite }: MagazineOverviewProps
               <p>
                 Artikel, Tipps und Geschichten für alleinerziehende Singles – zuletzt bearbeitet zuerst, geschrieben von
                 {" "}
-                <MarketLink market="de" path="/magazin/christian-m-haas/">Christian M. Haas</MarketLink>.
+                <MarketLink market="de" path="/ueber-uns/christian-m-haas/">Christian M. Haas</MarketLink>.
               </p>
             </div>
           </div>
