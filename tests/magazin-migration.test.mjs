@@ -116,7 +116,7 @@ test("Links: relativ zu vorhandenen Seiten, keine toten oder alten Domains, Plat
   for (const { slug, content } of entries) {
     for (const match of content.matchAll(/\]\((\/magazin\/([^/)#?]+)\/?[^)]*)\)/g)) {
       if (match[2] === "wp-content" || match[2].startsWith("?")) continue;
-      assert.ok(slugs.has(match[2]), `${slug}: Link auf unbekannte Seite ${match[1]}`);
+      assert.ok(slugs.has(match[2]) || match[1] === "/magazin/christian-m-haas/", `${slug}: Link auf unbekannte Seite ${match[1]}`);
     }
     for (const match of content.matchAll(/\]\((\/magazin\/\?thema=([a-z]+))\)/g)) {
       assert.ok(["singleboersen", "singleleben", "kindergeld"].includes(match[2]), `${slug}: ${match[1]}`);

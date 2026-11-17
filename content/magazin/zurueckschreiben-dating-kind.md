@@ -9,8 +9,8 @@ updated: "2026-05-13T19:21:59"
 author: "christian-m-haas"
 categories: ["singleboersen"]
 excerpt: "Beim Dating mit Kind können verzögerte Antworten viele Gründe haben: Alltag, Erschöpfung, mentale Last oder Unsicherheit. Dieser Ratgeber zeigt, wie Alleinerziehende Funkstille einordnen, Erwartungen klären und respektvoll nachfragen."
-image: "/magazin/wp-content/uploads/2022/04/Partnersuche-mit-Kind-1024x682-jpg.webp"
-imageAlt: "Eine Mutter sitzt mit ihrem kleinen Kind auf einer Picknickdecke."
+image: "/magazin/wp-content/uploads/2026/11/zurueckschreiben-dating-kind.webp"
+imageAlt: "Mutter hält ihr Handy in der Hand, daneben spielt ihr Kind in einem hellen Wohnzimmer"
 ---
 
 Eine kurze Nachricht kann das Warten einordnen: „Ich bringe gerade mein Kind ins Bett und melde mich morgen.“ Schreib nur so viel über deinen Familienalltag, wie du teilen möchtest. Achte darauf, ob die andere Person deine Zeit respektiert.

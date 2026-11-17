@@ -9,6 +9,8 @@ updated: "2026-07-19T17:52:08"
 author: "christian-m-haas"
 categories: ["singleboersen"]
 excerpt: "In Deutschland haben sich bewusst gerade einmal 4 Prozent für eine Ein-Elternschaft entschieden. Eine feste Partnerschaft wünschen sich 96 Prozent."
+image: "/magazin/wp-content/uploads/2026/11/wir-sind-alleinerziehend-de.webp"
+imageAlt: "Alleinerziehende Mutter sitzt mit ihrem Kind vor einem Laptop am Küchentisch"
 ---
 
 In Deutschland haben sich bewusst gerade einmal 4 Prozent für eine Ein-Elternschaft entschieden. Eine feste Partnerschaft wünschen sich 96 Prozent. Wie aber findet man als alleinerziehender Mann oder Frau einen festen Partner, mit dem das Glück auf Erden nicht mehr weit entfernt ist? Kommen dann noch finanzielle Probleme oder rechtliche Probleme hinzu, gibt es für Alleinerzieher in Deutschland das Portal: „wir-sind-alleinerziehend“. Die Community bietet dafür einen passenden Rahmen.

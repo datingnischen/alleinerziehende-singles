@@ -9,8 +9,8 @@ updated: "2026-07-07T15:15:29"
 author: "christian-m-haas"
 categories: ["singleboersen"]
 excerpt: "Getrennt sein und trotzdem unter einem Dach leben: Für viele Eltern ist das keine freie Entscheidung, sondern eine Übergangslösung. Der Ratgeber zeigt, wie emotionale Grenzen, klare Absprachen und ein kindgerechter Alltag helfen können."
-image: "/magazin/wp-content/uploads/2025/12/Finanzielle-Hilfe-nach-der-Trennung-2-1024x683-jpg.webp"
-imageAlt: "Zwei Personen besprechen Unterlagen an einem Tisch."
+image: "/magazin/wp-content/uploads/2026/11/getrennt-zusammenwohnen-eltern.webp"
+imageAlt: "Vater macht sich am Küchentisch Notizen, im Hintergrund die Spielecke des Kindes"
 ---
 
 Wer nach einer Trennung weiterhin eine Wohnung teilt, sollte zuerst den Alltag klären. Legt für eine Woche fest, wer die Kinder abholt, welche Räume Rückzug bieten und wann ihr offene Fragen besprecht. Für Eltern ist eine verlässliche Übergabe oft wichtiger als eine Regel für jede denkbare Situation.

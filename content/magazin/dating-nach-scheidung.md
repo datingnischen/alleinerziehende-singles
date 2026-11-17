@@ -1,23 +1,22 @@
 ---
 title: "Dating nach der Scheidung: Wie Alleinerziehende ihren Neuanfang gestalten"
 seoTitle: "Dating nach der Scheidung: Neuanfang mit Kind"
-description: "Dating nach Scheidung klingt in sozialen Netzwerken oft nach Befreiung in Sommerkleidern, neuen Profilfotos und demonstrativem Selbstbewusstsein."
+description: "Dating nach der Scheidung mit Kind: Wie du einen passenden Zeitpunkt findest, erste Treffen planst und deine Grenzen beim Kennenlernen klar machst."
 kind: "post"
 wpId: 3461
 published: "2026-05-24T16:11:36"
-updated: "2026-06-05T20:13:57"
+updated: "2026-11-17T08:21:50"
 author: "christian-m-haas"
 categories: ["singleboersen"]
 excerpt: "Nach einer Scheidung wieder zu daten, ist für Alleinerziehende selten nur romantisch. Es geht um Selbstvertrauen, Alltag, Kinder, Grenzen und die Frage, wie viel neues Leben gerade wirklich Platz hat."
-image: "/magazin/wp-content/uploads/2022/04/Partnersuche-mit-Kind-1024x682-jpg.webp"
-imageAlt: "Eine Mutter sitzt mit ihrem kleinen Kind auf einer Picknickdecke."
+image: "/magazin/wp-content/uploads/2026/11/dating-nach-scheidung.webp"
+imageAlt: "Frau geht an einem hellen Tag allein über einen Weg im Freien und blickt nach vorn"
 ---
 
-Dating nach Scheidung klingt in sozialen Netzwerken oft nach Befreiung in Sommerkleidern, neuen Profilfotos und demonstrativem Selbstbewusstsein. Der Begriff "Hot Divorcee Summer", den der [Guardian](https://www.theguardian.com/lifeandstyle/2026/may/12/hot-divorcee-summer) im Mai 2026 aufgegriffen hat, beschreibt genau diese kulturelle Stimmung: getrennt, sichtbar, selbstbestimmt, nicht mehr bereit, sich kleinzumachen.
+Nach einer Scheidung wieder zu daten, beginnt für viele Alleinerziehende mit einer einfachen Frage: Wann hätte ich überhaupt Zeit für ein Treffen? Ein kurzer Kaffee in der Nähe kann besser in den Alltag passen als ein Abend, für den du erst Betreuung organisieren musst. Wenn du gerade keine verlässliche Lücke findest, darf der Neustart warten.
 
-Für alleinerziehende Singles ist dieser Trend ein interessanter Aufhänger, aber selten die ganze Wahrheit. Ein Neuanfang nach der Scheidung findet nicht nur auf Dating-Apps oder bei einem Aperitif in der Abendsonne statt. Er passiert zwischen Kinderbetreuung, Elternabenden, Haushaltsplänen, Nachrichten vom Ex-Partner, Müdigkeit und der leisen Frage: Bin ich überhaupt schon bereit?
+[Christian M. Haas](/magazin/christian-m-haas/) war von 2021 bis 2024 über weite Strecken selbst alleinerziehend. Auf seiner Autorenseite beschreibt er, wie er Betreuung, Beruf und Zeit fürs Kennenlernen unter einen Hut bringen musste. Darum geht es hier konkret: ein Tempo zu finden, das zu dir und deinem Familienalltag passt.
 
-Gerade deshalb lohnt sich ein realistischer Blick. Dating nach der Scheidung darf leicht sein. Es darf aufregend sein. Es darf auch unsicher, langsam, widersprüchlich und manchmal unromantisch organisiert sein. Entscheidend ist nicht, ob der Neustart besonders glamourös wirkt, sondern ob er zum eigenen Leben passt.
 
 ## Dating nach Scheidung beginnt nicht mit einem Profil, sondern mit Selbstklärung
 

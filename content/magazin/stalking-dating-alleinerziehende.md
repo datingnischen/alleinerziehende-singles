@@ -9,8 +9,8 @@ updated: "2026-05-30T19:32:19"
 author: "christian-m-haas"
 categories: ["singleboersen"]
 excerpt: "Ein praxisnaher Sicherheitsratgeber für alleinerziehende Singles: Wie sich Privatsphäre, Wohnort, Kinder und Alltagsroutinen beim Dating besser schützen lassen."
-image: "/magazin/wp-content/uploads/2025/12/Finanzielle-Hilfe-nach-der-Trennung-1-1024x683-jpg.webp"
-imageAlt: "Eine Person macht sich während eines Beratungsgesprächs Notizen."
+image: "/magazin/wp-content/uploads/2026/11/stalking-dating-alleinerziehende.webp"
+imageAlt: "Frau prüft am Küchentisch bei Tageslicht die Einstellungen auf ihrem Smartphone"
 ---
 
 

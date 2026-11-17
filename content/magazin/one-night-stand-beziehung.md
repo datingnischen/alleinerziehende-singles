@@ -9,8 +9,8 @@ updated: "2026-06-12T10:29:02"
 author: "christian-m-haas"
 categories: ["singleboersen"]
 excerpt: "Manchmal beginnt etwas unverbindlich und entwickelt sich schneller als erwartet. Gerade für Singles mit Kind oder Familienwunsch braucht es dann Ehrlichkeit, Tempo und klare Absprachen."
-image: "/magazin/wp-content/uploads/2021/08/date-ideen-fuer-wenig-geld-fahradtour-zu-zweit-1024x683-jpg.webp"
-imageAlt: "Zwei Menschen stehen mit einem Fahrrad am Wasser im Sonnenuntergang."
+image: "/magazin/wp-content/uploads/2026/11/one-night-stand-beziehung.webp"
+imageAlt: "Zwei Erwachsene stehen in einer Küche und unterhalten sich mit etwas Abstand zueinander"
 ---
 
 Wenn du nach einem ersten Treffen mehr möchtest, sag es in einer kurzen Nachricht und schlage einen Termin vor, den du mit deiner Betreuung vereinbaren kannst. Eine konkrete Zusage hilft dir beim Planen. Wenn ihr unterschiedliche Erwartungen habt, könnt ihr das früh klären.
