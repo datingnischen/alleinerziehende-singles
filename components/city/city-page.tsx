@@ -3,6 +3,7 @@ import { IconySinglesWidget } from "@/components/icony-singles-widget";
 import { ArrowIcon, ClockIcon, CompassIcon, FamilyHeartIcon, HeartIcon, PinIcon, RouteIcon } from "@/components/icons";
 import { MarketLink } from "@/components/market-link";
 import { TOPIC_LABELS, buildCityGuide, nearestCities, type GuideTopic } from "@/lib/city-guide";
+import { cityQuizHint } from "@/lib/city-quiz-hint";
 import { citySlugFromHref, getCityPages, type CityPage } from "@/lib/city-pages";
 import { publicUrl } from "@/lib/markets";
 import { TopicIcon } from "./topic-icon";
@@ -26,6 +27,7 @@ export function CityPageView({ city }: { city: CityPage }) {
   const { market } = city;
   const guide = buildCityGuide({ contentHtml: city.contentHtml, imageUrl: city.imageUrl, creditUrl: city.creditUrl });
   const pages = getCityPages(market);
+  const quizHint = cityQuizHint(market, city.slug);
   const nearby = nearestCities(market, city.slug, pages, 5);
   const maxKm = Math.max(...nearby.map((entry) => entry.km), 1);
   const bySlug = new Map(pages.map((page) => [page.slug, page]));
@@ -157,6 +159,13 @@ export function CityPageView({ city }: { city: CityPage }) {
               {section.html ? <div className="ae-rich" dangerouslySetInnerHTML={{ __html: section.html }} /> : null}
             </article>
           ))}
+          {quizHint ? (
+            <p className="aec-quiz-hint">
+              {quizHint.before}
+              <a href={quizHint.href} target="_blank" rel="noopener">{quizHint.anchor}</a>
+              {quizHint.after}
+            </p>
+          ) : null}
         </div>
       </section>
 

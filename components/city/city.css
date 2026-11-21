@@ -662,3 +662,15 @@
 .aenf-cities {
   margin-top: 40px;
 }
+
+/* Redaktioneller Hinweis auf eine eigene Verteilerseite (koelner-singles.de), am Ende des Stadt-Kompass. */
+.aec-quiz-hint {
+  margin: 14px 0 0;
+  line-height: 1.65;
+}
+
+.aec-quiz-hint a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
