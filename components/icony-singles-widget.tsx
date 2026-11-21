@@ -17,14 +17,26 @@ type Gender = "women" | "men";
 
 const DEFAULT_PROFILE_URL = "https://alleinerziehende-singles.de/?AID=location";
 
+type AgeRange = "alle" | "18-29" | "30-44" | "45-59" | "60-99";
+
+/** Altersfenster der Profilvorschau. Ohne age_min/age_max zeigt ICONY nur 20 bis 55 Jahre. */
+const AGE_RANGES: Record<AgeRange, { label: string; min: number; max: number }> = {
+  alle: { label: "Alle", min: 18, max: 99 },
+  "18-29": { label: "18–29", min: 18, max: 29 },
+  "30-44": { label: "30–44", min: 30, max: 44 },
+  "45-59": { label: "45–59", min: 45, max: 59 },
+  "60-99": { label: "60+", min: 60, max: 99 },
+};
+
 function buildWidgetDocument({
   city,
   zip,
   country,
   platformId,
   gender,
+  age,
   profileUrl,
-}: Omit<Props, "searchUrl" | "profileUrl"> & { gender: Gender; profileUrl: string }) {
+}: Omit<Props, "searchUrl" | "profileUrl"> & { gender: Gender; age: AgeRange; profileUrl: string }) {
   const options = JSON.stringify({
     platformId,
     city,
@@ -32,6 +44,8 @@ function buildWidgetDocument({
     country,
     zip,
     count: 6,
+    ageMin: AGE_RANGES[age].min,
+    ageMax: AGE_RANGES[age].max,
     affiliate: "location",
     profileClickUrl: profileUrl,
   }).replace(/</g, "\\u003c");
@@ -116,6 +130,8 @@ function buildWidgetDocument({
     gender: options.gender,
     country: options.country,
     zip: options.zip,
+    age_min: options.ageMin,
+    age_max: options.ageMax,
     affiliate: options.affiliate,
     use_thumbnails: 0,
     blurred: 0
@@ -129,9 +145,10 @@ function buildWidgetDocument({
 
 export function IconySinglesWidget({ city, zip, country, platformId, searchUrl, profileUrl = DEFAULT_PROFILE_URL }: Props) {
   const [gender, setGender] = useState<Gender>("women");
+  const [age, setAge] = useState<AgeRange>("alle");
   const srcDoc = useMemo(
-    () => buildWidgetDocument({ city, zip, country, platformId, gender, profileUrl }),
-    [city, zip, country, platformId, gender, profileUrl],
+    () => buildWidgetDocument({ city, zip, country, platformId, gender, age, profileUrl }),
+    [city, zip, country, platformId, gender, age, profileUrl],
   );
   const controlName = `icony-singles-${zip}`;
   const selectedLabel = gender === "women" ? "Frauen" : "Männer";
@@ -166,10 +183,25 @@ export function IconySinglesWidget({ city, zip, country, platformId, searchUrl, 
             Männer
           </label>
         </fieldset>
+
+        <fieldset className={styles.controls}>
+          <legend className="ae-sr">Alter auswählen</legend>
+          {(Object.keys(AGE_RANGES) as AgeRange[]).map((value) => (
+            <label className={age === value ? styles.active : undefined} key={value}>
+              <input
+                type="radio"
+                name={`${controlName}-alter`}
+                checked={age === value}
+                onChange={() => setAge(value)}
+              />
+              {AGE_RANGES[value].label}
+            </label>
+          ))}
+        </fieldset>
       </div>
 
       <iframe
-        key={gender}
+        key={`${gender}-${age}`}
         className={styles.frame}
         title={`${selectedLabel} aus ${city}`}
         srcDoc={srcDoc}
